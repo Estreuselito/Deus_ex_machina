@@ -3,6 +3,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,python,venv,vscode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,python,venv,vscode
 
+### Virtual Env
+ML2/
+
 ### PDF ###
 *.pdf
 .pdf
