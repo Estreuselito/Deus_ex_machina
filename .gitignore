@@ -6,6 +6,12 @@
 ### Virtual Env
 ML2/
 
+### ignore
+ignore/
+
+### drawio
+*.drawio
+
 ### PDF ###
 *.pdf
 .pdf
