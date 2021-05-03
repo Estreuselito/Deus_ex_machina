@@ -20,13 +20,13 @@ In order to do so, please first pick a dataset from this website [UCI ML](https:
 Once you have done so, please use the function ```get_data()``` on your object to download that data. \
 This function takes one necessary parameter and an optional one. The necessary one is the URL to \
 the dataset you obtain when you right click in the data folder on the dataset and copy that link. \
-Should the dataset not be a .csv within the datafolder on the UCI website, but rather a `.data` \
-please also provide the column names as a list, which you can find in the `.names` file at UCI.")
+Should the dataset not be a `.csv` within the datafolder on the UCI website, but rather a `.data` \
+please also provide the column names as a list, which you can find in the `.names` file in the datafolder.")
         
-    def get_data(self, url: str, names: list = None):
+    def get_data(self, url: str, names: list = None, **kwargs):
         try:
             if names:
-                self.data = pd.read_csv(url, names = names)
+                self.data = pd.read_csv(url, names = names, **kwargs)
             else:
                 self.data = pd.read_csv(url)
             self._printmd("You successfully downloaded your dataset to the object! \n\n\
