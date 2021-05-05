@@ -8,6 +8,7 @@ ML2/
 
 ### ignore
 ignore/
+data/
 
 ### drawio
 *.drawio

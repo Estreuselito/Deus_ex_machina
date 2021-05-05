@@ -208,18 +208,45 @@ like `accuracy_score` if you want to use `accuracy_score` or respective for all 
 Random Projection is a dimensionality reduction technique which is based on the **Johnson-Lindenstrauss lemma**.
 This method projects or transforms the higher dimensional data to a lower dimensional subspace.
 It approximately preserves the pairwise distances of the data points. 
-It uses a random matrix to perform the projection and hence the name random projection.
+It uses a random matrix to perform the projection and hence the name random projection. 
+This matrix is also sometimes refered to as map.
+
+If the original dimension of data is $d$ and the target or projected dimension is $k$, where $k<<d$ 
+then the random matrix is of size $k X d$. The random projection can be explained as below
+
+$X_{kXN}^{RP}$ = $R_{kXd}$$X_{dXN}$
+
+Where
+
+$X_{kXN}^{RP}$ is the random projected N observations in k dimension.
+
+$R_{kXd}$ is the random matrix used for the projection or transformation.
+
+$X_{dXN}$ is the original N observations in d-dimension.
 
 There are few techniques to create the random matrix. Gaussian and Sparse are just 2 among them.
 
 **Gaussian** – The random matrix is created in such a way that each entry is independently drawn from
-the standard normal distribution $N(0, \frac{1}{n_{components}})$. Where $n_{components} = target$ dimension. That matrix
-is also sometimes refered to as map.
+the standard normal distribution $N(0, \frac{1}{n_{components}})$. Where $n_{components} is the number of target dimension. 
 
 **Sparse** – When a sparse matrix is used for the random projection to reduce the computational complexity, then this 
-is a sparse projection. If the sparse
-projection matrix has $c$ nonzero entries per column, then the complexity of the projection operation is of order $O(ckN)$
-instead of $O(dkN)$, where $N$ is the number of observations.
+is a sparse projection. This is an alternate approach to Gaussian random projection matrix and 
+ensures the similar distance preserving quality while reducing the dimension.
+
+If we define $s = 1 / density$, the elements of the random matrix are drawn from
+
+\begin{equation}
+\begin{split}\left\{
+\begin{array}{c c l}
+-\sqrt{\frac{s}{n_{\text{components}}}} & & 1 / 2s\\
+0 &\text{with probability}  & 1 - 1 / s \\
++\sqrt{\frac{s}{n_{\text{components}}}} & & 1 / 2s\\
+\end{array}
+\right.\end{split}
+\end{equation}
+
+If the sparse projection matrix has $c$ nonzero entries per column, then the complexity of the operation 
+is of order $O(ckN)$ instead of $O(dkN)$.
 
 Now we can apply our random projection onto our dataset, which we loaded earlier. Once that function is done
 you can head over to the next function which is called `plot`. That function will plot the baseline and your
