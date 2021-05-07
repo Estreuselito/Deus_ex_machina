@@ -120,18 +120,18 @@ There are a few metrics we can choose from, the needed API (which you need to in
 [here](https://scikit-learn.org/stable/modules/model_evaluation.html). For the task at hand, the performance 
 measures used are either *accuracy* or the $f_1$ *score*.
 
-$$
+\begin{equation}
 Accuracy = \frac{True\ Positives + True\ Negatives }{True\ Positives + False\ Positives + True\ Negatives + False\ Negatives}
-$$
+\end{equation}
 
 *Accuracy* measures the performance of a classification model as the number of correct 
 predictions divided by the total number of predictions. Its main advantage is its easy interpretability. 
 Nevertheless, *accuracy* should only be used for balanced datasets. When dealing with imbalanced datasets,
 i.e. when some classes are much more frequent than others, *accuracy* is not a reliable performance measure. 
 
-$$
+\begin{equation}
 f_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
-$$
+\end{equation}
 
 The $f_1$ Score is the harmonic mean of *precision* and *recall*, i.e. it applys equal weight to both. 
 The $f_1$ Score represents a meaningful evaluation for imbalanced datasets. As such, we recommend to
@@ -209,7 +209,9 @@ This matrix is also sometimes refered to as map.
 If the original dimension of data is $d$ and the target or projected dimension is $k$, where $k<<d$ 
 then the random matrix is of size $k,\ d$. The random projection is explained below.
 
-$X_{k,\ N}^{RP}$ = $R_{k,\ d}$$X_{d,\ N}$
+\begin{equation}
+X_{k,\ N}^{RP} = R_{k,\ d} X_{d,\ N}
+\end{equation}
 
 Where
 
