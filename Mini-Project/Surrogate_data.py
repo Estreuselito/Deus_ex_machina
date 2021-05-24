@@ -49,6 +49,8 @@ class Surrogate_data(object):
         model.fit(X)
         t1 = time.time()
         # predict latent values
+        if classifier.__name__ in ["DBSCAN", "HDBSCAN"]:
+            return model.fit_predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
         return model.predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
     
     def plot_raw_vs_predict(self, classifier, **kwargs):
@@ -62,17 +64,20 @@ class Surrogate_data(object):
         # Create the actual plots
         for plot_num, (dataset_X, dataset_y, name) in enumerate(self.datasets):
             yhat, time = self._fit_predict(dataset_X, dataset_y, classifier, **kwargs)
-            for cluster in np.unique(dataset_y):
-                ax[plot_num, 0].scatter(dataset_X[:,0][dataset_y==cluster], dataset_X[:,1][dataset_y==cluster])
-            ax[plot_num, 0].set_title(f"{name} function")
 
-            for cluster in np.unique(yhat):
-                ax[plot_num, 1].scatter(dataset_X[:,0][yhat==cluster], dataset_X[:,1][yhat==cluster])
+            ax[plot_num, 0].scatter(dataset_X[:,0], dataset_X[:,1], c = dataset_y)
+            ax[plot_num, 0].set_title(f"{name} function")
+            ax[plot_num, 1].scatter(dataset_X[:,0], dataset_X[:,1], c = yhat)
             ax[plot_num, 1].set_title(f"{name} function")
             ax[plot_num, 1].text(.99, .01, time,
                  transform=ax[plot_num, 1].transAxes, size=15,
                  horizontalalignment='right')
-            ax[plot_num, 1].text(.01, .01, round(metrics.silhouette_score(dataset_X, yhat),2),
+            try:
+                ax[plot_num, 1].text(.01, .01, round(metrics.silhouette_score(dataset_X, yhat),2),
                  transform=ax[plot_num, 1].transAxes, size=15,
-                 horizontalalignment='left')       
+                 horizontalalignment='left')
+            except ValueError:
+                ax[plot_num, 1].text(.01, .01, "None",
+                 transform=ax[plot_num, 1].transAxes, size=15,
+                 horizontalalignment='left')
         plt.show()
