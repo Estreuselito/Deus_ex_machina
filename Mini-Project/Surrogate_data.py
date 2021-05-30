@@ -49,7 +49,7 @@ class Surrogate_data(object):
         model.fit(X)
         t1 = time.time()
         # predict latent values
-        if classifier.__name__ in ["DBSCAN", "HDBSCAN"]:
+        if classifier.__name__ in ["DBSCAN", "HDBSCAN", "AgglomerativeClustering"]:
             return model.fit_predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
         return model.predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
     
