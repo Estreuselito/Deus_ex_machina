@@ -22,34 +22,38 @@ class Surrogate_data(object):
                                              cluster_std = self.cluster_std, random_state = 1)
         circles_X, circles_y = datasets.make_circles(n_samples = self.n_samples, noise = self.noise,
                                                      random_state = 1)
-        class_X, class_y = datasets.make_classification(n_samples = self.n_samples, n_classes = self.n_classes,
-                                                        n_informative = self.n_informative, random_state = 1)
-        hastie_X, hastie_y = datasets.make_hastie_10_2(n_samples = self.n_samples, random_state = 1)
+#         class_X, class_y = datasets.make_classification(n_samples = self.n_samples, n_classes = self.n_classes,
+#                                                         n_informative = self.n_informative, random_state = 1)
+#         hastie_X, hastie_y = datasets.make_hastie_10_2(n_samples = self.n_samples, random_state = 1)
         moons_X, moons_y = datasets.make_moons(n_samples = self.n_samples, noise = self.noise, random_state = 1)
     
         self.datasets = [
             (blob_X, blob_y, "make_blobs"),
             (circles_X, circles_y, "make_circles"),
-            (class_X, class_y, "make_classification"),
-            (hastie_X, hastie_y, "make_hastie"),
+#             (class_X, class_y, "make_classification"),
+#             (hastie_X, hastie_y, "make_hastie"),
             (moons_X, moons_y, "make_moons")
         ]
         
     def _fit_predict(self, X, y, classifier, **kwargs):
         # fit model
-        if classifier.__name__ in ["GaussianMixture", "KMeans"]:
+        
+        if classifier.__name__ in ["GaussianMixture", "KMeans", "AgglomerativeClustering", "Birch"]:
             n_components = len(np.unique(y))
             try:
                 model = classifier(n_components = n_components, **kwargs)
             except TypeError:
                 model = classifier(n_clusters = n_components, **kwargs)
+        elif classifier.__name__ in ["SpectralClustering"]:
+            n_components = len(np.unique(y))
+            model = classifier(n_clusters = n_components, **kwargs)
         else:
             model = classifier(**kwargs)
         t0 = time.time()
         model.fit(X)
         t1 = time.time()
         # predict latent values
-        if classifier.__name__ in ["DBSCAN", "HDBSCAN", "AgglomerativeClustering"]:
+        if classifier.__name__ in ["DBSCAN", "HDBSCAN", "AgglomerativeClustering", "SpectralClustering"]:
             return model.fit_predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
         return model.predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
     
