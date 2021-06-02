@@ -3,18 +3,18 @@
 #
 - file: intro
 
-- file: ../Assignment 1
+- file: Assignment 1
   title: SIRD Model & PCA
   
-- file: ../Assignment 2
+- file: Assignment 2
   title: Kernels
 
-- file: ../RandomProjections/Assignment 3
+- file: RandomProjections/Assignment 3
   title: Random Sparse Projection
 
-- file: ../MCMC/Assignment 4 - Master
+- file: MCMC/Assignment 4 - Master
   title: Markov Chain Monte Carlo
   
-- file: ../Mini-Project/Master
+- file: Mini-Project/Master
   title: Clustering
 
