@@ -1,7 +1,6 @@
-Welcome to your Jupyter Book
+Welcome to our Machine Learning II Book
 ============================
 
-This is a small sample book to give you a feel for how book content is
-structured.
-
-Check out the content pages bundled with this sample book to get started.
+Within this book are all our beautiful Assignments displayed. Those reach from creating a SIRD model, over looking into PCAs and
+ends up with Markov Chain Monte Carlo and a lengthy explanation of the PYMC3 syntax. There is much more to experience, so please feel
+free to dive in.
