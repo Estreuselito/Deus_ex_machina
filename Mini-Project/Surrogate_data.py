@@ -77,11 +77,10 @@ class Surrogate_data(object):
                  transform=ax[plot_num, 1].transAxes, size=15,
                  horizontalalignment='right')
             try:
-                ax[plot_num, 1].text(.01, .01, round(metrics.silhouette_score(dataset_X, yhat),2),
-                 transform=ax[plot_num, 1].transAxes, size=15,
-                 horizontalalignment='left')
+                ss = round(metrics.silhouette_score(dataset_X, yhat),2)
             except ValueError:
-                ax[plot_num, 1].text(.01, .01, "None",
-                 transform=ax[plot_num, 1].transAxes, size=15,
-                 horizontalalignment='left')
+                ss = "None"
+            ax[plot_num, 1].text(.01, .01, f"FMI: {round(metrics.fowlkes_mallows_score(dataset_y, yhat),2)}\nSS: {ss}",
+             transform=ax[plot_num, 1].transAxes, size=15,
+             horizontalalignment='left')
         plt.show()
