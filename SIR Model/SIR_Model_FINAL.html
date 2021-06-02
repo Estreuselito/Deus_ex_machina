@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/SIR Model/SIR_Model_FINAL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FSIR Model/SIR_Model_FINAL.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/SIR Model/SIR_Model_FINAL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#question-1">
+   Question 1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-explanation">
+     Class Explanation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-creation">
+       Class creation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#derivate-function">
+       Derivate function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#effective-reproduction-number">
+       Effective reproduction number
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ordinary-differential-equation">
+       Ordinary differential equation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculate-beta-and-gamma">
+       Calculate
+       <span class="math notranslate nohighlight">
+        \(\beta\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(\gamma\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-mu-and-r-nought-w-r-t-cumulated-deaths">
+       Plot
+       <span class="math notranslate nohighlight">
+        \(\mu\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(R_{nought}\)
+       </span>
+       w.r.t. cumulated deaths
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot">
+       Plot
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-definition">
+     Class definition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h1-center-question-1a-center-h1">
+       <h1>
+        <center>
+         Question 1a
+        </center>
+       </h1>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h1-center-question-1b-center-h1">
+       <h1>
+        <center>
+         Question 1b
+        </center>
+       </h1>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h1-center-question-1c-center-h1">
+       <h1>
+        <center>
+         Question 1c
+        </center>
+       </h1>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h1-center-question-1b-c-center-h1">
+       <h1>
+        <center>
+         Question 1b,c
+        </center>
+       </h1>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>\begin{titlepage}</p>
+<p>\centering
+\vspace{-40pt}
+\includegraphics[width=0.8\textwidth]{Frankfurt_School_Logo.jpg}\par
+\vspace{2.5cm}</p>
+<p>{\scshape\huge Assignment 1 \par}
+\vspace{2.5cm}</p>
+<p>{\Huge\bfseries Covic-19 Disasters \par}
+{\scshape\large Studying the SIRD Model \par}</p>
+<p>\vspace{2cm} % If signature is taken might have to add space.</p>
+<p>{\Large Yannik Suhre \par}
+{\Large Skyler MacGowan \par}
+{\Large Debasmita Dutta \par}
+{\Large Sebastian Sydow \par}
+\vspace{0.5cm}</p>
+<p>\vfill
+{\large \today\par}
+\end{titlepage}</p>
+<p>\newpage</p>
+<p>\hypersetup{linkcolor=black}
+\tableofcontents</p>
+<p>\newpage</p>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>\label{section:Introduction}</p>
+<p>The following document provides our solutions for the given exercises.</p>
+</div>
+<div class="section" id="question-1">
+<h1>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline">¶</a></h1>
+<p>This code is based on prior work conducted by Jan Nagler; the modications made were effectuated in order to solve the following exercise problems:</p>
+<ul class="simple">
+<li><p><strong>a</strong>. Derive the corresponding system of equations for S, I, R and D. E.g., <span class="math notranslate nohighlight">\(\frac{dD}{dt} = \mu I\)</span> but this is not the only difference to SIR. In addition, the basic
+reproduction number may now depend on µ as well, how?</p></li>
+<li><p><strong>b</strong>. Assume that the basic reproduction number <span class="math notranslate nohighlight">\(R_0\)</span> for B.1.1.7 is not exactly known but only the range <span class="math notranslate nohighlight">\(R_0 \in [3.0; 4.0]\)</span>. Assume that the mortality rate µ is also not exactly known but only the range <span class="math notranslate nohighlight">\(\mu \in [0.4\%; 4\%]\)</span>. Study how these parameter uncertainties affect the prediction of D at t = 365d.</p></li>
+<li><p><strong>c</strong>. Study numerically the effects of a hard versus soft lockdown (by two for you reasonable values of β), in terms of D(365d). Assume µ = 1% and a γ compatible with <span class="math notranslate nohighlight">\(R_0\)</span> = 4.</p></li>
+</ul>
+<p>We will start by importing some packages that can be leveraged when solving the exercise problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Imports ####</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span><span class="p">,</span> <span class="n">PercentFormatter</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># set matplotlib to inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-explanation">
+<h2>Class Explanation<a class="headerlink" href="#class-explanation" title="Permalink to this headline">¶</a></h2>
+<p>\label{section:Class_explanation}</p>
+<p>In order to incorporate all the different things, and to do this with as less code as possible, we will define a class. Which methods this class contains and how the different methods work, will be displayed here.</p>
+<div class="alert alert-block alert-info">
+<b>Note:</b> Bear in mind, that the following section will outline the docstrings for the different methods. Thus, these docstrings will <b>not</b> be displayed in the code when creating the class itself.
+</div><div class="section" id="class-creation">
+<h3>Class creation<a class="headerlink" href="#class-creation" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:class_creation}</p>
+<p>The overall class is called <code class="docutils literal notranslate"><span class="pre">SIRD</span></code> in order to make explicit what this function is used for. It is defined like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SIRD</span><span class="p">():</span>
+   <span class="sd">&quot;&quot;&quot;This class alters the SIR model from Epidemiology in order</span>
+<span class="sd">   to incorporate the deaths caused by the desease&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Classes contain different methods and attributes. A method is defined within the class context as a normal function, using the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">...</span></code> notation. Be aware, that since that method is defined <strong>within</strong> the class, it is only accessable through the class, meaning we have to use the class object in order to execute it.</p>
+<p>In order to give a class its attributes we can make use of the <code class="docutils literal notranslate"><span class="pre">self</span></code>. Using this name we can create and update parameters which belong to the class (<em>how this is done exactly will be shown later</em>). In order to have a clear overview, of how to create a class and which parameters to give it, let us explain the double underscore (<em>dunder</em>) function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>. This is the function, which will be called, when the object is instantiaded (<em>E.g. <code class="docutils literal notranslate"><span class="pre">SIRD()</span></code>; the <code class="docutils literal notranslate"><span class="pre">()</span></code> means instantiaded in this context</em>).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">I0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">R0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">D0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">recovery_in_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="n">days</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This functions adds the given parameters to the object, which</span>
+<span class="sd">    is instantiated using the SIRD class.</span>
+<span class="sd">    </span>
+<span class="sd">    Within this class, we also calculate R_nought, the basic reproduction</span>
+<span class="sd">    number R_0 (pronounced R-nought) which is the average number of cases</span>
+<span class="sd">    directly generated by one case in a population where all individuals</span>
+<span class="sd">    are susceptible to infection using the formula</span>
+<span class="sd">    R_nought = beta / (gamma + mu) and we calculate S0, which displays</span>
+<span class="sd">    the number of susceptible persons, using the formula </span>
+<span class="sd">    S0 = S0 = N - I0 - R0 - D0.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N : int</span>
+<span class="sd">        Represents the populations size, if you set it to 1,</span>
+<span class="sd">        the model will ignore N and it will return fractions</span>
+<span class="sd">    I0 : float</span>
+<span class="sd">        The total number of infected people at time zero</span>
+<span class="sd">    R0 : float</span>
+<span class="sd">        The total number of recovered people at time zero</span>
+<span class="sd">    D0 : float</span>
+<span class="sd">        The total number of death at the time zero</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        The contact rate, more specifically how many people</span>
+<span class="sd">        does one infected infects</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        The recovery rate, the rate of how fast infected people</span>
+<span class="sd">        recover from the desease</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die</span>
+<span class="sd">    recovery_in_days : int</span>
+<span class="sd">        The days it takes to recover, this could also be</span>
+<span class="sd">        calculated using 1/gamma, but was inserted here </span>
+<span class="sd">        for easier accessability</span>
+<span class="sd">    days : int</span>
+<span class="sd">        The timeframe, how long we will model the infectious disaster</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="derivate-function">
+<h3>Derivate function<a class="headerlink" href="#derivate-function" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:deriv}</p>
+<p>Next we can set up the <span class="math notranslate nohighlight">\(SIR(D)\)</span> model. For the most part this is the function developed by Jan Nagler, albeit with some modifications that allow us to incorperate the mortility rate <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Altered function of the SIR model,</span>
+<span class="sd">    in order to incorporate the deaths,</span>
+<span class="sd">    mu.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : ndarray</span>
+<span class="sd">        This array contains the initial models</span>
+<span class="sd">    t : np.array</span>
+<span class="sd">        A np.array created using np.linespace in</span>
+<span class="sd">        order to model the time</span>
+<span class="sd">    N : int</span>
+<span class="sd">        The population size or 1</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        The contact rate, more specifically how many people</span>
+<span class="sd">        does one infected infects</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        The recovery rate, the rate of how fast infected people</span>
+<span class="sd">        recover from the desease</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="effective-reproduction-number">
+<h3>Effective reproduction number<a class="headerlink" href="#effective-reproduction-number" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:brn}</p>
+<p>Yet another very important number when it comes to epidemiology is the <strong>effective reproduction number</strong>, which will be denoted by <span class="math notranslate nohighlight">\(R_{effective}\)</span>. The idea behind this number is that at any given time <span class="math notranslate nohighlight">\(t\)</span> an unknown number of the susceptible population is immune to the disease, <em>or the average number of new infections caused by a single infected individual at time t in the partially susceptible population</em> [<a class="reference external" href="https://en.wikipedia.org/wiki/Basic_reproduction_number#Effective_reproduction_number">3</a>, <a class="reference external" href="https://www.healthknowledge.org.uk/public-health-textbook/research-methods/1a-epidemiology/epidemic-theory">4</a>]. As soon as this number drops below one, one can speak of <em>herd immunity</em>. Thus <span class="math notranslate nohighlight">\(R_e\)</span> can be defined by <span class="math notranslate nohighlight">\(R_0 * \frac{susceptibles}{population}\)</span>.</p>
+<p>For our model, we can calculate this using the following method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_R_effective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the effective reproduction number</span>
+<span class="sd">    based on the formulae given by Jan Nagler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    subplot : bool, optional</span>
+<span class="sd">        If true, it will return</span>
+<span class="sd">        the time when the BRN reaches</span>
+<span class="sd">        its maximum, by default False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ordinary-differential-equation">
+<h3>Ordinary differential equation<a class="headerlink" href="#ordinary-differential-equation" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:ode}</p>
+<p>Now, we will make use of the <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> function, which <em>integrates a system of ordinary differential equations</em> [<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">2</a>]. The first argument for this function must be therefore a callable object, such as a function (e.g. <em>a callable object is everything which can be called using <code class="docutils literal notranslate"><span class="pre">()</span></code></em>). Its second argument is the vector with the initial conditions. Third, we have to specify the time variable; this was also done above (<span class="math notranslate nohighlight">\(t\)</span>) in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> functon. In order to pass the function arguments to our given callable, we also need to specify the argument <code class="docutils literal notranslate"><span class="pre">args</span></code> with all the inputs the callable needs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_ode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Integrates different ordinary differential</span>
+<span class="sd">    equations.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculate-beta-and-gamma">
+<h3>Calculate <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span><a class="headerlink" href="#calculate-beta-and-gamma" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:beta_gamma}</p>
+<p>In question 1.b the solution requieres us, to vary <span class="math notranslate nohighlight">\(R_{nought}\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>. Since those two parameters are depended on <span class="math notranslate nohighlight">\(\gamma\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, we also have to recalculate those. Hence our class has a function for it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_get_beta_gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns beta and gamma based</span>
+<span class="sd">    on recovery time and infectious power R</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R_nought : float</span>
+<span class="sd">        The basic reproduction number R_0</span>
+<span class="sd">        (pronounced R-nought) which is the</span>
+<span class="sd">        average number of cases directly</span>
+<span class="sd">        generated by one case in a population</span>
+<span class="sd">        where all individuals are susceptible</span>
+<span class="sd">        to infection</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-mu-and-r-nought-w-r-t-cumulated-deaths">
+<h3>Plot <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span> w.r.t. cumulated deaths<a class="headerlink" href="#plot-mu-and-r-nought-w-r-t-cumulated-deaths" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:plot_mu_brn_wrt_cd}</p>
+<p>Until now, we have just dealed with methods/functions which started with an underscore. Those are named <em>private</em> functions. These functions should <strong>not</strong> be used by anyone outside of the developer team. The usage for developing such <em>private</em> functions is, that those can then be used in the <em>public</em> functions of this class.</p>
+<p>From here onwards, we will present our <em>public</em> functions. The first one is a function, which allows us to plot <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span> w.r.t. the cumulated deaths.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function makes use of the private functions,</span>
+<span class="sd">    in order to calculate the fraction of deaths for</span>
+<span class="sd">    question 1.b.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R_nought : float</span>
+<span class="sd">        The basic reproduction number R_0</span>
+<span class="sd">        (pronounced R-nought) which is the</span>
+<span class="sd">        average number of cases directly</span>
+<span class="sd">        generated by one case in a population</span>
+<span class="sd">        where all individuals are susceptible</span>
+<span class="sd">        to infection</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die</span>
+<span class="sd">    subplot : bool, optional</span>
+<span class="sd">        If true, it will return</span>
+<span class="sd">        the time when the BRN reaches</span>
+<span class="sd">        its maximum, by default False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot">
+<h3>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h3>
+<p>\label{section:plot}</p>
+<p>Lastly, in order to plot all of our things, we need to define a plotting function. This is done in the next step.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="s2">&quot;&quot;&quot;This functions uses as well</span>
+<span class="s2">    all of the above defined private</span>
+<span class="s2">    functions and then goes ahead and</span>
+<span class="s2">    plots a graph, which visualizes</span>
+<span class="s2">    the different functions.</span>
+<span class="s2">    </span>
+<span class="s2">    Parameters</span>
+<span class="s2">    ----------</span>
+<span class="s2">    subplot : bool, optional</span>
+<span class="s2">        If true, it will return</span>
+<span class="s2">        the time when the BRN reaches</span>
+<span class="s2">        its maximum, by default False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-definition">
+<h2>Class definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h2>
+<p>\label{section:Class_def}</p>
+<p>As shown above, a number of variables and functions are needed to solve the exercises problems. In the next cell, we will define a class that incorporates said variables/functions. The advantage of using a class is that we can easily change a given parameter and readily see/understand how doing so impacts the other parameters at play.</p>
+<div class="alert alert-block alert-info">
+<b>Note:</b> Should any questions arise regarding the methods usage, please scroll up and review the respective docstrings.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SIRD</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">I0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">R0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">D0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">recovery_in_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="n">days</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">S0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">I0</span> <span class="o">-</span> <span class="n">R0</span> <span class="o">-</span> <span class="n">D0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">I0</span> <span class="o">=</span> <span class="n">I0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R0</span> <span class="o">=</span> <span class="n">R0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D0</span> <span class="o">=</span> <span class="n">D0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recovery_in_days</span> <span class="o">=</span> <span class="n">recovery_in_days</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="n">days</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+        <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="c1"># dSdt = - contact rate * the susceptibles * infected / total population</span>
+        <span class="c1"># How many of the population is susceptible to the virus?</span>
+        <span class="n">dSdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span>
+        <span class="c1"># dIdt = contact rate * susceptibles * infected / total population - recovery rate * infected - </span>
+        <span class="c1"># mortality rate * infected</span>
+        <span class="c1"># How many of the susceptibles will contract the virus?</span>
+        <span class="n">dIdt</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="c1"># dRdt = recovery rate * infected</span>
+        <span class="c1"># How many of those that are infected recover excluded those that die?</span>
+        <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="c1"># dDdt = mortility rate * infected</span>
+        <span class="c1"># How many of those that are infected will die?</span>
+        <span class="n">dDdt</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="k">return</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dRdt</span><span class="p">,</span> <span class="n">dDdt</span>
+    
+    <span class="k">def</span> <span class="nf">_R_effective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_1</span> <span class="o">=</span> <span class="n">time</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">subplot</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;$R_e$ = 1 after </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t_1</span><span class="si">}</span><span class="s2"> days!&quot;</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">_ode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">S0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D0</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_deriv</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">T</span>
+        
+    <span class="k">def</span> <span class="nf">_get_beta_gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">recovery_in_days</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">R_nought</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_beta_gamma</span><span class="p">(</span><span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_effective</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fraction_deaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_deaths</span>
+        
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_effective</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">axisbelow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$S_</span><span class="si">{usceptible}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$I_</span><span class="si">{nfected}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{ecovered}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$D_</span><span class="si">{eath}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{effective}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{nought}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time / days&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;large&quot;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;The BRN is: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;D = t(365): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subplot</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">get_xdata</span><span class="p">(),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">(),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+            <span class="n">lines</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">labels</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets use this class, in order to instantiated it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SIRD</span><span class="p">(</span><span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">I0</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">R0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.39</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="n">recovery_in_days</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span> <span class="mi">365</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="h1-center-question-1a-center-h1">
+<h3><h1><center>Question 1a</center></h1><a class="headerlink" href="#h1-center-question-1a-center-h1" title="Permalink to this headline">¶</a></h3>
+<p><b>Initial BRN Equation</b></p>
+<p><span class="math notranslate nohighlight">\(R_0\)</span>=<span class="math notranslate nohighlight">\(\frac{\beta}{\gamma}\)</span></p>
+<p>The equation above is the initial way in which the the Basic Reproduction Number (BRN, as represented by <span class="math notranslate nohighlight">\(R_0\)</span>) was calculated. The BRN represents the average number of people one infected person will pass the virus on to. The two dependent variables are:<br></p>
+<ul class="simple">
+<li><p><i>Contact Rate (<span class="math notranslate nohighlight">\(\beta\)</span>)</i> - Describes the average number of close contacts per day of each individual in the population.</p></li>
+<li><p><i>Recovery Rate (<span class="math notranslate nohighlight">\(\gamma\)</span>)</i> - Describes the daily rate at which each infected individual recovers from the virus. For example we used a <span class="math notranslate nohighlight">\(\gamma\)</span> of 0.15, meaning we are expecting each infected individual in the population to take an average of 1/0.15 = 6.67 days to recover.</p></li>
+</ul>
+<p><b>BRN Equation after Incorporating the Mortality Rate</b></p>
+<p>One shortcoming of the Initial BRN Equation is that it groups all individuals who have had the virus and hence are no longer seen as being susceptible to the virus together through the recovery rate. This of course is not reflective of the reality, where a portion of the “previously infected and no longer susceptible” group would be those individuals who were killed by the virus. To capture this, the modified BRN equation below breaks down the recovery rate into two variables, a “true” recovery rate that indicates the average daily rate at which an infected individual recovers (meaning that he/she actually survives) as well as the virus’s mortality rate, as represented by <span class="math notranslate nohighlight">\(\mu\)</span>. Below is the modified BRN equation.</p>
+<p><span class="math notranslate nohighlight">\(R_0\)</span>=<span class="math notranslate nohighlight">\(\frac{\beta}{\gamma+\mu}\)</span></p>
+<p><u>Note</u>: Treating a cadaver as having no infectious potential may be erroneous, but considering how one might incorporate this the infectious potential of deceased individuals is beyond the scope of this assignment. Our model is also limited by the fact that the mortality rate does not account for natural deaths, assuming simply that all deaths were a result of the virus. <br></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range of r_nought:</span>
+<span class="n">r_nought</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">401</span><span class="p">,</span> <span class="mi">25</span><span class="p">)))</span>
+    
+<span class="c1"># range of mortality rate:</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+
+<span class="c1"># create empty lists</span>
+<span class="n">r_nought_plot</span><span class="p">,</span> <span class="n">mortalility_rate_plot</span><span class="p">,</span> <span class="n">cum_deaths_plot</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">r_nought</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">:</span>
+        <span class="n">fraction_dead</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        
+        <span class="n">r_nought_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">mortalility_rate_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">cum_deaths_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fraction_dead</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;13&#39;</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">r_nought_plot</span><span class="p">,</span>
+                       <span class="n">mortalility_rate_plot</span><span class="p">,</span>
+                       <span class="n">cum_deaths_plot</span><span class="p">,</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Impact of $\mu$ and $R_</span><span class="si">{nought}</span><span class="s2">$ w.r.t. cumulated deaths&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$R_</span><span class="si">{nought}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Mortality rate&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Cumulated deaths&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SIR_Model_FINAL_25_0.png" src="../_images/SIR_Model_FINAL_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="h1-center-question-1b-center-h1">
+<h3><h1><center>Question 1b</center></h1><a class="headerlink" href="#h1-center-question-1b-center-h1" title="Permalink to this headline">¶</a></h3>
+<p>The three-dimensional graph above shows the effect of different BRNs and mortality rates on cumulative deaths over a 365 day period. Specifically, the cumulative deaths are highest when both the mortality rate and the BRN have their highest values, respectively 4% and 4 days. Of these two variables, increases in the mortality rate have a more profound impact on the ensuing deaths.  <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">model</span><span class="o">.</span><span class="n">R_nought</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">model</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.04</span>
+<span class="n">betas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># f, axs = plt.subplots(1, 3, figsize=(15,7))</span>
+<span class="c1"># i = 1</span>
+<span class="n">cum_deaths</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">infection_rate</span> <span class="ow">in</span> <span class="n">betas</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">infection_rate</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">R_nought</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">fraction_dead</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">R_nought</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">cum_deaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fraction_dead</span><span class="p">)</span>
+    <span class="n">beta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infection_rate</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">cum_deaths</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Number of cumulated deaths w.r.t. to $\beta$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\beta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulated deaths&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;Cumulated deaths&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SIR_Model_FINAL_27_0.png" src="../_images/SIR_Model_FINAL_27_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="h1-center-question-1c-center-h1">
+<h3><h1><center>Question 1c</center></h1><a class="headerlink" href="#h1-center-question-1c-center-h1" title="Permalink to this headline">¶</a></h3>
+<p>The graph above illustrates cumulative deaths over a one year period using different values for the contact rate, meant to portray different lockdown scenarios. As these graphs show, cumulative deaths are greatest when the contact rate is largest, as a larger contact rate increases the virus’s BRN, thereby increasing the extent to which it is disseminated throughout the general population.</p>
+<p>One obvious feature of this graph is that the cumulative deaths increase rapidly as the contact rate rises to 30%, promptly maxing out at approximately 12% thereafter. In terms of the extent of lockdown required, this graph shows it is absolutely critical to keep the beta as low as possible, and that the beneficial effects of reducing the contact raddte have are much more profound before the contact rate hits 20%. In fact, the maxing out of the cumulative death rate around 12% presumably reflects a scenario in which the population no longer has a significant amount of susceptible persons, due to immunity built-up through exposure to the virus as well as the deceased persons.</p>
+<p><u>Note</u>: Another potential limitation of our model is the assumption that those who were exposed to the virus and fought it off are no longer susceptible to it. Our understanding is that this assumption is true for some viruses but not others. There may also be a grey area, where previous exposure to the virus makes one less susceptible to it, without making that individual completely unsusceptible. Anything more than a cursory mention of these epidemiological factors is beyond the scope of this assignment however.</p>
+<p><b>Questions</b><br></p>
+<ol class="simple">
+<li><p>Should we use the same settings for gamma and mu here that we did earlier on (0.15 and 0.01)?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>$R_e$ = 1 after 0 days!</p>
+<img alt="../_images/SIR_Model_FINAL_29_1.png" src="../_images/SIR_Model_FINAL_29_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="h1-center-question-1b-c-center-h1">
+<h3><h1><center>Question 1b,c</center></h1><a class="headerlink" href="#h1-center-question-1b-c-center-h1" title="Permalink to this headline">¶</a></h3>
+<p>As shown by the preceeding graph, yes it is possible to derive and plot the effective reproduction number, R, as a function of time, given otherwise fixed parameters. Indeed doing just that is the purpose of the R_effective() function defined in the SIRD class above.<br></p>
+<p><b>Questions</b><br></p>
+<ol class="simple">
+<li><p>For me at least it’d be helpful to understand how the above graph works, bzw. in terms of how it plots R_effective as a function of time. <br></p></li>
+<li><p>Should we interpret the graph at all?</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./SIR Model"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

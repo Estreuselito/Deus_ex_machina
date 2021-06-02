@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBSCAN &#8212; Deus Ex Machina</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Mini-Project/Parts/DBSCAN-HDBSCAN_initial_understanding_DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Parts/DBSCAN-HDBSCAN_initial_understanding_DD.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Parts/DBSCAN-HDBSCAN_initial_understanding_DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   DBSCAN
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-steps-of-the-algorithm-is-as-below">
+     The steps of the algorithm is as below.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+     In scikit learn there are two key parameters of DBSCAN
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#output-from-the-algorithm">
+     Output from the algorithm
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-interpretation">
+     Plot interpretation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hdbscan">
+   HDBSCAN
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#below-are-the-steps-performed-by-the-algorithm">
+     Below are the steps performed by the algorithm.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-key-parameters-for-the-algorithm-are-as-below">
+     The key parameters for the algorithm are as below.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Output from the algorithm
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#soft-clustering-for-hdbscan">
+     Soft clustering for HDBSCAN
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Plot interpretation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sources">
+     Sources
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dbscan">
+<h1>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h1>
+<p>DBSCAN stands for density-based spatial clustering of applications with noise. It is efficient to find arbitrary shaped clusters and clusters with noise (i.e. outliers).
+The main concept in this algorithm is, a point will belong to a cluster if it close to many points from that cluster, which means the point is in a dense region.</p>
+<p>Certain literature from Ester <a class="reference external" href="http://et.al">et.al</a> might be helpful to understand the algorithm and the parameters.</p>
+<p>Epsilon neighborhood of a point: The Eps neighborhood of a point p, in a dataset D, denoted by <span class="math notranslate nohighlight">\(N_{Eps}(p)\)</span>, is defined as</p>
+<div class="math notranslate nohighlight">
+\[N_{Eps}(p) = \{q \in D \mid dist(p,q) \leq \epsilon\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is the radius of the neighborhood around the point.</p>
+<p>Density at a point p: Number of points within a circle of radius <span class="math notranslate nohighlight">\(\epsilon\)</span> from point p.</p>
+<p>Dense Region: For each point in the cluster, the circle with radius <span class="math notranslate nohighlight">\(\epsilon\)</span> contains at least minimum number of points. In the algorithm we can specify this minimum number of points as a parameter min_samples. In some literature this is mentioned as MinPts.</p>
+<p>Core point: A point is a core point if there are at least “minimum number of points” in its surrounding area with radius <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Border point: A point is a border point if it is reachable from a core point and there are less than “minimum number of points” within its surrounding area.</p>
+<p>Outlier: A point is an outlier if it is neither a core point nor a border point.</p>
+<p>Direct density reachable: A point p is directly density reachable from another point q if q is a core point and p is in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood of q.</p>
+<p>Density reachable: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points</p>
+<p>if there is a chain of points <span class="math notranslate nohighlight">\(p_l\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, … <span class="math notranslate nohighlight">\(p_n\)</span>, <span class="math notranslate nohighlight">\(p_l\)</span> = <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(p_n\)</span> = <span class="math notranslate nohighlight">\(p\)</span>
+such that <span class="math notranslate nohighlight">\(p_{i+1}\)</span> is directly density-reachable from <span class="math notranslate nohighlight">\(p_i\)</span>.
+Density-reachability is a canonical extension of direct density-reachability.</p>
+<p>Density connected: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points
+if there is a point o such that both p and q are Density reachable from o.</p>
+<p><img alt="The-concepts-density-connectivity.png" src="Mini-Project/Parts/attachment:The-concepts-density-connectivity.png" /></p>
+<p>A density-based cluster is defined as a group of density connected points.</p>
+<div class="section" id="the-steps-of-the-algorithm-is-as-below">
+<h2>The steps of the algorithm is as below.<a class="headerlink" href="#the-steps-of-the-algorithm-is-as-below" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>For each point <span class="math notranslate nohighlight">\(x_{i}\)</span>, determine how many points are present in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood.</p></li>
+<li><p>If this count is greater or equal to the minimum number of points, then mark the point as a core point.</p></li>
+<li><p>Cluster formation starts.  Find recursively all its density connected points and assign them to the same cluster as the core point.</p></li>
+<li><p>Iterate through the remaining unvisited points in the dataset.</p></li>
+<li><p>Every core point will be assigned to a new cluster unless some of the core points share neighborhood points, they will be included in the same cluster.</p></li>
+<li><p>Those points that do not belong to any cluster are treated as outliers or noise.</p></li>
+</ol>
+</div>
+<div class="section" id="in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+<h2>In scikit learn there are two key parameters of DBSCAN<a class="headerlink" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan" title="Permalink to this headline">¶</a></h2>
+<p><strong>eps</strong> : The maximum distance between two samples for one to be considered as in the neighborhood of the other. With a smaller value more points will be considered as outlier.</p>
+<p><strong>min_samples</strong> : The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself.  With a higher value, more points will be considered as outlier.</p>
+</div>
+<div class="section" id="output-from-the-algorithm">
+<h2>Output from the algorithm<a class="headerlink" href="#output-from-the-algorithm" title="Permalink to this headline">¶</a></h2>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span><span class="n">DBSCAN</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">sklearn.datasets</span> <span class="k">as</span> <span class="nn">data</span>
+
+<span class="kn">import</span> <span class="nn">hdbscan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dir(DBSCAN)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Determine centroids</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="c1">#Create dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">,</span> 
+                  <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#Normalize the values</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Paired&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1f6a600efa0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_4_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_4_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Execute DBSCAN</span>
+<span class="n">dbscan_cluster</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">dbscan_cluster</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DBSCAN(eps=0.4, min_samples=30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">dbscan_cluster</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Paired&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clusters created by DBSCAN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Clusters created by DBSCAN&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_6_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="plot-interpretation">
+<h2>Plot interpretation<a class="headerlink" href="#plot-interpretation" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Blobs - with very small eps = .1, the clustering is not working correctly. most of the points are considered as outliers.  if we increase the value to .4, it will improve.  The reason is, with very small eps, there will not be many core points and hence most of the points will not be able to be density connected.</p></li>
+<li><p>For circle, with very small eps, the result is good. Because only with small eps, the 2 points in the 2 different circles can be separated with the density connectivity logic.  if eps is high these 2 points will be densely connected and will be in the same cluster.</p></li>
+<li><p>For moon, there is a lot of sparse area, hence it can separate well with up to .3 eps value but not after that.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="hdbscan">
+<h1>HDBSCAN<a class="headerlink" href="#hdbscan" title="Permalink to this headline">¶</a></h1>
+<p>HDBSCAN (Hierarchical Density-Based Spatial Clustering and Application with Noise) is an unsupervised clustering algorithm which expands the DBSCAN algorithm and integrates the hierarchical approach.
+As we know the DBSCAN algorithm requires the input parameters as epsilon and min_samples which requires pre domain knowledge about data.  DBSCAN algorithm is not so efficient where there are different densities present in the data.<br />
+In HDBSCAN, the algorithm works for varying epsilon hence it can also be referred as non-parametric algorithm.  This makes the algorithm very efficient even with different densities in the data.</p>
+<div class="section" id="below-are-the-steps-performed-by-the-algorithm">
+<h2>Below are the steps performed by the algorithm.<a class="headerlink" href="#below-are-the-steps-performed-by-the-algorithm" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Transform the space according to the density/sparsity.</p></li>
+</ol>
+<p>The foundation of the algorithm is based on single linkage clustering, which is a bottom-up approach of agglomerative clustering where at the bottom all individual data points are considered as individual clusters and based on the similarity between the data points, the clusters are combined and in the end there is only one single cluster.
+To make the model robust to the outliers, in this very first step a new distance metric, mutual reachability distance is created which can be defined as</p>
+<div class="math notranslate nohighlight">
+\[d_{mreach}(a,b) = max\{core_k(a), core_k(b), d(a,b)\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(core_k(a)\)</span> and <span class="math notranslate nohighlight">\(core_k(b)\)</span> are the core distances defined for parameter <span class="math notranslate nohighlight">\(k\)</span> for the points <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(k\)</span> is the required minimum number of points.</p>
+<p><span class="math notranslate nohighlight">\(d(a,b)\)</span> is the original metric distance between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d_{mreach}(a,b)\)</span> is the mutual reachability distance.</p>
+<ol class="simple">
+<li><p>Build the minimum spanning tree of the distance weighted graph.</p></li>
+</ol>
+<p>Conceptually in this step, the data is considered as a weighted graph with the data points as vertices and an edge between any two points with weight equal to the mutual reachability distance of those points.</p>
+<ol class="simple">
+<li><p>Construct a cluster hierarchy of connected components.</p></li>
+</ol>
+<p>The next step is to create a hierarchy of connected components. The concept is, 2 points will be connected based on the edge which represents the mutual reachability between 2 points.</p>
+<ol class="simple">
+<li><p>Condense the cluster hierarchy based on minimum cluster size.</p></li>
+</ol>
+<p>In this step, a smaller condensed tree is created. Using the input parameter, minimum cluster size, at each split the condition is checked whether one of the new clusters created by the split has fewer points than the minimum cluster size or not. If it has fewer points, then it will not be considered as cluster instead, it will be considered as ‘points falling out of a cluster’.  Otherwise it will be considered as a persistent cluster.</p>
+<ol class="simple">
+<li><p>Extract the stable clusters from the condensed tree.</p></li>
+</ol>
+<p>In the last step the clusters are selected based on the eom, excess of mass.  This method, which refers back to the research by Hartigan, is recommended by Campello et al. as the optimal global solution to the problem of finding clusters with the highest
+stability. HDBSCAN’s selection algorithm traverses the condensed cluster tree bottom-up and selects the cluster with highest stability on each path. If a cluster is selected then any cluster that is a descendant of it, can not be a cluster.</p>
+</div>
+<div class="section" id="the-key-parameters-for-the-algorithm-are-as-below">
+<h2>The key parameters for the algorithm are as below.<a class="headerlink" href="#the-key-parameters-for-the-algorithm-are-as-below" title="Permalink to this headline">¶</a></h2>
+<p><strong>min_cluster_size</strong> is the smallest size grouping that we wish to consider a cluster.  If we increase the value, then smaller number of clusters will be created.  The deafult is 5.</p>
+<p>However, there is another parameter which has significant effect in this intuition.</p>
+<p><strong>min_samples</strong> is yet another very important parameter which can be used to control the conservativeness of clustering.  The larger the value of min_samples you provide, the more conservative the clustering – more points will be declared as noise, and clusters will be restricted to progressively more dense areas.</p>
+<p>If not specified the default value for this parameter will be same as min_cluster_size.</p>
+<p><strong>cluster_selection_epsilon</strong>  ensures that clusters below the given threshold are not split up any further.</p>
+<p><strong>alpha</strong> is part of the RobustSingleLinkage code, but flows naturally into HDBSCAN.  The default value is 1.0.  It’s better not to change this parameter as adjusting alpha will result in recomputing the hard computation of the single linkage tree.</p>
+</div>
+<div class="section" id="id1">
+<h2>Output from the algorithm<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<p><strong>clusterer.probabilities_</strong> : For each cluster we have the <span class="math notranslate nohighlight">\(\lambda_p\)</span> for each point <span class="math notranslate nohighlight">\(p\)</span> in that cluster; which measures the strength of cluster membership for each point.</p>
+<p><strong>outlier_scores_</strong> : This output is a vector of score values, one for each data point that was fit. Higher scores represent more outlier like objects. Selecting outliers via upper quantiles is often a good approach.</p>
+</div>
+<div class="section" id="soft-clustering-for-hdbscan">
+<h2>Soft clustering for HDBSCAN<a class="headerlink" href="#soft-clustering-for-hdbscan" title="Permalink to this headline">¶</a></h2>
+<p>To implement soft clustering, we need to produce a method of providing a soft membership vector for a given point across the selected clusters of a clustering. Ideally, we want this to be interpretable as a probability of being a member of that cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># execute hdbscan</span>
+<span class="n">hdbscan_cluster</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">gen_min_span_tree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prediction_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hdbscan_cluster</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDBSCAN(gen_min_span_tree=True, prediction_data=True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(hdbscan_cluster.outlier_scores_)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">hdbscan_cluster</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Paired&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clusters created by HDBSCAN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Clusters created by HDBSCAN&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_11_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample code from https://hdbscan.readthedocs.io/en/latest/how_hdbscan_works.html</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_color_codes</span><span class="p">()</span>
+<span class="n">plot_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span> <span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;linewidths&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1440x720 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moons</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">blobs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="p">[(</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">2.25</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)],</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">moons</span><span class="p">,</span> <span class="n">blobs</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">test_data</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1f6ad7295e0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_13_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterer</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">gen_min_span_tree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prediction_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDBSCAN(gen_min_span_tree=True, min_cluster_size=10, prediction_data=True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterer</span><span class="o">.</span><span class="n">minimum_spanning_tree_</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edge_cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+                                      <span class="n">edge_alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                                      <span class="n">node_size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+                                      <span class="n">edge_linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_15_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterer</span><span class="o">.</span><span class="n">single_linkage_tree_</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;distance&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_16_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_16_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterer</span><span class="o">.</span><span class="n">condensed_tree_</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;$\\lambda$ value&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_17_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_17_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterer</span><span class="o">.</span><span class="n">condensed_tree_</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">select_clusters</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">selection_palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;$\\lambda$ value&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_18_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_18_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()</span>
+<span class="n">cluster_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">sns</span><span class="o">.</span><span class="n">desaturate</span><span class="p">(</span><span class="n">palette</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">sat</span><span class="p">)</span>
+                  <span class="k">if</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">sat</span> <span class="ow">in</span>
+                  <span class="nb">zip</span><span class="p">(</span><span class="n">clusterer</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">probabilities_</span><span class="p">)]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">test_data</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cluster_colors</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1f6b180e250&gt;
+</pre></div>
+</div>
+<img alt="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_19_1.png" src="../../_images/DBSCAN-HDBSCAN_initial_understanding_DD_19_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Plot interpretation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>min_cluster_size = 10 is giving better result.</p></li>
+</ol>
+</div>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page">https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page</a></p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372">https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372</a></p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Mini-Project/Parts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

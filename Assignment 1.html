@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid-19 &amp; PCA Disasters &#8212; Deus Ex Machina</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Kernel Trick" href="Assignment%202.html" />
+    <link rel="prev" title="Welcome to our Machine Learning II Book" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Assignment 1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FAssignment 1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Assignment 1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Covid-19 &amp; PCA Disasters
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#studying-the-sird-model-and-surrogate-data">
+     Studying the SIRD Model and Surrogate Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#question-1">
+   Question 1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-explanation">
+     Class Explanation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-creation">
+       Class creation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#derivate-function">
+       Derivate function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#effective-reproduction-number">
+       Effective reproduction number
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ordinary-differential-equation">
+       Ordinary differential equation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculate-beta">
+       Calculate
+       <span class="math notranslate nohighlight">
+        \(\beta\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-mu-and-r-nought-w-r-t-cumulated-deaths">
+       Plot
+       <span class="math notranslate nohighlight">
+        \(\mu\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(R_{nought}\)
+       </span>
+       w.r.t. cumulated deaths
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot">
+       Plot
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-definition">
+     Class definition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1a">
+     Question 1a)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1b">
+     Question 1b)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-visualization">
+       Code for Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#written-response">
+       Written Response
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1c">
+     Question 1c)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Code for Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Written Response
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1b-c">
+     Question 1b, c)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Code for Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Written Response
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#question-2">
+   Question 2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Class Explanation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Class Creation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pca-and-logistic-regression">
+       PCA and Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-the-decision-regions">
+       Plot the decision regions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Class Definition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-2a">
+     Question 2a)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-visualizing-the-datasets">
+       Code for Visualizing the Datasets
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elbow-graphs-code-and-visualization">
+       Elbow Graphs - Code and Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elbow-graphs-takeaways">
+       Elbow Graphs - Takeaways
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prediction-boundaries-code-and-visualization">
+       Prediction Boundaries - Code and Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prediction-boundaries-takeaways">
+       Prediction Boundaries - Takeaways
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-2b">
+     Question 2b)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-the-3d-parabolas-code-and-visualization">
+       Plotting the 3D Parabolas - Code and Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-the-3d-parabolas-takeaways">
+       Plotting the 3D Parabolas - Takeaways
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elbow-graph-code-and-visualization">
+       Elbow Graph - Code and Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elbow-graph-takeaway">
+       Elbow Graph - Takeaway
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Prediction Boundaries - Code and Visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Prediction Boundaries - Takeaways
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="covid-19-pca-disasters">
+<h1>Covid-19 &amp; PCA Disasters<a class="headerlink" href="#covid-19-pca-disasters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="studying-the-sird-model-and-surrogate-data">
+<h2>Studying the SIRD Model and Surrogate Data<a class="headerlink" href="#studying-the-sird-model-and-surrogate-data" title="Permalink to this headline">¶</a></h2>
+<p>The following document provides our solutions for the given exercises.</p>
+</div>
+</div>
+<div class="section" id="question-1">
+<h1>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline">¶</a></h1>
+<p>This code is based on prior work conducted by Jan Nagler; the modications made were effectuated in order to solve the following exercise problems:</p>
+<ul class="simple">
+<li><p><strong>a</strong>. Derive the corresponding system of equations for <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(D\)</span>. E.g., <span class="math notranslate nohighlight">\(\frac{dD}{dt} = \mu I\)</span> but this is not the only difference to <span class="math notranslate nohighlight">\(SIR\)</span>. In addition, the basic reproduction number may now depend on <span class="math notranslate nohighlight">\(\mu\)</span> as well, how?</p></li>
+<li><p><strong>b</strong>. Assume that the basic reproduction number <span class="math notranslate nohighlight">\(R_0\)</span> for B.1.1.7 is not exactly known but only the range <span class="math notranslate nohighlight">\(R_0 \in [3.0; 4.0]\)</span>. Assume that the mortality rate <span class="math notranslate nohighlight">\(\mu\)</span> is also not exactly known but only the range <span class="math notranslate nohighlight">\(\mu \in [0.4\%; 4\%]\)</span>. Study how these parameter uncertainties affect the prediction of <span class="math notranslate nohighlight">\(D\)</span> at <span class="math notranslate nohighlight">\(t = 365d\)</span>.</p></li>
+<li><p><strong>c</strong>. Study numerically the effects of a hard versus soft lockdown (by two for you reasonable values of <span class="math notranslate nohighlight">\(\beta\)</span>), in terms of <span class="math notranslate nohighlight">\(D(365d)\)</span>. Assume <span class="math notranslate nohighlight">\(\mu\)</span> = 1% and a <span class="math notranslate nohighlight">\(R_0\)</span> of your choice.</p></li>
+<li><p><strong>b,c</strong> Can you find a way to derive and plot the effective reproduction number, <span class="math notranslate nohighlight">\(R_{effective}\)</span>, as a function of time, given otherwise fixed parameters ?</p></li>
+</ul>
+<p>We will start by importing some packages that can be leveraged when solving the exercise problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Imports ####</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span><span class="p">,</span> <span class="n">PercentFormatter</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># set matplotlib fontsize</span>
+<span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">BIGGER_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>          <span class="c1"># controls default text sizes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">BIGGER_SIZE</span><span class="p">)</span>     <span class="c1"># fontsize of the axes title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the x and y labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># legend fontsize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">BIGGER_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
+
+<span class="c1"># set matplotlib to inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-explanation">
+<h2>Class Explanation<a class="headerlink" href="#class-explanation" title="Permalink to this headline">¶</a></h2>
+<p>In order to incorporate all the different things, and to do this with as less code as possible, we will define a class. Which methods this class contains and how the different methods work, will be displayed here.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Bear in mind, that the following section will outline the docstrings for the different methods. Thus, these docstrings will <strong>not</strong> be displayed in the code when creating the class itself.</p>
+<div class="section" id="class-creation">
+<h3>Class creation<a class="headerlink" href="#class-creation" title="Permalink to this headline">¶</a></h3>
+<p>The overall class is called <code class="docutils literal notranslate"><span class="pre">SIRD</span></code> in order to make explicit what this function is used for. It is defined like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SIRD</span><span class="p">():</span>
+   <span class="sd">&quot;&quot;&quot;This class alters the SIR model from Epidemiology in order</span>
+<span class="sd">   to incorporate the deaths caused by the desease&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Classes contain different methods and attributes. A method is defined within the class context as a normal function, using the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">...</span></code> notation. Be aware, that since that method is defined <strong>within</strong> the class, it is only accessable through the class, meaning we have to use the class object in order to execute it.</p>
+<p>In order to give a class its attributes we can make use of the <code class="docutils literal notranslate"><span class="pre">self</span></code>. Using this name we can create and update parameters which belong to the class (<em>how this is done exactly will be shown later</em>). In order to have a clear overview, of how to create a class and which parameters to give it, let us explain the double underscore (<em>dunder</em>) function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>. This is the function, which will be called, when the object is instantiaded (<em>E.g. <code class="docutils literal notranslate"><span class="pre">SIRD()</span></code>; the <code class="docutils literal notranslate"><span class="pre">()</span></code> means instantiaded in this context</em>).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">I0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">R0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">D0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">recovery_in_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="n">days</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This functions adds the given parameters to the object, which</span>
+<span class="sd">    is instantiated using the SIRD class.</span>
+<span class="sd">    </span>
+<span class="sd">    Within this class, we also calculate R_nought, the basic reproduction</span>
+<span class="sd">    number R_0 (pronounced R-nought) which is the average number of cases</span>
+<span class="sd">    directly generated by one case in a population where all individuals</span>
+<span class="sd">    are susceptible to infection using the formula</span>
+<span class="sd">    R_nought = beta / (gamma + mu) and we calculate S0, which displays</span>
+<span class="sd">    the number of susceptible persons, using the formula </span>
+<span class="sd">    S0 = N - I0 - R0 - D0.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N : int</span>
+<span class="sd">        Represents the populations size, if you set it to 1,</span>
+<span class="sd">        the model will ignore N and it will return fractions</span>
+<span class="sd">    I0 : float</span>
+<span class="sd">        The total number of infected people at time zero</span>
+<span class="sd">    R0 : float</span>
+<span class="sd">        The total number of recovered people at time zero</span>
+<span class="sd">    D0 : float</span>
+<span class="sd">        The total number of death at the time zero</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        The contact rate, more specifically the number of lengthy</span>
+<span class="sd">        contacts a person has per day</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        The recovery rate, the rate of how fast infected people</span>
+<span class="sd">        recover from the disease</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die per one unit of time</span>
+<span class="sd">    days : int</span>
+<span class="sd">        The timeframe, how long we will model the infectious disaster</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="derivate-function">
+<h3>Derivate function<a class="headerlink" href="#derivate-function" title="Permalink to this headline">¶</a></h3>
+<p>Next we can set up the <span class="math notranslate nohighlight">\(SIR(D)\)</span> model. For the most part this is the function developed by Jan Nagler, albeit with some modifications that allow us to incorperate the mortility rate <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Altered function of the SIR model,</span>
+<span class="sd">    in order to incorporate the deaths,</span>
+<span class="sd">    mu.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : ndarray</span>
+<span class="sd">        This array contains the initial values</span>
+<span class="sd">        of S0, I0, R0 and D0</span>
+<span class="sd">    t : np.array</span>
+<span class="sd">        A np.array created using np.linespace in</span>
+<span class="sd">        order to model the time</span>
+<span class="sd">    N : int</span>
+<span class="sd">        The population size or 1</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        The contact rate, more specifically the number of lengthy</span>
+<span class="sd">        contacts a person has per day</span>
+<span class="sd">    gamma : float</span>
+<span class="sd">        The recovery rate, the rate of how fast infected people</span>
+<span class="sd">        recover from the disease</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die per one unit of time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="effective-reproduction-number">
+<h3>Effective reproduction number<a class="headerlink" href="#effective-reproduction-number" title="Permalink to this headline">¶</a></h3>
+<p>Yet another very important number when it comes to epidemiology is the <strong>effective reproduction number</strong>, which will be denoted by <span class="math notranslate nohighlight">\(R_{effective}\)</span>. The idea behind this number is that at any given time <span class="math notranslate nohighlight">\(t\)</span> an unknown number of the susceptible population is immune to the disease, <em>or the average number of new infections caused by a single infected individual at time t in the partially susceptible population</em> [<a class="reference external" href="https://en.wikipedia.org/wiki/Basic_reproduction_number#Effective_reproduction_number">3</a>, <a class="reference external" href="https://www.healthknowledge.org.uk/public-health-textbook/research-methods/1a-epidemiology/epidemic-theory">4</a>]. As soon as this number drops below one, the prevalence of the virus within the population is decreasing. Thus <span class="math notranslate nohighlight">\(R_e\)</span> can be defined by <span class="math notranslate nohighlight">\(R_0 * \frac{susceptibles}{population}\)</span>.</p>
+<p>For our model, we can calculate this using the following method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_R_effective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the effective reproduction number</span>
+<span class="sd">    based on the formulae given by Jan Nagler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    subplot : bool, optional</span>
+<span class="sd">        If true, it will return</span>
+<span class="sd">        the time when the BRN reaches</span>
+<span class="sd">        its maximum, by default False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ordinary-differential-equation">
+<h3>Ordinary differential equation<a class="headerlink" href="#ordinary-differential-equation" title="Permalink to this headline">¶</a></h3>
+<p>Now, we will make use of the <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> function, which <em>integrates a system of ordinary differential equations</em> [<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">2</a>]. The first argument for this function must be therefore a callable object, such as a function (e.g. <em>a callable object is everything which can be called using <code class="docutils literal notranslate"><span class="pre">()</span></code></em>). Its second argument is the vector with the initial values. Third, we have to specify the time variable; this was also done above (<span class="math notranslate nohighlight">\(t\)</span>) in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function. In order to pass the function arguments to our given method, we also need to specify the argument <code class="docutils literal notranslate"><span class="pre">args</span></code> with all the inputs the callable needs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_ode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Integrates different ordinary differential</span>
+<span class="sd">    equations.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculate-beta">
+<h3>Calculate <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#calculate-beta" title="Permalink to this headline">¶</a></h3>
+<p>In question 1.b the solution requires us to vary <span class="math notranslate nohighlight">\(R_{nought}\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>. Since those two parameters are depended <span class="math notranslate nohighlight">\(\beta\)</span>, we have to recalculate this. Hence our class has a function for it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_get_beta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns beta and the</span>
+<span class="sd">    infectious power of R.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R_nought : float</span>
+<span class="sd">        The basic reproduction number R_0</span>
+<span class="sd">        (pronounced R-nought) which is the</span>
+<span class="sd">        average number of cases directly</span>
+<span class="sd">        generated by one case in a population</span>
+<span class="sd">        where all individuals are susceptible</span>
+<span class="sd">        to infection</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die per one unit of time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-mu-and-r-nought-w-r-t-cumulated-deaths">
+<h3>Plot <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span> w.r.t. cumulated deaths<a class="headerlink" href="#plot-mu-and-r-nought-w-r-t-cumulated-deaths" title="Permalink to this headline">¶</a></h3>
+<p>Until now, we have just dealt with methods/functions that commence with an underscore; these are known as <em>private</em> functions. Private functions should <strong>not</strong> be used by anyone outside of the developer team. The purpose for developing such <em>private</em> functions is that they can then be used in the <em>public</em> functions of this class.</p>
+<p>From here onwards, we will present our <em>public</em> functions. The first one is a function which allows us to plot <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span> w.r.t. the cumulated deaths.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function makes use of the private functions,</span>
+<span class="sd">    in order to calculate the fraction of deaths for</span>
+<span class="sd">    question 1.b.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R_nought : float</span>
+<span class="sd">        The basic reproduction number R_0</span>
+<span class="sd">        (pronounced R-nought) which is the</span>
+<span class="sd">        average number of cases directly</span>
+<span class="sd">        generated by one case in a population</span>
+<span class="sd">        where all individuals are susceptible</span>
+<span class="sd">        to infection</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mortality rate, the rate of how many of the infected</span>
+<span class="sd">        people die per one unit of time</span>
+<span class="sd">    subplot : bool, optional</span>
+<span class="sd">        If true, it will return</span>
+<span class="sd">        the time when the BRN reaches</span>
+<span class="sd">        its maximum, False by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot">
+<h3>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h3>
+<p>Lastly, in order to plot all of our things, we need to define a plotting function. This is done in the next step.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="s2">&quot;&quot;&quot;This function also uses all of </span>
+<span class="s2">    the private functions defined above </span>
+<span class="s2">    before plotting a graph that </span>
+<span class="s2">    visualizes the different functions.</span>
+<span class="s2">    </span>
+<span class="s2">    Parameters</span>
+<span class="s2">    ----------</span>
+<span class="s2">    subplot : bool, optional</span>
+<span class="s2">        If true, it will return</span>
+<span class="s2">        the time when the BRN reaches</span>
+<span class="s2">        its maximum, False by default</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-definition">
+<h2>Class definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h2>
+<p>As shown above, a number of variables and functions are needed to solve the exercises problems. In the next cell, we will define a class that incorporates said variables/functions. The advantage of using a class is that we can easily change a given parameter and readily see/understand how doing so impacts the other parameters at play.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Should any questions arise regarding the methods employed, please scroll up and review the respective docstrings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SIRD</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">I0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">R0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">D0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">days</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">S0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">I0</span> <span class="o">-</span> <span class="n">R0</span> <span class="o">-</span> <span class="n">D0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">I0</span> <span class="o">=</span> <span class="n">I0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R0</span> <span class="o">=</span> <span class="n">R0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D0</span> <span class="o">=</span> <span class="n">D0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="n">days</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+        <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">dSdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span>
+        <span class="n">dIdt</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="n">dDdt</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+        <span class="k">return</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dRdt</span><span class="p">,</span> <span class="n">dDdt</span>
+    
+    <span class="k">def</span> <span class="nf">_R_effective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_1</span> <span class="o">=</span> <span class="n">time</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">subplot</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;$R_e$ &lt;= 1 after </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t_1</span><span class="si">}</span><span class="s2"> days!&quot;</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">_ode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">S0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D0</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_deriv</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">T</span>
+        
+    <span class="k">def</span> <span class="nf">_get_beta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">R_nought</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_beta</span><span class="p">(</span><span class="n">R_nought</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_effective</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fraction_deaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_deaths</span>
+        
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_effective</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">axisbelow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$S_</span><span class="si">{usceptible}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$I_</span><span class="si">{nfected}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{ecovered}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$D_</span><span class="si">{eath}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{effective}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{nought}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time / Days&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of N&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;large&quot;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;The BRN is: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R_nought</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;D = t(365): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subplot</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">get_xdata</span><span class="p">(),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">(),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+            <span class="n">lines</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">labels</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets use this class, in order to instantiated it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SIRD</span><span class="p">(</span><span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">I0</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">R0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.39</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="n">days</span><span class="o">=</span> <span class="mi">365</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-1a">
+<h2>Question 1a)<a class="headerlink" href="#question-1a" title="Permalink to this headline">¶</a></h2>
+<p><strong>Initial BRN Equation</strong>
+\begin{equation}
+R_0=\frac{\beta}{\gamma}
+\end{equation}
+The equation above is the initial way in which the the Basic Reproduction Number (BRN, as represented by <span class="math notranslate nohighlight">\(R_0\)</span>) was calculated. The BRN represents the average number of people one infected person will pass the virus on to. The two independent variables are:</p>
+<ul class="simple">
+<li><p><em>Contact Rate (<span class="math notranslate nohighlight">\(\beta\)</span>)</em> - Describes the average number of close contacts per day of each individual in the population.</p></li>
+<li><p><em>Recovery Rate (<span class="math notranslate nohighlight">\(\gamma\)</span>)</em> - Describes the daily rate at which infected people recover from the virus (“recover” in this context includes individuals who died and hence are assumed to no longer have any infectious potential). For example, we used a <span class="math notranslate nohighlight">\(\gamma\)</span> of 0.15, meaning we are expecting each infected individual in the population to take an average of <span class="math notranslate nohighlight">\(\frac{1}{0.15} = 6.67\)</span> days to “recover”.</p></li>
+</ul>
+<p><strong>BRN Equation after Incorporating the Mortality Rate</strong></p>
+<p>One shortcoming of the Initial BRN Equation is that it groups all individuals who have had the virus and hence are no longer seen as being susceptible to the virus together through the recovery rate. This of course is not reflective of the reality, where a portion of the “previously infected and no longer susceptible” group would be those individuals who were killed by the virus. To capture this, the modified BRN equation below breaks down the recovery rate into two variables, a “true” recovery rate that indicates the average daily rate at which an infected individual recovers (meaning that he/she actually survives) as well as the virus’s mortality rate, as represented by <span class="math notranslate nohighlight">\(\mu\)</span>. Below is the modified BRN equation.
+\begin{equation}
+R_0=\frac{\beta}{\gamma+\mu}
+\end{equation}
+<span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Treating a cadaver as having no infectious potential may be erroneous, but considering how one might incorporate this the infectious potential of deceased individuals is beyond the scope of this assignment. Our model is also limited by the fact that the mortality rate does not account for natural deaths, assuming simply that all deaths were a result of the virus.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="question-1b">
+<h2>Question 1b)<a class="headerlink" href="#question-1b" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-for-visualization">
+<h3>Code for Visualization<a class="headerlink" href="#code-for-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range of r_nought:</span>
+<span class="n">r_nought</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">401</span><span class="p">,</span> <span class="mi">25</span><span class="p">)))</span>
+    
+<span class="c1"># range of mortality rate:</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+
+<span class="c1"># create empty lists</span>
+<span class="n">r_nought_plot</span><span class="p">,</span> <span class="n">mortalility_rate_plot</span><span class="p">,</span> <span class="n">cum_deaths_plot</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">r_nought</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">:</span>
+        <span class="n">fraction_dead</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        
+        <span class="n">r_nought_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">mortalility_rate_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">cum_deaths_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fraction_dead</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">r_nought_plot</span><span class="p">,</span>
+                       <span class="n">mortalility_rate_plot</span><span class="p">,</span>
+                       <span class="n">cum_deaths_plot</span><span class="p">,</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Impact of $\mu$ and $R_</span><span class="si">{nought}</span><span class="s2">$ w.r.t. Cumulated Deaths&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$R_</span><span class="si">{nought}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Mortality Rate&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Cumulated Deaths&#39;</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_26_0.png" src="_images/Assignment 1_26_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="written-response">
+<h3>Written Response<a class="headerlink" href="#written-response" title="Permalink to this headline">¶</a></h3>
+<p>The three-dimensional graph above shows the effect of different BRNs and mortality rates on cumulative deaths over a 365 day period. Specifically, the cumulative deaths are highest when both the mortality rate and the BRN have their highest values, respectively 4% and 4. Of these two variables, increases in the mortality rate have a more profound impact on the ensuing deaths.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="question-1c">
+<h2>Question 1c)<a class="headerlink" href="#question-1c" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Code for Visualization<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">betas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cum_deaths</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">infection_rate</span> <span class="ow">in</span> <span class="n">betas</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">infection_rate</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">R_nought</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">fraction_dead</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">plot_mu_bn_wrt_cd</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">R_nought</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">cum_deaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fraction_dead</span><span class="p">)</span>
+    <span class="n">beta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infection_rate</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">cum_deaths</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Fraction of Cumulated Deaths w.r.t. to $\beta$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">is_latex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\beta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulated Deaths&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_30_0.png" src="_images/Assignment 1_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Written Response<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The graph above illustrates cumulative deaths over a one year period using different values for the contact rate, meant to portray different lockdown scenarios. As the graph shows, cumulative deaths are greatest when the contact rate is largest, as a larger contact rate increases the virus’s BRN, thereby increasing the extent to which it is disseminated throughout the general population.</p>
+<p>One obvious feature of this graph is that the cumulative deaths increase rapidly to about 5% as the contact rate rises to 0.3, maxing out at approximately 6% thereafter. In terms of the extent of lockdown required, this graph shows it is absolutely critical to keep the beta as low as possible, and that the beneficial effects of reducing the contact rate have are much more profound before the contact rate hits 0.2. In fact, the maxing out of the cumulative death rate around 6% presumably reflects a scenario in which the population no longer has a significant amount of susceptible persons, due to immunity built-up through exposure to the virus as well as the deceased persons.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Another potential limitation of our model is the assumption that those who were exposed to the virus and fought it off are no longer susceptible to it. Our understanding is that this assumption is true for some viruses but not others. There may also be a grey area, where previous exposure to the virus makes one less susceptible to it, without making that individual completely unsusceptible. Anything more than a cursory mention of these epidemiological factors however is beyond the scope of this assignment.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="question-1b-c">
+<h2>Question 1b, c)<a class="headerlink" href="#question-1b-c" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Code for Visualization<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>In the following cell, one can see how to access a function/method through a class object. Earlier we instantiated the model to be an object of class <code class="docutils literal notranslate"><span class="pre">SIRD</span></code>. Now, we can use the dot notation (<code class="docutils literal notranslate"><span class="pre">.plot()</span></code>) to access the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset model to initial values</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SIRD</span><span class="p">(</span><span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">I0</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">R0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.39</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="n">days</span><span class="o">=</span> <span class="mi">365</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>$R_e$ &lt;= 1 after 19 days!</p>
+<img alt="_images/Assignment 1_35_1.png" src="_images/Assignment 1_35_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Written Response<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>As shown by the preceeding graph, yes it is possible to derive and plot the effective reproduction number, <span class="math notranslate nohighlight">\(R_{effective}\)</span>, as a function of time, given otherwise fixed parameters. Indeed doing just that is the purpose of the <code class="docutils literal notranslate"><span class="pre">_R_effective()</span></code> function defined in the <code class="docutils literal notranslate"><span class="pre">SIRD</span></code> class above.<br></p>
+</div>
+</div>
+</div>
+<div class="section" id="question-2">
+<h1>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline">¶</a></h1>
+<p>Create labeled surrogate data sets. Perform a PCA/Class prediction with ovr logistic regression analysis as developed in the lecture.</p>
+<ul class="simple">
+<li><p><strong>a:</strong> 4 blobs: Create clearly separable 4-blobs in 3d but also a ’disaster’ realization with strong overlaps. Study, show and compare elbow plots and prediction boundaries.</p></li>
+<li><p><strong>b:</strong> 2 touching parabola spreads as shown in the lecture, but in 3d (not 2d). Study and show elbow plot and prediction boundaries.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### imports ###</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span><span class="p">,</span> <span class="n">make_moons</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Class Explanation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>As with exercise one, we start this exercise by explaining our class, i.e. what we used in order to solve the assignment question. This gives us the benefit that we can easily alter specific measures and <em>study</em> the impact thereof.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Bear in mind, that the following section will outline the docstrings for the different methods. Thus, these docstrings will <b>not</b> be displayed in the code when creating the class itself.</p>
+<div class="section" id="id6">
+<h3>Class Creation<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>The class used here is called <code class="docutils literal notranslate"><span class="pre">Blobs_and_parabolas</span></code>. Here is how it is defined:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Blobs_and_parabolas</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A class to create, plot and analyize surrogate</span>
+<span class="sd">    data with different parameters.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+             <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">center_box</span> <span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="n">blob</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parabola</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function instantiates the class blobs and parabolas,</span>
+<span class="sd">    with the parameters defined below. Its primary benefit is that </span>
+<span class="sd">    we can easily alter some parameters to change data. This</span>
+<span class="sd">    class also proceeds to create new class attributes in a similar</span>
+<span class="sd">    manner to how it creates the train-test-split for example.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_samples : int, optional</span>
+<span class="sd">        How many samples do you want per blob, 250 by default</span>
+<span class="sd">    n_features : int, optional</span>
+<span class="sd">        How many features do you want your blob or respective </span>
+<span class="sd">        parabola to have, 13 by default</span>
+<span class="sd">    centers : int, optional</span>
+<span class="sd">        How many centers should your blobs have, 4 by default</span>
+<span class="sd">    cluster_std : int, optional</span>
+<span class="sd">        How large should the standard deviation be,</span>
+<span class="sd">        if you increase this number as can be seen later the</span>
+<span class="sd">        surrogate data will be more unclear, 1 by default</span>
+<span class="sd">    center_box : tuple, optional</span>
+<span class="sd">        The boundary where the surrogate data</span>
+<span class="sd">        should be created, (-50,50) by default</span>
+<span class="sd">    blob : [type], optional</span>
+<span class="sd">        Do you want to create surrogate data for</span>
+<span class="sd">        a blob set this to True? &quot;None&quot; by default</span>
+<span class="sd">    parabola : [type], optional</span>
+<span class="sd">        Do you want to create surrogate data for</span>
+<span class="sd">        a parabola set this to True? &quot;None&quot; by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pca-and-logistic-regression">
+<h3>PCA and Logistic Regression<a class="headerlink" href="#pca-and-logistic-regression" title="Permalink to this headline">¶</a></h3>
+<p>The goal of this exercise is to make a <em>one-versus-rest</em> logistic regression in combination with PCA. In order to do so, we created a function called <code class="docutils literal notranslate"><span class="pre">_pca_and_lr</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_pca_and_lr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function takes the data which is available</span>
+<span class="sd">    within its object and performs a PCA and a logistic</span>
+<span class="sd">    regression using the one-versus-rest logic.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int, optional</span>
+<span class="sd">        Number of dimensions the data</span>
+<span class="sd">        should be reduced to by PCA, 2 by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-the-decision-regions">
+<h3>Plot the decision regions<a class="headerlink" href="#plot-the-decision-regions" title="Permalink to this headline">¶</a></h3>
+<p>In order to see how well or poorly the data can still be separated after we used PCA and logistic regression, we created a function which can still plot the decision boundry. As you may have noticed, the <code class="docutils literal notranslate"><span class="pre">_pca_and_lr</span></code> function is also a <em>private</em> function, since it starts with an underscore. The PCA function is first called, and then the <code class="docutils literal notranslate"><span class="pre">plot_decision_regions</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_decision_regions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reduces the data using the _pca_and_lr function and then plots</span>
+<span class="sd">    the decision regions to showcase how good the data could</span>
+<span class="sd">    be separated after we reduced the data&#39;s dimensionality.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    resolution : float, optional</span>
+<span class="sd">        Parameter for the np.meshgrid function, 0.01 by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Class Definition<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>In the next step we implemented the class described above.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Should any questions arise regarding the methods usage, please scroll up and review the respective docstrings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Blobs_and_parabolas</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">center_box</span> <span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span>
+                <span class="n">blob</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parabola</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">blob</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_samples</span><span class="p">,</span>
+                                        <span class="n">n_features</span> <span class="o">=</span> <span class="n">n_features</span><span class="p">,</span>
+                                        <span class="n">centers</span> <span class="o">=</span> <span class="n">centers</span><span class="p">,</span>
+                                        <span class="n">cluster_std</span> <span class="o">=</span> <span class="n">cluster_std</span><span class="p">,</span>
+                                        <span class="n">center_box</span> <span class="o">=</span> <span class="n">center_box</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">parabola</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">),</span><span class="n">n_features</span><span class="p">))))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span><span class="p">(</span><span class="s2">&quot;Please select either blob = True or parabola = True&quot;</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Standardize the features (zero mean, unit variance) </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+        <span class="c1"># Fit results must be used later (mu and sigma)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_train_std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">)</span>
+        <span class="c1"># Normalize test data set with mu/sigma of training data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_test_std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cov_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train_std</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#cov matrix from data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">EVal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">EVec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cov_mat</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_EVal</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">EVal</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var_exp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum_EVal</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">EVal</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+        
+    <span class="k">def</span> <span class="nf">_pca_and_lr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="c1"># Set up PCA and logistic regression model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span> <span class="n">n_components</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;ovr&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Fit and transform training data, given on PCA reduction to k(=2) principle components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train_std</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_test_pca</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test_std</span><span class="p">)</span>
+        <span class="c1"># solves task, given 3 classes (as from y_train) </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">plot_decision_regions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pca_and_lr</span><span class="p">()</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="n">markers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">)</span> 
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">))])</span>
+
+        <span class="c1"># plot the decision surface</span>
+        <span class="n">x1_min</span><span class="p">,</span> <span class="n">x1_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">x2_min</span><span class="p">,</span> <span class="n">x2_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x1_min</span><span class="p">,</span> <span class="n">x1_max</span><span class="p">,</span> <span class="n">resolution</span><span class="p">),</span>
+                               <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x2_min</span><span class="p">,</span> <span class="n">x2_max</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))</span>
+
+        <span class="c1"># Z is the prediction of the class, given point in plane</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xx1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">xx2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="c1"># Z=f(xx1,yy1), plot classes in plane using color map but opaque</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xx1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">xx2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+        <span class="c1"># Plot data points, given labels</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">cl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">)):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">cl</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+                        <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train_pca</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">cl</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> 
+                        <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">idx</span><span class="p">)],</span>
+                        <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                        <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> 
+                        <span class="n">label</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we use our defined class, in order to create surrogate blob data. One of these datasets is called (<code class="docutils literal notranslate"><span class="pre">cs</span></code>) and it has a small standard deviation along with the aforementioned default parameters, while the other is called (<code class="docutils literal notranslate"><span class="pre">uc</span></code>) and it has a higher standard deviation surrounding each cluster.</p>
+</div>
+<div class="section" id="question-2a">
+<h2>Question 2a)<a class="headerlink" href="#question-2a" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-for-visualizing-the-datasets">
+<h3>Code for Visualizing the Datasets<a class="headerlink" href="#code-for-visualizing-the-datasets" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">Blobs_and_parabolas</span><span class="p">(</span><span class="n">blob</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">uc</span> <span class="o">=</span> <span class="n">Blobs_and_parabolas</span><span class="p">(</span><span class="n">blob</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+  
+<span class="c1"># syntax for 3-D projection</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Clearly Separable&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">uc</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">uc</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">uc</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span> <span class="s2">&quot;Not Clearly Separable&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clearly and Unclearly Separable Blobs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_50_0.png" src="_images/Assignment 1_50_0.png" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: The above plot provides a visualization of the surrogate data sets generated. The blue clusters represent clearly separable data while the orange dots are not easily separable.</p>
+</div>
+<div class="section" id="elbow-graphs-code-and-visualization">
+<h3>Elbow Graphs - Code and Visualization<a class="headerlink" href="#elbow-graphs-code-and-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot explained variances</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">),</span> <span class="n">cs</span><span class="o">.</span><span class="n">var_exp</span><span class="p">,</span> 
+        <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Explained Variance Ratio&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component Index&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PCA Elbow Graph - Clearly Separable Blobs&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">),</span> <span class="n">uc</span><span class="o">.</span><span class="n">var_exp</span><span class="p">,</span> 
+        <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component Index&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Explained Variance Ratio&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PCA Elbow Graph - Unclearly Separable Blobs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_53_0.png" src="_images/Assignment 1_53_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="elbow-graphs-takeaways">
+<h3>Elbow Graphs - Takeaways<a class="headerlink" href="#elbow-graphs-takeaways" title="Permalink to this headline">¶</a></h3>
+<p>For the dataset where the blobs are clearly separable, close to 100% of the variance is explained by just three features. Accordingly, reducing the dimensionality of this dataset from 13 to three would substantially reduce the model’s computational burden with very little impact on the model’s ability to explain the overall variance in the dataset.</p>
+<p>The situation is much different for the unclearly separable blobs however. The elbow plot for that dataset shows the “degree of variance explanation” is much more evenly distributed among the 13 features, with no feature being particularly important or unimportant. As a result, reducing this model’s dimensionality will have a relative strong (negative) impact on the extent to which it explains the variance in the data.</p>
+</div>
+<div class="section" id="prediction-boundaries-code-and-visualization">
+<h3>Prediction Boundaries - Code and Visualization<a class="headerlink" href="#prediction-boundaries-code-and-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">plot_decision_regions</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clearly Separable by PCA&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">uc</span><span class="o">.</span><span class="n">plot_decision_regions</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Not Clearly Separable by PCA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_56_0.png" src="_images/Assignment 1_56_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="prediction-boundaries-takeaways">
+<h3>Prediction Boundaries - Takeaways<a class="headerlink" href="#prediction-boundaries-takeaways" title="Permalink to this headline">¶</a></h3>
+<p>The plot for the clearly separable data shows that the corresponding model has no issues correctly classifying the data using only the two most important features, as determined by the extent to which they explain variance in the data. This is not surprising, as the corresponding elbow plot showed how ~80% of the variance in the data was explained by these two features.</p>
+<p>Conversely, the plot for the non-separable data shows a “disaster” scenario where the model essentially has no idea what it is doing and the classifications are all over the map. Clearly, the dimensionality reduction for this dataset is not working properly. Again, this outcome is predictable when we consider the elbow plot for this data, as discussed above.</p>
+</div>
+</div>
+<div class="section" id="question-2b">
+<h2>Question 2b)<a class="headerlink" href="#question-2b" title="Permalink to this headline">¶</a></h2>
+<p>Here we create different surrogate data for the parabolas. The <code class="docutils literal notranslate"><span class="pre">cs</span></code> variable contains only 3D data for the two <em>touching</em> parabolas.</p>
+<div class="section" id="plotting-the-3d-parabolas-code-and-visualization">
+<h3>Plotting the 3D Parabolas - Code and Visualization<a class="headerlink" href="#plotting-the-3d-parabolas-code-and-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">Blobs_and_parabolas</span><span class="p">(</span><span class="n">parabola</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+  
+<span class="c1"># syntax for 3-D projection</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cs</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">cs</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Low dimensional data parabolas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_62_0.png" src="_images/Assignment 1_62_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-3d-parabolas-takeaways">
+<h3>Plotting the 3D Parabolas - Takeaways<a class="headerlink" href="#plotting-the-3d-parabolas-takeaways" title="Permalink to this headline">¶</a></h3>
+<p>The parabola spread visualizations show two touching parabolas in three dimensions. One would assume the classifier to have a fairly easy time classifying the data on each side of the two parabolas; the true test of the classifier’s efficacy would be how well it classifies the data points at the parabolas’ respective vertices.</p>
+</div>
+<div class="section" id="elbow-graph-code-and-visualization">
+<h3>Elbow Graph - Code and Visualization<a class="headerlink" href="#elbow-graph-code-and-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot explained variances</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">cs</span><span class="o">.</span><span class="n">var_exp</span><span class="p">,</span> 
+        <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Individual, Explained Variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Explained Variance Ratio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA Elbow Graph - Parabola&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_65_0.png" src="_images/Assignment 1_65_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="elbow-graph-takeaway">
+<h3>Elbow Graph - Takeaway<a class="headerlink" href="#elbow-graph-takeaway" title="Permalink to this headline">¶</a></h3>
+<p>The “elbow” graph above actually does not really show much of the namesake elbow effect. Instead, it is a more or less linear decrease from the first feature to the third in terms of the extent to which they explain the variance, with each feature explaining approximately 15% less variance than the preceeding feature.</p>
+</div>
+<div class="section" id="id8">
+<h3>Prediction Boundaries - Code and Visualization<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">plot_decision_regions</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA Disaster&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Assignment 1_68_0.png" src="_images/Assignment 1_68_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Prediction Boundaries - Takeaways<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>The preceeding visualization clearly shows the model is not able to accurately classify the data. This can likely be attributed to the fact that PCA does not work effectively when we have non-linearity in our dataset, and it is clear the dataset we are analyzing here is non-linear.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to our Machine Learning II Book</a>
+    <a class='right-next' id="next-link" href="Assignment%202.html" title="next page">The Kernel Trick</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

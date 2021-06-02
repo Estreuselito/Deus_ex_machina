@@ -1,0 +1,1527 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Self Learning/SelfLearning_ML2_Part_I.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FSelf Learning/SelfLearning_ML2_Part_I.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Self Learning/SelfLearning_ML2_Part_I.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <a id="dimreduction">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selflearning-ml2-part-1-v2-0">
+   SelfLearning ML2 Part 1_v2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-curse-of-dimensionality">
+     The curse of dimensionality
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problems-for-visualization-and-exploration">
+       Problems for visualization and exploration
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problems-for-ml-algorithms">
+       Problems for ML algorithms
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-few-cautionary-tales">
+       A few cautionary tales
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#increasing-sample-requirements">
+         Increasing sample requirements
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#problems-with-neighborhood-based-methods">
+         Problems with neighborhood-based methods
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#samples-are-pushed-to-the-corners">
+         Samples are pushed to the corners
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#does-this-mean-that-ml-algorithms-are-hopeless-already-for-10-features">
+         Does this mean that ML algorithms are hopeless already for ~10 features?
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-dimensionality-reduction">
+     Types of dimensionality reduction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-selection-filtering">
+       Feature selection/filtering
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-projection">
+       Feature projection
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-projection-methods">
+     Feature projection methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-methods">
+     Linear methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#principal-component-analysis-pca">
+       Principal Component Analysis (PCA)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#intuitive-algorithm">
+         Intuitive algorithm
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#using-pca-for-dimension-reduction">
+         Using PCA for dimension reduction
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pca-diagonalizes-the-covariance-matrix-details-and-link-to-linear-alegbra-ev-factorization-as-given-in-lecture">
+         PCA diagonalizes the covariance matrix  (details and link to Linear Alegbra &amp; EV factorization as given in lecture)
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#explained-variance-by-component">
+         Explained variance by component
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#reconstructing-the-original-representation-from-the-pca-representation">
+         Reconstructing the original representation from the PCA representation
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#further-reading">
+         Further reading
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sparse-pca">
+       Sparse PCA
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Further reading
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#non-negative-matrix-factorization-nmf">
+       Non-negative Matrix Factorization (NMF)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pca-vs-nmf">
+         PCA vs NMF:
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-discriminant-analysis-lda">
+       Linear Discriminant Analysis (LDA)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#lda-objective">
+         LDA objective
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#for-binary-classification">
+           For binary classification
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#generalization-for-multiclass-classification-can-be-jumped">
+           Generalization for multiclass classification (can be jumped)
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Further reading
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-id-dimreduction-a">
+<h1><a id="dimreduction"></a><a class="headerlink" href="#a-id-dimreduction-a" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="selflearning-ml2-part-1-v2-0">
+<h1>SelfLearning ML2 Part 1_v2.0<a class="headerlink" href="#selflearning-ml2-part-1-v2-0" title="Permalink to this headline">¶</a></h1>
+<p>This notebook is adapted from FE et al. and corrected/edited by JN ( last update: April 2021).
+This notebook is complementary to the lecture slides. It may serve you to find further reading, learn some keywords, or get a deeper understanding by just more examples and more things around the stuff, or from another perspective. You do not need to study this in order to be prepared for the exam. It is just a bit more meaty meaty.</p>
+<div class="section" id="the-curse-of-dimensionality">
+<h2>The curse of dimensionality<a class="headerlink" href="#the-curse-of-dimensionality" title="Permalink to this headline">¶</a></h2>
+<p>High dimensional data is more frequent than one might first think, e.g., even a low resolution  grey scale image from the famous <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST datase</a>:</p>
+<p><img alt="320px-MnistExamples.png" src="Self Learning/attachment:320px-MnistExamples.png" /></p>
+<p>has 784 dimensions, as it contains intensity information for each of its <span class="math notranslate nohighlight">\(28\times 28 = 784\)</span> pixels.</p>
+<p>A high dimensional feature space is problematic for a number of reasons:</p>
+<div class="section" id="problems-for-visualization-and-exploration">
+<h3>Problems for visualization and exploration<a class="headerlink" href="#problems-for-visualization-and-exploration" title="Permalink to this headline">¶</a></h3>
+<p>Humans are simply not evolutionarily adapted to handle larger dimensional data well:</p>
+<ul class="simple">
+<li><p>We are very good at recognizing patterns visually in 2 and 3 dimensional data, but we cannot really handle higher dimensional spaces.</p></li>
+<li><p>A large number of our geometrical intuitions are not transferable to high dimensional spaces.</p></li>
+</ul>
+</div>
+<div class="section" id="problems-for-ml-algorithms">
+<h3>Problems for ML algorithms<a class="headerlink" href="#problems-for-ml-algorithms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>For many supervised learning algorithms the number of examples needed to achieve a given level of accuracy grows exponentially with the number of dimensions (precision is proportional to data density in the feature space).</p></li>
+<li><p>More concretely, <em>distances</em> in the feature space on which many ML algorithms  are based tend to be less and less discriminative as the number of dimensions grow.</p></li>
+</ul>
+</div>
+<div class="section" id="a-few-cautionary-tales">
+<h3>A few cautionary tales<a class="headerlink" href="#a-few-cautionary-tales" title="Permalink to this headline">¶</a></h3>
+<p>Consider the following table, which shows the side length (also called linear dimension) of a hypercube that covers the given <span class="math notranslate nohighlight">\(f\)</span> fraction of the volume of a <span class="math notranslate nohighlight">\([0,1]^D\)</span> unit hypercube for a number of <span class="math notranslate nohighlight">\(D\)</span> dimensions (<span class="math notranslate nohighlight">\(\sqrt[D]{f}\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">fracs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">frac</span> <span class="ow">in</span> <span class="n">fracs</span><span class="p">:</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">frac</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">dim</span><span class="p">)</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span> <span class="o">+</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> dims&quot;</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f</th>
+      <th>2 dims</th>
+      <th>3 dims</th>
+      <th>4 dims</th>
+      <th>5 dims</th>
+      <th>6 dims</th>
+      <th>7 dims</th>
+      <th>8 dims</th>
+      <th>9 dims</th>
+      <th>10 dims</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.2000</td>
+      <td>0.447214</td>
+      <td>0.584804</td>
+      <td>0.668740</td>
+      <td>0.724780</td>
+      <td>0.764724</td>
+      <td>0.794597</td>
+      <td>0.817765</td>
+      <td>0.836251</td>
+      <td>0.851340</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0100</td>
+      <td>0.100000</td>
+      <td>0.215443</td>
+      <td>0.316228</td>
+      <td>0.398107</td>
+      <td>0.464159</td>
+      <td>0.517947</td>
+      <td>0.562341</td>
+      <td>0.599484</td>
+      <td>0.630957</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0010</td>
+      <td>0.031623</td>
+      <td>0.100000</td>
+      <td>0.177828</td>
+      <td>0.251189</td>
+      <td>0.316228</td>
+      <td>0.372759</td>
+      <td>0.421697</td>
+      <td>0.464159</td>
+      <td>0.501187</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0001</td>
+      <td>0.010000</td>
+      <td>0.046416</td>
+      <td>0.100000</td>
+      <td>0.158489</td>
+      <td>0.215443</td>
+      <td>0.268270</td>
+      <td>0.316228</td>
+      <td>0.359381</td>
+      <td>0.398107</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="increasing-sample-requirements">
+<h4>Increasing sample requirements<a class="headerlink" href="#increasing-sample-requirements" title="Permalink to this headline">¶</a></h4>
+<p>The figures show that if we train an ML algorithm using one feature on the 20% of a population, and start adding new features (i.e., dimensions) then we need dramatically more samples to maintain the same amount of coverage on the feature space: concretely, even for 3 features we’d need almost 60% of the population:</p>
+<p><img alt="vd1.png" src="Self Learning/attachment:vd1.png" /></p>
+</div>
+<div class="section" id="problems-with-neighborhood-based-methods">
+<h4>Problems with neighborhood-based methods<a class="headerlink" href="#problems-with-neighborhood-based-methods" title="Permalink to this headline">¶</a></h4>
+<p>Let’s suppose that using a KNN-like approach we predict the label of an input which is uniformly distributed in <span class="math notranslate nohighlight">\([0,1]^D\)</span> on the basis of the labels of examples in a small hypercube around it which contains an <span class="math notranslate nohighlight">\(f\)</span>- fraction of the examples. As the table shows, for <span class="math notranslate nohighlight">\(D=10\)</span> dimensions and <span class="math notranslate nohighlight">\(f=0.01\)</span> the “small” hypercube’s size will be 0.63, that is, we will not really use <em>local</em> information for determining the label at all. (The size is slightly more than 0.5 even for <span class="math notranslate nohighlight">\(f=0.001\)</span>.)</p>
+<p>(The example is from Murphy, Machine Learning:  A probabilistic perspective (MIT, 2012))</p>
+</div>
+<div class="section" id="samples-are-pushed-to-the-corners">
+<h4>Samples are pushed to the corners<a class="headerlink" href="#samples-are-pushed-to-the-corners" title="Permalink to this headline">¶</a></h4>
+<p>Another strange effect of high dimensionality is that the ratio of normal/central examples that are close to the centroid of the population radically decreases, because of the strange behavior of hyperspheres. E.g., considering again an <span class="math notranslate nohighlight">\([1,0]^D\)</span> feature space and an edged hypersphere, the volume of the hypesphere, and consequently the ratio of central examples tends to 0 (even though the sphere touches all sides of the hypercube):</p>
+<p><img alt="vd2.png" src="Self Learning/attachment:vd2.png" /></p>
+</div>
+<div class="section" id="does-this-mean-that-ml-algorithms-are-hopeless-already-for-10-features">
+<h4>Does this mean that ML algorithms are hopeless already for ~10 features?<a class="headerlink" href="#does-this-mean-that-ml-algorithms-are-hopeless-already-for-10-features" title="Permalink to this headline">¶</a></h4>
+<p>Fortunately, no – notice that the cautionary tales all assumed that the data is more or less <em>uniformly distributed</em> in the high-dimensional space. Frequently, this is not the case: to return to our MNIST example, even a cursory glance at the examples:</p>
+<p><img alt="vd3.png" src="Self Learning/attachment:vd3.png" /></p>
+<p>(Image source: <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">Wikipedia</a>)</p>
+<p>shows that the data points are <em>not</em> uniformly distributed in the 784 dimensional space, e.g., many positions are always white. The lesson is rather that high dimensional spaces can behave very counterintuitively, can cause problems for ML algorithms, and the clever exploitation of the data distribution (e.g., dense lower dimensional subspaces) is highly important for the performance of ML methods.</p>
+</div>
+</div>
+</div>
+<div class="section" id="types-of-dimensionality-reduction">
+<h2>Types of dimensionality reduction<a class="headerlink" href="#types-of-dimensionality-reduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="feature-selection-filtering">
+<h3>Feature selection/filtering<a class="headerlink" href="#feature-selection-filtering" title="Permalink to this headline">¶</a></h3>
+<p>Decrease number of features by dropping less useful ones</p>
+<ul class="simple">
+<li><p>e.g. some features might have information content that is contained in other featurs</p></li>
+</ul>
+<p>Good indicators:</p>
+<ul class="simple">
+<li><p><strong>high correlation</strong> between pairs of features</p></li>
+<li><p><strong>low information gain</strong>  in terms of both featues vs. only one</p></li>
+</ul>
+</div>
+<div class="section" id="feature-projection">
+<h3>Feature projection<a class="headerlink" href="#feature-projection" title="Permalink to this headline">¶</a></h3>
+<p>Replace certain or all features with a lower number of new ones, containing (most of) useful information of original feature</p>
+<p>Data points in the original feature space represented in a new feature space</p>
+<ul class="simple">
+<li><p>New feature values are <strong>projections</strong> of the data points onto the axes of the new space</p></li>
+<li><p>Concept of “projection” not necessarily linear</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iris dataset</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _iris_dataset:
+
+Iris plants dataset
+--------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 150 (50 in each of three classes)
+    :Number of Attributes: 4 numeric, predictive attributes and the class
+    :Attribute Information:
+        - sepal length in cm
+        - sepal width in cm
+        - petal length in cm
+        - petal width in cm
+        - class:
+                - Iris-Setosa
+                - Iris-Versicolour
+                - Iris-Virginica
+                
+    :Summary Statistics:
+
+    ============== ==== ==== ======= ===== ====================
+                    Min  Max   Mean    SD   Class Correlation
+    ============== ==== ==== ======= ===== ====================
+    sepal length:   4.3  7.9   5.84   0.83    0.7826
+    sepal width:    2.0  4.4   3.05   0.43   -0.4194
+    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)
+    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)
+    ============== ==== ==== ======= ===== ====================
+
+    :Missing Attribute Values: None
+    :Class Distribution: 33.3% for each of 3 classes.
+    :Creator: R.A. Fisher
+    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
+    :Date: July, 1988
+
+The famous Iris database, first used by Sir R.A. Fisher. The dataset is taken
+from Fisher&#39;s paper. Note that it&#39;s the same as in R, but not as in the UCI
+Machine Learning Repository, which has two wrong data points.
+
+This is perhaps the best known database to be found in the
+pattern recognition literature.  Fisher&#39;s paper is a classic in the field and
+is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The
+data set contains 3 classes of 50 instances each, where each class refers to a
+type of iris plant.  One class is linearly separable from the other 2; the
+latter are NOT linearly separable from each other.
+
+.. topic:: References
+
+   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;
+     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to
+     Mathematical Statistics&quot; (John Wiley, NY, 1950).
+   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.
+     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.
+   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System
+     Structure and Classification Rule for Recognition in Partially Exposed
+     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine
+     Intelligence, Vol. PAMI-2, No. 1, 67-71.
+   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions
+     on Information Theory, May 1972, 431-433.
+   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II
+     conceptual clustering system finds 3 classes in the data.
+   - Many, many more ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># we only take the first two features.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-4-03d594980959&gt;:8: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+</pre></div>
+</div>
+<img alt="../_images/SelfLearning_ML2_Part_I_11_1.png" src="../_images/SelfLearning_ML2_Part_I_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-f82c0cee0060&gt;:2: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+</pre></div>
+</div>
+<img alt="../_images/SelfLearning_ML2_Part_I_12_1.png" src="../_images/SelfLearning_ML2_Part_I_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-6-3e595cf392d7&gt;:2: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+</pre></div>
+</div>
+<img alt="../_images/SelfLearning_ML2_Part_I_13_1.png" src="../_images/SelfLearning_ML2_Part_I_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-7-85a4646a6591&gt;:2: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+</pre></div>
+</div>
+<img alt="../_images/SelfLearning_ML2_Part_I_14_1.png" src="../_images/SelfLearning_ML2_Part_I_14_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-projection-methods">
+<h2>Feature projection methods<a class="headerlink" href="#feature-projection-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="linear-methods">
+<h2>Linear methods<a class="headerlink" href="#linear-methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Transformation into new feature space linear</p></li>
+<li><p>Find new and more useful axes that can be expressed as linear combinations of basis vectors of  old feature space</p></li>
+</ul>
+<div class="section" id="principal-component-analysis-pca">
+<h3>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One of the most important linear dimension reduction methods for continuous features</p></li>
+<li><p>Finds set of orthogonal directions in the old feature space along which the variance of the data is the largest
+-&gt; Minimizes the covariance of the data between the new directions.</p></li>
+</ul>
+<p>The <strong>variance</strong> of an <span class="math notranslate nohighlight">\(A=\{a,\dots,a_{N}\}\)</span> of a data set can be defined here as</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2_A=\frac{1}{N-1}\sum_i (a_i - \bar{a})^2
+\]</div>
+<p>and the <strong>covariance</strong> of values <span class="math notranslate nohighlight">\(A=\{a_1,\dots,a_{N}\}\)</span> and <span class="math notranslate nohighlight">\(B=\{b_1,\dots,b_{N}\}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2_{AB}=\frac{1}{N-1}\sum_i (a_i - \bar{a})(b_i - \bar{b})
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar a\)</span> and <span class="math notranslate nohighlight">\(\bar b\)</span> signify the means of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively.</p>
+<p><img alt="GaussianScatterPCA.png" src="Self Learning/attachment:GaussianScatterPCA.png" /></p>
+<p>(<a class="reference external" href="https://en.wikipedia.org/wiki/Principal_component_analysis">source</a>)</p>
+<ul class="simple">
+<li><p><strong>High variance along axes</strong> ensures that new features have high information content</p></li>
+<li><p><strong>Low covariance between projections (guaranteed by orthogonality) onto the new axes</strong> means that none of the new features contain  highly correlated information</p></li>
+</ul>
+<div class="section" id="intuitive-algorithm">
+<h4>Intuitive algorithm<a class="headerlink" href="#intuitive-algorithm" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Find a direction in the feature space along which variance is maximal. This will be the first new basis vector (principal component).</p></li>
+<li><p>Find  another  direction  along  which  variance  is  maximized and which is orthogonal to all basis vectors found so far.</p></li>
+<li><p>Repeat Step 2 until all <span class="math notranslate nohighlight">\(m\)</span> vectors of the basis are found.</p></li>
+</ol>
+</div>
+<div class="section" id="using-pca-for-dimension-reduction">
+<h4>Using PCA for dimension reduction<a class="headerlink" href="#using-pca-for-dimension-reduction" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>New basis vectors PCA produces are ordered by variance</p></li>
+<li><p>Drop components with low variance, because they can be considered to be (mainly) noise</p></li>
+</ul>
+<p><a href="http://www.nlpca.org/fig_pca_principal_component_analysis.png"><img src="https://drive.google.com/uc?export=view&id=1T-LhhvX6jv9UO07RO29DpkQ3la9iWUoG"></a></p>
+<p>(source: <a class="reference external" href="http://nlpca.org">http://nlpca.org</a>)</p>
+</div>
+<div class="section" id="pca-diagonalizes-the-covariance-matrix-details-and-link-to-linear-alegbra-ev-factorization-as-given-in-lecture">
+<h4>PCA diagonalizes the covariance matrix  (details and link to Linear Alegbra &amp; EV factorization as given in lecture)<a class="headerlink" href="#pca-diagonalizes-the-covariance-matrix-details-and-link-to-linear-alegbra-ev-factorization-as-given-in-lecture" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Mathematically, PCA’s finds new orthonormal basis  in which the <strong>covariance matrix</strong>  of the data is diagonal (all non-diagonal elements are 0).</p></li>
+<li><p>Covariance matrix for a dataset <span class="math notranslate nohighlight">\(\mathbf X=\{\mathbf x_1,\dots, \mathbf x_N\}\)</span> of <span class="math notranslate nohighlight">\(m\)</span>-dimensional vectors with data for features <span class="math notranslate nohighlight">\(F_1,\dots,F_{m}\)</span> is the matrix</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} \text{Cov}(\mathbf X) = \frac{1}{N-1}\sum_{i=1}^N(\mathbf x_i-\bar{\mathbf x})(\mathbf x_i-\bar{\mathbf x})^T=
+\begin{bmatrix}
+\sigma^2_{F_1} &amp;\cdots &amp;\sigma^2_{F_1 F_{m}}\\
+\vdots &amp; \ddots &amp; \vdots \\
+\sigma^2_{F_m F_{1}} &amp; \cdots &amp; \sigma^2_{F_m}
+\end{bmatrix}
+\end{split}\]</div>
+<p>that is, for each cell in row <span class="math notranslate nohighlight">\(i\)</span> and column <span class="math notranslate nohighlight">\(j\)</span> it contains the covariance of <span class="math notranslate nohighlight">\(F_i\)</span> and <span class="math notranslate nohighlight">\(F_j\)</span> – consequently  the diagonal of the matrix contains the <em>variances</em> of the data for each feature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">std</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">seed</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cov</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span> 
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot, 3D</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_plane</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_pca_plane</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_plane</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">zmin</span><span class="p">,</span> <span class="n">zmax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">150</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="n">zmin</span><span class="p">,</span><span class="n">zmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca_plane</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca_plane</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_pca_plane</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-9-b6cc7f44486c&gt;:11: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+&lt;ipython-input-9-b6cc7f44486c&gt;:19: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
+  ax = Axes3D(fig, elev=-150, azim=110)
+</pre></div>
+</div>
+<img alt="../_images/SelfLearning_ML2_Part_I_23_1.png" src="../_images/SelfLearning_ML2_Part_I_23_1.png" />
+<img alt="../_images/SelfLearning_ML2_Part_I_23_2.png" src="../_images/SelfLearning_ML2_Part_I_23_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="explained-variance-by-component">
+<h4>Explained variance by component<a class="headerlink" href="#explained-variance-by-component" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>When we switch to new feature space produced by PCA, say from features <span class="math notranslate nohighlight">\(F_1, \dots, F_m\)</span> to <span class="math notranslate nohighlight">\(P_1,\dots, P_m\)</span>  <em>total variance</em> of our data, which is the sum of the variances along the features remains unchanged (given no components are dropped):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sum_i\sigma^2_{F_i}=\sum_i\sigma^2_{P_i}
+\]</div>
+<ul class="simple">
+<li><p>Only distribution of total variance among features changes.</p></li>
+<li><p>Accordingly, makes sense to talk about how much of the total variance of the data is along (“explained by”) a PCA component/feature <span class="math notranslate nohighlight">\(P_k\)</span>: this value is simply $<span class="math notranslate nohighlight">\(\frac{\sigma^2_{P_k}}{\sum_i\sigma^2_{P_i}}\)</span>$.</p></li>
+</ul>
+<p>Customary to use the “explained variance” percentage of components to decide which one can be omitted to reduce dimensionality.</p>
+<p>Note here that in the lecture we use the EVs instead of the variances to define the variance explained ratio, because of the covariance decomposition, <span class="math notranslate nohighlight">\(\Sigma=S \Lambda S^{-1}\)</span>. The notions are equivalent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decreasing variance</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of PCA components&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total explained variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_25_0.png" src="../_images/SelfLearning_ML2_Part_I_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="reconstructing-the-original-representation-from-the-pca-representation">
+<h4>Reconstructing the original representation from the PCA representation<a class="headerlink" href="#reconstructing-the-original-representation-from-the-pca-representation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Mapping from old feature space to new provided by PCA can be reversed</p></li>
+<li><p>Using the PCA components and the new representations the original data can be reconstructed, at least approximately:</p></li>
+</ul>
+<p><a href="http://alexhwilliams.info/itsneuronalblog/img/pca/rank_one.png"><img src="https://drive.google.com/uc?export=view&id=1wheGkUUxAic4c2gwJ6Xj5IMKtpCyr5BE" width="900"></a></p>
+<ul class="simple">
+<li><p>As more and more components are used the approximation gets more precise</p></li>
+<li><p>Using all components we are guaranteed to get back exactly the original data</p></li>
+<li><p>Otherwise data points replaced with their projections on the subspace determined by chosen components</p></li>
+</ul>
+<p><a href="http://alexhwilliams.info/itsneuronalblog/img/pca/pca_3.png"><img src= "https://drive.google.com/uc?export=view&id=1TN302dZz31WZz2cEaj7VJOdDDt1xhpAq" width="900"></a></p>
+<p>(source: <a class="reference external" href="http://alexhwilliams.info/itsneuronalblog/2016/03/27/pca/">Everything you did and didn’t know about PCA</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+<span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _digits_dataset:
+
+Optical recognition of handwritten digits dataset
+--------------------------------------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 1797
+    :Number of Attributes: 64
+    :Attribute Information: 8x8 image of integer pixels in the range 0..16.
+    :Missing Attribute Values: None
+    :Creator: E. Alpaydin (alpaydin &#39;@&#39; boun.edu.tr)
+    :Date: July; 1998
+
+This is a copy of the test set of the UCI ML hand-written digits datasets
+https://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits
+
+The data set contains images of hand-written digits: 10 classes where
+each class refers to a digit.
+
+Preprocessing programs made available by NIST were used to extract
+normalized bitmaps of handwritten digits from a preprinted form. From a
+total of 43 people, 30 contributed to the training set and different 13
+to the test set. 32x32 bitmaps are divided into nonoverlapping blocks of
+4x4 and the number of on pixels are counted in each block. This generates
+an input matrix of 8x8 where each element is an integer in the range
+0..16. This reduces dimensionality and gives invariance to small
+distortions.
+
+For info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.
+T. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.
+L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
+1994.
+
+.. topic:: References
+
+  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their
+    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of
+    Graduate Studies in Science and Engineering, Bogazici University.
+  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.
+  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.
+    Linear dimensionalityreduction using relevance weighted LDA. School of
+    Electrical and Electronic Engineering Nanyang Technological University.
+    2005.
+  - Claudio Gentile. A New Approximate Maximal Margin Classification
+    Algorithm. NIPS. 2000.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1797, 64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">data</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># project from 64 to 2 dimensions</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_pca</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1797, 64)
+(1797, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_digits</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                             <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                             <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span>
+                  <span class="n">clim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plot_digits</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_30_0.png" src="../_images/SelfLearning_ML2_Part_I_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">c</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;component 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;component 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_31_0.png" src="../_images/SelfLearning_ML2_Part_I_31_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of components&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;cumulative explained variance&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_32_0.png" src="../_images/SelfLearning_ML2_Part_I_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here the minium variance is specified as 0.90</span>
+<span class="c1"># which determines the number of components=21 (alternative usage of PCA)</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">n_components_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate Gaussian noise with data=mean and std=4 (for comparison)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">noisy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plot_digits</span><span class="p">(</span><span class="n">noisy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_34_0.png" src="../_images/SelfLearning_ML2_Part_I_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca5</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1">#only 50% of variance is represented</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pca5</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components</span> <span class="o">=</span> <span class="n">pca5</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">noisy</span><span class="p">)</span> <span class="c1">#looks like the &quot;noised&quot; one before</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="n">pca5</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+<span class="n">plot_digits</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_36_0.png" src="../_images/SelfLearning_ML2_Part_I_36_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">digits</span> <span class="c1">#sometimes saves the CPU</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_lfw_people</span>
+<span class="n">faces</span> <span class="o">=</span> <span class="n">fetch_lfw_people</span><span class="p">(</span><span class="n">min_faces_per_person</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ariel Sharon&#39; &#39;Colin Powell&#39; &#39;Donald Rumsfeld&#39; &#39;George W Bush&#39;
+ &#39;Gerhard Schroeder&#39; &#39;Hugo Chavez&#39; &#39;Junichiro Koizumi&#39; &#39;Tony Blair&#39;]
+(1348, 62, 47)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;randomized&#39;</span><span class="p">)</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PCA(n_components=150, svd_solver=&#39;randomized&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                         <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="mi">47</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone&#39;</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_40_0.png" src="../_images/SelfLearning_ML2_Part_I_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of components&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;cumulative explained variance&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_41_0.png" src="../_images/SelfLearning_ML2_Part_I_41_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">projected</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span>
+                       <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                       <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="mi">47</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary_r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">projected</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="mi">47</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary_r&#39;</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;full-dim</span><span class="se">\n</span><span class="s1">input&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;150-dim</span><span class="se">\n</span><span class="s1">reconstruction&#39;</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_43_0.png" src="../_images/SelfLearning_ML2_Part_I_43_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h4>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1404.1100">A very good technical PCA tutorial by Jonathon Shlens</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sparse-pca">
+<h3>Sparse PCA<a class="headerlink" href="#sparse-pca" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Disadvantage of PCA: difficult to interpret results, since produced new features typically linear combinations of <em>all</em> original features</p></li>
+<li><p>Sparse PCA tries to solve problem by trying to find components which maximize variance but are sparse in the sense that they combine a low number features</p></li>
+</ul>
+<ul class="simple">
+<li><p>Sparsity is typically implemented in the objective function as an L1 penalty.</p></li>
+<li><p>The orthogonality requirement of PCA is dropped.</p></li>
+<li><p>Because of the L1 penalty and the connection between variance maximization and LSE (least square error) minimization problem closely related to LASSO linear regression, and is solved with similar methods</p></li>
+</ul>
+<p>We will introduce regularization such as L1 and L2 later in the lecture</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">SparsePCA</span>
+<span class="n">sparsePca</span> <span class="o">=</span> <span class="n">SparsePCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ridge_alpha</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">sparsePca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                         <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sparsePca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="mi">47</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone&#39;</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_46_0.png" src="../_images/SelfLearning_ML2_Part_I_46_0.png" />
+</div>
+</div>
+<div class="section" id="id1">
+<h4>Further reading<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>An introduction to PCA and its sparse variants:
+<a class="reference external" href="http://alexhwilliams.info/itsneuronalblog/2016/03/27/pca/">Everything you did and didn’t know about PCA</a></p>
+</div>
+</div>
+<div class="section" id="non-negative-matrix-factorization-nmf">
+<h3>Non-negative Matrix Factorization (NMF)<a class="headerlink" href="#non-negative-matrix-factorization-nmf" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Even if all values in original data non-negative, PCA and its variants frequently produce components and new representations with <em>negative values</em></p></li>
+<li><p>Often undesirable: component subtraction difficult to interpret</p></li>
+</ul>
+<p>Technically, NMF</p>
+<ul class="simple">
+<li><p>Solves the factorization problem <span class="math notranslate nohighlight">\(X \approx W \times H\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is the input data matrix, <span class="math notranslate nohighlight">\(W\)</span> is the new representation and <span class="math notranslate nohighlight">\(H\)</span> is the component (“hidden factor”) matrix.</p></li>
+<li><p>Often used in conjunction with sparsity inducing regularization (e.g., L1 and L2).</p></li>
+<li><p>The objective is to minimize the reconstruction error <span class="math notranslate nohighlight">\(||X-WH||^2_F\)</span></p></li>
+<li><p>The factorization is not unique, since if <span class="math notranslate nohighlight">\(B\)</span> is invertible and <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(B^{-1}\)</span> are non-negative then <span class="math notranslate nohighlight">\(W\times H =WB\times B^{-1}H\)</span> is also solution.</p></li>
+</ul>
+<div class="section" id="pca-vs-nmf">
+<h4>PCA vs NMF:<a class="headerlink" href="#pca-vs-nmf" title="Permalink to this headline">¶</a></h4>
+<p>(red squares represent negative values)</p>
+<p><a href="http://drive.google.com/uc?export=view&id=15c9GUhTki91dujRIrfiUpHvHzxpyXYjO"><img src="https://drive.google.com/uc?export=view&id=13ajGXC2sOZwFRFH4SXPLcoKbhZMPs1-X"></a></p>
+<p><a href="http://drive.google.com/uc?export=view&id=1AuQw9YU2QbZ8GuP5CS-zZZzARW-j9uzN"><img src="https://drive.google.com/uc?export=view&id=1VRpj1z-NbCakl9fQjvXJDjvZdK2bvjf_"></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_lfw_people</span>
+<span class="n">faces</span> <span class="o">=</span> <span class="n">fetch_lfw_people</span><span class="p">(</span><span class="n">min_faces_per_person</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
+<span class="n">nmf</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;nndsvda&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">5e-3</span><span class="p">)</span>
+<span class="n">nmf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">faces</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                         <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="mi">47</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone&#39;</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_50_0.png" src="../_images/SelfLearning_ML2_Part_I_50_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-discriminant-analysis-lda">
+<h3>Linear Discriminant Analysis (LDA)<a class="headerlink" href="#linear-discriminant-analysis-lda" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PCA, which is an “unsupervised” method in the sense that it does not make use of a distinction of input and output variables/features (e.g. data to be classified and the correct class labels),</p></li>
+<li><p>LDA can be used for classified data points to find directions/components in the feature space that have good classificatory properties</p></li>
+</ul>
+<div class="section" id="lda-objective">
+<h4>LDA objective<a class="headerlink" href="#lda-objective" title="Permalink to this headline">¶</a></h4>
+<p>Goal of LDA to find (not necessarily orthogonal) directions in the feature space which simultaneously</p>
+<ul class="simple">
+<li><p>maximise the distances between the means of the classes</p></li>
+<li><p>minimise the variance within the classes</p></li>
+</ul>
+<p>Number of new dimensions produced by LDA depends on the number of classes and the dimensionality of original feature space:</p>
+<ul class="simple">
+<li><p>for <span class="math notranslate nohighlight">\(m\)</span> classes and <span class="math notranslate nohighlight">\(n\)</span> original features can produce a <span class="math notranslate nohighlight">\(\min(m-1, n)\)</span> dimensional new feature space</p></li>
+</ul>
+<div class="section" id="for-binary-classification">
+<h5>For binary classification<a class="headerlink" href="#for-binary-classification" title="Permalink to this headline">¶</a></h5>
+<p>For a binary classification problem LDA seeks a <em>single</em> axis in the feature space which maximizes the following value:</p>
+<div class="math notranslate nohighlight">
+\[\frac{(\tilde{\mu_1}-\tilde{\mu_2})^2}{\tilde{\sigma_1}^2+\tilde{\sigma_2}^2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{\mu_1}\)</span> and <span class="math notranslate nohighlight">\(\tilde{\mu_2}\)</span> are the projections of the two class centroids on the axis, and <span class="math notranslate nohighlight">\(\tilde{\sigma_1}^2\)</span> and <span class="math notranslate nohighlight">\(\tilde{\sigma_2}^2\)</span> are the <em>variances</em> of the data points of the two classes along the axis.</p>
+<p><a href="https://i.stack.imgur.com/2A4bb.jpg"><img src="https://drive.google.com/uc?export=view&id=1stdcEkCHD2L8_K2nxSiOnzstmQK0KlKo"></a></p>
+<p>(source: <a class="reference external" href="https://stats.stackexchange.com/questions/161362/supervised-dimensionality-reduction">Stack Exchange</a>, original source: <a class="reference external" href="http://www.stat.ucla.edu/~ybzhao/teaching/stat101c/">UCLA Stat 101 page</a></p>
+</div>
+<div class="section" id="generalization-for-multiclass-classification-can-be-jumped">
+<h5>Generalization for multiclass classification (can be jumped)<a class="headerlink" href="#generalization-for-multiclass-classification-can-be-jumped" title="Permalink to this headline">¶</a></h5>
+<p>For <span class="math notranslate nohighlight">\(m&gt;2\)</span>  classes the projections are no longer scalar, so in this case both the separation between the means of the classes and the within the class variances are represented as so called <em>scatter matrices</em>. For a given <span class="math notranslate nohighlight">\(c\)</span> class containing the <span class="math notranslate nohighlight">\(\mathbf X_c = \{\mathbf x_1,\dots,\mathbf x_N\}\)</span> data points with <span class="math notranslate nohighlight">\(\bar{\mathbf x}_c\)</span> mean the <em>within class scatter matrix</em> is</p>
+<div class="math notranslate nohighlight">
+\[S_w^c=\sum_{i=1}^N(\mathbf x_i-\bar{\mathbf x}_c)(\mathbf x_i-\bar{\mathbf x}_c)^T=N~\text{Cov}(\mathbf{X}_c)\]</div>
+<p>while the <em>between classes scatter matrix</em> for <span class="math notranslate nohighlight">\(c\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[S_b^c=N(\bar{\mathbf x}_c-\bar{\mathbf x})(\bar{\mathbf x}_c-\bar{\mathbf x})^T\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{\mathbf x}\)</span> is the mean of the whole dataset. With these definitions the LDA goal for <span class="math notranslate nohighlight">\(C=\{c_1,\dots,c_m\}\)</span> classes is to find <span class="math notranslate nohighlight">\(m-1\)</span> axes in the original feature space for which the scatter matrices of the data points’ projections maximize</p>
+<div class="math notranslate nohighlight">
+\[\frac{|\sum_{c\in C} S_b^c|}{|\sum_{c\in C} S_w^c|}\]</div>
+<p>where the <span class="math notranslate nohighlight">\(|\cdot|\)</span> matrix operator used to get scalar values for the nominator and denominator takes the determinant of the scatter matrixes providing a  kind of “sum total scatter”.</p>
+<p><a href="https://i.stack.imgur.com/x1wle.jpg"><img src="https://drive.google.com/uc?export=view&id=1N1xNiiftzSOXgcci22MzaK6gR0Qnm160"></a></p>
+<p>(source: <a class="reference external" href="https://stats.stackexchange.com/questions/22884/how-does-linear-discriminant-analysis-reduce-the-dimensions">StackExchange</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">target_names</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_r</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_r2</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="s1">&#39;turquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;darkorange&#39;</span><span class="p">]</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_names</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_r</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_r</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PCA of IRIS dataset&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_names</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_r2</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_r2</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LDA of IRIS dataset&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SelfLearning_ML2_Part_I_56_0.png" src="../_images/SelfLearning_ML2_Part_I_56_0.png" />
+<img alt="../_images/SelfLearning_ML2_Part_I_56_1.png" src="../_images/SelfLearning_ML2_Part_I_56_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Further reading<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.researchgate.net/publication/316994943_Linear_discriminant_analysis_A_detailed_tutorial">Tharwat, Alaa, et al. “Linear discriminant analysis: A detailed tutorial.” AI communications 30.2 (2017)</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#passed w/o error April 14, 2021</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Self Learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
