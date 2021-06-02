@@ -105,5 +105,4 @@ def silhouette_score_sklearn():
         plt.suptitle(("Silhouette analysis for KMeans clustering on sample data "
                       "with n_clusters = %d" % n_clusters),
                      fontsize=14, fontweight='bold')
-
     plt.show()
