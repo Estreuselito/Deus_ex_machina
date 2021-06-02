@@ -23,6 +23,8 @@ def plot_dendrogram(model, datasets,  **kwargs):
     # Plot the corresponding dendrogram
     plt.figure(figsize=(16, 6))
     dendrogram(linkage_matrix, **kwargs)
-    plt.title(f'Hierarchical Clustering Dendrogram for {datasets} data', fontdict = {'fontsize': 14})
+    plt.title(f'Hierarchical Clustering Dendrogram for {datasets} data\n\n', fontdict = {'fontsize': 14})
     plt.xlabel("Number of points in node (or index of point if no parenthesis).", fontdict = {'fontsize': 14})
+    plt.gca().invert_yaxis()
+    plt.tick_params(axis='both', which='major', labelsize=10, labelbottom = False, bottom=False, top = False, labeltop=True)
     plt.show()
