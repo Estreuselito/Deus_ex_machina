@@ -1,6 +1,7 @@
 import time
 from sklearn import metrics
 from sklearn import datasets
+from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -17,7 +18,7 @@ class Surrogate_data(object):
         self.n_classes = n_classes
         self.n_informative = n_informative
         
-    def _create_surrogate_data(self):
+    def _create_surrogate_data(self, standardize = True):
         blob_X, blob_y = datasets.make_blobs(n_samples = self.n_samples, centers = self.centers,
                                              cluster_std = self.cluster_std, random_state = 1)
         circles_X, circles_y = datasets.make_circles(n_samples = self.n_samples, noise = self.noise,
@@ -26,6 +27,11 @@ class Surrogate_data(object):
 #                                                         n_informative = self.n_informative, random_state = 1)
 #         hastie_X, hastie_y = datasets.make_hastie_10_2(n_samples = self.n_samples, random_state = 1)
         moons_X, moons_y = datasets.make_moons(n_samples = self.n_samples, noise = self.noise, random_state = 1)
+    
+        if standardize:
+            blob_X = StandardScaler().fit_transform(blob_X)
+            circles_X = StandardScaler().fit_transform(circles_X)
+            moons_X = StandardScaler().fit_transform(moons_X)
     
         self.datasets = [
             (blob_X, blob_y, "make_blobs"),
@@ -57,9 +63,9 @@ class Surrogate_data(object):
             return model.fit_predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
         return model.predict(X), ('%.2fs' % (t1 - t0)).lstrip('0')
     
-    def plot_raw_vs_predict(self, classifier, **kwargs):
+    def plot_raw_vs_predict(self, classifier, standardize = True, **kwargs):
         # creating surrogate data
-        self._create_surrogate_data()
+        self._create_surrogate_data(standardize = standardize)
         # For plotting in subplots later
         fig, ax = plt.subplots(len(self.datasets), 2, figsize = (14,14))
         fig.suptitle(f"{classifier.__name__} Comparision between raw and clustered data", ha = "center", va = "top", x = 0.5, y = 1.05, fontsize = 16)
