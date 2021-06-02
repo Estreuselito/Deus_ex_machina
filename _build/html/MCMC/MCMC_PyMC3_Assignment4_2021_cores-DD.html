@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/MCMC/MCMC_PyMC3_Assignment4_2021_cores-DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMCMC/MCMC_PyMC3_Assignment4_2021_cores-DD.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/MCMC/MCMC_PyMC3_Assignment4_2021_cores-DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Assignment 4 (Due: Wed, May 12, 2021)</p>
+<p>The devised program estimates robustly, given very noisy and very sparse data of infected and recovered of a past epidemic, the basic reproduction number of the SIR model. To keep computation in limit, we assume gamma=1. The SIR model is implemented in a minimal and optimal way, using scaled variables and a scaled time. Only the ODE part is numerically integrated that needs to be integrated. The noisy number of infected and the number of recovered are highly correlated. This relationship helps MCMC infer the parameters.</p>
+<p>Get familiar with the commented MCMC code below.</p>
+<p>Task:
+Change the program to the SIRD model, by including (D)eaths, with rate <span class="math notranslate nohighlight">\(\mu\)</span>. Fix not only <span class="math notranslate nohighlight">\(\gamma=1\)</span> but also <span class="math notranslate nohighlight">\(\beta=2.5\)</span> (or to a higher value of your choice).
+Infer the death rate <span class="math notranslate nohighlight">\(\mu\)</span>, given noisy <span class="math notranslate nohighlight">\(S(t)\)</span>, <span class="math notranslate nohighlight">\(I(t)\)</span>, <span class="math notranslate nohighlight">\(R(t)\)</span>, <span class="math notranslate nohighlight">\(D(t)\)</span> input curves.
+If you want, you can try to optimze the code (optional, very very hard).
+Also optional is: Does the inference for <span class="math notranslate nohighlight">\(\mu\)</span> work, if <span class="math notranslate nohighlight">\(S(t)\)</span> and/or <span class="math notranslate nohighlight">\(R(t)\)</span> are not given ?
+You may use these (initial) conditions/parameters: $<span class="math notranslate nohighlight">\(i0 = 0.01, s0 = 0.99, r0 = 0, d0 = 0, f = 3.0, timestep = 0.5.\)</span><span class="math notranslate nohighlight">\(
+You may assume values for the respective \)</span>\sigma<span class="math notranslate nohighlight">\('s (log-normal noises) in the range of \)</span>0.2-0.4<span class="math notranslate nohighlight">\(, but not lower than \)</span>0.1$. Good luck and have fun.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assignment 4: SIR model, MCMC for R0</span>
+<span class="c1"># Jan Nagler</span>
+<span class="c1"># based on https://docs.pymc.io/pymc-examples/examples/ode_models/ODE_API_introduction.htm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">precision</span> 4 
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pymc3</span> <span class="k">as</span> <span class="nn">pm</span> <span class="c1">#install if necessary</span>
+<span class="kn">from</span> <span class="nn">pymc3.ode</span> <span class="kn">import</span> <span class="n">DifferentialEquation</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span> 
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">simplefilter</span>
+<span class="c1"># ignore all future warnings</span>
+<span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING (theano.configdefaults): g++ not available, if using conda: `conda install m2w64-toolchain`
+WARNING (theano.configdefaults): g++ not detected ! Theano will be unable to execute optimized C-implementations (for both CPU and GPU) and will default to Python implementations. Performance will be severely degraded. To remove this warning, set Theano flags cxx to an empty string.
+WARNING (theano.tensor.blas): Using NumPy C-API based implementation for BLAS functions.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define initial conditions of SIR model</span>
+<span class="n">i0</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1">#fractions infected at time t0=0 (1%)</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">0.00</span> <span class="c1">#fraction of recovered at time t0=0</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="mf">0.00</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#3.0 # time factor, defines total time window range</span>
+<span class="n">timestep_data</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># dt for data (e.g., weekly)</span>
+<span class="c1"># d is mu</span>
+<span class="c1"># ODE SIR system, only parameter p[0]=R0, for scaled time t/gamma (optimized, and 1=gamma)</span>
+<span class="k">def</span> <span class="nf">SIRD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1">#ds = -p[0]*y[0]*y[1] # we do not need susceptibles as S=1-I-R is determ dependent on i and r</span>
+    <span class="c1">#dr = y[1] #component 0 = recovered, gamma=1 (will be returned directly)</span>
+    <span class="n">di</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#component 1 = infected, gamma=1 (SIR in one line)</span>
+    <span class="n">dd</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">di</span><span class="p">,</span><span class="n">dd</span><span class="p">]</span> <span class="c1"># return r(ecov) and i(nfect)</span>
+
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="n">timestep_data</span><span class="p">)</span>
+
+<span class="c1">#ground truth (fixed gamma=1, then R0=beta, time scale to t/gamma)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">beta</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Create SIR curves</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">SIRD</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="n">r0</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span><span class="n">d0</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]],),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span> <span class="c1"># r0 recovered, i0 infected  at t0</span>
+<span class="c1"># Observational model for muliplicative noise</span>
+<span class="n">yobs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">::]),</span> <span class="n">sigma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span> <span class="c1"># noise is multiplicative (makes sense here)</span>
+<span class="c1">#yobs = np.random.normal(loc=(y[1::]), scale=[0.030, 0.060]) # noise is additive (wrong here)</span>
+
+<span class="c1"># Plot the deterministic curves, and those with multiplicative noise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">::],</span><span class="n">yobs</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$R(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$I(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$D(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.5, 0.1]
+</pre></div>
+</div>
+<img alt="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_2_1.png" src="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_2_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ODE system container</span>
+<span class="n">sir_model</span> <span class="o">=</span> <span class="n">DifferentialEquation</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">SIRD</span><span class="p">,</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">timestep_data</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="n">timestep_data</span><span class="p">),</span> <span class="c1">#start at t=t_1 (and not t0=0, where log(R=0)=undef)</span>
+    <span class="n">n_states</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">#r(ecovered) and i(nfected) are states</span>
+    <span class="n">n_theta</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># beta=R0 only parameter</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># start from zero</span>
+<span class="p">)</span>
+
+<span class="c1"># Define and perform MCMC</span>
+<span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">basic_model</span><span class="p">:</span>
+
+    <span class="c1"># Distribution of variances, sigma[0] and sigma[1], some good choice, pos. chauchy  </span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfCauchy</span><span class="p">(</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="mi">3</span> <span class="p">)</span>
+
+    <span class="c1"># Prior: R0 is bounded from below (lower=1), (R0, mu=2, sigma=3)</span>
+    <span class="c1">#R0 = pm.Bound(pm.Normal, lower=1)( &#39;R0&#39;, 2, 3 ) # guess of how R0 distribution looks like = Guassian, mean&gt;1</span>
+    <span class="n">beta_prior</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Bound</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">)</span> <span class="c1"># guess of how R0 distribution looks like = Guassian, mean&gt;1</span>
+    <span class="n">d_prior</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Bound</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">)</span> <span class="c1"># ??? no idea</span>
+    
+    <span class="c1"># Our deterministic curves</span>
+    <span class="n">sir_curves</span> <span class="o">=</span> <span class="n">sir_model</span><span class="p">(</span> <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="n">r0</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span><span class="n">d0</span><span class="p">],</span> <span class="n">theta</span><span class="o">=</span><span class="p">[</span><span class="n">beta_prior</span><span class="p">,</span><span class="n">d_prior</span><span class="p">]</span> <span class="p">)</span> <span class="c1"># assume gamma = 1, then beta=R0</span>
+
+    <span class="c1"># Likelihood function choice: our sampling distribution for multiplicative noise around the I and R curves</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Lognormal</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sir_curves</span><span class="p">),</span> <span class="n">sd</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">yobs</span><span class="p">)</span> <span class="c1"># variances via sigmas, data=yobs</span>
+    
+    <span class="n">start</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">find_MAP</span><span class="p">()</span>
+    
+    <span class="n">step</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">NUTS</span><span class="p">()</span>
+    
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">44</span><span class="p">)</span> <span class="c1">#set here number of cores, to adapt for hardware</span>
+
+<span class="c1"># Plot results (takes a while, be patient)</span>
+<span class="n">pm</span><span class="o">.</span><span class="n">traceplot</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">pm</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='52' class='' max='52' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [52/52 00:54<00:00 logp = 150.98, ||grad|| = 0.29882]
+</div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Only 10 samples in chain.
+Sequential sampling (2 chains in 1 job)
+NUTS: [d, beta, sigma]
+</pre></div>
+</div>
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='1010' class='' max='1010' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [1010/1010 1:29:40<00:00 Sampling chain 0, 0 divergences]
+</div>
+</div><div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='1010' class='' max='1010' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [1010/1010 3:37:42<00:00 Sampling chain 1, 0 divergences]
+</div>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 2 chains for 1_000 tune and 10 draw iterations (2_000 + 20 draws total) took 18443 seconds.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sigma[0]</th>
+      <td>0.34</td>
+      <td>0.06</td>
+      <td>0.25</td>
+      <td>0.44</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>19.0</td>
+      <td>14.0</td>
+      <td>1.09</td>
+    </tr>
+    <tr>
+      <th>sigma[1]</th>
+      <td>0.40</td>
+      <td>0.09</td>
+      <td>0.27</td>
+      <td>0.54</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>19.0</td>
+      <td>10.0</td>
+      <td>1.05</td>
+    </tr>
+    <tr>
+      <th>sigma[2]</th>
+      <td>2.03</td>
+      <td>0.31</td>
+      <td>1.62</td>
+      <td>2.32</td>
+      <td>0.06</td>
+      <td>0.04</td>
+      <td>26.0</td>
+      <td>22.0</td>
+      <td>0.94</td>
+    </tr>
+    <tr>
+      <th>beta</th>
+      <td>3.29</td>
+      <td>0.04</td>
+      <td>3.23</td>
+      <td>3.37</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>1.02</td>
+      <td>0.02</td>
+      <td>1.00</td>
+      <td>1.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>15.0</td>
+      <td>14.0</td>
+      <td>1.15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_3_7.png" src="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_3_7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pm</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:ylabel=&#39;sigma\n1&#39;&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;,
+        &lt;AxesSubplot:&gt;],
+       [&lt;AxesSubplot:ylabel=&#39;sigma\n2&#39;&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;,
+        &lt;AxesSubplot:&gt;],
+       [&lt;AxesSubplot:ylabel=&#39;beta&#39;&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;,
+        &lt;AxesSubplot:&gt;],
+       [&lt;AxesSubplot:xlabel=&#39;sigma\n0&#39;, ylabel=&#39;d&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;sigma\n1&#39;&gt;, &lt;AxesSubplot:xlabel=&#39;sigma\n2&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;beta&#39;&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_4_1.png" src="../_images/MCMC_PyMC3_Assignment4_2021_cores-DD_4_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sigma_log__&#39;: array([-1.088 , -1.0237,  0.7139]), &#39;beta_lowerbound__&#39;: array(0.8111), &#39;d_lowerbound__&#39;: array(-16.4464), &#39;sigma&#39;: array([0.3369, 0.3593, 2.042 ]), &#39;beta&#39;: array(3.2504), &#39;d&#39;: array(1.)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.3081 3.3743 3.2907 3.2863 3.2648 3.2912 3.2912 3.2512 3.2311 3.2584]
+[1.0101 1.0657 1.0292 1.0322 1.0142 1.0247 1.0247 1.0345 1.0228 1.0091]
+[[0.2927 0.5391 1.9499]
+ [0.3452 0.4839 1.9047]
+ [0.3392 0.3673 2.3158]
+ [0.3722 0.3941 1.9489]
+ [0.2891 0.3021 2.0406]
+ [0.3183 0.2693 2.0731]
+ [0.3183 0.2693 2.0731]
+ [0.4545 0.3951 1.9435]
+ [0.4442 0.3289 1.9466]
+ [0.3928 0.3505 1.8356]]
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MCMC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

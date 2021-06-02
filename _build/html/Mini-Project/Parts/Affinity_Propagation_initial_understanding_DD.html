@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affinity Propagation &#8212; Deus Ex Machina</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Mini-Project/Parts/Affinity_Propagation_initial_understanding_DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Parts/Affinity_Propagation_initial_understanding_DD.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Parts/Affinity_Propagation_initial_understanding_DD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-of-the-algorithm">
+   Steps of the algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-parameters-as-per-scikit-learn">
+   Key parameters as per scikit learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-from-the-algorithm">
+   Output from the algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sources">
+   Sources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="affinity-propagation">
+<h1>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">¶</a></h1>
+<p>Affinity Propagation is an unsupervised clustering algorithm based on the concept of “message passing” between data points.  This algorithm particularly does not require the number of clusters as input.<br />
+It applies the concept of “exemplars,” members of the input set that are representative of clusters.
+The main drawback is, this algorithm is computationally expensive.</p>
+<p><img alt="Message-Passing-in-Affinity-Propagation.png" src="Mini-Project/Parts/attachment:Message-Passing-in-Affinity-Propagation.png" /></p>
+<div class="section" id="steps-of-the-algorithm">
+<h2>Steps of the algorithm<a class="headerlink" href="#steps-of-the-algorithm" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>The algorithm first calculates the Similarity Matrix for all the data points.  The similarity is calculated as negative squared euclidian distance.
+$<span class="math notranslate nohighlight">\(s(i, k) = - \lvert\lvert x_i - x_k \rvert\rvert^2\)</span>$</p></li>
+<li><p>The diagonal elements of the matrix is zero as per the above formula.  If the diagonal values are not modified that means all the elemnets will be an exemplars and many clusters will be formed.  There are two ways to control this situation.  The values can be modified either by the minimum value of the similarities between points or by the median value of the similarities.  In the former case least number of clusters will be formed whereas in the later case a moderate number of clusters will be formed.</p></li>
+<li><p>As a next step it creates the “responsibility” matrix <span class="math notranslate nohighlight">\(R\)</span> which has values <span class="math notranslate nohighlight">\(r(i, k)\)</span> that quantify how well-suited <span class="math notranslate nohighlight">\(x_k\)</span> is to serve as the exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>, relative to other candidate exemplars for <span class="math notranslate nohighlight">\(x_i\)</span>.  The greater the value, the higher the chance that <span class="math notranslate nohighlight">\(x_k\)</span> is an exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>. The calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[r(i, k) \leftarrow s(i, k) - \max\limits_{k' s.t. k' \neq k}\{ a(i, k') + s(i, k') \}\]</div>
+<p>As the formula states, the responsibility of <span class="math notranslate nohighlight">\(k\)</span> towards <span class="math notranslate nohighlight">\(i\)</span> will decrease as the availability of some other <span class="math notranslate nohighlight">\(k'\)</span> to <span class="math notranslate nohighlight">\(i\)</span> increases.</p>
+</li>
+<li><p>The damping factor is used in the calculation as below.  This is in order to avoid numerical oscillations when updating         these values</p>
+<div class="math notranslate nohighlight">
+\[R = R * damping + (1 - damping) * R_{new}\]</div>
+</li>
+<li><p>The “availability” matrix <span class="math notranslate nohighlight">\(A\)</span> contains values <span class="math notranslate nohighlight">\(a(i, k)\)</span> that represent how “appropriate” it would be for <span class="math notranslate nohighlight">\(x_i\)</span> to pick <span class="math notranslate nohighlight">\(x_k\)</span> as its exemplar, taking into account other points’ preference for <span class="math notranslate nohighlight">\(x_k\)</span> as an exemplar.</p>
+<p>For the diagonal elements (self availabilities) the calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[a(k, k) \leftarrow \sum\limits_{i' \neq k}\max(0, r(i', k))\]</div>
+<p><span class="math notranslate nohighlight">\(a(k, k)\)</span> reflects accumulated evidence that point <span class="math notranslate nohighlight">\(k\)</span> is suitable to be an exemplar, based on the positive
+responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards other elements.</p>
+</li>
+<li><p>For the off diagonal elements the calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[a(i, k) \leftarrow \min\{0, r(k,k) + \sum\limits_{i' s.t. i' \notin \{i, k\}}{\max\{0, r(i', k)\}}\]</div>
+<p>The formula states that, availability is self-responsibility of <span class="math notranslate nohighlight">\(k\)</span> plus the positive responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards
+elements other than <span class="math notranslate nohighlight">\(i\)</span>. The intuition to include only positive responsibilities is: an exemplar should be positively
+responsible to some data points, regardless of the negative responsibilites to other data points.
+If self-responsibility is negative, it means that <span class="math notranslate nohighlight">\(k\)</span> is more suitable to belong to another exemplar, rather than being an
+exemplar.</p>
+<p>The damping factor is used in the similar way as mentioned above.</p>
+</li>
+<li><p>The values are updated through iterations.  Iterations are performed until either the cluster boundaries remain unchanged over a number of iterations, or some predetermined number (of iterations) is reached.</p></li>
+<li><p>Criterion matrix is calculated after the updating is terminated. Criterion matrix <span class="math notranslate nohighlight">\(C\)</span> is the sum of <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(A\)</span>. The formula is</p>
+<div class="math notranslate nohighlight">
+\[c(i,k) \leftarrow r(i,k) + a(i,k)\]</div>
+<p>An element <span class="math notranslate nohighlight">\(i\)</span> will be assigned to an exemplar <span class="math notranslate nohighlight">\(k\)</span> which is not only highly responsible but also highly available to <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</li>
+<li><p>The exemplars are extracted from the final matrices as those whose ‘responsibility + availability’ for themselves is positive (i.e. <span class="math notranslate nohighlight">\((r(i,i)+a(i,i))&gt;0\)</span>)</p></li>
+<li><p>For point <span class="math notranslate nohighlight">\(i\)</span>, the <span class="math notranslate nohighlight">\(k\)</span> with maximum <span class="math notranslate nohighlight">\(r(i, k) + a(i, k)\)</span> represents point <span class="math notranslate nohighlight">\(i’s\)</span> exemplar or cluster.</p></li>
+</ol>
+</div>
+<div class="section" id="key-parameters-as-per-scikit-learn">
+<h2>Key parameters as per scikit learn<a class="headerlink" href="#key-parameters-as-per-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<p><strong>damping</strong> - Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). This in order to avoid numerical oscillations when updating these values (messages).</p>
+<p><strong>max_iter</strong> - Maximum number of iterations. Default is 200.</p>
+<p><strong>preference</strong> - Preferences for each point - points with larger values of preferences are more likely to be chosen as exemplars. The number of exemplars, i.e. of clusters, is influenced by the input preferences value. If the preferences are not passed as arguments, they will be set to the median of the input similarities.</p>
+<p>This preference value indicates how strongly a data point thinks itself should be an exemplar. It is the diagonal value of the similarity matrix, <span class="math notranslate nohighlight">\(S\)</span>. If we choose to leave this value unmodified, we will see almost no clustering as most data points choose to be an exemplar for themselves. If we haven’t got a priori knowledge of the data points it is advised to start with a preference equal to the median of the input similarities.
+Intuitively, if we want Affinity Propagation to be less eager in splitting clusters we can set the preference value lower.</p>
+</div>
+<div class="section" id="output-from-the-algorithm">
+<h2>Output from the algorithm<a class="headerlink" href="#output-from-the-algorithm" title="Permalink to this headline">¶</a></h2>
+<p><strong>labels</strong> - Cluster labels are returned.</p>
+</div>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8">https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In%20statistics%20and%20data%20mining,message%20passing%22%20between%20data%20points">https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In statistics and data mining,message passing” between data points</a>.</p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147">https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Mini-Project/Parts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

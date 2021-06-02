@@ -1,0 +1,1691 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clustering &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Think like a Bayesian, check like a frequentist" href="../MCMC/Assignment%204%20-%20Master.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Mini-Project/Master.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Master.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Master.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-motivation">
+   1. Introduction &amp; Motivation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-even-is-clustering-anyway">
+   2. What even is Clustering anyway?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performance-metric-silhouette-score-and-fowlkes-mallows-index">
+   3. Performance Metric - Silhouette Score  and Fowlkes-Mallows Index
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation-metric">
+     Evaluation Metric
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#silhouette-score">
+       Silhouette score
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#score-interpretation">
+         Score interpretation
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#advantages">
+         Advantages
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#drawbacks">
+         Drawbacks
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fowlkes-mallows-index">
+       Fowlkes-Mallows Index
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Score interpretation
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Advantages
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Drawbacks
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#surrogate-data-yannik-s-class">
+   4. Surrogate Data &amp; Yannik’s Class
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-blobs">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_blobs
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-circles">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_circles
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-moons">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_moons
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-algorithms">
+   5. Clustering Algorithms
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-partition">
+     A. Partition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-k-means">
+       a. K-Means
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#general-description-application">
+         General Description &amp; Application
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#steps">
+         Steps
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#select-parameters-scikit-learn-implementation">
+         Select Parameters (Scikit Learn Implementation)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-k-means-python-implementation">
+       Takeaways from K-means Python Implementation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-spectral-clustering">
+       b. Spectral Clustering
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id4">
+         General Description &amp; Application
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Steps
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-1-affinity-matrix">
+         Step 1: Affinity Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-2-degree-matrix">
+         Step 2: Degree Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-laplacian-matrix">
+         Step 3: Laplacian Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-4-eigendecomposition-of-laplacian-matrix">
+         Step 4: Eigendecomposition of Laplacian Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-5-application-of-standard-clustering-algorithm">
+         Step 5: Application of standard clustering algorithm
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id6">
+         Select Parameters (Scikit Learn Implementation)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-spectral-clustering-python-implementation">
+       Takeaways from Spectral Clustering Python Implementation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-hierarchical">
+     B. Hierarchical
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-agglomerative-clustering">
+       a. Agglomerative Clustering
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         General Description &amp; Application
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id8">
+         Steps
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id9">
+         Select Parameters (Scikit Learn Implementation)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-agglomerative-clustering-python-implementation">
+       Takeaways from Agglomerative Clustering Python Implementation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-birch-clustering">
+       b. BIRCH Clustering
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       General Description &amp; Application
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#cf-tree">
+         CF-Tree
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#clustering-feature">
+         Clustering Feature
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#insertion-algorithm">
+         Insertion Algorithm
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Steps
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Select Parameters (Scikit Learn Implementation)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-birch-python-implementation">
+       Takeaways from BIRCH Python Implementation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-density-based">
+     C. Density-Based
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-dbscan">
+       a. DBSCAN
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-steps-of-the-algorithm-are-outlined-below">
+         The steps of the algorithm are outlined below.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+         In scikit learn there are two key parameters of DBSCAN
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#output-from-the-algorithm">
+         Output from the algorithm
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-dbscan-python-implementation">
+       Takeaways from DBSCAN Python Implementation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-hdbscan">
+       b. HDBSCAN
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#below-are-the-steps-performed-by-the-algorithm">
+         Below are the steps performed by the algorithm.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-key-parameters-for-the-algorithm-are-as-below">
+         The key parameters for the algorithm are as below.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id13">
+         Output from the algorithm
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#soft-clustering-for-hdbscan">
+         Soft clustering for HDBSCAN
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-hdbscan-python-implementation">
+       Takeaways from HDBSCAN Python Implementation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-expectation-maximization">
+     D. Expectation Maximization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-step">
+       E-Step
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-m-step">
+       The M-Step
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-em-python-implementation">
+       Takeaways from EM Python Implementation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-affinity-propagation">
+     E. Affinity Propagation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affinity-propagation">
+     Affinity Propagation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#steps-of-the-algorithm">
+       Steps of the algorithm
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#key-parameters-as-per-scikit-learn">
+       Key parameters as per scikit learn
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#takeaways-from-affinity-propagation-python-implementation">
+       Takeaways from Affinity Propagation Python Implementation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Performance Metric - Silhouette Score and Fowlkes-Mallows Index
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Silhouette Score
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Fowlkes-Mallows Index
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partition">
+     Partition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hierarchial">
+     Hierarchial
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#density-based">
+     Density-Based
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dbscan">
+       DBSCAN
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hdbscan">
+       HDBSCAN
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation-maximization">
+     Expectation Maximization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Affinity Propagation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>This file contains the different cluster methods.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-introduction-motivation">Introduction &amp; Motivation</a></p></li>
+<li><p><a class="reference external" href="#2-what-even-is-clustering-anyway">What even is Clustering anyway?</a></p></li>
+<li><p><a class="reference external" href="#3-performance-metric-silhouette-score-and-fowlkes-mallows-index">Performance Metric - Silhouette Score and Fowlkes-Mallows Index</a></p></li>
+<li><p><a class="reference external" href="#4-surrogate-data-yannik-s-class">Surrogate Data &amp; Yannik’s Class</a></p></li>
+<li><p><a class="reference external" href="#5-clustering-algorithms">Clustering Algorithms</a><br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#a-partition">Partion</a><br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#a-k-means">K-Means</a><br></p></li>
+<li><p><a class="reference external" href="#b-spectral-clustering">Spectral Clustering</a><br></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#b-hierarchical">Hierarchical</a></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#a-agglomerative-clustering">Agglomerative Clustering</a></p></li>
+<li><p><a class="reference external" href="#b-birch-clustering">BIRCH Clustering</a></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#c-density-based">Density-Based</a></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#a-dbscan">DBSCAN</a></p></li>
+<li><p><a class="reference external" href="#b-hdbscan">HDBSCAN</a></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#d-expectation-maximization">Expectation Maximization</a></p></li>
+<li><p><a class="reference external" href="#e-affinity-propagation">Affinity Propagation</a></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#bibliography">Bibliography</a></p></li>
+</ol>
+</div>
+<div class="section" id="introduction-motivation">
+<h1>1. Introduction &amp; Motivation<a class="headerlink" href="#introduction-motivation" title="Permalink to this headline">¶</a></h1>
+<p>All of our group members shared the same motivation for this project: We wanted to learn about different clustering algorithms with a focus on their theoretical foundations and underlying concepts. In so doing, we wanted to produce a notebook with detailed explanations regarding different clustering algorithms, which should serve as a useful future reference when implementing a clustering algorithm. We specifically did not want to solve a particular optimization task, i.e. applying a specific algorithm to a real-world dataset and optimizing for a specific performance metric.</p>
+<p>So, what can you, the reader, expect from this document? Essentially, we analyzed and described a number of well-known categories of clustering algorithms and implemented them in Python:</p>
+<ul class="simple">
+<li><p>K-Means and Spectral Clustering (both Partition);</p></li>
+<li><p>Agglomerative Clustering and BIRCH Clustering (both Hierarchical);</p></li>
+<li><p>DBSCAN and HDBSCAN (Density-based);</p></li>
+<li><p>Expectation Maximization;</p></li>
+<li><p>Affinity Propagation.</p></li>
+</ul>
+<p>Ultimately our purpose here is to endow the reader with a functional understanding of how some key clustering algorithms work, rather than providing a comprehensive deep-dive into any one topic/algorithm.</p>
+</div>
+<div class="section" id="what-even-is-clustering-anyway">
+<h1>2. What even is Clustering anyway?<a class="headerlink" href="#what-even-is-clustering-anyway" title="Permalink to this headline">¶</a></h1>
+<p>Perhaps the most salient characteristic that one needs to understand about clustering algorithms is that they are employed in an <strong>Unsupervised Learning</strong> context. What that means is that the data these algorithms deal with is unlabelled; it is left up to the algorithm to find any patterns/similarities therein. Broadly, clustering algorithms assess the similarities between the different observations in a given dataset, with those observations manifesting a high degree of similarity being grouped together as a cluster.</p>
+<p>For those already possessing some degree of familiarity with Machine Learning, this idea of “finding similar observations and assigning said observations to a kind of group” might sound quite similar to <strong>Classification</strong>. So how then is Clustering different from Classification? The key differentiator between the two is that as discussed Clustering is used for Unsupervised Learning (unlabelled data) whereas Classification is used for Supervised Learning (labelled data). As a result, the categories (classes) to which observations are assigned by classification algorithms are fixed, while with clustering algorithms the clusters themself change when the algorithm is run.</p>
+</div>
+<div class="section" id="performance-metric-silhouette-score-and-fowlkes-mallows-index">
+<h1>3. Performance Metric - Silhouette Score  and Fowlkes-Mallows Index<a class="headerlink" href="#performance-metric-silhouette-score-and-fowlkes-mallows-index" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="evaluation-metric">
+<h2>Evaluation Metric<a class="headerlink" href="#evaluation-metric" title="Permalink to this headline">¶</a></h2>
+<p>Clustering is evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. There are few evaluation metrics for clustering algorithms viz. Davies-Bouldin Index, Rand index, Silhouette score, Fowlkes-Mallows Index etc.  Here we will explore the Silhouette score and the Fowlkes-Mallows Index.</p>
+<div class="section" id="silhouette-score">
+<h3>Silhouette score<a class="headerlink" href="#silhouette-score" title="Permalink to this headline">¶</a></h3>
+<p>Silhouette refers to a method of interpretation and validation of consistency within clusters of data. The Silhouette score is a measure of how similar an object is to its own cluster (cohesion) compared to other clusters (separation).
+The Silhouette score can be calculated with any distance metric, such as the Euclidean distance or the Manhattan distance.</p>
+<p>The formula for the Silhouette score for an instance or data point <span class="math notranslate nohighlight">\(i\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[sc(i) = \frac{(b_i - a_i)}{max(a_i, b_i)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_i\)</span> is the mean distance between <span class="math notranslate nohighlight">\(i\)</span> and all other data points in the same cluster and <span class="math notranslate nohighlight">\(b_i\)</span> is the mean distance to the other data points in the next closest cluster. Thus <span class="math notranslate nohighlight">\(a_i\)</span> is a measure of compactness of <span class="math notranslate nohighlight">\(i\)</span>’s cluster, and <span class="math notranslate nohighlight">\(b_i\)</span> is a measure of distance between the clusters.</p>
+<p>We define the Silhouette score of a clustering to be the mean Silhouette score over all instances or data points.</p>
+<div class="section" id="score-interpretation">
+<h4>Score interpretation<a class="headerlink" href="#score-interpretation" title="Permalink to this headline">¶</a></h4>
+<p>The Silhouette score varies from -1 to +1. A value of +1 means the instance is close to all the members of its
+cluster, and far from other clusters; a value of 0 means it is close to a cluster boundary; and a value of -1 means it may be in the wrong cluster.</p>
+</div>
+<div class="section" id="advantages">
+<h4>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">¶</a></h4>
+<p>The score is higher when the obversations within a given cluster are densely packed together while the clusters themselves are well-separated from one another.</p>
+<p>It can be informative to look at the individual Silhouette scores, and not just the final mean score.
+We can plot these in a Silhouette plot, as shown below, where each colored region corresponds to a different cluster. We can also use the Silhouette plot to look at the size of each cluster, even if the data is not 2d.  The wider the shape, the greater number of samples are present in the cluster. Thus, Silhouette plots and means may be used to determine the natural number of clusters within a dataset. When interpreting a Silhouette plot, one will notice how the edge of the bars representing each cluster approximately ressembles the shape of a ship’s hull. Essentially, the reason for this is that the bar for a given cluster is actually made up of a multitude of smaller bars which represent each point within that cluster, and the individual Silhouette scores for each of these points determines the length of the corresponding bar. The Silhouette plot is constructed such that each cluster starts with the component observations with the highest Silhouette scores and works down from there. This is the reason for the hull shape, and it also explains why the different clusters will have different widths, as each point within every cluster effectively has its own mini-bar that constitutes part of the larger bar for the cluster as a whole.</p>
+<p>Let’s look at two examples of a Silhouette plot, one representing a good number of clusters and one representing a bad number of clusters. When setting the number of clusters equal to six, we can already infer by looking at the plot that six yields a poor performance (six is too large). The majority of instances belonging to cluster 0, 2, 4 and 5 have a Silhouette plot (much) smaller than the mean Silhouette score. Only for cluster 1 and 3, most instances have a score to the right of the dashed line. If we now examine the Silhouette plot for four clusters, we can see that we have one very good result for cluster 2 as almost every data point has a Silhouette score greater than the dashed line. This is obvious as cluster 1 is very far away from all other clusters. Moreover, we have decent results for cluster 0 and 2, albeit not ideal. Nevertheless, the majority of instances receive a better score than the average. Only for cluster one, most of the data points have a smaller Silhouette score than the dashed line. In comparison to the Silhouette plot for six clusters, four seems to be a much better choice as more instances exceed the dashed line and are closer to the right, i.e. 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Silhouette_score_sklearn</span> <span class="kn">import</span> <span class="n">silhouette_score_sklearn</span>
+<span class="n">silhouette_score_sklearn</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+For n_clusters = 4 The average silhouette_score is : 0.6505186632729437
+For n_clusters = 6 The average silhouette_score is : 0.4504666294372765
+</pre></div>
+</div>
+<img alt="../_images/Master_6_1.png" src="../_images/Master_6_1.png" />
+<img alt="../_images/Master_6_2.png" src="../_images/Master_6_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="drawbacks">
+<h4>Drawbacks<a class="headerlink" href="#drawbacks" title="Permalink to this headline">¶</a></h4>
+<p>The Silhouette score is generally higher for convex clusters than other concepts of clusters, such as density-based clusters like those obtained through DBSCAN. To dive into this a bit deeper, let’s recall the definition of a convex set. In geometry, a subset of a Euclidean space, is convex if, given any two points, it contains the whole line segment that joins them. Equivalently, a convex set or a convex region is a subset that intersects every line into a single line segment. For example, a solid cube is a convex set, but anything that is hollow or has an indent, for example, a crescent shape, is not convex.</p>
+<p><img alt="Convexity" src="../_images/convex_non_convex_set.png" /></p>
+<p>In a non-convex shape, there will be some pair of points which are close to each other but belong to different clusters and some pair of points which are far apart but belong to same cluster. This will lead to a low Silhouette score. Hence evaluating a non-convex dataset with the Silhouette score will not generally make sense. Additionally, the outliers detected in the density-based algorithm will not be assigned to any clusters and this will make a significant difference in the Silhouette scores as well as the metric is sensitive to outliers.</p>
+</div>
+</div>
+<div class="section" id="fowlkes-mallows-index">
+<h3>Fowlkes-Mallows Index<a class="headerlink" href="#fowlkes-mallows-index" title="Permalink to this headline">¶</a></h3>
+<p>Another metric to gauge the performance of a clustering algorithm is the <strong>Fowlkes-Mallows index (FMI)</strong>. The FMI can only be used when the ground truth, i.e. the cluster for each instance in the data set, is known. The FMI is defined as the geometric mean of the pairwise <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores">precision and recall</a>.</p>
+<div class="math notranslate nohighlight">
+\[
+FMI = \frac{TP}{\sqrt{(TP+FP)(TP+FN)}} = \sqrt{\frac{TP}{(TP+FP)} * \frac{TP}{(TP+FN)}} = \sqrt{Precision * Recall}
+\]</div>
+<ul class="simple">
+<li><p><strong>TP</strong>: number of True Positives (i.e. the number of pairs of points that belong to the same clusters in both the true labels and the predicted labels);</p></li>
+<li><p><strong>FP</strong>: the number of False Positives (i.e. the number of pairs of points that belong to the same clusters in the true labels and not in the predicted labels);</p></li>
+<li><p><strong>FN</strong>: the number of False Negatives (i.e the number of pairs of points that belongs in the same clusters in the predicted labels and not in the true labels).</p></li>
+</ul>
+<div class="section" id="id1">
+<h4>Score interpretation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The FMI can take values in the range of 0 to 1. The higher the value of the FMI, the greater the similarity between the clusters and the ground truth (benchmark classifications). The FMI is implemented in Scikit-Learn with <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.fowlkes_mallows_score</span></code>.</p>
+<p>Let’s assume the following example (please ignore the coloring for now, clusters are indicated by the respective number): <br>
+The labels of the ground truth are: [<span style="color: red;">0</span>, <span style="color: green;">0</span>, <span style="color: blue;">0</span>, <span style="color: purple;">1</span>, <span style="color: orange;">1</span>, <span style="color: black;">1</span>] <br>
+The lables resulting from a clustering algorithm are: [<span style="color: red;">0</span>, <span style="color: green;">0</span>, <span style="color: blue;">1</span>, <span style="color: purple;">1</span>, <span style="color: orange;">2</span>, <span style="color: black;">2</span>] <br></p>
+<p><em>Note:</em> In the following, two pairs of points will be displayed, where the first array represents the labels of the points of the ground truth while the second array represents the labels of the points using a clustering algorithm.</p>
+<p><strong>TP</strong>: 2 <br>
+The points belong to the same cluster for both the ground truth and using a clustering algorithm.</p>
+<ul class="simple">
+<li><p>Pair <span style="color: red;">1</span> and <span style="color: green;">2</span> ([<span style="color: red;">0</span>, <span style="color: green;">0</span>]), ([<span style="color: red;">0</span>, <span style="color: green;">0</span>])</p></li>
+<li><p>Pair <span style="color: orange;">5</span> and <span style="color: black;">6</span> ([<span style="color: orange;">1</span>, <span style="color: black;">1</span>]), ([<span style="color: orange;">2</span>, <span style="color: black;">2</span>]);</p></li>
+</ul>
+<p><strong>FP</strong>: 4 <br>
+The points are in the same cluster for the ground truth, but in a separate cluster using a clustering algorithm.</p>
+<ul class="simple">
+<li><p>Pair <span style="color: red;">1</span> and <span style="color: blue;">3</span> ([<span style="color: red;">0</span>, <span style="color: blue;">0</span>]), ([<span style="color: red;">0</span>, <span style="color: blue;">1</span>]);</p></li>
+<li><p>Pair <span style="color: green;">2</span> and <span style="color: blue;">3</span> ([<span style="color: green;">0</span>, <span style="color: blue;">0</span>]), ([<span style="color: green;">0</span>, <span style="color: blue;">1</span>]);</p></li>
+<li><p>Pair <span style="color: purple;">4</span> and <span style="color: orange;">5</span> ([<span style="color: purple;">1</span>, <span style="color: orange;">1</span>]), ([<span style="color: purple;">1</span>, <span style="color: orange;">2</span>]);</p></li>
+<li><p>Pair <span style="color: purple;">4</span> and <span style="color: black;">6</span> ([<span style="color: purple;">1</span>, <span style="color: black;">1</span>]), ([<span style="color: purple;">1</span>, <span style="color: black;">2</span>]);</p></li>
+</ul>
+<p><strong>FN</strong>: 1 <br>
+The points are in the same cluster using the clustering algorithm (1), but in a separate cluster using the ground truth (0, 1).</p>
+<ul class="simple">
+<li><p>Pair <span style="color: blue;">3</span> and <span style="color: purple;">4</span> ([<span style="color: blue;">0</span>, <span style="color: brown;">1</span>]), ([<span style="color: blue;">1</span>, <span style="color: brown;">1</span>])</p></li>
+</ul>
+<p>Thus, the FMI is calculated:</p>
+<div class="math notranslate nohighlight">
+\[
+FMI = \sqrt{\frac{2}{(2+4)} * \frac{2}{(2+1)}} = \sqrt{\frac{1}{3} * \frac{2}{3}} = \sqrt{\frac{2}{9}} = 0.47
+\]</div>
+</div>
+<div class="section" id="id2">
+<h4>Advantages<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>One major advantage of the FMI is that it does not make any assumption on the cluster structure. Thus, it is both applicable for clustering algorithms such as K-means which assumes isotropic blob shapes as well as spectral clustering algorithms which can find clusters with “folded” shapes. Moreover, the FMI is upper-bound where a value of one indicates perfect agreement.</p>
+</div>
+<div class="section" id="id3">
+<h4>Drawbacks<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The major disadvantage of the FMI is that it requires the knowledge of the ground truth classes. In reality, this will most likely not be the case. Nevertheless, for our assignment where we use surrogate data, this drawback does not apply as we do indeed have knowledge about the ground truth.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="surrogate-data-yannik-s-class">
+<h1>4. Surrogate Data &amp; Yannik’s Class<a class="headerlink" href="#surrogate-data-yannik-s-class" title="Permalink to this headline">¶</a></h1>
+<p>The package <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has a module called <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. Within this package there are ~30 functions, which load sample data. All of these functions start with <code class="docutils literal notranslate"><span class="pre">load_...</span></code>. Moreover, this package has ~20 sample generators. These sample generators create surrogate data, which is separated differently based on the function. They all start with <code class="docutils literal notranslate"><span class="pre">make_...</span></code>. For a more exhaustive description of these functions please review the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> documentation found in the according bibliography [2].</p>
+<p>The first step is to import that module from sklearn. We will also import matplotlib to plot what we have just created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="make-blobs">
+<h2><code class="docutils literal notranslate"><span class="pre">make_blobs</span></code><a class="headerlink" href="#make-blobs" title="Permalink to this headline">¶</a></h2>
+<p>The first function we can use to create surrogate data is the function called <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code>. This creates Gaussian blobs for clustering. With the parameter <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> one can influence the total number of points generated, with the <code class="docutils literal notranslate"><span class="pre">centers</span></code> parameter one can set the number of centers, viz. different classes for a classification problem, and with the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> one can set the standard deviation around each center (i.e. the higher the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> the higher the “noise” around the centers).</p>
+<p>The function returns two values. One is the <code class="docutils literal notranslate"><span class="pre">X</span></code> variable, which contains the different data points, and one is the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable which contains the different labels for the data points. Through the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable, we can check later how well/poor the clustering algorithm performed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make blobs function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_12_0.png" src="../_images/Master_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-circles">
+<h2><code class="docutils literal notranslate"><span class="pre">make_circles</span></code><a class="headerlink" href="#make-circles" title="Permalink to this headline">¶</a></h2>
+<p>The second function is called <code class="docutils literal notranslate"><span class="pre">make_circles</span></code>, which returns a circle within another circle, as shown below. This function also has different classes, as manifested by the different colors. For this exercise we will use the parameter <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, which works the same as it does in the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function, and the <code class="docutils literal notranslate"><span class="pre">noise</span></code> parameter, which works the same as the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> parameter from the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make circles function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_14_0.png" src="../_images/Master_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-moons">
+<h2><code class="docutils literal notranslate"><span class="pre">make_moons</span></code><a class="headerlink" href="#make-moons" title="Permalink to this headline">¶</a></h2>
+<p>This function creates two interweaving half circles. It takes the arguments <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> and <code class="docutils literal notranslate"><span class="pre">noise</span></code>, as with the <code class="docutils literal notranslate"><span class="pre">make_circles</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make moons function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_16_0.png" src="../_images/Master_16_0.png" />
+</div>
+</div>
+<p>In order to create an easier way to compare all of the different clusters we decided to write a function which does it all for us, namely a function that creates the surrogate data in one place and also plots the given cluster algorithm to the surrogate data. The class we wrote is called <code class="docutils literal notranslate"><span class="pre">Surrogate_data</span></code>. It has several private functions, which are all leveraged in the <code class="docutils literal notranslate"><span class="pre">plot_raw_vs_predict</span></code> function. That function returns the surrogate data in comparison to the fitted data. Using a generic function for creating the same surrogate data time and again has the benefit that one can easily compare the different clustering algorithms.</p>
+<p>In the next line we will import that self written class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Surrogate_data</span> <span class="kn">import</span> <span class="n">Surrogate_data</span>
+<span class="n">evaluate</span> <span class="o">=</span> <span class="n">Surrogate_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clustering-algorithms">
+<h1>5. Clustering Algorithms<a class="headerlink" href="#clustering-algorithms" title="Permalink to this headline">¶</a></h1>
+<p>Within this chapter we will offer deeper insights into different clustering algorithms. They are further separated into different sub-chapters. It will start with partition clustering algorithms.</p>
+<div class="section" id="a-partition">
+<h2>A. Partition<a class="headerlink" href="#a-partition" title="Permalink to this headline">¶</a></h2>
+<p>A key characteristic of Partition Clustering algorithms is that they require the user to specify the number of clusters which the algorithm will find. Possessing at least some degree of domain knowledge and/or insight into the dataset is quite helpful in this regard, as otherwise the number of clusters formed is arbitrary and hence is not likely to reflect the inherent number of clusters within the data. On the other hand, the fact the programmer specifies the number of clusters to be identified does help Partition Clustering algorithms to be relatively efficient (computationally) when compared with other clustering algorithms. Partition Clustering algorithms cluster all data points, regardless if a given data point could be reliably said to be part of a cluster.</p>
+<div class="section" id="a-k-means">
+<h3>a. K-Means<a class="headerlink" href="#a-k-means" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-description-application">
+<h4>General Description &amp; Application<a class="headerlink" href="#general-description-application" title="Permalink to this headline">¶</a></h4>
+<p>K-means is a very popular Partition Clustering algorithm. Essentially, the user specifies the number of clusters to be identified, and the algorithm iteratively adjusts the clusters by moving what are known as <strong>Centroids</strong> in a manner that minimizes the distance of the data points to the Centroid to which they are assigned. In so doing the specific Centroid to which a given datapoint is assigned can change, as the datapoints are assigned to the nearest Centroid and as mentioned the Centroids iteratively change locations accordingly.</p>
+<p>The major benefit of K-means is its minimal computational cost - it is a relatively simple and efficient algorithm that is well-suited to working with large datasets. However, as discussed in the description of Partition Clustering algorithms more broadly this can also be a downside, especially without domain knowledge and/or insight into the dataset. Furthermore, as with other Partition Clustering algorithms the K-means algorithm will assign all points to a cluster, irrespective of whether a given point is actually part of a cluster.</p>
+</div>
+<div class="section" id="steps">
+<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h4>
+<p>The K-means algorithm can be broken down into four specific steps:</p>
+<ol class="simple">
+<li><p>Determine K, the number of clusters to be identified.</p></li>
+<li><p>Select K data points to serve as the initial centroids.</p></li>
+<li><p>Assign each data point to the closest centroid.</p></li>
+<li><p>Move the centroids according to the new “average location” of the data points assigned to each centroid.</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Steps 3 and 4 are repeated until there are no further changes to the clusters to which each data point is assigned or once the <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter has been reached. In order try and find a global rather than a local maximum, the algorithm is initialized with different centroid seeds <code class="docutils literal notranslate"><span class="pre">n_init</span></code> times, meaning that the total number of times the algorithms is effectuated is the product of the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> and <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameters.</p>
+</div>
+<div class="section" id="select-parameters-scikit-learn-implementation">
+<h4>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#select-parameters-scikit-learn-implementation" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: The number of clusters to form, which is also the number of centroids to generate.</p>
+<p><code class="docutils literal notranslate"><span class="pre">n_init</span></code>: Number of times the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia.</p>
+<p><code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: Maximum number of iterations of the k-means algorithm for a single run.</p>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn documentation (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">KMeans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_24_0.png" src="../_images/Master_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-k-means-python-implementation">
+<h3>Takeaways from K-means Python Implementation<a class="headerlink" href="#takeaways-from-k-means-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>Of the three tests conducted above, the K-means algorithm only worked with the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function where it correctly identified the five clusters present including all constituent observations. The same cannot be said for the bottom two graphs, where the K-means algorithm is unable to differentiate between the inner and outer rims or between the two moons. The reason for this has to do with the fact that the clusters formed through the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function are convex (which K-means can handle) whereas those formed by the other two functions are not convex and hence the K-means algorithm is unable to accurately identify the clusters contained therein.</p>
+</div>
+<div class="section" id="b-spectral-clustering">
+<h3>b. Spectral Clustering<a class="headerlink" href="#b-spectral-clustering" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>General Description &amp; Application<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The idea of spectral clustering is rooted in graph theory. The spectral clustering algorithm aims to identify communities of nodes in a graph based on connections between them. It can be understood as aiming to maximize the number of within-cluster connections and to minimize the number of between-cluster connections. The spectral clustering algorithm also allows for clustering of non graph data. Thus, points that are (immediately) next to each other, i.e. closely connected, are identified in dataset.</p>
+<p>The spectral clustering algorithm utilizes information from the eigenvalues and eigenvectors of the Laplacian Matrix. The calculation of the (unnormalized) Laplacian Matrix will be explained in more detail in a bit. In the end, a standard clustering algorithm, such as KMeans, is applied on the relevant eigenvectors of the Laplacian Matrix to identify clusters in the dataset.</p>
+<p>We will now briefly outline some advantages and disadvantages of the spectral clustering algorithm. The spectral clustering algorithm is generally able to capture complex data structures as it does not make an assumption about the shape/form of the clusters. Nevertheless, the spectral clustering algorithm still requires us to specify the number of clusters beforehand as indicated by the <code class="docutils literal notranslate"><span class="pre">n_cluster</span></code> hyperparamter. In that sense, it has the same disadvantage as K-Means. Furthermore, the spectral clustering algorithm groups every individual data point to a cluster, which means it may also cluster noise. Additionally, it is computationally expensive for large datasets.</p>
+</div>
+<div class="section" id="id5">
+<h4>Steps<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The general process of the spectral clustering algorithm implemented in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">Scikit-Learn</a> with the function <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.SpectralClustering</span></code> can be illustrated by the following steps:</p>
+<ol class="simple">
+<li><p>Construct the Affinity Matrix based on the datapoints</p></li>
+<li><p>Create the Degree Matrix based on the Affinity Matrix</p></li>
+<li><p>Construct the Laplacian Matrix by subtracting the Affinity matrix from the Degree Matrix</p></li>
+<li><p>Eigendecomposition of the Laplacian Matrix</p></li>
+<li><p>Apply a standard clustering algorithm, e.g. KMeans, on the relevant eigenvectors of the Laplacian Matrix</p></li>
+</ol>
+<p>The previously outlined steps will now be described in more detail:</p>
+</div>
+<div class="section" id="step-1-affinity-matrix">
+<h4>Step 1: Affinity Matrix<a class="headerlink" href="#step-1-affinity-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The entries of an Affinity Matrix show how similar points are to each other. The higher the entry in a Affinity Matrix, the higher the similarity between the points. The Affinity Matrix can be constructed in different ways. Therefore, Scikit-Learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">implementation</a>  includes the parameter <em>affinity</em>, which defines how to construct the Affinity Matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> constructs the affinity matrix by computing a graph of nearest neighbors. If chosen, the hyperparameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> also needs to be set as this determines the number of neighbors to use when constructing the affinity matrix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rbf</span></code> constructs the affinity matrix using a radial basis function (RBF) kernel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed</span></code> interprets X as a precomputed affinity matrix, where larger values indicate greater similarity between instances</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> interprets X as a sparse graph of precomputed distances, and construct a binary affinity matrix from the n_neighbors nearest neighbors of each instance</p></li>
+</ul>
+<p>It will now be detailed, how the Affinity Matrix is constructed using <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> and <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. in those cases where no precomputed Affinity Matrix is provided:</p>
+<p><strong>nearest_neighbors:</strong><br />
+When setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, the Affinity Matrix is calculated using the k-nearest neighbors method. Thus, the number of neighbors to use when constructing the Affinity Matrix needs to be specified with the parameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>. Let’s call the matrix, which stores the relationships of k-nearest neighbours, <em>Connectivity Matrix</em>. If another datapoint belongs to the k-nearest neighbors, the Connectivity Matrix will indicate it with an entry of 1. If it does not belong to the k-nearest neighbors, it will be indicated with a 0. In Scikit-Learn, the Affinity Matrix is then calculated using the following <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L512">formula</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+{Affinity\ Matrix} = 0.5 * ({Connectivity\ Matrix} + {Connectivity\ Matrix^T})
+\]</div>
+<p>Thus, each entry in the Affinity Matrix can only take up one of three possible entries: 1.0, 0.5 or 0.0.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> indicates that when calculating the closest k-nearest neighbors, both datapoints were amongst the respective nearest k-datapoints</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code> indicates that this was only true for one datapoint, i.e. only in one “direction”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code> indicates that for both datapoints, the other respective datapoint was not among the k-nearest</p></li>
+</ul>
+<p>Let’s assume the following example with n_neighbors = 2:</p>
+<p><img alt="Affinity Matrix Nearest Neigbor" src="../_images/Affinity_Matrix_nearest_neighbor.png" /></p>
+<p>For data point 0, the k-nearest neighbors (including itself) are data point 0 and data point 1. For data point 1, only data point 1 and data point 2 are the k-nearest neighbors. In turn, the Affinity Matrix shows 0.5 at the entry row 0, column 1.
+<em>Note</em>: The parameter <code class="docutils literal notranslate"><span class="pre">include_self</span></code> is set to <em>True</em>, which means that each sample is marked as the first nearest neighbor to <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L510">itself</a>.</p>
+<p><strong>rbf:</strong><br />
+Setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. also its <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">default setting</a>, the Affinity Matrix is constructed using a kernel function with Euclidean distance d(X, X), i.e. it calculates the pairwise distances of all points in our dataset <em>X</em>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.exp(-gamma</span> <span class="pre">*</span> <span class="pre">d(X,X)</span> <span class="pre">**</span> <span class="pre">2)</span></code></p>
+<p>The default for <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is 1.0. Here, the entries of the Affinity Matrix can take any value between 0.0 and 1.0, where an increase in value corresponds to an increase in similarity.</p>
+<p><img alt="Affinity Matrix RBF" src="../_images/Affinity_Matrix_rbf.png" /></p>
+</div>
+<div class="section" id="step-2-degree-matrix">
+<h4>Step 2: Degree Matrix<a class="headerlink" href="#step-2-degree-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The Degree Matrix is a diagonal matrix, which is obtained by taking the sum of each row in the Affinity Matrix. The entries on the diagonal are called <em>degree</em>. Thus, the closer the individual points are group together, the higher the entry in the diagonal as each individual entry in the rows of the Affinity Matrix will be larger. At the same time, if the points are spread out further, the individual entries in the rows of the Affinity Matrix are smaller, which in turn leads to a smaller sum of the row.</p>
+</div>
+<div class="section" id="step-3-laplacian-matrix">
+<h4>Step 3: Laplacian Matrix<a class="headerlink" href="#step-3-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The (unnormalized) Laplacian Matrix is calculated by subtracting the Affinity Matrix from the Degree Matrix.</p>
+<div class="math notranslate nohighlight">
+\[
+L = D - A
+\]</div>
+<p>The (unnormalized) Laplacian Matrix has among others the following <a class="reference external" href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf">basic properties</a>:</p>
+<ul class="simple">
+<li><p>L is symmetric and positive semi-definite</p></li>
+<li><p>The smallest eigenvalue of L is 0, the corresponding eigenvector is the constant one vector</p></li>
+<li><p>L has n non-negative, real-valued eigenvalues 0 = <span class="math notranslate nohighlight">\(λ_1\)</span> ≤ <span class="math notranslate nohighlight">\(λ_2\)</span> ≤ … ≤ <span class="math notranslate nohighlight">\(λ_n\)</span></p></li>
+</ul>
+<p><em>Note:</em> There are several other variants of the Laplacian Matrix as well as spectral clustering algorithms, which were out of the scope of this assignment as we did not solely focus on this type of algorithm.</p>
+<p>In the following, the Affinity Matrix, Degree Matrix and Laplacian Matrix are illustrated for the example using <code class="docutils literal notranslate"><span class="pre">rbf</span></code> for the parameter <em>affinity</em>.</p>
+<p><img alt="Laplacian Matrix RBF" src="../_images/Laplacian_Matrix_rbf.png" /></p>
+</div>
+<div class="section" id="step-4-eigendecomposition-of-laplacian-matrix">
+<h4>Step 4: Eigendecomposition of Laplacian Matrix<a class="headerlink" href="#step-4-eigendecomposition-of-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<p>In the next step, the eigenvalues and eigenvectors of the Laplacian Matrix are calculated. As already outlined in our introduction to <em>Partition Clustering</em>, determining the number clusters in a dataset is generally a difficult task. Similar to the <em>elbow plot</em>, which may be used when determining the “right” number of clusters for the KMeans algorithm, we can make use of the eigengap heuristic in spectral clustering. The goal is to identify the first large gap between the eigenvalues, which are ordered increasingly. Thus, we choose the number of clusters such that all eigenvalues <span class="math notranslate nohighlight">\(λ_1\)</span>,…, <span class="math notranslate nohighlight">\(λ_k\)</span> are minuscule and <span class="math notranslate nohighlight">\(λ_{k+1}\)</span> is comparatively large. The number of eigenvalues <span class="math notranslate nohighlight">\(λ_1\)</span>,…, <span class="math notranslate nohighlight">\(λ_k\)</span> before this gap generally correspond to the number of clusters in our dataset.</p>
+<p>As can be seen by the following stylized examples, we can identify a gap between eigenvalues number two and three as well as between number four and five, which in turn helps to determine the “right” number of clusters.</p>
+<p><img alt="Eigenvalues Laplacian" src="../_images/Eigenvalues_Laplacian.png" /></p>
+<p><em>Note:</em>
+Thoses examples are just for illustration of the eigengap heuristic. Here, kmeans could easily be applied and would yield a good and fast solution. Furthermore, it has to be noted that the parameter <code class="docutils literal notranslate"><span class="pre">n_cluster</span></code> needs to be specified before the spectral clustering algorithm is run. Thus, the visualization of the eigengap heuristic is just used to illustrate the information content of the eigenvalues of the Laplacian Matrix. It should not be understood as a step, which can be performed when calling <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.SpectralClustering</span></code>.</p>
+</div>
+<div class="section" id="step-5-application-of-standard-clustering-algorithm">
+<h4>Step 5: Application of standard clustering algorithm<a class="headerlink" href="#step-5-application-of-standard-clustering-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>The k eigenvectors associated with the k smallest eigenvalues are used for the partitioning of the dataset, except for the eigenvector corresponding to the first eigenvalue as this eigenvalue will always have a value of zero (see properties further above). A standard clustering algorithm is applied on the set of eigenvectors. The default clustering algorithm is KMeans.</p>
+</div>
+<div class="section" id="id6">
+<h4>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p><strong>n_cluster:</strong> The parameter <em>n_clusters</em> defines the dimension of the projection subspace, i.e. the number of clusters.</p>
+<p><strong>eigen_solver:</strong>
+This parameter determines which eigenvalue decomposition strategy to use.</p>
+<p><strong>affinity:</strong>
+This parameter defines how to construct the affinity matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> (see above).</p>
+<p><strong>n_init:</strong><br />
+Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia. Only used if assign_labels=’kmeans’.</p>
+<p><strong>assign_labels:</strong><br />
+The strategy for assigning labels in the embedding space, i.e. the clustering algorithm. There are two ways to assign labels after the Laplacian embedding: <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> and <code class="docutils literal notranslate"><span class="pre">discretize</span></code>. k-means is a popular choice, but it can be sensitive to initialization. Discretization is another approach which is less sensitive to random initialization`</p>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">SpectralClustering</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">SpectralClustering</span><span class="p">,</span> <span class="n">assign_labels</span> <span class="o">=</span> <span class="s2">&quot;kmeans&quot;</span><span class="p">,</span> <span class="n">affinity</span> <span class="o">=</span> <span class="s2">&quot;nearest_neighbors&quot;</span><span class="p">,</span> <span class="n">standardize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+/home/frankfurt/gacela/mcmc/lib/python3.8/site-packages/sklearn/manifold/_spectral_embedding.py:245: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&quot;Graph is not fully connected, spectral embedding&quot;
+</pre></div>
+</div>
+<img alt="../_images/Master_28_1.png" src="../_images/Master_28_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-spectral-clustering-python-implementation">
+<h3>Takeaways from Spectral Clustering Python Implementation<a class="headerlink" href="#takeaways-from-spectral-clustering-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>The Spectral Clustering algorithm worked well for all three tested datasets. Thus, contrary to K-means, it also performed well for both <code class="docutils literal notranslate"><span class="pre">make_circles</span></code> and <code class="docutils literal notranslate"><span class="pre">make_moons</span></code>. This is because Spectral Clustering also works for non-spherical datasets, i.e. it is able to capture complex cluster structures. Therefore, Spectral Clustering might be a good option to utilize when the dataset is non-spherical, i.e. when the K-means algorithm fails. Nevertheless, one has to keep in mind that Spectral Clustering is computationally expensive; compared to K-means, the Spectral Clustering algorithm took significantly longer. Thus, when faced with a dataset, which can be clustered using K-means, one should generally choose K-means instead of Spectral Clustering.</p>
+</div>
+</div>
+<div class="section" id="b-hierarchical">
+<h2>B. Hierarchical<a class="headerlink" href="#b-hierarchical" title="Permalink to this headline">¶</a></h2>
+<p>Hierarchical Clustering algorithms create a hierarchy of clusters using a predefined criterion such as Single-Link (comparing the observation to the closest point in each cluster) vs. Complete-Link (comparing the observations to the farthest point in each cluster). Hierarchical Clustering algorithms will stop running when either (1) the specified number of clusters has been obtained, or (2) the linkage distance threshold has been reached. As with Partition Clustering, Hierarchical Clustering algorithms cluster all observations in the dataset.</p>
+<p>At a high level, we can think of an entire dataset as being a single cluster, irrespective of how dispersely the datapoints contained therein are distributed. Along a similar train of thought, the most granular way to cluster a dataset would be to assign each datapoint to its own cluster; in the context of Hierarchical Clustering these are known as <strong>singletons</strong>. So, with hierarchical clustering algorithms what we have is a way to outline the different ways in which a given dataset can be clustered, ranging from a single cluster that contains the entire dataset to <em>n</em> clusters where <em>n</em> is equal to the number of datapoints. This range or “hierarchy” of clusters can be thought of as representing different degrees of granularity in terms of the similarity between the data points, where the singletons are the most granular groupings as each data point has its own cluster.</p>
+<p>Hierarchical clustering algorithms can be further categorized based on whether a <strong>top-down</strong> or a <strong>bottom-up</strong> approach is used to cluster the data. With a top-down approach, the algorithm starts with the dataset as a whole (one cluster) and iteratively breaks it down into increasingly smaller clusters. Conversely, with a bottom-up approach the algorithm starts with the singletons as individual clusters (that is the initialization step) and iteratively combines them into ever-larger clusters. As mentioned, the deciding factor in terms of how the hierarchy of the clusters is formed is the stipulated distance metric, irrespective of whether a top-down or a  bottom-up approach is followed.</p>
+<p>A common and very useful visual representation of how hierarchical clustering algorithms work is known as a “dendrogram”, which our Python implementation provides for each of the two hierarchical clustering algorithms we researched. Essentially, this can be thought of as a hierarchical tree of clusters, with bottom row representing the singletons which progressively weave together until they are all attached via the uppermost node. We have provided a visual representation of a sample dendrogram below.</p>
+<p>Our discussion of Hierarchical Clustering algorithms focuses on two specific algorithms: (1) Agglomerative Clustering and (2) Birch Clustering.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dendrogram</span> <span class="kn">import</span> <span class="n">plot_dendrogram</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+
+<span class="c1"># set the dataset for which the dendrogram should be drawn. Possible options are:</span>
+<span class="c1"># [&#39;make_blobs&#39;,</span>
+<span class="c1">#  &#39;make_circles&#39;,</span>
+<span class="c1">#  &#39;make_moons&#39;]</span>
+
+<span class="n">datasets</span> <span class="o">=</span> <span class="s2">&quot;make_blobs&quot;</span>
+
+<span class="c1"># setting distance_threshold=0 ensures we compute the full tree.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">distance_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">datasets</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">datasets</span><span class="p">),</span> <span class="kc">None</span><span class="p">))</span>
+
+<span class="c1"># plot the top three levels of the dendrogram</span>
+<span class="n">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_32_0.png" src="../_images/Master_32_0.png" />
+</div>
+</div>
+<div class="section" id="a-agglomerative-clustering">
+<h3>a. Agglomerative Clustering<a class="headerlink" href="#a-agglomerative-clustering" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>General Description &amp; Application<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Agglomerative Clustering employs a bottom-up approach; the algorithm starts with the individual singletons and iteratively combines them into ever-larger clusters until either (1) the specified <em>n_clusters</em> parameter is reached, or (2) the specified distance threshold is reached. If the distance threshold is too large than a single “cluster” that contains the entire dataset will be returned. With Agglomerative Clustering each iteration reduces the number of clusters by one.</p>
+<p>Relative to top-down hierarchical clustering algorithms Agglomerative Clustering is much less efficient computationally. That said, the greater computational burden of this algorithm does help to ensure nearby points are assigned to the appropriate cluster.</p>
+</div>
+<div class="section" id="id8">
+<h4>Steps<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>The Agglomerative Clustering algorithm can be broken down into three distinct steps:</p>
+<ol class="simple">
+<li><p>Initialize <em>n</em> singleton clusters, where <em>n</em> is the number of datapoints.</p></li>
+<li><p>Determine those two clusters that are closest together, based on the specified distance metric.</p></li>
+<li><p>Merge the two clusters identified in Step 2 into a single cluster.</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Steps 2 and 3 are repeated until either (1) the specified number of clusters has been obtained, or (2) the linkage distance threshold has been reached.</p>
+<p>Linkage methods are what determines how a clustering algorithm calculates distance (e.g. Euclidean or Manhattan Distance) between two clusters. Below we outline five different linkage methods:</p>
+<p><strong>Single Linkage</strong>:<br>
+With the Single Linkage method, the distance calculated is that between the two closest data points in the two different clusters.</p>
+<p><strong>Complete Linkage</strong>:<br>
+With the Complete Linkage method, the distance calculated is that between the two farthest points in the two different clusters.</p>
+<p><strong>Average Linkage</strong>:<br>
+With the Average Linkage method, the distance calculated is the mean distance between each data point in one cluster to every data point in the other cluster.</p>
+<p><strong>Centroid Linkage</strong>:<br>
+With the Centroid Linkage method, the distance calculated is that between the means of the two clusters.</p>
+<p><strong>Ward Linkage</strong>:<br>
+The Ward Linkage method minimizes the variance of the two clusters being merged.</p>
+<p><img alt="Linkage Methods" src="../_images/Linkage_Methods.png" /></p>
+</div>
+<div class="section" id="id9">
+<h4>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: The number of clusters to find. It must be <code class="docutils literal notranslate"><span class="pre">None</span></code> if <code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">affinity</span></code>: Metric used to compute the linkage. Can be “euclidean”, “l1”, “l2”, “manhattan”, “cosine”, or “precomputed”. If linkage is “ward”, only “euclidean” is accepted. If “precomputed”, a distance matrix (instead of a similarity matrix) is needed as input for the fit method.</p>
+<p><code class="docutils literal notranslate"><span class="pre">linkage</span></code>: Which linkage criterion to use. The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion.</p>
+<p><code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code>: The linkage distance threshold above which, clusters will not be merged. If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> must be <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_full_tree</span></code> must be <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html">Scikit Learn documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">AgglomerativeClustering</span><span class="p">,</span> <span class="n">linkage</span> <span class="o">=</span> <span class="s2">&quot;single&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_35_0.png" src="../_images/Master_35_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-agglomerative-clustering-python-implementation">
+<h3>Takeaways from Agglomerative Clustering Python Implementation<a class="headerlink" href="#takeaways-from-agglomerative-clustering-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>Of the three tests conducted above, the Agglomerative Clustering algorithm only worked with the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function where it correctly identified the five clusters present including all constituent observations. The same cannot be said for the bottom two graphs, where the Agglomerative Clustering algorithm is unable to differentiate between neither the inner and outer rims nor between the two moons. The reason for this has to do with the linkage method employed, which in this case is <em>Ward</em> - the default setting in Scikit-Learn. The linkage criterion determines how the distance between sets of observations is computed, which will of course have a major impact on how the clusters are formed. With the <code class="docutils literal notranslate"><span class="pre">ward</span></code> linkage method, the algorithm minimizes the variance of the clusters being merged, which why the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function works properly when this parameter setting is used. If however the <code class="docutils literal notranslate"><span class="pre">single</span></code> linkage method was used, then the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function would not properly cluster the data whereas the <code class="docutils literal notranslate"><span class="pre">make_circles</span></code> and <code class="docutils literal notranslate"><span class="pre">make_moons</span></code> functions would.</p>
+</div>
+<div class="section" id="b-birch-clustering">
+<h3>b. BIRCH Clustering<a class="headerlink" href="#b-birch-clustering" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>General Description &amp; Application<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>BIRCH is an acronym that stands for <strong>B</strong>alanced <strong>I</strong>terative <strong>R</strong>educing and <strong>C</strong>lustering using <strong>H</strong>ierarchies. The algorithm was introduced in 1996 by Tian Zhang, Raghu Ramakrishnan and Miron Livny in their <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">article</a> <em>BIRCH: An Efficient Data Clustering Method for Very Large Databases</em>.</p>
+<p>As can already be inferred from the title, BIRCH is designed when clustering very large datasets. BIRCH takes the fact that the amount of memory is generally limited into account, i.e. the size of the dataset generally exceeds the available memory. Thus, BIRCH aims to minimize I/O costs as it does not require the entire dataset to be memorized. The algorithm can yield a satisfactory clustering of the dataset with just a single scan thereof. To increase the performance, just a few additional scans of the dataset are needed.</p>
+<p>BIRCH belongs to the category of Hierarchical Clustering algorithms. In contrast to Agglomerative Clustering, it uses a top-down-approach instead of a bottom-up-approach. The <em>Clustering-Feature (CF)</em> and the <em>CF-Tree</em> are two key concepts of the algorithm. Based on the data set, BIRCH constructs a <em>Clustering Feature Tree (CF-Tree)</em>. The CF-Tree consists of <em>Clustering Feature nodes (CF Nodes)</em>, which in turn contain <em>Clustering Features</em>. Clustering Features basically summarize relevant statistical metrics for the given cluster. Thus, BIRCH allows for clustering of larger data sets by first generating a compact summary of the large data set that preserves as much information as possible. Secondly, this summary is then clustered instead of clustering the entire (larger) dataset. Both, <em>CF-Trees</em> and <em>Clustering Features</em> will be explained in more detail below.</p>
+<p>In general, the main advantage of BIRCH is its scalability; it yields satisfactory results in a relatively small time period for very large datasets. Its time complexity is <span class="math notranslate nohighlight">\(=O(n)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span>
+equals the number of objects to be clustered. One disadvantage of BIRCH is that it can only use metric attributes, i.e. categorical variables cannot be used when running a BIRCH algorithm. Moreover, if the shape of the clusters are not spherical, the algorithm may not perform well as it utilizes the radius to control the boundary of a cluster.</p>
+<div class="section" id="cf-tree">
+<h4>CF-Tree<a class="headerlink" href="#cf-tree" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">CF-Tree</a> is a “height-balanced tree with two parameters: branching factor B and threshold T.” The following <a class="reference external" href="http://avid.cs.umass.edu/courses/745/f2010/notes/DataMining.htm">picture</a> depicts an example of the structure of a CF-Tree:</p>
+<p><img alt="CF Tree Structure" src="../_images/CF_Tree_Structure.png" /></p>
+<p>Naturally, internal nodes or non-leaf nodes of the CF-tree have descendants or “children”. They take the form <span class="math notranslate nohighlight">\([CF_i, child_i]\)</span>, where <span class="math notranslate nohighlight">\(i = 1, 2, ..., B\)</span>. Thus, each non-leaf node contains a maximum <em>B</em> entries, where <em>B</em> represents the branching factor and each entry represents one associated subcluster. In turn, <span class="math notranslate nohighlight">\(B\)</span> also affects the size of the CF-Tree. The larger <em>B</em> is, the smaller the CF-Tree. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, the branching factor <em>B</em> is represented by the hyperparameter <code class="docutils literal notranslate"><span class="pre">branching_factor</span></code>. The Clustering Features, <span class="math notranslate nohighlight">\(CF_i\)</span>, store the information about the descendants, i.e. the subclusters, while <span class="math notranslate nohighlight">\(child_i\)</span> is used as a pointer to the i-th child/descendant. Thus, the Clustering Feature, <span class="math notranslate nohighlight">\(CF_i\)</span>, contains the sums of all Clustering Features of its descendents (<span class="math notranslate nohighlight">\(child_i\)</span>).</p>
+<p>The leaf nodes are of the form <span class="math notranslate nohighlight">\([CF_i]\)</span>. Furthermore, each leaf node has two entries “prev” and “next”, which are used to connect all leaf nodes. This chain allows for efficient scans. A leaf node contains at most <em>L</em> entries. While each entry in the leaf nodes also represents an associated subcluster, i.e. equivalent to non-leaf nodes, the entries must also comply with the threshold requirement <em>T</em>. The radius of the subcluster represented by each entry has to be smaller than <em>T</em>. In turn, the threshold <em>T</em> also affects the size of the CF-Tree. With a smaller threshold, the size of the CF-tree will increase and with a larger threshold, the size of the CF-tree will decrease. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, the threshold <em>T</em> can be adjusted with the hyperparameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p>
+</div>
+<div class="section" id="clustering-feature">
+<h4>Clustering Feature<a class="headerlink" href="#clustering-feature" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">Clustering Feature</a> is defined as “a triple summarizing the information that we maintain about a cluster”:</p>
+<div class="math notranslate nohighlight">
+\[
+CF = (N,{LS},SS)
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span>: number of data points in the cluster</p></li>
+<li><p><span class="math notranslate nohighlight">\({LS}\)</span>: linear sum of the N data points, i.e. <span class="math notranslate nohighlight">\(\sum_{i=1}^N {X_i}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SS\)</span>: square sum of the N data points, i.e. <span class="math notranslate nohighlight">\(\sum_{i=1}^N ({X_i})^2\)</span></p></li>
+</ul>
+<p>Suppose there are three points, (1,4), (2,2) and (4,3) in a (sub-)cluster <span class="math notranslate nohighlight">\(C_i\)</span>.<br />
+The Clustering Feature <span class="math notranslate nohighlight">\(CF_i\)</span> = <span class="math notranslate nohighlight">\((3, (1+2+4, 4+2+3), (1^2+2^2+4^2, 4^2+2^2+3^2)) = (3, (7, 9), (21, 29))\)</span>.</p>
+<p>A Clustering Feature can be understood as a condensed summary of data points, which captures the natural closeness of the data. Thus, it is much more efficient as it does not need to store all the data points. Moreover, the Clustering Feature can be used to derive many other useful statistics of a cluster such as the centroid <span class="math notranslate nohighlight">\(C\)</span> or radius <em>R</em>, where <em>R</em> represents the average distance from the data points to the centroid.</p>
+<div class="math notranslate nohighlight">
+\[
+C = \frac{\sum_{i=1}^N  x_i}{N} = \frac{LS}{N}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R = \sqrt{\frac{ \sum_{i=1}^N ({X_i} - {C})^2}{N}} = \sqrt{\frac{SS}{N} - (\frac{{LS}}{N})^2}
+\]</div>
+<p>Other useful metrics that can be calculated include the <em>Centroid Euclidean Distance</em>, the <em>Manhattan Distance</em> or <em>Average Inter-Cluster Distance</em>.</p>
+<p>As outlined earlier, the Clustering Feature <span class="math notranslate nohighlight">\(CF_i\)</span> at an internal node contains the sums of all Clustering Features of its descendants. That is because Clustering Features are additive. Thus, when two clusters <span class="math notranslate nohighlight">\(C_2\)</span> and <span class="math notranslate nohighlight">\(C_3\)</span> with the Clustering Features <span class="math notranslate nohighlight">\(CF_2\)</span> = <span class="math notranslate nohighlight">\((N_2,LS_2,SS_2)\)</span> and <span class="math notranslate nohighlight">\(CF_3\)</span> = <span class="math notranslate nohighlight">\((N_3,LS_3,SS_3)\)</span> are merged, then the resulting cluster <span class="math notranslate nohighlight">\(C_1\)</span> simply consists of <span class="math notranslate nohighlight">\(CF_2\)</span> + <span class="math notranslate nohighlight">\(CF_3\)</span> = <span class="math notranslate nohighlight">\((N_2+N_3,LS_2+LS_3,SS_2+SS_3)\)</span>.</p>
+</div>
+<div class="section" id="insertion-algorithm">
+<h4>Insertion Algorithm<a class="headerlink" href="#insertion-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>The CF-Tree is built dynamically as new data points are added. Thus, the CF-Tree directs a new insertion into the correct subcluster similar to a B+-Tree, which sorts new data points into their correct position. The following steps provide a general outline how an entry (data point or subcluster) is inserted into the CF-Tree:<br>
+<strong>1. Identifying the appropriate leaf:</strong><br>
+Starting from the top of the CF-Tree, i.e. the root, the algorithm recursively descends down the CF-Tree to find the closest child node based on a certain distance metric. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, Euclidean Distance is <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/15a949460dbf19e5e196b8ef48f9712b72a3b3c3/sklearn/cluster/_birch.py#L73">used</a>.<br></p>
+<p><strong>2. Modifying the leaf:</strong><br>
+Once the leaf node, e.g. <span class="math notranslate nohighlight">\(CF_8\)</span>, is reached, the closest leaf-entry, e.g. <span class="math notranslate nohighlight">\(CF_{96}\)</span>, in that node is found. Afterwards, the algorithm checks whether <span class="math notranslate nohighlight">\(CF_{96}\)</span> can absorb the new entry without violating the threshold requirement <em>T</em>. If it can, i.e. the radius of <span class="math notranslate nohighlight">\(CF_{96}\)</span> remains smaller than <em>T</em> even after adding the new entry, <span class="math notranslate nohighlight">\(CF_{96}\)</span> will be updated. If adding the entry would lead to a violation of the threshold requirement <em>T</em>, a new entry for a Clustering Feature, i.e. <span class="math notranslate nohighlight">\(CF_i\)</span>, will be added to the leaf. This can only be done if there is space for another entry on the leaf, i.e. the number of Clustering Features on that leaf is smaller than <em>L</em>. Otherwise, the leaf node is split. The node is split by choosing the pair of entries which are the farthest apart as seeds. All other entries are then redistributed to the closest one.</p>
+<p><strong>3. Modifying the path to the leaf:</strong><br>
+As previously outlined, every internal (non-leaf) node is composed of the Clustering Features of all its descendants. Thus, upon inserting an entry into a leaf node, the information for each internal node on the path towards the leaf node needs to be updated. If the leaf-node was split in the previous step, a new non-leaf entry is inserted into the parent node. This newly inserted entry at the parent node will point to the newly created leaf in the previous step. Here, the branching factor <em>B</em> must be adhered to. If the parent node does not have enough space as it already contains <em>B</em> entries, the parent node must be split as well. This splitting is performed up to the root.</p>
+<p>In general, if the size required for storing the CF-Tree still exceeds the size of the memory, a larger threshold value can be specified to rebuild a smaller CF-Tree, which fits into the memory.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Steps<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>In general, BIRCH utilizes a multiphase clustering technique consisting of <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">four phases</a>.</p>
+<p><img alt="Phases BIRCH" src="../_images/Phases_BIRCH.png" /></p>
+<p>Two out of the four phases are optional as a single scan of the dataset already yields a good CF-Tree structure. In the following, the two obligatory phases are illustrated. <br></p>
+<p><strong>Phase 1: Construct the CF-Tree</strong> <br>
+BIRCH scans the data set to construct an initial CF-tree, which is stored in-memory. <br></p>
+<p><strong>Phase 3: Clustering</strong> <br>
+After the CF-Tree is built, any clustering algorithm can be used to cluster the leaf nodes of the CF-Tree. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, by default <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html?highlight=agglo#sklearn.cluster.AgglomerativeClustering">AgglomerativeClustering</a> is used. This is determined by the default-value of the hyperparameter <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>.</p>
+</div>
+<div class="section" id="id12">
+<h3>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>:<br>
+The radius of the subcluster obtained by merging a new sample and the closest subcluster should be lesser than the threshold. Otherwise a new subcluster is started. Setting this value to be very low promotes splitting and vice-versa.<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">branching_factor</span></code>:<br>
+Maximum number of CF subclusters in each node. If a new samples enters such that the number of subclusters exceed the branching_factor then that node is split into two nodes with the subclusters redistributed in each. The parent subcluster of that node is removed and two new subclusters are added as parents of the 2 split nodes.<br></p>
+<p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>:<br>
+Number of clusters after the final clustering step, which treats the subclusters from the leaves as new samples.</p>
+<ul class="simple">
+<li><p>None: the final clustering step is not performed and the subclusters are returned as they are.</p></li>
+<li><p>sklearn.cluster Estimator : If a model is provided, the model is fit treating the subclusters as new samples and the initial data is mapped to the label of the closest subcluster.</p></li>
+<li><p>int: the model fit is <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html?highlight=agglo#sklearn.cluster.AgglomerativeClustering">AgglomerativeClustering</a> with n_clusters set to be equal to the int</p></li>
+</ul>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">Birch</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">Birch</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_39_0.png" src="../_images/Master_39_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-birch-python-implementation">
+<h3>Takeaways from BIRCH Python Implementation<a class="headerlink" href="#takeaways-from-birch-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>In general, BIRCH performed quite similar to the Agglomerative Clustering algorithm. Again, BIRCH only worked for the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function where it correctly assigned all instances to five clusters. This does not come as a surprise, because BIRCH applies Agglomerative Clustering as a last step (default setting in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">Scikit-learn’s implementation</a> of BIRCH). The main advantage of BIRCH is its scalability and speed. The tested datasets were fairly small, which is why the effect on computational speed was quite limited. Nevertheless, BIRCH was faster for all three datasets. This effect would have been more pronounced if the size of the datasets were larger.</p>
+</div>
+</div>
+<div class="section" id="c-density-based">
+<h2>C. Density-Based<a class="headerlink" href="#c-density-based" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-dbscan">
+<h3>a. DBSCAN<a class="headerlink" href="#a-dbscan" title="Permalink to this headline">¶</a></h3>
+<p>DBSCAN stands for density-based spatial clustering of applications with noise. It is efficient to find arbitrary shaped clusters and clusters with noise (i.e. outliers).
+The main concept in this algorithm is, a point will belong to a cluster if it close to many points from that cluster, which means the point is in a dense region.</p>
+<p>Certain literature from Ester <a class="reference external" href="http://et.al">et.al</a> might be helpful to understand the algorithm and the parameters.</p>
+<p>Epsilon neighborhood of a point: The Eps neighborhood of a point p, in a dataset D, denoted by <span class="math notranslate nohighlight">\(N_{Eps}(p)\)</span>, is defined as</p>
+<div class="math notranslate nohighlight">
+\[N_{Eps}(p) = \{q \in D \mid dist(p,q) \leq \epsilon\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is the radius of the neighborhood around the point.</p>
+<p>Density at a point p: Number of points within a circle of radius <span class="math notranslate nohighlight">\(\epsilon\)</span> from point p.</p>
+<p>Dense Region: For each point in the cluster, the circle with radius <span class="math notranslate nohighlight">\(\epsilon\)</span> contains at least minimum number of points. In the algorithm we can specify this minimum number of points as a parameter min_samples. In some literature this is mentioned as MinPts.</p>
+<p>Core point: A point is a core point if there are at least “minimum number of points” in its surrounding area with radius <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Border point: A point is a border point if it is reachable from a core point and there are less than “minimum number of points” within its surrounding area.</p>
+<p>Outlier: A point is an outlier if it is neither a core point nor a border point.</p>
+<p>Direct density reachable: A point p is directly density reachable from another point q if q is a core point and p is in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood of q.</p>
+<p>Density reachable: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points</p>
+<p>if there is a chain of points <span class="math notranslate nohighlight">\(p_l\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, … <span class="math notranslate nohighlight">\(p_n\)</span>, <span class="math notranslate nohighlight">\(p_l\)</span> = <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(p_n\)</span> = <span class="math notranslate nohighlight">\(p\)</span>
+such that <span class="math notranslate nohighlight">\(p_{i+1}\)</span> is directly density-reachable from <span class="math notranslate nohighlight">\(p_i\)</span>.
+Density-reachability is a canonical extension of direct density-reachability.</p>
+<p>Density connected: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points
+if there is a point o such that both p and q are Density reachable from o.</p>
+<p><img alt="The concepts density connectivity" src="../_images/The-concepts-density-connectivity.png" /></p>
+<p>A density-based cluster is defined as a group of density connected points.</p>
+<div class="section" id="the-steps-of-the-algorithm-are-outlined-below">
+<h4>The steps of the algorithm are outlined below.<a class="headerlink" href="#the-steps-of-the-algorithm-are-outlined-below" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>For each point <span class="math notranslate nohighlight">\(x_{i}\)</span>, determine how many points are present in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood.</p></li>
+<li><p>If this count is greater or equal to the minimum number of points, then mark the point as a core point.</p></li>
+<li><p>Cluster formation starts.  Find recursively all its density connected points and assign them to the same cluster as the core point.</p></li>
+<li><p>Iterate through the remaining unvisited points in the dataset.</p></li>
+<li><p>Every core point will be assigned to a new cluster unless some of the core points share neighborhood points, they will be included in the same cluster.</p></li>
+<li><p>Those points that do not belong to any cluster are treated as outliers or noise.</p></li>
+</ol>
+</div>
+<div class="section" id="in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+<h4>In scikit learn there are two key parameters of DBSCAN<a class="headerlink" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan" title="Permalink to this headline">¶</a></h4>
+<p><strong>eps</strong> : The maximum distance between two samples for one to be considered as in the neighborhood of the other. With a smaller value more points will be considered as outlier. The default value is 0.5.</p>
+<p><strong>min_samples</strong> : The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself.  With a higher value, more points will be considered as outlier. The default value is 5.</p>
+</div>
+<div class="section" id="output-from-the-algorithm">
+<h4>Output from the algorithm<a class="headerlink" href="#output-from-the-algorithm" title="Permalink to this headline">¶</a></h4>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">DBSCAN</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_44_0.png" src="../_images/Master_44_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-dbscan-python-implementation">
+<h3>Takeaways from DBSCAN Python Implementation<a class="headerlink" href="#takeaways-from-dbscan-python-implementation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Blobs - With a small <span class="math notranslate nohighlight">\(eps\)</span> value and a big <span class="math notranslate nohighlight">\(min\_samples\)</span> value, there will not be many core points and hence most of the points will not be able to be “density connected”. The result is in line with our understanding. With <span class="math notranslate nohighlight">\(eps = 0.2\)</span> it is able to identify the clusters correctly.  If we decrease the value to <span class="math notranslate nohighlight">\(0.1\)</span>, then more points will be identified as outliers.</p></li>
+<li><p>Circles – The algorithm is able to identify the density connected points and clusters correctly. Although the Silhouette score is not meaningful because of the non-convex nature of the dataset, the FMI is accurate and evaluates the algorithm correctly.</p></li>
+<li><p>Moons – The algorithm is able to identify the “density connected” points and clusters correctly.  As with the <code class="docutils literal notranslate"><span class="pre">make_circles</span></code> function, the Silhouette score is meaningful for this dataset due to its non-convex nature. However, the FMI is accurate and evaluates the algorithm correctly.</p></li>
+</ol>
+</div>
+<div class="section" id="b-hdbscan">
+<h3>b. HDBSCAN<a class="headerlink" href="#b-hdbscan" title="Permalink to this headline">¶</a></h3>
+<p>HDBSCAN (Hierarchical Density-Based Spatial Clustering and Application with Noise) is an unsupervised clustering algorithm which expands the DBSCAN algorithm and integrates the hierarchical approach.
+As we know the DBSCAN algorithm requires the input parameters as epsilon and min_samples which requires pre domain knowledge about data.  DBSCAN algorithm is not so efficient where there are different densities present in the data. In HDBSCAN, the algorithm works for varying epsilon and this makes the algorithm very efficient even with different densities in the data.</p>
+<div class="section" id="below-are-the-steps-performed-by-the-algorithm">
+<h4>Below are the steps performed by the algorithm.<a class="headerlink" href="#below-are-the-steps-performed-by-the-algorithm" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Transform the space according to the density/sparsity.</p></li>
+</ol>
+<p>The intuition is, in this step we are trying to separate the islands from the sea or mountains from its valleys to identify the dense and sparse regions in the data.  The foundation of the algorithm is based on single linkage clustering and this method is sensitive to outliers.  To make the method robust to outliers, in this very first step a new distance metric, mutual reachability distance is created which can be defined as:</p>
+<div class="math notranslate nohighlight">
+\[d_{mreach}(a,b) = max\{core_k(a), core_k(b), d(a,b)\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(core_k(a)\)</span> and <span class="math notranslate nohighlight">\(core_k(b)\)</span> are the core distances defined for parameter <span class="math notranslate nohighlight">\(k\)</span> for the points <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> is the required minimum number of points.</p></li>
+<li><p><span class="math notranslate nohighlight">\(d(a,b)\)</span> is the original metric distance between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(d_{mreach}(a,b)\)</span> is the mutual reachability distance.</p></li>
+</ul>
+<p><img alt="HDBSCAN 1" src="../_images/HDBSCAN_1.PNG" /></p>
+<ol class="simple">
+<li><p>Build the minimum spanning tree of the distance weighted graph.</p></li>
+</ol>
+<p>Conceptually in this step, the data is considered as a weighted graph with the data points as vertices and an edge between any two points with weight equal to the mutual reachability distance of those points. Using the graph theory, the minimum spanning tree is created which is computationally faster.</p>
+<ol class="simple">
+<li><p>Construct a cluster hierarchy of connected components.</p></li>
+</ol>
+<p>Given the minimal spanning tree, the next step is to convert that into the hierarchy of connected components. From this step we need to find flat clusters. The usual way is to select the distance to make horizontal cut and find the clusters.  But here in this algorithm we want to deal with variable density clusters and any choice of cut line is a choice of mutual reachability distance to cut at, and hence a single fixed density level. Ideally, we want to be able to cut the tree at different places to select our clusters. This is where the next steps of HDBSCAN begin and create the difference from robust single linkage.</p>
+<p><img alt="HDBSCAN 2" src="../_images/HDBSCAN_2.PNG" /></p>
+<ol class="simple">
+<li><p>Condense the cluster hierarchy based on minimum cluster size.</p></li>
+</ol>
+<p>In this step, a smaller condensed tree is created. Using the input parameter, minimum cluster size, at each split the condition is checked whether one of the new clusters created by the split has fewer points than the minimum cluster size or not. If it has fewer points, then it will not be considered as cluster instead, it will be considered as ‘points falling out of a cluster’.  Otherwise, it will be considered as a persistent cluster. After walking through the whole hierarchy and doing this we end up with a much smaller tree with a small number of nodes.</p>
+<p><img alt="HDBSCAN 3" src="../_images/HDBSCAN_3.PNG" /></p>
+<ol class="simple">
+<li><p>Extract the stable clusters from the condensed tree.</p></li>
+</ol>
+<p>In the last step the clusters are selected based on the excess of mass (eom).  This method, which refers back to the research by Hartigan, is recommended by Campello et al. as the optimal global solution to the problem of finding clusters with the highest
+stability. HDBSCAN’s selection algorithm traverses the condensed cluster tree bottom-up and selects the cluster with highest stability on each path. The clusters which persist for longer time and have more area will be selected as cluster.  If a cluster is selected then any cluster that is a descendant of it cannot be a cluster.</p>
+<p><img alt="HDBSCAN 4" src="../_images/HDBSCAN_4.PNG" /></p>
+</div>
+<div class="section" id="the-key-parameters-for-the-algorithm-are-as-below">
+<h4>The key parameters for the algorithm are as below.<a class="headerlink" href="#the-key-parameters-for-the-algorithm-are-as-below" title="Permalink to this headline">¶</a></h4>
+<p><strong>min_cluster_size</strong> is the smallest size grouping that we wish to consider a cluster.  If we increase the value, then smaller number of clusters will be created.  The default is five.</p>
+<p>However, there is another parameter which has significant effect in this intuition.</p>
+<p><strong>min_samples</strong> is yet another very important parameter which can be used to control the conservativeness of clustering.  The larger the value of min_samples you provide, the more conservative the clustering – more points will be declared as noise, and clusters will be restricted to progressively more dense areas.</p>
+<p>If not specified the default value for this parameter will be same as min_cluster_size.</p>
+<p><strong>cluster_selection_epsilon</strong>  ensures that clusters below the given threshold are not split up any further.</p>
+<p><strong>alpha</strong> is part of the RobustSingleLinkage code, but flows naturally into HDBSCAN.  The default value is 1.0.  It’s better not to change this parameter as adjusting alpha will result in recomputing the hard computation of the single linkage tree.</p>
+</div>
+<div class="section" id="id13">
+<h4>Output from the algorithm<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<p><strong>clusterer.probabilities_</strong> : For each cluster we have the <span class="math notranslate nohighlight">\(\lambda_p\)</span> for each point <span class="math notranslate nohighlight">\(p\)</span> in that cluster; which measures the strength of cluster membership for each point.</p>
+<p><strong>outlier_scores_</strong> : This output is a vector of score values, one for each data point that was fit. Higher scores represent more outlier like objects. Selecting outliers via upper quantiles is often a good approach.</p>
+</div>
+<div class="section" id="soft-clustering-for-hdbscan">
+<h4>Soft clustering for HDBSCAN<a class="headerlink" href="#soft-clustering-for-hdbscan" title="Permalink to this headline">¶</a></h4>
+<p>To implement soft clustering, we need to produce a method of providing a soft membership vector for a given point across the selected clusters of a clustering. Ideally, we want this to be interpretable as a probability of being a member of that cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdbscan</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">,</span> <span class="n">min_cluster_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_48_0.png" src="../_images/Master_48_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-hdbscan-python-implementation">
+<h3>Takeaways from HDBSCAN Python Implementation<a class="headerlink" href="#takeaways-from-hdbscan-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>For all the three datasets the algorithm is able to find the clusters accurately and hence the FMI score is high. However, as the circles and moons datasets are non-convex in nature, the Silhouette scores are low and not meaningful for the evaluation thereof.</p>
+</div>
+</div>
+<div class="section" id="d-expectation-maximization">
+<h2>D. Expectation Maximization<a class="headerlink" href="#d-expectation-maximization" title="Permalink to this headline">¶</a></h2>
+<p>The Expectation Maximization algorithm (EM) is an Maximum Likelihood Estimator (MLE) (for a closer examination of the relationship between MLE, MAP and EM see [1]). In the context of clustering it is also referred to as a “soft cluster” algorithm, since it iteratively estimates the probabilites that a given set of data belongs to either cluster. Therefore it is split up in two different steps, the E-Step and the M-Step, which we will delve into now.</p>
+<div class="section" id="e-step">
+<h3>E-Step<a class="headerlink" href="#e-step" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>E</strong> in <strong>E</strong>-Step stands for “<strong>E</strong>xpectation”, hence we want to calculate values which illustrate the expectation that a given set of data belongs to either of the given <span class="math notranslate nohighlight">\(\theta\)</span>s (the <span class="math notranslate nohighlight">\(\theta\)</span>s represent our different clusters). In fact, <span class="math notranslate nohighlight">\(\theta\)</span> displays the probability that a certain event happened in one cluster. For a coin toss, this would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_A\ =\ 0.6;\ \theta_B\ =\ 0.5
+\]</div>
+<p>which displays the respective probabilities for coin A and coin B showing heads. These initial values are randomly created in the range between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>. As we already discussed in the <a class="reference external" href="#kmeans">K-Means</a> section, this algorithm also needs beforehand a concrete input of how many clusters it should look for. After the <span class="math notranslate nohighlight">\(\theta\)</span> values are initialized/provided we turn to datasets. Let’s imagine we have the following datasets (where <span class="math notranslate nohighlight">\(H\)</span> is for heads and <span class="math notranslate nohighlight">\(T\)</span> is for tails):</p>
+<div class="math notranslate nohighlight">
+\[
+1.\ [HHTTHHTHTT];\ 2.\ [HHHTHHHHHH]
+\]</div>
+<p>Since we know what the probability of heads is for each coin, we can now calculate the probability that either of those datasets belong to either of those coins. For the first dataset with five heads and five tails, we can calculate the probability that it belongs to coin A as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+P(coin\ A|\ [HHTTHHTHTT]) = \frac{{0.6^5}*{0.4^5}}{{{0.6^5}*{0.4^5}}+{{0.5^5}*{0.5^5}}} = 0.45
+\]</div>
+<p>For the second dataset, the probability that it belongs to coin A would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+P(coin\ A|\ [HHHTHHHHHH]) = \frac{{0.6^9}*{0.4^1}}{{{0.6^9}*{0.4^1}}+{{0.5^9}*{0.5^1}}} = 0.8
+\]</div>
+<p>Using this formula we can calculate the probabilities for all datasets for all our <span class="math notranslate nohighlight">\(\theta\)</span>s.</p>
+<p>The “algorithm” uses this function to calculate all the expectations for coin A. The expectations for coin B are easily computed, since we can just do 1 - probability of coin A. Once we have all the data, we can multiply our expectation with the number of events we want to measure. Meaning, we calculate:</p>
+<div class="math notranslate nohighlight">
+\[
+0.45∗5=2.2
+\]</div>
+</div>
+<div class="section" id="the-m-step">
+<h3>The M-Step<a class="headerlink" href="#the-m-step" title="Permalink to this headline">¶</a></h3>
+<p>Now we know that if the first dataset would belong to coin A, we would expect heads 2.2 times and tails 2.2 times. Once we have that full table, all we do, is calculate the MLE. We sum up the values for the occurances of heads and tails for each coin, and calculate the probability of heads for each coin. This is also called the <strong>M(aximization)</strong>-step. These two probabilities are our new values, with which we re-run our expectation calculation. We can repeat this as many times as we want. The nice thing about this is that in the end we can approximate the real <span class="math notranslate nohighlight">\(\theta\)</span>s, viz. after ten iterations we have a posterior maximization value of 0.8 for coin A tossing heads.</p>
+<p>We can make use of the <code class="docutils literal notranslate"><span class="pre">GaussianMixture</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> which implemented the EM algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">GaussianMixture</span><span class="p">,</span> <span class="n">init_params</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_51_0.png" src="../_images/Master_51_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-em-python-implementation">
+<h3>Takeaways from EM Python Implementation<a class="headerlink" href="#takeaways-from-em-python-implementation" title="Permalink to this headline">¶</a></h3>
+<p>For the first plot <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> we can see that the EM algorithm was able to correctly identify the clusters and their constituent observations. This is also manifested by the FMI score. However, like KMeans it suffers a bit when one turns to the second graph of <code class="docutils literal notranslate"><span class="pre">make_circles</span></code>. The differences between the inner and the outer rims is too small and the probability of belonging to either one of those clusters cannot be clearly found. Hence it split the circles into two halves. The vertices of the <code class="docutils literal notranslate"><span class="pre">make_moons</span></code> function are correctly separated, coming closer to where the moons are intertwined, the algorithm is unsure of how to cluster it.</p>
+</div>
+</div>
+<div class="section" id="e-affinity-propagation">
+<h2>E. Affinity Propagation<a class="headerlink" href="#e-affinity-propagation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="affinity-propagation">
+<h2>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">¶</a></h2>
+<p>Affinity Propagation is an unsupervised clustering algorithm based on the concept of “message passing” (i.e. voting systems) between data points.  This algorithm does not require the number of clusters as input.<br />
+It applies the concept of “exemplars”, which are members of the input set that are representative of clusters.
+The main drawback of this algorithm is that it is computationally expensive.</p>
+<p><img alt="Message-Passing-in-Affinity-Propagation" src="../_images/Message-Passing-in-Affinity-Propagation.png" /></p>
+<div class="section" id="steps-of-the-algorithm">
+<h3>Steps of the algorithm<a class="headerlink" href="#steps-of-the-algorithm" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>The algorithm first calculates the Similarity Matrix for all the data points.  The similarity is calculated as negative squared Euclidian distance.
+$<span class="math notranslate nohighlight">\(s(i, k) = - \lvert\lvert x_i - x_k \rvert\rvert^2\)</span>$</p></li>
+<li><p>The diagonal elements of the matrix are zero as per the above formula. If the diagonal values are not modified, all the elements will be exemplars and many clusters will be formed. There are two ways to control this situation: (1) modify the values by the minimum value of the similarities between points, or (2) modify the values by the median value of the similarities. In the former case, the least number of clusters will be formed whereas in the latter case a moderate number of clusters will be formed.</p></li>
+<li><p>As a next step it creates the “responsibility” matrix <span class="math notranslate nohighlight">\(R\)</span> which has values <span class="math notranslate nohighlight">\(r(i, k)\)</span> that quantify how well-suited <span class="math notranslate nohighlight">\(x_k\)</span> is to serve as the exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>, relative to other candidate exemplars for <span class="math notranslate nohighlight">\(x_i\)</span>. The greater the value, the higher the chance that <span class="math notranslate nohighlight">\(x_k\)</span> is an exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>. The calculation is done by the definition below.</p>
+<div class="math notranslate nohighlight">
+\[r(i, k) \leftarrow s(i, k) - \max\limits_{k' s.t. k' \neq k}\{ a(i, k') + s(i, k') \}\]</div>
+<p>As the formula states, the responsibility of <span class="math notranslate nohighlight">\(k\)</span> towards <span class="math notranslate nohighlight">\(i\)</span> will decrease as the availability of some other <span class="math notranslate nohighlight">\(k'\)</span> to <span class="math notranslate nohighlight">\(i\)</span> increases.</p>
+</li>
+<li><p>The damping factor is used in the calculation as provided below. This is in order to avoid numerical oscillations when updating these values.</p>
+<div class="math notranslate nohighlight">
+\[R = R * damping + (1 - damping) * R_{new}\]</div>
+</li>
+<li><p>The “availability” matrix <span class="math notranslate nohighlight">\(A\)</span> contains values <span class="math notranslate nohighlight">\(a(i, k)\)</span> that represent how “appropriate” it would be for <span class="math notranslate nohighlight">\(x_i\)</span> to pick <span class="math notranslate nohighlight">\(x_k\)</span> as its exemplar, taking into account other points’ preference for <span class="math notranslate nohighlight">\(x_k\)</span> as an exemplar.</p>
+<p>For the diagonal elements (self availabilities) the calculation is done by the definition below.</p>
+<div class="math notranslate nohighlight">
+\[a(k, k) \leftarrow \sum\limits_{i' \neq k}\max(0, r(i', k))\]</div>
+<p><span class="math notranslate nohighlight">\(a(k, k)\)</span> reflects accumulated evidence that point <span class="math notranslate nohighlight">\(k\)</span> is suitable to be an exemplar, based on the positive
+responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards other elements.</p>
+</li>
+<li><p>For the off diagonal elements the calculation is done by the definition below.</p>
+<div class="math notranslate nohighlight">
+\[a(i, k) \leftarrow \min\{0, r(k,k) + \sum\limits_{i' s.t. i' \notin \{i, k\}}{\max\{0, r(i', k)\}}\]</div>
+<p>The formula states that availability is a self-responsibility of <span class="math notranslate nohighlight">\(k\)</span> plus the positive responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards
+elements other than <span class="math notranslate nohighlight">\(i\)</span>. The intuition to include only positive responsibilities is: an exemplar should be positively
+responsible to some data points, regardless of the negative responsibilites to other data points.
+If self-responsibility is negative, it means that <span class="math notranslate nohighlight">\(k\)</span> is more suitable to belong to another exemplar, rather than being an
+exemplar.</p>
+<p>The damping factor is used in a way similar to that described above.</p>
+</li>
+<li><p>The values are updated through iterations. Iterations are performed until either the cluster boundaries remain unchanged over a number of iterations, or some predetermined number (of iterations) is reached.</p></li>
+<li><p>The Criterion matrix is calculated after the updating is terminated. The Criterion matrix <span class="math notranslate nohighlight">\(C\)</span> is the sum of <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(A\)</span>. The formula is:</p>
+<div class="math notranslate nohighlight">
+\[c(i,k) \leftarrow r(i,k) + a(i,k)\]</div>
+<p>An element <span class="math notranslate nohighlight">\(i\)</span> will be assigned to an exemplar <span class="math notranslate nohighlight">\(k\)</span> which is not only highly responsible but is also highly available to <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</li>
+<li><p>The exemplars extracted from the final matrices are those whose ‘responsibility + availability’ sum is positive (i.e. <span class="math notranslate nohighlight">\((r(i,i)+a(i,i))&gt;0\)</span>)</p></li>
+<li><p>For point <span class="math notranslate nohighlight">\(i\)</span>, the <span class="math notranslate nohighlight">\(k\)</span> with maximum <span class="math notranslate nohighlight">\(r(i, k) + a(i, k)\)</span> represents point <span class="math notranslate nohighlight">\(i’s\)</span> exemplar or cluster.</p></li>
+</ol>
+</div>
+<div class="section" id="key-parameters-as-per-scikit-learn">
+<h3>Key parameters as per scikit learn<a class="headerlink" href="#key-parameters-as-per-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p><strong>damping</strong> - Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). This in order to avoid numerical oscillations when updating these values (messages).</p>
+<p><strong>max_iter</strong> - Maximum number of iterations. Default is 200.</p>
+<p><strong>preference</strong> - Preferences for each point - points with larger values of preferences are more likely to be chosen as exemplars. The number of exemplars, i.e. of clusters, is influenced by the input preferences value. If the preferences are not passed as arguments, they will be set to the median of the input similarities.</p>
+<p>This preference value indicates how strongly a data point thinks itself should be an exemplar. It is the diagonal value of the similarity matrix, <span class="math notranslate nohighlight">\(S\)</span>. If we choose to leave this value unmodified, we will see almost no clustering as most data points choose to be an exemplar for themselves. If we haven’t got a priori knowledge of the data points it is advised to start with a preference equal to the median of the input similarities.
+Intuitively, if we want Affinity Propagation to be less eager in splitting clusters we can set the preference value lower.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AffinityPropagation</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">AffinityPropagation</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="mf">.9</span><span class="p">,</span> <span class="n">preference</span> <span class="o">=</span> <span class="o">-</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Master_54_0.png" src="../_images/Master_54_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="takeaways-from-affinity-propagation-python-implementation">
+<h3>Takeaways from Affinity Propagation Python Implementation<a class="headerlink" href="#takeaways-from-affinity-propagation-python-implementation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Blobs – The algorithm does not cluster this dataset correctly. Instead of five it can only find two clusters. The three clusters in the bottom left corner are grouped together as they are far apart from the clusters in the upper right corner.</p></li>
+<li><p>Circles - The algorithm has identified three clusters instead of two. One reason may be that the similarity matrix is calculated based on the Euclidean distance and if we look into the shape, the points belonging to different circles are closer than the points belonging to the same circle. So, the algorithm considered the points from different circles in a cluster.</p></li>
+<li><p>Moons - In this case the algorithm has identified two clusters, albeit in a different manner than that present in the original dataset. Specifically, the edge of one moon is closer to the middle part of the other moon and hence the similarity has been calculated such that those points have been placed in the same cluster, which is not correct and is manifested by the poor evaluation metrics.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id14">
+<h2>Performance Metric - Silhouette Score and Fowlkes-Mallows Index<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h3>Silhouette Score<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Silhouette_(clustering)">https://en.wikipedia.org/wiki/Silhouette_(clustering)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Convex_set">https://en.wikipedia.org/wiki/Convex_set</a></p></li>
+<li><p>Machine Learning: A Probabilistic Perspective (Adaptive Computation and Machine Learning) by Kevin P. Murphy</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/performance-metrics-in-machine-learning-part-3-clustering-">https://towardsdatascience.com/performance-metrics-in-machine-learning-part-3-clustering-</a></p></li>
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>Fowlkes-Mallows Index<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores">https://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="partition">
+<h2>Partition<a class="headerlink" href="#partition" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html">https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering">https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/spectral-clustering-aba2640c0d5b">https://towardsdatascience.com/spectral-clustering-aba2640c0d5b</a></p></li>
+<li><p><a class="reference external" href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf">http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/spectral-clustering-82d3cff3d3b7">https://towardsdatascience.com/spectral-clustering-82d3cff3d3b7</a></p></li>
+<li><p><a class="reference external" href="https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/">https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/</a></p></li>
+</ul>
+</div>
+<div class="section" id="hierarchial">
+<h2>Hierarchial<a class="headerlink" href="#hierarchial" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+<li><p>Data Mining - Concepts &amp; Techniques by Jiawei Han, Micheline Kamber, Jian Pei (2012)</p></li>
+<li><p><a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/machine-learning-birch-clustering-algorithm-clearly-explained-fb9838cbeed9">https://towardsdatascience.com/machine-learning-birch-clustering-algorithm-clearly-explained-fb9838cbeed9</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#birch">https://scikit-learn.org/stable/modules/clustering.html#birch</a></p></li>
+<li><p><a class="reference external" href="https://dataaspirant.com/hierarchical-clustering-algorithm/#t-1608531820448">https://dataaspirant.com/hierarchical-clustering-algorithm/#t-1608531820448</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="density-based">
+<h2>Density-Based<a class="headerlink" href="#density-based" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dbscan">
+<h3>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page">https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page</a></p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372">https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372</a></p></li>
+</ul>
+</div>
+<div class="section" id="hdbscan">
+<h3>HDBSCAN<a class="headerlink" href="#hdbscan" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="expectation-maximization">
+<h2>Expectation Maximization<a class="headerlink" href="#expectation-maximization" title="Permalink to this headline">¶</a></h2>
+<p>[1] <a class="reference external" href="https://stats.stackexchange.com/questions/235070/relation-between-map-em-and-mle/524802#524802">https://stats.stackexchange.com/questions/235070/relation-between-map-em-and-mle/524802#524802</a></p>
+<p><em>Note: An exhaustive blogpost which explains MLE, MAP and EM and their relationship.</em></p>
+<p>[2] <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets">https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets</a></p>
+<p><em>Note: This is the exhaustive documentation of all available datasets and samples generator webpage. It offers deeper insights into which parameters else each function has.</em></p>
+<p>[3] T. Hastie, R. Tibshirani and J. Friedman, “Elements of Statistical Learning Ed. 2”, Springer, 2009.</p>
+<p><em>Note: This reference was directly taken from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>s documentation!</em></p>
+</div>
+<div class="section" id="id17">
+<h2>Affinity Propagation<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8">https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In%20statistics%20and%20data%20mining,message%20passing%22%20between%20data%20points">https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In statistics and data mining,message passing” between data points</a></p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147">https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "mcmc"
+        },
+        kernelOptions: {
+            kernelName: "mcmc",
+            path: "./Mini-Project"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'mcmc'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../MCMC/Assignment%204%20-%20Master.html" title="previous page">Think like a Bayesian, check like a frequentist</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

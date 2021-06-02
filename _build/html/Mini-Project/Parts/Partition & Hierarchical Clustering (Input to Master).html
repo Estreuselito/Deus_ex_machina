@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partition Clustering &#8212; Deus Ex Machina</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Mini-Project/Parts/Partition & Hierarchical Clustering (Input to Master).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Parts/Partition & Hierarchical Clustering (Input to Master).html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Parts/Partition & Hierarchical Clustering (Input to Master).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Partition Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-means">
+     K-means
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#general-description-application">
+       General Description &amp; Application
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#steps">
+       Steps
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#select-parameters-scikit-learn-implementation">
+       Select Parameters (Scikit Learn Implementation)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spectral-clustering">
+     Spectral Clustering
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       General Description &amp; Application
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Steps
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-1-affinity-matrix">
+         Step 1: Affinity Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-2-degree-matrix">
+         Step 2: Degree Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-laplacian-matrix">
+         Step 3: Laplacian Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-4-eigendecomposition-of-laplacian-matrix">
+         Step 4: Eigendecomposition of Laplacian Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-5-application-of-standard-clustering-algorithm">
+         Step 5: Application of standard clustering algorithm
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Select Parameters (Scikit Learn Implementation)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchical-clustering">
+   Hierarchical Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agglomerative-clustering">
+     Agglomerative Clustering
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       General Description &amp; Application
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Steps
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Select Parameters (Scikit Learn Implementation)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#birch">
+     BIRCH
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       General Description &amp; Application
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#cf-tree">
+         CF-Tree
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#clustering-feature">
+         Clustering Feature
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#insertion-algorithm">
+         Insertion Algorithm
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Steps
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Select Parameters (Scikit Learn Implementation)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes-to-self">
+     Notes to Self
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#works-cited">
+     Works Cited
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="partition-clustering">
+<h1>Partition Clustering<a class="headerlink" href="#partition-clustering" title="Permalink to this headline">¶</a></h1>
+<p>A key characteristic of Partition Clustering algorithms is that they require the user to specify the number of clusters which the algorithm will find. Possessing at least some degree of domain knowledge and/or insight into the dataset is quite helpful in this regard, as otherwise the number of clusters formed is arbitrary and hence is not likely to reflect the inherent number of clusters within the data. On the other hand, the fact the programmer specifies the number of clusters to be identified does help Partition Clustering algorithms to be relatively efficient (computationally) when compared with other clustering algorithms. Partition Clustering algorithms cluster all data points, regardless if a given data point could be reliably said to be part of a cluster.</p>
+<div class="section" id="k-means">
+<h2>K-means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-description-application">
+<h3>General Description &amp; Application<a class="headerlink" href="#general-description-application" title="Permalink to this headline">¶</a></h3>
+<p>K-means is a very popular Partition Clustering algorithm. Essentially, the user specifies the number of clusters to be identified, and the algorithm iteratively adjusts the clusters by moving what are known as <strong>Centroids</strong> in a manner that minimizes the distance of the data points to the Centroid to which they are assigned. In so doing the specific Centroid to which a given datapoint is assigned can change, as the datapoints are assigned to the nearest Centroid and as mentioned the Centroids iteratively change locations accordingly.</p>
+<p>The major benefit of K-means is its minimal computational cost - it is a relatively simple and efficient algorithm that is well-suited to working with large datasets. However, as discussed in the description of Partition Clustering algorithms more broadly this can also be a downside, especially without domain knowledge and/or insight into the dataset. Furthermore, as with other Partition Clustering algorithms the K-means algorithm will assign all points to a cluster, irrespective of whether a given point is actually part of a cluster.</p>
+</div>
+<div class="section" id="steps">
+<h3>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h3>
+<p>The K-means algorithm can be broken down into four specific steps:</p>
+<ol class="simple">
+<li><p>Determine K, the number of clusters to be identified.</p></li>
+<li><p>Select K data points to serve as the initial centroids.</p></li>
+<li><p>Assign each data point to the closest centroid.</p></li>
+<li><p>Move the centroids according to the new “average location” of the data points assigned to each centroid. <span class="math notranslate nohighlight">\(\newline\)</span></p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Steps 3 and 4 are repeated until there are no further changes to the clusters to which each data point is assigned or once the <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter has been reached. In order try and find a global rather than a local maximum, the algorithm is initialized with different centroid seeds <code class="docutils literal notranslate"><span class="pre">n_init</span></code> times, meaning that the total number of times the algorithms is effectuated is the product of the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> and <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameters.</p>
+</div>
+<div class="section" id="select-parameters-scikit-learn-implementation">
+<h3>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#select-parameters-scikit-learn-implementation" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: The number of clusters to form, which is also the number of centroids to generate.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<code class="docutils literal notranslate"><span class="pre">n_init</span></code>: Number of times the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: Maximum number of iterations of the k-means algorithm for a single run.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn documentation (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a>).</p>
+</div>
+</div>
+<div class="section" id="spectral-clustering">
+<h2>Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>General Description &amp; Application<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The idea of spectral clustering is rooted in graph theory. The spectral clustering algorithm aims to identify communities of nodes in a graph based on connections between them. It can be understood as aiming to maximize the number of within-cluster connections and to minimize the number of between-cluster connections. The spectral clustering algorithm also allows for clustering of non graph data. Thus, points that are (immediately) next to each other, i.e. closely connected, are identified in dataset.</p>
+<p>The spectral clustering algorithm utilizes information from the eigenvalues and eigenvectors of the Laplacian Matrix. The calculation of the (unnormalized) Laplacian Matrix will be explained in more detail in a bit. In the end, a standard clustering algorithm, such as KMeans, is applied on the relevant eigenvectors of the Laplacian Matrix to identify clusters in the dataset.</p>
+<p>We will now briefly outline some advantages and disadvantages of the spectral clustering algorithm. The spectral clustering algorithm is generally able to capture complex data structures as it does not make an assumption about the shape/form of the clusters. Nevertheless, the spectral clustering algorithm still requires us to specify the number of clusters beforehand as indicated by the <code class="docutils literal notranslate"><span class="pre">n_cluster</span></code> hyperparamter. In that sense, it has the same disadvantage as K-Means. Furthermore, the spectral clustering algorithm groups every individual data point to a cluster, which means it may also cluster noise. Additionally, it is computationally expensive for large datasets.</p>
+</div>
+<div class="section" id="id2">
+<h3>Steps<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The general process of the spectral clustering algorithm implemented in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">Scikit-Learn</a> with the function <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.SpectralClustering</span></code> can be illustrated by the following steps:</p>
+<ol class="simple">
+<li><p>Construct the Affinity Matrix based on the datapoints</p></li>
+<li><p>Create the Degree Matrix based on the Affinity Matrix</p></li>
+<li><p>Construct the Laplacian Matrix by subtracting the Affinity matrix from the Degree Matrix</p></li>
+<li><p>Eigendecomposition of the Laplacian Matrix</p></li>
+<li><p>Apply a standard clustering algorithm, e.g. KMeans, on the relevant eigenvectors of the Laplacian Matrix</p></li>
+</ol>
+<p>The previously outlined steps will now be described in more detail:</p>
+<div class="section" id="step-1-affinity-matrix">
+<h4>Step 1: Affinity Matrix<a class="headerlink" href="#step-1-affinity-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The entries of an Affinity Matrix show how similar points are to each other. The higher the entry in a Affinity Matrix, the higher the similarity between the points. The Affinity Matrix can be constructed in different ways. Therefore, Scikit-Learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">implementation</a>  includes the parameter <em>affinity</em>, which defines how to construct the Affinity Matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> constructs the affinity matrix by computing a graph of nearest neighbors. If chosen, the hyperparameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> also needs to be set as this determines the number of neighbors to use when constructing the affinity matrix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rbf</span></code> constructs the affinity matrix using a radial basis function (RBF) kernel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed</span></code> interprets X as a precomputed affinity matrix, where larger values indicate greater similarity between instances</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> interprets X as a sparse graph of precomputed distances, and construct a binary affinity matrix from the n_neighbors nearest neighbors of each instance</p></li>
+</ul>
+<p>It will now be detailed, how the Affinity Matrix is constructed using <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> and <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. in those cases where no precomputed Affinity Matrix is provided:</p>
+<p><strong>nearest_neighbors:</strong><br />
+When setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, the Affinity Matrix is calculated using the k-nearest neighbors method. Thus, the number of neighbors to use when constructing the Affinity Matrix needs to be specified with the parameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>. Let’s call the matrix, which stores the relationships of k-nearest neighbours, <em>Connectivity Matrix</em>. If another datapoint belongs to the k-nearest neighbors, the Connectivity Matrix will indicate it with an entry of 1. If it does not belong to the k-nearest neighbors, it will be indicated with a 0. In Scikit-Learn, the Affinity Matrix is then calculated using the following <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L512">formula</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+{Affinity\ Matrix} = 0.5 * ({Connectivity\ Matrix} + {Connectivity\ Matrix^T})
+\]</div>
+<p>Thus, each entry in the Affinity Matrix can only take up one of three possible entries: 1.0, 0.5 or 0.0.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> indicates that when calculating the closest k-nearest neighbors, both datapoints were amongst the respective nearest k-datapoints</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code> indicates that this was only true for one datapoint, i.e. only in one “direction”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code> indicates that for both datapoints, the other respective datapoint was not among the k-nearest</p></li>
+</ul>
+<p>Let’s assume the following example with n_neighbors = 2:</p>
+<div>
+<img src="Spectral_Clustering/Affinity_Matrix_nearest_neighbor.png" width="700"/>
+</div>
+<p>For data point 0, the k-nearest neighbors (including itself) are data point 0 and data point 1. For data point 1, only data point 1 and data point 2 are the k-nearest neighbors. In turn, the Affinity Matrix shows 0.5 at the entry row 0, column 1.
+<em>Note</em>: The parameter <code class="docutils literal notranslate"><span class="pre">include_self</span></code> is set to <em>True</em>, which means that each sample is marked as the first nearest neighbor to <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L510">itself</a>.</p>
+<p><strong>rbf:</strong><br />
+Setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. also its <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">default setting</a>, the Affinity Matrix is constructed using a kernel function with Euclidean distance d(X, X), i.e. it calculates the pairwise distances of all points in our dataset <em>X</em>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.exp(-gamma</span> <span class="pre">*</span> <span class="pre">d(X,X)</span> <span class="pre">**</span> <span class="pre">2)</span></code></p>
+<p>The default for <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is 1.0. Here, the entries of the Affinity Matrix can take any value between 0.0 and 1.0, where an increase in value corresponds to an increase in similarity.</p>
+<div>
+<img src="Spectral_Clustering/Affinity_Matrix_rbf.png" width="700"/>
+</div>
+</div>
+<div class="section" id="step-2-degree-matrix">
+<h4>Step 2: Degree Matrix<a class="headerlink" href="#step-2-degree-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The Degree Matrix is a diagonal matrix, which is obtained by taking the sum of each row in the Affinity Matrix. The entries on the diagonal are called <em>degree</em>. Thus, the closer the individual points are group together, the higher the entry in the diagonal as each individual entry in the rows of the Affinity Matrix will be larger. At the same time, if the points are spread out further, the individual entries in the rows of the Affinity Matrix are smaller, which in turn leads to a smaller sum of the row.</p>
+</div>
+<div class="section" id="step-3-laplacian-matrix">
+<h4>Step 3: Laplacian Matrix<a class="headerlink" href="#step-3-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The (unnormalized) Laplacian Matrix is calculated by subtracting the Affinity Matrix from the Degree Matrix.</p>
+<div class="math notranslate nohighlight">
+\[
+L = D - A
+\]</div>
+<p>The (unnormalized) Laplacian Matrix has among others the following <a class="reference external" href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf">basic properties</a>:</p>
+<ul class="simple">
+<li><p>L is symmetric and positive semi-definite</p></li>
+<li><p>The smallest eigenvalue of L is 0, the corresponding eigenvector is the constant one vector</p></li>
+<li><p>L has n non-negative, real-valued eigenvalues 0 = <span class="math notranslate nohighlight">\(λ_1\)</span> ≤ <span class="math notranslate nohighlight">\(λ_2\)</span> ≤ … ≤ <span class="math notranslate nohighlight">\(λ_n\)</span></p></li>
+</ul>
+<p><em>Note:</em> There are several other variants of the Laplacian Matrix as well as spectral clustering algorithms, which were out of the scope of this assignment as we did not solely focus on this type of algorithm.</p>
+<p>In the following, the Affinity Matrix, Degree Matrix and Laplacian Matrix are illustrated for the example using <code class="docutils literal notranslate"><span class="pre">rbf</span></code> for the parameter <em>affinity</em>.</p>
+<div>
+<img src="Spectral_Clustering/Laplacian_Matrix_rbf.png" width="700"/>
+</div>
+</div>
+<div class="section" id="step-4-eigendecomposition-of-laplacian-matrix">
+<h4>Step 4: Eigendecomposition of Laplacian Matrix<a class="headerlink" href="#step-4-eigendecomposition-of-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<p>In the next step, the eigenvalues and eigenvectors of the Laplacian Matrix are calculated. As already outlined in our introduction to <em>Partition Clustering</em>, determining the number clusters in a dataset is generally a difficult task. Similar to the <em>elbow plot</em>, which may be used when determining the “right” number of clusters for the KMeans algorithm, we can make use of the eigengap heuristic in spectral clustering. The goal is to identify the first large gap between the eigenvalues, which are ordered increasingly. Thus, we choose the number of clusters such that all eigenvalues <span class="math notranslate nohighlight">\(λ_1\)</span>,…, <span class="math notranslate nohighlight">\(λ_k\)</span> are minuscule and <span class="math notranslate nohighlight">\(λ_{k+1}\)</span> is comparatively large. The number of eigenvalues <span class="math notranslate nohighlight">\(λ_1\)</span>,…, <span class="math notranslate nohighlight">\(λ_k\)</span> before this gap generally correspond to the number of clusters in our dataset.</p>
+<p>As can be seen by the following stylized examples, we can identify a gap between eigenvalues number two and three as well as between number four and five, which in turn helps to determine the “right” number of clusters.</p>
+<div>
+<img src="Spectral_Clustering/Eigenvalues_Laplacian.png" width="700"/>
+</div>
+<p><em>Note:</em>
+Thoses examples are just for illustration of the eigengap heuristic. Here, kmeans could easily be applied and would yield a good and fast solution. Furthermore, it has to be noted that the parameter <code class="docutils literal notranslate"><span class="pre">n_cluster</span></code> needs to be specified before the spectral clustering algorithm is run. Thus, the visualization of the eigengap heuristic is just used to illustrate the information content of the eigenvalues of the Laplacian Matrix. It should not be understood as a step, which can be performed when calling <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.SpectralClustering</span></code>.</p>
+</div>
+<div class="section" id="step-5-application-of-standard-clustering-algorithm">
+<h4>Step 5: Application of standard clustering algorithm<a class="headerlink" href="#step-5-application-of-standard-clustering-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>The k eigenvectors associated with the k smallest eigenvalues are used for the partitioning of the dataset, except for the eigenvector corresponding to the first eigenvalue as this eigenvalue will always have a value of zero (see properties further above). A standard clustering algorithm is applied on the set of eigenvectors. The default clustering algorithm is KMeans.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><strong>n_cluster:</strong> The parameter <em>n_clusters</em> defines the dimension of the projection subspace, i.e. the number of clusters.</p>
+<p><strong>eigen_solver:</strong>
+This parameter determines which eigenvalue decomposition strategy to use.</p>
+<p><strong>affinity:</strong>
+This parameter defines how to construct the affinity matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> (see above).</p>
+<p><strong>n_init:</strong><br />
+Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia. Only used if assign_labels=’kmeans’.</p>
+<p><strong>assign_labels:</strong><br />
+The strategy for assigning labels in the embedding space, i.e. the clustering algorithm. There are two ways to assign labels after the Laplacian embedding: <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> and <code class="docutils literal notranslate"><span class="pre">discretize</span></code>. k-means is a popular choice, but it can be sensitive to initialization. Discretization is another approach which is less sensitive to random initialization`</p>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">documentation</a>.</p>
+<p><strong>Sources:</strong></p>
+<ul class="simple">
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html">https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering">https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/spectral-clustering-aba2640c0d5b">https://towardsdatascience.com/spectral-clustering-aba2640c0d5b</a></p></li>
+<li><p><a class="reference external" href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf">http://www.tml.cs.uni-tuebingen.de/team/luxburg/publications/Luxburg07_tutorial.pdf</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/spectral-clustering-82d3cff3d3b7">https://towardsdatascience.com/spectral-clustering-82d3cff3d3b7</a></p></li>
+<li><p><a class="reference external" href="https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/">https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="hierarchical-clustering">
+<h1>Hierarchical Clustering<a class="headerlink" href="#hierarchical-clustering" title="Permalink to this headline">¶</a></h1>
+<p>Hierarchical Clustering algorithms create a hierarchy of clusters using a predefined distance metric such as Single-Link (comparing the observation to the closest point in each cluster) vs. Complete-Link (comparing the observations to the farthest point in each cluster). Hierarchical Clustering algorithms will stop running when either (1) the specified number of clusters has been obtained, or (2) the linkage distance threshold has been reached. As with Partition Clustering, Hierarchical Clustering algorithms cluster all observations in the dataset.</p>
+<p>At a high level, we can think of an entire dataset as being a single cluster, irrespective of how dispersely the datapoints contained therein are distributed. Along a similar train of thought, the most granular way to cluster a dataset would be to assign each datapoint to its own cluster; in the context of Hierarchical Clustering these are known as <strong>singletons</strong>. So, with hierarchical clustering algorithms what we have is a way to outline the different ways in which a given dataset can be clustered, ranging from a single cluster that contains the entire dataset to <em>n</em> clusters where <em>n</em> is equal to the number of datapoints. This range or “hierarchy” of clusters can be thought of as representing different degrees of granularity in terms of the similarity between the data points, where the singletons are the most granular groupings as each data point has its own cluster.</p>
+<p>Hierarchical clustering algorithms can be further categorized based on whether a <strong>top-down</strong> or a <strong>bottom-up</strong> approach is used to cluster the data. With a top-down approach, the algorithm starts with the dataset as a whole (one cluster) and iteratively breaks it down into increasingly smaller clusters. Conversely, with a bottom-up approach the algorithm starts with the singletons as individual clusters (that is the initialization step) and iteratively combines them into ever-larger clusters. As mentioned, the deciding factor in terms of how the hierarchy of the clusters is formed is the stipulated distance metric, irrespective of whether a top-down or a  bottom-up approach is followed.</p>
+<p>A common and very useful visual representation of how hierarchical clustering algorithms work is known as a “dendrogram”, which our Python implementation provides for each of the two hierarchical clustering algorithms we researched. Essentially, this can be thought of as a hierarchical tree of clusters, with bottom row representing the singletons which progressively weave together until they are all attached via the uppermost node.</p>
+<p>Our discussion of Hierarchical Clustering algorithms focuses on two specific algorithms: (1) Agglomerative Clustering and (2) Birch Clustering.</p>
+<div class="section" id="agglomerative-clustering">
+<h2>Agglomerative Clustering<a class="headerlink" href="#agglomerative-clustering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>General Description &amp; Application<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Agglomerative Clustering employs a bottom-up approach; the algorithm starts with the individual singletons and iteratively combines them into ever-larger clusters until either (1) the specified <em>n_clusters</em> parameter is reached, or (2) the specified distance threshold is reached. If the distance threshold is too large than a single “cluster” that contains the entire dataset will be returned. With Agglomerative Clustering each iteration reduces the number of clusters by one.</p>
+<p>Relative to top-down hierarchical clustering algorithms Agglomerative Clustering is much less efficient computationally. That said, the greater computational burden of this algorithm does help to ensure nearby points are assigned to the appropriate cluster.</p>
+</div>
+<div class="section" id="id5">
+<h3>Steps<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The Agglomerative Clustering algorithm can be broken down into three distinct steps:</p>
+<ol class="simple">
+<li><p>Initialize <em>n</em> singleton clusters, where <em>n</em> is the number of datapoints.</p></li>
+<li><p>Determine those two clusters that are closest together, based on the specified distance metric.</p></li>
+<li><p>Merge the two clusters identified in Step 2 into a single cluster.</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\underline{Note}\)</span>: Steps 2 and 3 are repeated until either (1) the specified number of clusters has been obtained, or (2) the linkage distance threshold has been reached.</p>
+</div>
+<div class="section" id="id6">
+<h3>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: The number of clusters to find. It must be <code class="docutils literal notranslate"><span class="pre">None</span></code> if <code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<code class="docutils literal notranslate"><span class="pre">affinity</span></code>: Metric used to compute the linkage. Can be “euclidean”, “l1”, “l2”, “manhattan”, “cosine”, or “precomputed”. If linkage is “ward”, only “euclidean” is accepted. If “precomputed”, a distance matrix (instead of a similarity matrix) is needed as input for the fit method.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<code class="docutils literal notranslate"><span class="pre">linkage</span></code>: Which linkage criterion to use. The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion.</p>
+<ul class="simple">
+<li><p>‘ward’ minimizes the variance of the clusters being merged.</p></li>
+<li><p>‘average’ uses the average of the distances of each observation of the two sets.</p></li>
+<li><p>‘complete’ or ‘maximum’ linkage uses the maximum distances between all observations of the two sets.</p></li>
+<li><p>‘single’ uses the minimum of the distances between all observations of the two sets.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code>: The linkage distance threshold above which, clusters will not be merged. If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> must be <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_full_tree</span></code> must be <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn documentation (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html</a>).
+<span class="math notranslate nohighlight">\(\newline\)</span>
+<strong>Dendogram Implementation</strong>: ‘<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py%60">https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py`</a></p>
+</div>
+</div>
+<div class="section" id="birch">
+<h2>BIRCH<a class="headerlink" href="#birch" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>General Description &amp; Application<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>BIRCH is an acronym for <strong>B</strong>alanced <strong>I</strong>terative <strong>R</strong>educing and <strong>C</strong>lustering using <strong>H</strong>ierarchies. The algorithm was introduced in 1996 by Tian Zhang, Raghu Ramakrishnan and Miron Livny in their <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">article</a> <em>BIRCH: An Efficient Data Clustering Method for Very Large Databases</em>.</p>
+<p>As can already be inferred from the title, BIRCH is designed for clustering of very large datasets. BIRCH takes into account that the amount of memory is generally limited, i.e. the size of the dataset generally exceeds the available memory. Thus, BIRCH aims to minimize I/O costs as it does not require to memorize the entire data set. The algorithm can yield a satisfactory clustering of the data set with just a single scan of the data set. To increase the performance, just a few additional scans of the data set are needed.</p>
+<p>BIRCH belongs to the category of Hierarchical Clustering algorithms. In contrast to Agglomerative Clustering, it uses a top-down-approach instead of a bottom-up-approach. The <em>Clustering-Feature (CF)</em> and the <em>CF-Tree</em> are two key concepts of the algorithm. Based on the data set, BIRCH constructs a <em>Clustering Feature Tree (CF-Tree)</em>. The CF-Tree consists of <em>Clustering Feature nodes (CF Nodes)</em>, which in turn contain <em>Clustering Features</em>. Clustering Features basically summarize relevant statistical metrics for the given cluster. Thus, BIRCH allows for clustering of larger datasets by first generating a compact summary of the large dataset that preserves as much information as possible. Secondy, this summary is then clustered instead of clustering the entire, i.e. larger, dataset. Both, <em>CF-Trees</em> and <em>Clustering Features</em> will be explained in more detail below.</p>
+<p>In general, the main advantage of BIRCH is its scalability as it yields satisfactory results in a comparatively small amount of time for very large datasets. Its time complexity is <span class="math notranslate nohighlight">\(=O(n)\)</span>, where n
+equals the number of objects to be clustered. One disadvantage of BIRCH is that it can only metric attributes, i.e. no categorical variables. Moreover, if the shape of the clusters are not spherical, the algorithm may not perform well as it utilizes the radius to control the boundary of a cluster.</p>
+<div class="section" id="cf-tree">
+<h4>CF-Tree<a class="headerlink" href="#cf-tree" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">CF-Tree</a> is a “height-balanced tree with two parameters: branching factor B and threshold T.” The following <a class="reference external" href="http://avid.cs.umass.edu/courses/745/f2010/notes/DataMining.htm">picture</a> depicts an example of the structure of a CF-Tree:</p>
+<div>
+<img src="CF_Tree_Structure.png" width="500"/>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Question</span> <span class="pre">to</span> <span class="pre">Group:</span> <span class="pre">B</span> <span class="pre">=</span> <span class="pre">7</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">really</span> <span class="pre">make</span> <span class="pre">sense</span> <span class="pre">to</span> <span class="pre">me.</span> <span class="pre">Shouldn't</span> <span class="pre">it</span> <span class="pre">be</span> <span class="pre">B=6?</span></code></p>
+<p>Naturally, internal nodes or non-leaf nodes of the CF-tree have descendants or “children”. They take the form <span class="math notranslate nohighlight">\([CF_i, child_i]\)</span>, where <span class="math notranslate nohighlight">\(i = 1, 2, ..., B\)</span>. Thus, each non-leaf node contains at maximum <em>B</em> entries, where <em>B</em> represents the branching factor and each entry one associated subcluster. In turn, <span class="math notranslate nohighlight">\(B\)</span> also affects the size of the CF-Tree. The larger <em>B</em>, the smaller the CF-Tree. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, the branching factor <em>B</em> is represented by the hyperparameter <code class="docutils literal notranslate"><span class="pre">branching_factor</span></code>. The Clustering Features, <span class="math notranslate nohighlight">\(CF_i\)</span>, store the information about the descendants, i.e. the subclusters, while <span class="math notranslate nohighlight">\(child_i\)</span> is used as a pointer to the i-th child/descendant. Thus, the Clustering Feature, <span class="math notranslate nohighlight">\(CF_i\)</span>, contains the sums of all Clustering Features of <span class="math notranslate nohighlight">\(child_i\)</span>.</p>
+<p>The leaf nodes are of the form <span class="math notranslate nohighlight">\([CF_i]\)</span>. Furthermore, each leaf node has two entries “prev” and “next”, which are used to connect all leaf nodes. This chain allows for efficient scans. A leaf node contains at most <em>L</em> entries. While each entry in leaf nodes also represents an associated subcluster, i.e. equivalent to non-leaf nodes, the entries have additionally to comply to the treshold requirement <em>T</em>. The radius of the subcluster represented by each entry has to be smaller than <em>T</em>. In turn, the threshold <em>T</em> also affects the size of the CF-Tree. With a smaller threshold, the size of the CF-tree will increase and with a larger threshold, the size of the CF-tree will decrease. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, the threshold <em>T</em> can be adjusted with the hyperparameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p>
+</div>
+<div class="section" id="clustering-feature">
+<h4>Clustering Feature<a class="headerlink" href="#clustering-feature" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">Clustering Feature</a> is defined as “a triple summarizing the information that we maintain about a cluster”:</p>
+<div class="math notranslate nohighlight">
+\[
+CF = (N,{LS},SS)
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span>: number of data points in the cluster</p></li>
+<li><p><span class="math notranslate nohighlight">\({LS}\)</span>: linear sum of the N data points, i.e. <span class="math notranslate nohighlight">\(\sum_{i=1}^N {X_i}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SS\)</span>: square sum of the N data points, i.e. <span class="math notranslate nohighlight">\(\sum_{i=1}^N ({X_i})^2\)</span></p></li>
+</ul>
+<p>Suppose there are three points, (1,4), (2,2) and (4,3) in a (sub-)cluster <span class="math notranslate nohighlight">\(C_i\)</span>.<br />
+The Clustering Feature <span class="math notranslate nohighlight">\(CF_i\)</span> = <span class="math notranslate nohighlight">\((3, (1+2+4, 4+2+3), (1^2+2^2+4^2, 4^2+2^2+3^2)) = (3, (7, 9), (21, 29))\)</span>.</p>
+<p>A Clustering Feature can be understood as a condensed summary of data points, which captures the natural closeness of the data. Thus, it is much more efficient as it does not require to store all the data points. Moreover, the Clustering Feature allows to derive many other useful statistics of a cluster such as the centroid <span class="math notranslate nohighlight">\(C\)</span> or radius <em>R</em>, where <em>R</em> represents the average distance from the data points to the centroid.</p>
+<p><span class="math notranslate nohighlight">\(
+C = \frac{\sum_{i=1}^N  x_i}{N} = \frac{LS}{N}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+R = \sqrt{\frac{ \sum_{i=1}^N ({X_i} - {C})^2}{N}} = \sqrt{\frac{SS}{N} - (\frac{{LS}}{N})^2}
+\)</span></p>
+<p>Other useful metrics that can be calculated, are among others the <em>Centroid Euclidan Distance</em>, the <em>Manhattan Distance</em> or <em>Average Inter-Cluster Distance</em>.</p>
+<p>As outlined earlier, the Clustering Feature <span class="math notranslate nohighlight">\(CF_i\)</span> at an internal node contains the sum of all Clustering Features of its descendants. That is because Clustering Features are additive. Thus, when two clusters <span class="math notranslate nohighlight">\(C_2\)</span> and <span class="math notranslate nohighlight">\(C_3\)</span> with the Clustering Features <span class="math notranslate nohighlight">\(CF_2\)</span> = <span class="math notranslate nohighlight">\((N_2,LS_2,SS_2)\)</span> and <span class="math notranslate nohighlight">\(CF_3\)</span> = <span class="math notranslate nohighlight">\((N_3,LS_3,SS_3)\)</span> are merged, then the resulting cluster <span class="math notranslate nohighlight">\(C_1\)</span> simply consists of <span class="math notranslate nohighlight">\(CF_2\)</span> + <span class="math notranslate nohighlight">\(CF_3\)</span> = <span class="math notranslate nohighlight">\((N_2+N_3,LS_2+LS_3,SS_2+SS_3)\)</span>.</p>
+</div>
+<div class="section" id="insertion-algorithm">
+<h4>Insertion Algorithm<a class="headerlink" href="#insertion-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>The CF-Tree is built dynamically as new data points are added. Thus, the CF-Tree directs a new insertion into the correct subcluster similar to a B+-Tree, which sorts new data points into their correct position. In the following, the general steps of the insertion of an entry (data point or subcluster) into the CF-Tree are described:<br>
+<strong>1. Identifying the appropriate leaf:</strong><br>
+Starting from the top of the CF-Tree, i.e. the root, the algorithm recursively descends down the CF-Tree to find the closest child node based on a certain distance metric. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, Euclidean Distance is <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/15a949460dbf19e5e196b8ef48f9712b72a3b3c3/sklearn/cluster/_birch.py#L73">used</a>.<br></p>
+<p><strong>2. Modifying the leaf:</strong><br>
+Once the leaf node, e.g. <span class="math notranslate nohighlight">\(CF_8\)</span>, is reached, the closest leaf-entry, e.g. <span class="math notranslate nohighlight">\(CF_{96}\)</span>, in that node is found. Afterwards, it is checked if <span class="math notranslate nohighlight">\(CF_{96}\)</span> can absord the new entry without violating the threshold requirement <em>T</em>. If it can, i.e. the radius of <span class="math notranslate nohighlight">\(CF_{96}\)</span> remains smaller than <em>T</em> even after adding the new entry, <span class="math notranslate nohighlight">\(CF_{96}\)</span> will be updated. If adding the entry would lead to a violation of the threshold requirement <em>T</em>, a new entry for a Clustering Feature, i.e. <span class="math notranslate nohighlight">\(CF_i\)</span>, will be added to the leaf. This can only be done if there is space for another entry on the leaf, i.e. the number of Clustering Features on that leaf is smaller than <em>L</em>. Otherwise, the leaf node is splitted. The node is splitted by choosing the pair of entries which are the farthest apart as seeds. All other entries are then redistribution to the closest one.</p>
+<p><strong>3. Modifying the path to the leaf:</strong><br>
+As we previously outlined, every internal, i.e. non-leaf, node is composed of the Clustering Features of all its descendants. Thus, upon inserting an entry into a leaf node, the information for each internal node on the path towards the leaf node needs to be updated. If the leaf-node was splitted in the previous step, a new non-leaf entry is inserted into the parent node. This newly inserted entry at the parent node will point to the newly created leaf in the previous step. Here, the branching factor <em>B</em> must be adherred to. If the parent node does not have enough space as it already contains <em>B</em> entries, the parent node must be split as well. This splitting is performed up to the root.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Question</span> <span class="pre">to</span> <span class="pre">Group:</span> <span class="pre">Should</span> <span class="pre">I</span> <span class="pre">try</span> <span class="pre">to</span> <span class="pre">visualize</span> <span class="pre">the</span> <span class="pre">different</span> <span class="pre">possibilities?</span></code></p>
+<p>In general, if the size required for storing the CF-Tree still exceeds the size of the memory, a larger theshold value can be specified to rebuild a smaller CF-Tree, which fits into the memory.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Steps<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>In general, BIRCH utilizes a multiphase clustering technique consisting of <a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">four phases</a>.</p>
+<div>
+<img src="Phases_BIRCH.png" width="400"/>
+</div>
+<p>Two out of the four phases are optional as a single scan of the data set already yields a good CF-Tree structure. In the following, the two obligatory phases are illustrated. <br></p>
+<p><strong>Phase 1: Construct the CF-Tree</strong> <br>
+BIRCH scans the data set to construct an initial CF-tree, which is stored in-memory. <br></p>
+<p><strong>Phase 3: Clustering</strong> <br>
+After the CF-Tree is built, any clustering algorithm can be used to cluster the leaf nodes of the CF-Tree. In <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.Birch</span></code>, by default <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">AgglomerativeClustering</a> is used. This is determined by the default-value of the hyperparameter <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>.</p>
+</div>
+<div class="section" id="id9">
+<h3>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><strong>threshold:</strong><br>
+The radius of the subcluster obtained by merging a new sample and the closest subcluster should be lesser than the threshold. Otherwise a new subcluster is started. Setting this value to be very low promotes splitting and vice-versa.<br></p>
+<p><strong>branching_factor:</strong><br>
+Maximum number of CF subclusters in each node. If a new samples enters such that the number of subclusters exceed the branching_factor then that node is split into two nodes with the subclusters redistributed in each. The parent subcluster of that node is removed and two new subclusters are added as parents of the 2 split nodes.<br></p>
+<p><strong>n_clusters:</strong><br>
+Number of clusters after the final clustering step, which treats the subclusters from the leaves as new samples.</p>
+<ul class="simple">
+<li><p>None: the final clustering step is not performed and the subclusters are returned as they are.</p></li>
+<li><p>sklearn.cluster Estimator : If a model is provided, the model is fit treating the subclusters as new samples and the initial data is mapped to the label of the closest subcluster.</p></li>
+<li><p>int: the model fit is <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">AgglomerativeClustering</a> with n_clusters set to be equal to the int</p></li>
+</ul>
+<p><strong>Sources:</strong></p>
+<ul class="simple">
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+<li><p>Data Mining - Concepts &amp; Techniques by Jiawei Han, Micheline Kamber, Jian Pei (2012)</p></li>
+<li><p><a class="reference external" href="https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf">https://www2.cs.sfu.ca/CourseCentral/459/han/papers/zhang96.pdf</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/machine-learning-birch-clustering-algorithm-clearly-explained-fb9838cbeed9">https://towardsdatascience.com/machine-learning-birch-clustering-algorithm-clearly-explained-fb9838cbeed9</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#birch">https://scikit-learn.org/stable/modules/clustering.html#birch</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="notes-to-self">
+<h2>Notes to Self<a class="headerlink" href="#notes-to-self" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\underline{Remember}\)</span>: To enter math mode two dollar signs are required.</p></li>
+<li><p>Alternatively, writing “%%latex” can make the entire cell be in math mode.</p></li>
+<li><p>Just like there is hard and soft classification, there is also hard and soft clustering. Soft clustering is where a given point is both in Cluster A and Cluster B, likely in different (i.e. weighted proportions). One type of well-known soft clustering algorithm are Gaussian Mixture Models.</p></li>
+</ul>
+</div>
+<div class="section" id="works-cited">
+<h2>Works Cited<a class="headerlink" href="#works-cited" title="Permalink to this headline">¶</a></h2>
+<p>[1] <a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html">https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html</a> <span class="math notranslate nohighlight">\(\newline\)</span></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Mini-Project/Parts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

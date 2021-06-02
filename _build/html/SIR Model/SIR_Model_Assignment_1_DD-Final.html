@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/SIR Model/SIR_Model_Assignment_1_DD-Final.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FSIR Model/SIR_Model_Assignment_1_DD-Final.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/SIR Model/SIR_Model_Assignment_1_DD-Final.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic SIRD model (adapted)</span>
+<span class="c1">###### (a)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Population size</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="c1"># Initial conditions: 1 Infected, no Recovered individuals</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#case zero</span>
+
+<span class="c1">#N = S0 + I0 + R0 + D0</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">I0</span> <span class="o">-</span> <span class="n">R0</span> <span class="o">-</span> <span class="n">D0</span> <span class="c1">#normalization</span>
+
+<span class="c1"># Contact rate, beta; recovery rate, gamma; mortality rate mu</span>
+<span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.39</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.05</span>
+
+<span class="c1"># Basic reproduction number R0 (R nought), average number of individuals that can get infected which will not change over time.</span>
+<span class="n">R_nought</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span>
+
+<span class="c1"># R_effective = R_nought * S/N</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Population size:&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Infected at t=0:&quot;</span><span class="p">,</span> <span class="n">I0</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R0=&quot;</span><span class="p">,</span><span class="n">R_nought</span><span class="p">)</span>
+
+<span class="c1"># A grid of time points (in days)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+
+<span class="c1"># SIRD model (coupled nonlinear system of ODEs)</span>
+<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span><span class="n">mu</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dSdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">dIdt</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dDdt</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="k">return</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dRdt</span><span class="p">,</span> <span class="n">dDdt</span>
+
+<span class="c1">#1/gamma average time to recover</span>
+
+<span class="c1"># Initial conditions vector</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">S0</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span>
+
+<span class="c1"># Integrate the SIRD equations over the time grid, t.</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">))</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">T</span> <span class="c1"># return vector</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="c1">#find R_effective = 1 time</span>
+<span class="n">t_1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">R_nought</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> 
+        <span class="n">t_1</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_eff=1 at t=&quot;</span><span class="p">,</span> <span class="n">t_1</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deceased=&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Plot the data on four separate curves for S(t), I(t), R(t) and D(t)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">axisbelow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;S/usceptible&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I/nfected&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R/ecovered&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">D</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D/eceased&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R_nought</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R_effective&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time / days&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">t_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population size: 3000
+Infected at t=0: 7
+R0= 1.95
+[0.00000000e+00 3.86415687e-01 8.53316979e-01 1.41719974e+00
+ 2.09781781e+00 2.91877017e+00 3.90816835e+00 5.09938258e+00
+ 6.53185803e+00 8.25198173e+00 1.03139648e+01 1.27806829e+01
+ 1.57243903e+01 1.92271860e+01 2.33810729e+01 2.82874069e+01
+ 3.40555009e+01 4.08001329e+01 4.86377292e+01 5.76810756e+01
+ 6.80325602e+01 7.97761868e+01 9.29688926e+01 1.07632012e+02
+ 1.23743975e+02 1.41235403e+02 1.59987623e+02 1.79835219e+02
+ 2.00572620e+02 2.21964129e+02 2.43756206e+02 2.65690568e+02
+ 2.87516654e+02 3.09002276e+02 3.29941705e+02 3.50160889e+02
+ 3.69519909e+02 3.87913060e+02 4.05267092e+02 4.21538164e+02
+ 4.36708061e+02 4.50780086e+02 4.63774964e+02 4.75726995e+02
+ 4.86680578e+02 4.96687196e+02 5.05802864e+02 5.14086036e+02
+ 5.21595930e+02 5.28391228e+02 5.34529088e+02 5.40064438e+02
+ 5.45049478e+02 5.49533372e+02 5.53562072e+02 5.57178256e+02
+ 5.60421348e+02 5.63327601e+02 5.65930213e+02 5.68259489e+02
+ 5.70343005e+02 5.72205794e+02 5.73870526e+02 5.75357690e+02
+ 5.76685776e+02 5.77871442e+02 5.78929677e+02 5.79873950e+02
+ 5.80716355e+02 5.81467738e+02 5.82137823e+02 5.82735315e+02
+ 5.83268008e+02 5.83742872e+02 5.84166141e+02 5.84543385e+02
+ 5.84879580e+02 5.85179171e+02 5.85446125e+02 5.85683984e+02
+ 5.85895907e+02 5.86084714e+02 5.86252919e+02 5.86402765e+02
+ 5.86536250e+02 5.86655158e+02 5.86761078e+02 5.86855426e+02
+ 5.86939465e+02 5.87014319e+02 5.87080993e+02 5.87140377e+02
+ 5.87193270e+02 5.87240380e+02 5.87282338e+02 5.87319708e+02
+ 5.87352991e+02 5.87382635e+02 5.87409036e+02 5.87432549e+02
+ 5.87453491e+02 5.87472142e+02 5.87488752e+02 5.87503546e+02
+ 5.87516721e+02 5.87528455e+02 5.87538905e+02 5.87548212e+02
+ 5.87556500e+02 5.87563882e+02 5.87570456e+02 5.87576311e+02
+ 5.87581525e+02 5.87586169e+02 5.87590305e+02 5.87593988e+02
+ 5.87597268e+02 5.87600190e+02 5.87602791e+02 5.87605108e+02
+ 5.87607172e+02 5.87609010e+02 5.87610646e+02 5.87612104e+02
+ 5.87613402e+02 5.87614558e+02 5.87615588e+02 5.87616504e+02
+ 5.87617321e+02 5.87618048e+02 5.87618696e+02 5.87619273e+02
+ 5.87619786e+02 5.87620244e+02 5.87620651e+02 5.87621014e+02
+ 5.87621337e+02 5.87621625e+02 5.87621881e+02 5.87622110e+02
+ 5.87622313e+02 5.87622494e+02 5.87622655e+02 5.87622799e+02
+ 5.87622927e+02 5.87623040e+02 5.87623142e+02 5.87623232e+02
+ 5.87623313e+02 5.87623384e+02 5.87623448e+02 5.87623505e+02
+ 5.87623555e+02 5.87623601e+02 5.87623641e+02 5.87623676e+02
+ 5.87623708e+02 5.87623737e+02 5.87623762e+02 5.87623784e+02
+ 5.87623804e+02 5.87623822e+02 5.87623838e+02 5.87623852e+02
+ 5.87623865e+02 5.87623876e+02 5.87623886e+02 5.87623895e+02
+ 5.87623903e+02 5.87623910e+02 5.87623916e+02 5.87623922e+02
+ 5.87623927e+02 5.87623931e+02 5.87623935e+02 5.87623939e+02
+ 5.87623942e+02 5.87623945e+02 5.87623947e+02 5.87623949e+02
+ 5.87623951e+02 5.87623953e+02 5.87623955e+02 5.87623956e+02
+ 5.87623957e+02 5.87623958e+02 5.87623959e+02 5.87623960e+02
+ 5.87623961e+02 5.87623962e+02 5.87623962e+02 5.87623963e+02
+ 5.87623963e+02 5.87623964e+02 5.87623964e+02 5.87623964e+02
+ 5.87623965e+02 5.87623965e+02 5.87623965e+02 5.87623966e+02
+ 5.87623966e+02 5.87623966e+02 5.87623966e+02 5.87623966e+02
+ 5.87623966e+02 5.87623966e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02 5.87623967e+02 5.87623967e+02 5.87623967e+02
+ 5.87623967e+02]
+R_eff=1 at t= 31 d
+Deceased= 587.6239673009477
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_0_1.png" src="../_images/SIR_Model_Assignment_1_DD-Final_0_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic SIRD model (adapted)</span>
+<span class="c1"># (b)</span>
+<span class="c1"># Population size</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="c1"># Initial conditions: 1 Infected, no Recovered individuals</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#case zero</span>
+
+<span class="n">S0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">I0</span> <span class="o">-</span> <span class="n">R0</span> <span class="o">-</span> <span class="n">D0</span> <span class="c1">#normalization</span>
+
+<span class="c1"># SIRD model (coupled nonlinear system of ODEs)</span>
+<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span><span class="n">mu</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dSdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">dIdt</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dDdt</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="k">return</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dRdt</span><span class="p">,</span> <span class="n">dDdt</span>
+
+<span class="c1"># Contact rate, beta; recovery rate, gamma; mortality rate mu</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">R_nought</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.0</span><span class="p">]</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.004</span><span class="p">,</span> <span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]</span>
+
+<span class="c1"># at 365 day</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions vector</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">S0</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span>
+<span class="c1">#R_effctive = np.zeros(len(t))</span>
+<span class="n">R_effctive</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Integrate the SIRD equations over the time grid, t.</span>
+<span class="k">for</span>  <span class="n">basic_repr_nr</span> <span class="ow">in</span> <span class="n">R_nought</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">mortality_rate</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">:</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">basic_repr_nr</span><span class="o">*</span><span class="p">(</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">mortality_rate</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_nought=&quot;</span><span class="p">,</span> <span class="n">basic_repr_nr</span><span class="p">,</span><span class="s2">&quot; and mu=&quot;</span><span class="p">,</span><span class="n">mortality_rate</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mortality_rate</span><span class="p">))</span>
+        <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">T</span> <span class="c1"># return vector</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deceased=&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">R_effctive</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">basic_repr_nr</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+        <span class="c1">##</span>
+        <span class="n">t_1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">basic_repr_nr</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> 
+                <span class="n">t_1</span> <span class="o">=</span> <span class="n">time</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_eff=1 at t=&quot;</span><span class="p">,</span> <span class="n">t_1</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+    <span class="c1">##</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">axisbelow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;S/usceptible&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I/nfected&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R/ecovered&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">D</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D/eceased&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">basic_repr_nr</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R_effective&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time / days&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">t_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1">#find R_effective = 1 time</span>
+
+
+<span class="c1"># Plot the data on four separate curves for S(t), I(t), R(t) and D(t)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.004
+Deceased= 73.29730633124544
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_1.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.008
+Deceased= 142.88335664094717
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_3.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.01
+Deceased= 176.3716445330983
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_5.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.02
+Deceased= 331.9936820617285
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_7.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.03
+Deceased= 470.32438354382873
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_9.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.0  and mu= 0.04
+Deceased= 594.0939576633351
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_11.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.004
+Deceased= 75.27855796167266
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_13.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.008
+Deceased= 146.745543366143
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_15.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.01
+Deceased= 181.13903009125983
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_17.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.02
+Deceased= 340.96758604210913
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_19.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_19.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.03
+Deceased= 483.0374135435397
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_21.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_21.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 3.5  and mu= 0.04
+Deceased= 610.1525223514975
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_23.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_23.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.004
+Deceased= 76.3810002228594
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_25.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_25.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.008
+Deceased= 148.89460802843794
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_27.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_27.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.01
+Deceased= 183.791781784565
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_29.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_29.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.02
+Deceased= 345.9610010017951
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_31.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_31.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.03
+Deceased= 490.11141808079424
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_33.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_33.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_nought= 4.0  and mu= 0.04
+Deceased= 619.0881070441969
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_2_35.png" src="../_images/SIR_Model_Assignment_1_DD-Final_2_35.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic SIRD model (adapted)</span>
+<span class="c1"># (c)</span>
+<span class="c1"># Population size</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="c1"># Initial conditions: 1 Infected, no Recovered individuals</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#case zero</span>
+
+<span class="n">S0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">I0</span> <span class="o">-</span> <span class="n">R0</span> <span class="o">-</span> <span class="n">D0</span> <span class="c1">#normalization</span>
+
+<span class="c1"># SIRD model (coupled nonlinear system of ODEs)</span>
+<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span><span class="n">mu</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dSdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">dIdt</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="n">dDdt</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">I</span>
+    <span class="k">return</span> <span class="n">dSdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dRdt</span><span class="p">,</span> <span class="n">dDdt</span>
+
+<span class="c1"># Contact rate, beta; recovery rate, gamma; mortality rate mu</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.3</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.7</span><span class="p">,</span><span class="mf">.9</span><span class="p">]</span>
+<span class="c1"># at 365 day</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions vector</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">S0</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">D0</span>
+
+<span class="c1"># Integrate the SIRD equations over the time grid, t.</span>
+<span class="k">for</span>  <span class="n">infection_rate</span> <span class="ow">in</span> <span class="n">beta</span><span class="p">:</span>
+        <span class="n">R_nought</span> <span class="o">=</span> <span class="n">infection_rate</span> <span class="o">/</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">+</span><span class="n">mu</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;beta=&quot;</span><span class="p">,</span> <span class="n">infection_rate</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">infection_rate</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">mu</span><span class="p">))</span>
+        <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">T</span> <span class="c1"># return vector</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deceased=&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c1">##</span>
+        <span class="n">t_1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">R_nought</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> 
+                <span class="n">t_1</span> <span class="o">=</span> <span class="n">time</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_eff=1 at t=&quot;</span><span class="p">,</span> <span class="n">t_1</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+        <span class="c1">##</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">axisbelow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;S/usceptible&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I/nfected&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R/ecovered&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">D</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D/eceased&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R_nought</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R_effective&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time / days&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">t_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta= 0.1
+Deceased= 1.1584472944857294
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_3_1.png" src="../_images/SIR_Model_Assignment_1_DD-Final_3_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta= 0.3
+Deceased= 142.5179696692683
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_3_3.png" src="../_images/SIR_Model_Assignment_1_DD-Final_3_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta= 0.5
+Deceased= 177.8463402447829
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_3_5.png" src="../_images/SIR_Model_Assignment_1_DD-Final_3_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta= 0.7
+Deceased= 185.0040178815504
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_3_7.png" src="../_images/SIR_Model_Assignment_1_DD-Final_3_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta= 0.9
+Deceased= 186.8112624786393
+R_eff=1 at t= 0 d
+</pre></div>
+</div>
+<img alt="../_images/SIR_Model_Assignment_1_DD-Final_3_9.png" src="../_images/SIR_Model_Assignment_1_DD-Final_3_9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">R_effctive</span> <span class="o">=</span> <span class="n">R_nought</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./SIR Model"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -3,7 +3,7 @@
 
 title: Deus Ex Machina
 author: Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan
-logo: ../Frankfurt_School_Logo.jpg
+logo: Frankfurt_School_Logo.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

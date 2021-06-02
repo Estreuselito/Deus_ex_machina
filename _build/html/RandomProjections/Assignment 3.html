@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Johnson-Lindenstrauss Lemma &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Think like a Bayesian, check like a frequentist" href="../MCMC/Assignment%204%20-%20Master.html" />
+    <link rel="prev" title="The Kernel Trick" href="../Assignment%202.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/RandomProjections/Assignment 3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FRandomProjections/Assignment 3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/RandomProjections/Assignment 3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#euclidean-space-data">
+   Euclidean Space/Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-euclidean-spaces-data">
+   Non-Euclidean Spaces/Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-the-datasets">
+   Introduction to the Datasets
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-of-frogs">
+     Classification of Frogs
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-of-dry-beans">
+     Classification of Dry Beans
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#takeaway-to-go">
+   Takeaway to go
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>\begin{titlepage}</p>
+<p>\centering
+\vspace{-40pt}
+\includegraphics[width=0.8\textwidth]{Frankfurt_School_Logo.jpg}\par
+\vspace{2.5cm}</p>
+<p>{\scshape\huge Assignment 3 \par}
+\vspace{2.5cm}</p>
+<p>{\Huge\bfseries Sparse Random Projection \par}
+{\scshape\large Jan’s birthday edition \par}</p>
+<p>\vspace{2cm} % If signature is taken might have to add space.</p>
+<p>{\Large Yannik Suhre \par}
+{\Large Skyler MacGowan \par}
+{\Large Debasmita Dutta \par}
+{\Large Sebastian Sydow \par}
+\vspace{0.5cm}</p>
+<p>\vfill
+{\large \today\par}
+\end{titlepage}</p>
+<p>\newpage</p>
+<p>\hypersetup{linkcolor=black}
+\tableofcontents</p>
+<p>\newpage</p>
+<div class="section" id="the-johnson-lindenstrauss-lemma">
+<h1>The Johnson-Lindenstrauss Lemma<a class="headerlink" href="#the-johnson-lindenstrauss-lemma" title="Permalink to this headline">¶</a></h1>
+<p>The Johnson-Lindenstrauss (JL) Lemma is the math behind Euclidean Distance/Space; it is what proves the “<em>approximate maintenance of distance between the data points in different dimensions</em>” property to be true. The lemma states that a small set of points in a high-dimensional space can be embedded into a space of much lower dimension in such a way that distances between the points are nearly preserved. The function <code class="docutils literal notranslate"><span class="pre">johnson_lindenstrauss_min_dim</span></code> of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.johnson_lindenstrauss_min_dim.html">scikit-learn</a>
+calculates the  minimum number of components <span class="math notranslate nohighlight">\(k\)</span>, i.e. the number of dimensions in which distances between
+the points are nearly preserved, by the following formula:</p>
+<p>\begin{equation}
+k &gt;= \frac{4 * log(n_samples)} {(\frac{\epsilon^2}{2} - \frac{\epsilon^3}{3})}
+\end{equation}</p>
+<p>Nevertheless, this only holds if the correct <span class="math notranslate nohighlight">\(k\)</span> dimensions are chosen and not just any <span class="math notranslate nohighlight">\(k\)</span> dimensions.</p>
+<p>The following outlines the key components of the JL Lemma and what they represent.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span>: This represents the minimum number of dimensions to which the dataset can be reduced to without a substantive decrease in accuracy, down from the original <em>d</em> dimensions. This <em>k</em> is in effect the result obtained from the JL Lemma formula, based on the parameters provided thereto.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span>: This represents the error term. Namely, in the context of conducting random projections in Euclidean space it is the <strong>approximate</strong> distance that is maintained, i.e. there is some error involved during this process. Naturally, that error could result in either an increase or a decrease in the distance, which is portrayed by the inequality below. In this inequality, 1 represents the original distance, <span class="math notranslate nohighlight">\(\epsilon\)</span> represents the error the user is willing to accept (range from 0 to 1, with lower values indicating a lower tolerance for error), the superscript indicates that this inequality applies to Euclidean Space (and hence the L2 norm), the distance of the transformed vectors is portrayed by the middle term (<span class="math notranslate nohighlight">\(f(x_i) - f(x_j)\)</span>), while the outer terms represent the two possible boundaries, i.e. that the new distance is somewhat smaller or greater by <span class="math notranslate nohighlight">\(\epsilon\)</span> than the original distance.</p></li>
+</ul>
+<p>\begin{equation}
+(1 - \epsilon) ||x_i - x_j||^2_2 \leq ||f(x_i) - f(x_j)||^2_2 \leq (1 + \epsilon) ||x_i - x_j||^2_2
+\end{equation}</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\_samples\)</span>: This refers to the number of observations in the dataset.</p></li>
+</ul>
+<p><strong>Note</strong>: The number of dimensions is independent of the original number of features but instead depends on the size of the dataset: the larger the dataset, the higher is the minimal dimensionality of an <span class="math notranslate nohighlight">\(\epsilon\)</span>-embedding.</p>
+<p><strong>Note</strong>: In the context of dimensionality reduction, random projections are typically used when one is unable to reliably calculate the covariance matrix (due to data sparsity for example), whereas when the covariance can be reliably calculated then <strong>P</strong>rincipal <strong>C</strong>omponent <strong>A</strong>nalysis (PCA) is used. Both PCA and random projections require the dataset to be in Euclidean Space in order to function properly (more on Euclidean Space below). PCA is computionally more expensive which also factors into the choice of dimensionalty reduction method selected.</p>
+</div>
+<div class="section" id="euclidean-space-data">
+<h1>Euclidean Space/Data<a class="headerlink" href="#euclidean-space-data" title="Permalink to this headline">¶</a></h1>
+<p>When a given dataset is said to be in “Euclidean Space”, that means that the distance between the observations in the dataset is linearly defined. Essentially, you can draw a line between each vector pair, and this line represents the distance between each pair. Distance, in turn, is a measure of similarity, with lesser distances indicating greater similarity and vice versa.</p>
+<p>How is one to know whether a given dataset is in Euclidean Space? Well essentially anything embedded in physical space could reliaby said to be in Euclidean Space, because in such circumstances one can draw a line between two points and trust that that accurately represents the distance or similarity between them. In a geographical context for example, the distance <em>as the crow flies</em> between the Frankfurt School to the Abdeen Palace Museum in Cairo is 2,922.37 km whereas that between the Frankfurt School and the Church of the Holy Sepulchre in Jerusalem is 2,993.46 km; these are examples of euclidean distances, and from them we can determine that Frankfurt School is 71.12 km closer to the Abdeen Palace Museum than it is to the Church of the Holy Sepulchre.</p>
+</div>
+<div class="section" id="non-euclidean-spaces-data">
+<h1>Non-Euclidean Spaces/Data<a class="headerlink" href="#non-euclidean-spaces-data" title="Permalink to this headline">¶</a></h1>
+<p>In Non-Euclidean Space, the “linearity” property described above in reference to Euclidean space does not hold; one cannot simply draw a line between the constituent vector pairs and trust that this is an accurate measure of the similarity thereof (it isn’t). Instead, in non-euclidean spaces the degree of similarity of the vectors should be measured using another (non-linear) scale, e.g. logarithmic, exponential, etc.</p>
+<p>For example, we define the loudness of a given sound via the decibel (dB) measure. In this measure, an increase of three decibels corresponds to a doubling of the overall loudness. Another fairly well-known example would be the moment-magnitude scale, which is the principal measure now used when assessing the strength and destructive potential of earthquakes. This scale goes from one to ten, with each step representing a 32 times larger release of energy than the preceeding step. For example, a 8.0 earthquake (“Great”, occurs roughly once a year) releases 31,623 times as much energy as does a 5.0 earthquake (“Moderate”, occurs roughly 1250 times per year).</p>
+<p>United States Geographical Survey Earthquake Magnitude Comparison Calculator: <a class="reference external" href="https://earthquake.usgs.gov/education/calculator.php">https://earthquake.usgs.gov/education/calculator.php</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group 10 - Skyler MacGowan, Sebastian Sydow, Debasmita Dutta, Yannik Suhre</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span><span class="p">,</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">RandomProjectionClass</span> <span class="kn">import</span> <span class="n">RandomSparseRepresentation</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="introduction-to-the-datasets">
+<h1>Introduction to the Datasets<a class="headerlink" href="#introduction-to-the-datasets" title="Permalink to this headline">¶</a></h1>
+<p>For this assignment, two datasets from the <a class="reference external" href="https://archive.ics.uci.edu/ml/index.php.">UCI Machine Learning Repository</a> were chosen. Below is an overview of these datasets.</p>
+<div class="section" id="classification-of-frogs">
+<h2>Classification of Frogs<a class="headerlink" href="#classification-of-frogs" title="Permalink to this headline">¶</a></h2>
+<p>The dataset is used to classify the species of frogs. As the dataset encompasses ten different classes, i.e. <code class="docutils literal notranslate"><span class="pre">Species</span></code>, it is a multi-class classification. The dataset contains 7,195 observations and 23 features, one of which is the target-feature (<code class="docutils literal notranslate"><span class="pre">Species</span></code>, after deleting the columns <code class="docutils literal notranslate"><span class="pre">Family</span></code>, <code class="docutils literal notranslate"><span class="pre">Genus</span></code> and <code class="docutils literal notranslate"><span class="pre">RecordID</span></code>). It is an imbalanced dataset, as some classes are much more frequent than others. Thus, the performance of the classifier will be evaluated using the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> with the parameter settings <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">weighted</span></code>. This dataset is already standardized.</p>
+<p>Data Source: <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Anuran+Calls+%28MFCCs%29">https://archive.ics.uci.edu/ml/datasets/Anuran+Calls+(MFCCs)</a></p>
+</div>
+<div class="section" id="classification-of-dry-beans">
+<h2>Classification of Dry Beans<a class="headerlink" href="#classification-of-dry-beans" title="Permalink to this headline">¶</a></h2>
+<p>The dataset is used to classify dry beans into seven different classes; it is a multi-class classification. The dataset contains 13,611 observations and 17 features, one of which is the target-feature (<code class="docutils literal notranslate"><span class="pre">Class</span></code>).As with the first dataset, the performance of the classifier will be evaluated using the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> with the parameter settings <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">weighted</span></code> as this dataset is also imbalanced. This dataset is not yet standardized.</p>
+<p>Data Source: <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Dry+Bean+Dataset">https://archive.ics.uci.edu/ml/datasets/Dry+Bean+Dataset</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">RandomSparseRepresentation</span><span class="p">(</span><span class="n">birthday_version</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;./data/Frogs_MFCCs.csv&quot;</span><span class="p">,</span>
+              <span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>You successfully loaded your dataset to the object!</p>
+<p>Now we can go ahead and split the data.
+Please call the <code class="docutils literal notranslate"><span class="pre">split_data()</span></code> function for it. You can pass it the <code class="docutils literal notranslate"><span class="pre">test_size</span></code> parameter, to split your
+data into test and train sets, the default value is <code class="docutils literal notranslate"><span class="pre">0.3</span></code>. Here are the first 5 rows of our data:</p>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MFCCs_ 1</th>
+      <th>MFCCs_ 2</th>
+      <th>MFCCs_ 3</th>
+      <th>MFCCs_ 4</th>
+      <th>MFCCs_ 5</th>
+      <th>MFCCs_ 6</th>
+      <th>MFCCs_ 7</th>
+      <th>MFCCs_ 8</th>
+      <th>MFCCs_ 9</th>
+      <th>MFCCs_10</th>
+      <th>...</th>
+      <th>MFCCs_17</th>
+      <th>MFCCs_18</th>
+      <th>MFCCs_19</th>
+      <th>MFCCs_20</th>
+      <th>MFCCs_21</th>
+      <th>MFCCs_22</th>
+      <th>Family</th>
+      <th>Genus</th>
+      <th>Species</th>
+      <th>RecordID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>0.152936</td>
+      <td>-0.105586</td>
+      <td>0.200722</td>
+      <td>0.317201</td>
+      <td>0.260764</td>
+      <td>0.100945</td>
+      <td>-0.150063</td>
+      <td>-0.171128</td>
+      <td>0.124676</td>
+      <td>...</td>
+      <td>-0.108351</td>
+      <td>-0.077623</td>
+      <td>-0.009568</td>
+      <td>0.057684</td>
+      <td>0.118680</td>
+      <td>0.014038</td>
+      <td>Leptodactylidae</td>
+      <td>Adenomera</td>
+      <td>AdenomeraAndre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.171534</td>
+      <td>-0.098975</td>
+      <td>0.268425</td>
+      <td>0.338672</td>
+      <td>0.268353</td>
+      <td>0.060835</td>
+      <td>-0.222475</td>
+      <td>-0.207693</td>
+      <td>0.170883</td>
+      <td>...</td>
+      <td>-0.090974</td>
+      <td>-0.056510</td>
+      <td>-0.035303</td>
+      <td>0.020140</td>
+      <td>0.082263</td>
+      <td>0.029056</td>
+      <td>Leptodactylidae</td>
+      <td>Adenomera</td>
+      <td>AdenomeraAndre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>0.152317</td>
+      <td>-0.082973</td>
+      <td>0.287128</td>
+      <td>0.276014</td>
+      <td>0.189867</td>
+      <td>0.008714</td>
+      <td>-0.242234</td>
+      <td>-0.219153</td>
+      <td>0.232538</td>
+      <td>...</td>
+      <td>-0.050691</td>
+      <td>-0.023590</td>
+      <td>-0.066722</td>
+      <td>-0.025083</td>
+      <td>0.099108</td>
+      <td>0.077162</td>
+      <td>Leptodactylidae</td>
+      <td>Adenomera</td>
+      <td>AdenomeraAndre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.224392</td>
+      <td>0.118985</td>
+      <td>0.329432</td>
+      <td>0.372088</td>
+      <td>0.361005</td>
+      <td>0.015501</td>
+      <td>-0.194347</td>
+      <td>-0.098181</td>
+      <td>0.270375</td>
+      <td>...</td>
+      <td>-0.136009</td>
+      <td>-0.177037</td>
+      <td>-0.130498</td>
+      <td>-0.054766</td>
+      <td>-0.018691</td>
+      <td>0.023954</td>
+      <td>Leptodactylidae</td>
+      <td>Adenomera</td>
+      <td>AdenomeraAndre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>0.087817</td>
+      <td>-0.068345</td>
+      <td>0.306967</td>
+      <td>0.330923</td>
+      <td>0.249144</td>
+      <td>0.006884</td>
+      <td>-0.265423</td>
+      <td>-0.172700</td>
+      <td>0.266434</td>
+      <td>...</td>
+      <td>-0.048885</td>
+      <td>-0.053074</td>
+      <td>-0.088550</td>
+      <td>-0.031346</td>
+      <td>0.108610</td>
+      <td>0.079244</td>
+      <td>Leptodactylidae</td>
+      <td>Adenomera</td>
+      <td>AdenomeraAndre</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">split_data</span><span class="p">(</span><span class="n">standardize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">columns_to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RecordID&quot;</span><span class="p">,</span> <span class="s2">&quot;Family&quot;</span><span class="p">,</span> <span class="s2">&quot;Genus&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>The first thing we need to do, is to determine which of the columns shall be our target variable.
+Hence they are all printed out in the next step.</p>
+<p>['MFCCs_ 1', 'MFCCs_ 2', 'MFCCs_ 3', 'MFCCs_ 4', 'MFCCs_ 5', 'MFCCs_ 6', 'MFCCs_ 7', 'MFCCs_ 8', 'MFCCs_ 9', 'MFCCs_10', 'MFCCs_11', 'MFCCs_12', 'MFCCs_13', 'MFCCs_14', 'MFCCs_15', 'MFCCs_16', 'MFCCs_17', 'MFCCs_18', 'MFCCs_19', 'MFCCs_20', 'MFCCs_21', 'MFCCs_22', 'Family', 'Genus', 'Species', 'RecordID']</p>
+<p>In the next step please input a column name, which contains your target variable.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here: Species
+</pre></div>
+</div>
+<p>Your data has now be split into a train and test set by a factor of <code class="docutils literal notranslate"><span class="pre">0.3</span></code>.
+This was done by selecting the column <code class="docutils literal notranslate"><span class="pre">Species</span></code> as the target column and the rest as independent variables.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">JL_lemma</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>In general, the theory of Professor Johnson and Professor Lindenstrauss posits
+the amount of columns to which we can reduce our dataset without losing any distance related information.
+We can specify a parameter called <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> which determines the margin in which the distance is contained.</p>
+<p>Our current dataset has 7195 observations and 26 dimensions. Using the JL algorithm $k$ =
+7612 dimensions.</p>
+<p>Nevertheless, dimensionality reduction can still work with lower dimensions.</p>
+<p>The next step is to set a baseline metric, which can be used to evaluate the algorithm with
+the reduced dataset. For this please call the function <code class="docutils literal notranslate"><span class="pre">baseline()</span></code>.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">baseline</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>In order to assess the performance of a classifier, it is important to incorporate a numerical evaluation of the algorithm.
+For this, a variety of performance measures are available. It is essential to make use of an adequate performance measure as
+their applicability and significance depend on the dataset as well as the specific classification task.
+There are a few metrics we can choose from, the needed API (which you need to input next) can be viewed
+<a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">here</a>. For the task at hand, the performance
+measures used are either <em>accuracy</em> or the $f_1$ <em>score</em>.</p>
+<p>\begin{equation}
+Accuracy = \frac{True\ Positives + True\ Negatives }{True\ Positives + False\ Positives + True\ Negatives + False\ Negatives}
+\end{equation}</p>
+<p><em>Accuracy</em> measures the performance of a classification model as the number of correct
+predictions divided by the total number of predictions. Its main advantage is its easy interpretability.
+Nevertheless, <em>accuracy</em> should only be used for balanced datasets. When dealing with imbalanced datasets,
+i.e. when some classes are much more frequent than others, <em>accuracy</em> is not a reliable performance measure.</p>
+<p>\begin{equation}
+f_1 = 2 * \frac{Precision * Recall}{Precision + Recall}
+\end{equation}</p>
+<p>The $f_1$ Score is the harmonic mean of <em>precision</em> and <em>recall</em>, i.e. it applys equal weight to both.
+The $f_1$ Score represents a meaningful evaluation for imbalanced datasets. As such, we recommend to
+choose <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> for balanced datasets and <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> for imbalanced datasets.</p>
+<p>Additionally, for imbalanced datasets, i.e. situations in which the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> is chosen, the user should differentiate
+between binary and multi-class classification. For multi-class classification, the
+parameter <em>average</em> ought to be specified, as its default is only applicable if targets are
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score">binary</a>.
+Four other parameter values are possible: <em>micro</em>, <em>macro</em>, <em>weighted</em> and <em>samples</em>. <em>Samples</em> is only
+meaningful for multilabel classification, which will not be in the scope of this assignment. Thus, we will
+only examine <em>micro</em>, <em>macro</em> and <em>weighted</em>.</p>
+<p>The <em>macro</em> $f_1$ <em>score</em> is computed as a simple arithmetic mean of the per-class $f_1$ <em>scores</em>.
+It does not take label imbalance into account.</p>
+<p>The <em>weighted</em> $f_1$ <em>score</em> alters <em>macro</em> to account for label imbalance. The weight is applied by
+the number of true instances for each label.</p>
+<p>The <em>micro</em> $f_1$ <em>score</em> is calculated counting the total true positives, false negatives and false positives.
+Thus, the <em>micro</em> $f_1$ <em>score</em> is equal to total number of true positives over the total number of all observations.
+Further explanations can be found
+<a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#multiclass-and-multilabel-classification.">here</a>.</p>
+<p>In conclusion, we recommend to chose <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">weighted</span></code> for the performance metric <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> for the
+purpose of this assignment as this will account for the imbalance in the dataset.</p>
+<p>The chosen metric used for our baseline should be inputted in the following prompt. Be sure to insert it
+like <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> if you want to use <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> or respective for all other metrics.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: f1_score=&quot;average&quot;
+</pre></div>
+</div>
+<p>You have chosen a metric which is not available here. Please see this
+list for further info, please input the metric exactly like depicted here:
+<code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>,<code class="docutils literal notranslate"><span class="pre">balanced_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">average_precision_score</span></code>,
+<code class="docutils literal notranslate"><span class="pre">brier_score_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>,  <code class="docutils literal notranslate"><span class="pre">log_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">precision_score</span></code>, <code class="docutils literal notranslate"><span class="pre">recall_score</span></code>, <code class="docutils literal notranslate"><span class="pre">jaccard_score</span></code>,
+<code class="docutils literal notranslate"><span class="pre">roc_auc_score</span></code>.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: f1_score
+</pre></div>
+</div>
+<p>You have selected the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>. Since the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> can have different
+usages as described earlier, depending on its inputs please input some keyword-arguments into
+the next prompt.
+Please be advised, that this is done via <code class="docutils literal notranslate"><span class="pre">average=&quot;weighted&quot;,</span> <span class="pre">...</span></code>, meaning with a = as separator.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter your keyword arguments here: average=&quot;weighted&quot;
+</pre></div>
+</div>
+<p>Awesome, you have set your baseline! Now call the function <code class="docutils literal notranslate"><span class="pre">apply_random_projection</span></code> to check out,
+how good your model performs when we reduce its dimensions.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">apply_random_projection</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Random Projection is a dimensionality reduction technique which is based on the <strong>Johnson-Lindenstrauss lemma</strong>.
+This method projects or transforms the higher dimensional data to a lower dimensional subspace.
+It approximately preserves the pairwise distances of the data points.
+It uses a random matrix to perform the projection and hence the name random projection.
+This matrix is also sometimes refered to as map.</p>
+<p>If the original dimension of data is $d$ and the target or projected dimension is $k$, where $k&lt;&lt;d$
+then the random matrix is of size $k,\ d$. The random projection is explained below.</p>
+<p>\begin{equation}
+X_{k,\ N}^{RP} = R_{k,\ d} X_{d,\ N}
+\end{equation}</p>
+<p>Where</p>
+<p>$X_{k,\ N}^{RP}$ is the random projected N observations in $k$ dimensions,</p>
+<p>$R_{k,\ d}$ is the random matrix used for the projection or transformation,</p>
+<p>$X_{d,\ N}$ is the original $N$ observations in d-dimension.</p>
+<p>There are a few techniques to create the random matrix. Gaussian and Sparse are just 2 among them.</p>
+<p><strong>Gaussian</strong> – The random matrix is created in such a way that each entry is independently drawn from
+the standard normal distribution $N(0, \frac{1}{n_{components}})$. Where $n_{components}$ is the dimensionality
+of the target projection space.</p>
+<p><strong>Sparse</strong> – When a sparse matrix is used for the random projection to reduce the computational complexity, then this
+is a sparse projection. This is an alternate approach to Gaussian random projection matrix which ensures that a similar distance
+between the observations is preserved while reducing the dimensions.</p>
+<p>If the sparse projection matrix has $c$ nonzero entries per column, then the complexity of the operation
+is of order $O(ckN)$ instead of $O(dkN)$.</p>
+<p>Now we can perform the same actions for our second dataset.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dry_beans</span> <span class="o">=</span> <span class="n">RandomSparseRepresentation</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot explained variances</span>
+<span class="n">dry_beans</span><span class="o">.</span><span class="n">prepare_fit</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;./data/Dry_Bean_Dataset.xlsx&quot;</span><span class="p">,</span> <span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;.xlsx&quot;</span><span class="p">,</span>
+                     <span class="n">standardize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>The columns of this dataset are: ['Area', 'Perimeter', 'MajorAxisLength', 'MinorAxisLength', 'AspectRation', 'Eccentricity', 'ConvexArea', 'EquivDiameter', 'Extent', 'Solidity', 'roundness', 'Compactness', 'ShapeFactor1', 'ShapeFactor2', 'ShapeFactor3', 'ShapeFactor4', 'Class']</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here: Class
+Please insert your metric here: accuracy
+</pre></div>
+</div>
+<p>You have chosen a metric which is not available here. Please see this
+list for further info, please input the metric exactly like depicted here:
+<code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>,<code class="docutils literal notranslate"><span class="pre">balanced_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">average_precision_score</span></code>,
+<code class="docutils literal notranslate"><span class="pre">brier_score_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>,  <code class="docutils literal notranslate"><span class="pre">log_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">precision_score</span></code>, <code class="docutils literal notranslate"><span class="pre">recall_score</span></code>, <code class="docutils literal notranslate"><span class="pre">jaccard_score</span></code>,
+<code class="docutils literal notranslate"><span class="pre">roc_auc_score</span></code>.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: accuracy_score
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">a3bbf92b63de</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Plot explained variances</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dry_beans</span><span class="o">.</span><span class="n">prepare_fit</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;./data/Dry_Bean_Dataset.xlsx&quot;</span><span class="p">,</span> <span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;.xlsx&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                      <span class="n">standardize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                      <span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">D:\OneDrive\OneDrive - fs-students.de\Frankfurt School\Courses\Machine Learning 2\Assignments\RandomProjections\RandomProjectionClass.py</span> in <span class="ni">prepare_fit</span><span class="nt">(self, url, data_type, names, text, test_size, standardize, columns_to_drop, model, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>                         <span class="n">text</span><span class="o">=</span> <span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>         <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">275</span>         <span class="bp">self</span><span class="o">.</span><span class="n">apply_random_projection</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> 
+<span class="g g-Whitespace">    </span><span class="mi">277</span> 
+
+<span class="nn">D:\OneDrive\OneDrive - fs-students.de\Frankfurt School\Courses\Machine Learning 2\Assignments\RandomProjections\RandomProjectionClass.py</span> in <span class="ni">apply_random_projection</span><span class="nt">(self, model, text, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="c1"># Evaluate model and update accuracies</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>             <span class="n">test</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">252</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span> 
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+
+<span class="ne">AttributeError</span>: &#39;RandomSparseRepresentation&#39; object has no attribute &#39;kwargs&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">13</span><span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">baseline</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">accuracies</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">accuracies</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sparse Random Projection with Frog data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of dimensions&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">metric</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dry_beans</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="p">[</span><span class="n">dry_beans</span><span class="o">.</span><span class="n">baseline</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dry_beans</span><span class="o">.</span><span class="n">accuracies</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dry_beans</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">dry_beans</span><span class="o">.</span><span class="n">accuracies</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sparse Random Projection with Dry Beans Data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of dimensions&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dry_beans</span><span class="o">.</span><span class="n">metric</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 3_14_0.png" src="../_images/Assignment 3_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="takeaway-to-go">
+<h1>Takeaway to go<a class="headerlink" href="#takeaway-to-go" title="Permalink to this headline">¶</a></h1>
+<p>As can be inferred from both graphs above, the random dimensionality reduction worked for both datasets, even for smaller dimensions than those obtained from the JL Lemma. In both cases, we see how initially the performance following a reduction in dimensionality stays at or just slightly below the baseline. At a certain point however, the new performance drops off substantially, again in both datasets. This point (where the new performance decreases substantially), represents the number of dimensions that should be maintained when conducting the dimensionality reductions. Furthermore, both classifiers perform very well as can be seen by the high <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>s.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./RandomProjections"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../Assignment%202.html" title="previous page">The Kernel Trick</a>
+    <a class='right-next' id="next-link" href="../MCMC/Assignment%204%20-%20Master.html" title="next page">Think like a Bayesian, check like a frequentist</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

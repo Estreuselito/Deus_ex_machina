@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clustering &#8212; Deus Ex Machina</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Mini-Project/Parts/Clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Parts/Clustering.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Parts/Clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#todo-yannik">
+   Todo Yannik
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-motivation-a-name-intro">
+   1. Introduction &amp; Motivation
+   <a name="intro">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-that-clustering-everybody-keeps-on-talkin-about-a-name-cluster">
+   2. What is that Clustering everybody keeps on talkin’ about?
+   <a name="cluster">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performance-metric-silhouette-score-a-name-perfom">
+   3. Performance Metric - Silhouette Score
+   <a name="perfom">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#surrogate-data-yannik-s-class-a-name-class">
+   4. Surrogate Data &amp; Yannik’s Class
+   <a name="class">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-blobs">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_blobs
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-circles">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_circles
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-classification">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_classification
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-hastie-10-2">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_hastie_10_2
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-moons">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       make_moons
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-algorithms-a-name-algos">
+   5. Clustering Algorithms
+   <a name="algos">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-partition-a-name-partition">
+     A. Partition
+     <a name="partition">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-k-means-a-name-kmeans">
+       a. K-Means
+       <a name="kmeans">
+       </a>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-spectral-clustering-a-name-spectral">
+       b. Spectral Clustering
+       <a name="spectral">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-hierarchical-a-name-hier">
+     B. Hierarchical
+     <a name="hier">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-agglomerative-clustering-a-name-agglo">
+       a. Agglomerative Clustering
+       <a name="agglo">
+       </a>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-birch-clustering-a-name-birch">
+       b. BIRCH Clustering
+       <a name="birch">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-density-based-a-name-density">
+     C. Density-Based
+     <a name="density">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-dbscan-a-name-dbscan">
+       a. DBSCAN
+       <a name="dbscan">
+       </a>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-steps-of-the-algorithm-is-as-below">
+         The steps of the algorithm is as below.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+         In scikit learn there are two key parameters of DBSCAN
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#output-from-the-algorithm">
+         Output from the algorithm
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-hdbscan-a-name-hdbscan">
+       b. HDBSCAN
+       <a name="hdbscan">
+       </a>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#below-are-the-steps-performed-by-the-algorithm">
+         Below are the steps performed by the algorithm.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-key-parameters-for-the-algorithm-are-as-below">
+         The key parameters for the algorithm are as below.
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Output from the algorithm
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#soft-clustering-for-hdbscan">
+         Soft clustering for HDBSCAN
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-expectation-maximization-a-name-em">
+     D. Expectation Maximization
+     <a name="em">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-step">
+       E-Step
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-affinity-propagation-a-name-ap">
+     E. Affinity Propagation
+     <a name="ap">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#steps-of-the-algorithm">
+       Steps of the algorithm
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#key-parameters-as-per-scikit-learn">
+       Key parameters as per scikit learn
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Output from the algorithm
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation-maximization">
+     Expectation Maximization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdbscan">
+     HDBSCAN
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affinity-propagation">
+     Affinity Propagation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>This file contains the different cluster methods.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p><a class="reference external" href="#intro">Introduction &amp; Motivation</a></p></li>
+<li><p><a class="reference external" href="#cluster">What is that Clustering everybody keeps on talkin’ about?</a></p></li>
+<li><p><a class="reference external" href="#perfom">Performance Metric - Silhouette Score</a></p></li>
+<li><p><a class="reference external" href="#class">Surrogate Data &amp; Yannik’s Class</a></p></li>
+<li><p><a class="reference external" href="#algos">Clustering Algorithms</a><br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#partition">Partion</a><br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#kmeans">K-Means</a><br></p></li>
+<li><p><a class="reference external" href="#spectral">Spectral Clustering</a> (Sebastian) <br></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#hier">Hierarchical</a></p>
+<ol class="simple">
+<li><p><a class="reference external" href="#agglo">Agglomerative Clustering</a> (Sebastian/ Skyler)</p></li>
+<li><p><a class="reference external" href="#birch">BIRCH Clustering</a> (Sebastian)</p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#density">Density-Based</a> (Debasmita)</p>
+<ol class="simple">
+<li><p><a class="reference external" href="#dbscan">DBSCAN</a></p></li>
+<li><p><a class="reference external" href="#hdbscan">HDBSCAN</a></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="#em">Expectation Maximization</a></p></li>
+<li><p><a class="reference external" href="#ap">Affinity Propagation</a> (Debasmita)</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="todo-yannik">
+<h1>Todo Yannik<a class="headerlink" href="#todo-yannik" title="Permalink to this headline">¶</a></h1>
+<p>Incorporate: <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation">https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation</a></p>
+</div>
+<div class="section" id="introduction-motivation-a-name-intro">
+<h1>1. Introduction &amp; Motivation <a name="intro"/><a class="headerlink" href="#introduction-motivation-a-name-intro" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sebastian &amp; Mr Skyler</p></li>
+<li><p>Where do we come from?</p></li>
+<li><p>Why are we doing this?</p></li>
+<li><p>What are our limitations?</p></li>
+<li><p>What is within our scope and what not?</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-that-clustering-everybody-keeps-on-talkin-about-a-name-cluster">
+<h1>2. What is that Clustering everybody keeps on talkin’ about? <a name="cluster"/><a class="headerlink" href="#what-is-that-clustering-everybody-keeps-on-talkin-about-a-name-cluster" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Yannik &amp; Skyler</p></li>
+<li><p>Supervised vs. Unsupervised</p></li>
+<li><p>High level description of Clustering</p></li>
+<li><p>What is the difference between classification and clustering?</p></li>
+</ul>
+</div>
+<div class="section" id="performance-metric-silhouette-score-a-name-perfom">
+<h1>3. Performance Metric - Silhouette Score <a name="perfom"/><a class="headerlink" href="#performance-metric-silhouette-score-a-name-perfom" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Tbd - Debasmita</p></li>
+</ul>
+</div>
+<div class="section" id="surrogate-data-yannik-s-class-a-name-class">
+<h1>4. Surrogate Data &amp; Yannik’s Class <a name="class"/><a class="headerlink" href="#surrogate-data-yannik-s-class-a-name-class" title="Permalink to this headline">¶</a></h1>
+<p>The package <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has a module, which is called <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. Within this package there are ~30 functions, which load sample data. All of those functions start with <code class="docutils literal notranslate"><span class="pre">load_...</span></code>. Moreover, this package has ~20 sample generators. These sample generators create surrogate data, which is different seperated based on the function. They all start with <code class="docutils literal notranslate"><span class="pre">make_...</span></code>. For a more exhaustive description of these functions please review the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> documentation found in bibliography [2].</p>
+<p>The first step is to import that module from sklearn. We will also import matplotlib to plot what we have just created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="make-blobs">
+<h2><code class="docutils literal notranslate"><span class="pre">make_blobs</span></code><a class="headerlink" href="#make-blobs" title="Permalink to this headline">¶</a></h2>
+<p>The first function we can use to create surrogate data is the function called <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code>. This creates Gaussian blobs for clustering. With the parameter <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> one can influence the total number of points generated, with the <code class="docutils literal notranslate"><span class="pre">centers</span></code> parameter one can set the number of centers, viz. different classes for a classification problem, and with the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> one can set the standard deviation around each center (i.e. as higher the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> as higher the “noise” around the centers).</p>
+<p>The function returns two values. Once the <code class="docutils literal notranslate"><span class="pre">X</span></code> variable, which contains the different datapoints, and once the <code class="docutils literal notranslate"><span class="pre">y</span></code> which contains the different labels for the datapoints. Over that we can check later how good/bad the cluster algorithm performed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make blobs function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_10_0.png" src="../../_images/Clustering_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-circles">
+<h2><code class="docutils literal notranslate"><span class="pre">make_circles</span></code><a class="headerlink" href="#make-circles" title="Permalink to this headline">¶</a></h2>
+<p>The second function is called <code class="docutils literal notranslate"><span class="pre">make_circles</span></code>, which returns a circle within yet another circle, as one can see below. This function as well has different classes, as can be seen by the different colors. For this exercise we will use the parameters <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, which works like with the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function, and the <code class="docutils literal notranslate"><span class="pre">noise</span></code> parameter, which works like the <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code> from <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make circles function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_12_0.png" src="../../_images/Clustering_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-classification">
+<h2><code class="docutils literal notranslate"><span class="pre">make_classification</span></code><a class="headerlink" href="#make-classification" title="Permalink to this headline">¶</a></h2>
+<p>Next, we will briefly introduce the <code class="docutils literal notranslate"><span class="pre">make_classification</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>s <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. This function creates a random n-classification problem in a normal distribution. Hence, we can use the parameter <code class="docutils literal notranslate"><span class="pre">n_classes</span></code> to change the number of classes. I will set it to <code class="docutils literal notranslate"><span class="pre">5</span></code>, but that can be altered. With the parameter <code class="docutils literal notranslate"><span class="pre">n_informative</span></code> (which has to be &gt;= <code class="docutils literal notranslate"><span class="pre">n_classes</span></code>) defines the number of informative features in the generated dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_classes</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_informative</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make classification function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_14_0.png" src="../../_images/Clustering_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-hastie-10-2">
+<h2><code class="docutils literal notranslate"><span class="pre">make_hastie_10_2</span></code><a class="headerlink" href="#make-hastie-10-2" title="Permalink to this headline">¶</a></h2>
+<p>Another function we want to test our algorithm on is the <code class="docutils literal notranslate"><span class="pre">make_hastie_10_2</span></code> function. This reproduces the example 10.2 from Haste et al. 2009 [2]. It defines the clusters by the following algorithm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">9.34</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>The only parameter which can be altered here are the <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, viz. the number of samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_hastie_10_2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make Hastie 10.2 function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_16_0.png" src="../../_images/Clustering_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="make-moons">
+<h2><code class="docutils literal notranslate"><span class="pre">make_moons</span></code><a class="headerlink" href="#make-moons" title="Permalink to this headline">¶</a></h2>
+<p>This function creates two interleaving half circles. It takes the arguments <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> and <code class="docutils literal notranslate"><span class="pre">noise</span></code>, just like the function <code class="docutils literal notranslate"><span class="pre">make_circles</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Make moons function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_18_0.png" src="../../_images/Clustering_18_0.png" />
+</div>
+</div>
+<p>In order to create a more easy way to compare all of the different clusters we decided to write a function which does it all for us, viz. creating the surrogate data in one place and also plot the given cluster algorithm to the surrogate data. The class we wrote is called <code class="docutils literal notranslate"><span class="pre">Surrogate_data</span></code>. It has several private functions, which are all leveraged in the <code class="docutils literal notranslate"><span class="pre">plot_raw_vs_predict</span></code> function. That function returns the surrogate data in comparision to the fitted data. Using a generic function for creating the same surrogate data time and again has the benefit that one can easily compare the different clustering algorithms.</p>
+<p>In the next line we will import that self written class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Surrogate_data</span> <span class="kn">import</span> <span class="n">Surrogate_data</span>
+<span class="n">evaluate</span> <span class="o">=</span> <span class="n">Surrogate_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clustering-algorithms-a-name-algos">
+<h1>5. Clustering Algorithms <a name="algos"/><a class="headerlink" href="#clustering-algorithms-a-name-algos" title="Permalink to this headline">¶</a></h1>
+<p>Within this chapter we will offer deeper insights into different clustering algorithms. They are again seperated into different sub-chapters. It will start with clustering algorithms belonging to the class of Partition.</p>
+<div class="section" id="a-partition-a-name-partition">
+<h2>A. Partition <a name="partition"/><a class="headerlink" href="#a-partition-a-name-partition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-k-means-a-name-kmeans">
+<h3>a. K-Means <a name="kmeans"/><a class="headerlink" href="#a-k-means-a-name-kmeans" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">KMeans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_24_0.png" src="../../_images/Clustering_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="b-spectral-clustering-a-name-spectral">
+<h3>b. Spectral Clustering <a name="spectral"/><a class="headerlink" href="#b-spectral-clustering-a-name-spectral" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="b-hierarchical-a-name-hier">
+<h2>B. Hierarchical <a name="hier"/><a class="headerlink" href="#b-hierarchical-a-name-hier" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-agglomerative-clustering-a-name-agglo">
+<h3>a. Agglomerative Clustering <a name="agglo"/><a class="headerlink" href="#a-agglomerative-clustering-a-name-agglo" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">AgglomerativeClustering</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_28_0.png" src="../../_images/Clustering_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dendrogram</span> <span class="kn">import</span> <span class="n">plot_dendrogram</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># set the dataset for which the dendrogram should be drawn. Possible options are:</span>
+<span class="c1"># [&#39;make_blobs&#39;,</span>
+<span class="c1">#  &#39;make_circles&#39;,</span>
+<span class="c1">#  &#39;make_classification&#39;,</span>
+<span class="c1">#  &#39;make_hastie&#39;,</span>
+<span class="c1">#  &#39;make_moons&#39;]</span>
+
+<span class="n">datasets</span> <span class="o">=</span> <span class="s2">&quot;make_hastie&quot;</span>
+
+<span class="c1"># setting distance_threshold=0 ensures we compute the full tree.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">distance_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">datasets</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">datasets</span><span class="p">),</span> <span class="kc">None</span><span class="p">))</span>
+
+<span class="c1"># plot the top three levels of the dendrogram</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_29_0.png" src="../../_images/Clustering_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="b-birch-clustering-a-name-birch">
+<h3>b. BIRCH Clustering <a name="birch"/><a class="headerlink" href="#b-birch-clustering-a-name-birch" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="c-density-based-a-name-density">
+<h2>C. Density-Based <a name="density"/><a class="headerlink" href="#c-density-based-a-name-density" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-dbscan-a-name-dbscan">
+<h3>a. DBSCAN <a name="dbscan"/><a class="headerlink" href="#a-dbscan-a-name-dbscan" title="Permalink to this headline">¶</a></h3>
+<p>DBSCAN stands for density-based spatial clustering of applications with noise. It is efficient to find arbitrary shaped clusters and clusters with noise (i.e. outliers).
+The main concept in this algorithm is, a point will belong to a cluster if it close to many points from that cluster, which means the point is in a dense region.</p>
+<p>Certain literature from Ester <a class="reference external" href="http://et.al">et.al</a> might be helpful to understand the algorithm and the parameters.</p>
+<p>Epsilon neighborhood of a point: The Eps neighborhood of a point p, in a dataset D, denoted by <span class="math notranslate nohighlight">\(N_{Eps}(p)\)</span>, is defined as</p>
+<div class="math notranslate nohighlight">
+\[N_{Eps}(p) = \{q \in D \mid dist(p,q) \leq \epsilon\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is the radius of the neighborhood around the point.</p>
+<p>Density at a point p: Number of points within a circle of radius <span class="math notranslate nohighlight">\(\epsilon\)</span> from point p.</p>
+<p>Dense Region: For each point in the cluster, the circle with radius <span class="math notranslate nohighlight">\(\epsilon\)</span> contains at least minimum number of points. In the algorithm we can specify this minimum number of points as a parameter min_samples. In some literature this is mentioned as MinPts.</p>
+<p>Core point: A point is a core point if there are at least “minimum number of points” in its surrounding area with radius <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Border point: A point is a border point if it is reachable from a core point and there are less than “minimum number of points” within its surrounding area.</p>
+<p>Outlier: A point is an outlier if it is neither a core point nor a border point.</p>
+<p>Direct density reachable: A point p is directly density reachable from another point q if q is a core point and p is in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood of q.</p>
+<p>Density reachable: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points</p>
+<p>if there is a chain of points <span class="math notranslate nohighlight">\(p_l\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, … <span class="math notranslate nohighlight">\(p_n\)</span>, <span class="math notranslate nohighlight">\(p_l\)</span> = <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(p_n\)</span> = <span class="math notranslate nohighlight">\(p\)</span>
+such that <span class="math notranslate nohighlight">\(p_{i+1}\)</span> is directly density-reachable from <span class="math notranslate nohighlight">\(p_i\)</span>.
+Density-reachability is a canonical extension of direct density-reachability.</p>
+<p>Density connected: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points
+if there is a point o such that both p and q are Density reachable from o.</p>
+<p><img alt="The-concepts-density-connectivity.png" src="Mini-Project/Parts/attachment:The-concepts-density-connectivity.png" /></p>
+<p>A density-based cluster is defined as a group of density connected points.</p>
+<div class="section" id="the-steps-of-the-algorithm-is-as-below">
+<h4>The steps of the algorithm is as below.<a class="headerlink" href="#the-steps-of-the-algorithm-is-as-below" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>For each point <span class="math notranslate nohighlight">\(x_{i}\)</span>, determine how many points are present in the <span class="math notranslate nohighlight">\(\epsilon\)</span> neighborhood.</p></li>
+<li><p>If this count is greater or equal to the minimum number of points, then mark the point as a core point.</p></li>
+<li><p>Cluster formation starts.  Find recursively all its density connected points and assign them to the same cluster as the core point.</p></li>
+<li><p>Iterate through the remaining unvisited points in the dataset.</p></li>
+<li><p>Every core point will be assigned to a new cluster unless some of the core points share neighborhood points, they will be included in the same cluster.</p></li>
+<li><p>Those points that do not belong to any cluster are treated as outliers or noise.</p></li>
+</ol>
+</div>
+<div class="section" id="in-scikit-learn-there-are-two-key-parameters-of-dbscan">
+<h4>In scikit learn there are two key parameters of DBSCAN<a class="headerlink" href="#in-scikit-learn-there-are-two-key-parameters-of-dbscan" title="Permalink to this headline">¶</a></h4>
+<p><strong>eps</strong> : The maximum distance between two samples for one to be considered as in the neighborhood of the other. With a smaller value more points will be considered as outlier.</p>
+<p><strong>min_samples</strong> : The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself.  With a higher value, more points will be considered as outlier.</p>
+</div>
+<div class="section" id="output-from-the-algorithm">
+<h4>Output from the algorithm<a class="headerlink" href="#output-from-the-algorithm" title="Permalink to this headline">¶</a></h4>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">DBSCAN</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_34_0.png" src="../../_images/Clustering_34_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-hdbscan-a-name-hdbscan">
+<h3>b. HDBSCAN <a name="hdbscan"/><a class="headerlink" href="#b-hdbscan-a-name-hdbscan" title="Permalink to this headline">¶</a></h3>
+<p>HDBSCAN (Hierarchical Density-Based Spatial Clustering and Application with Noise) is an unsupervised clustering algorithm which expands the DBSCAN algorithm and integrates the hierarchical approach.
+As we know the DBSCAN algorithm requires the input parameters as epsilon and min_samples which requires pre domain knowledge about data.  DBSCAN algorithm is not so efficient where there are different densities present in the data.<br />
+In HDBSCAN, the algorithm works for varying epsilon hence it can also be referred as non-parametric algorithm.  This makes the algorithm very efficient even with different densities in the data.</p>
+<div class="section" id="below-are-the-steps-performed-by-the-algorithm">
+<h4>Below are the steps performed by the algorithm.<a class="headerlink" href="#below-are-the-steps-performed-by-the-algorithm" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Transform the space according to the density/sparsity.</p></li>
+</ol>
+<p>The foundation of the algorithm is based on single linkage clustering, which is a bottom-up approach of agglomerative clustering where at the bottom all individual data points are considered as individual clusters and based on the similarity between the data points, the clusters are combined and in the end there is only one single cluster.
+To make the model robust to the outliers, in this very first step a new distance metric, mutual reachability distance is created which can be defined as</p>
+<div class="math notranslate nohighlight">
+\[d_{mreach}(a,b) = max\{core_k(a), core_k(b), d(a,b)\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(core_k(a)\)</span> and <span class="math notranslate nohighlight">\(core_k(b)\)</span> are the core distances defined for parameter <span class="math notranslate nohighlight">\(k\)</span> for the points <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(k\)</span> is the required minimum number of points.</p>
+<p><span class="math notranslate nohighlight">\(d(a,b)\)</span> is the original metric distance between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d_{mreach}(a,b)\)</span> is the mutual reachability distance.</p>
+<ol class="simple">
+<li><p>Build the minimum spanning tree of the distance weighted graph.</p></li>
+</ol>
+<p>Conceptually in this step, the data is considered as a weighted graph with the data points as vertices and an edge between any two points with weight equal to the mutual reachability distance of those points.</p>
+<ol class="simple">
+<li><p>Construct a cluster hierarchy of connected components.</p></li>
+</ol>
+<p>The next step is to create a hierarchy of connected components. The concept is, 2 points will be connected based on the edge which represents the mutual reachability between 2 points.</p>
+<ol class="simple">
+<li><p>Condense the cluster hierarchy based on minimum cluster size.</p></li>
+</ol>
+<p>In this step, a smaller condensed tree is created. Using the input parameter, minimum cluster size, at each split the condition is checked whether one of the new clusters created by the split has fewer points than the minimum cluster size or not. If it has fewer points, then it will not be considered as cluster instead, it will be considered as ‘points falling out of a cluster’.  Otherwise it will be considered as a persistent cluster.</p>
+<ol class="simple">
+<li><p>Extract the stable clusters from the condensed tree.</p></li>
+</ol>
+<p>In the last step the clusters are selected based on the eom, excess of mass.  This method, which refers back to the research by Hartigan, is recommended by Campello et al. as the optimal global solution to the problem of finding clusters with the highest
+stability. HDBSCAN’s selection algorithm traverses the condensed cluster tree bottom-up and selects the cluster with highest stability on each path. If a cluster is selected then any cluster that is a descendant of it, can not be a cluster.</p>
+</div>
+<div class="section" id="the-key-parameters-for-the-algorithm-are-as-below">
+<h4>The key parameters for the algorithm are as below.<a class="headerlink" href="#the-key-parameters-for-the-algorithm-are-as-below" title="Permalink to this headline">¶</a></h4>
+<p><strong>min_cluster_size</strong> is the smallest size grouping that we wish to consider a cluster.  If we increase the value, then smaller number of clusters will be created.  The deafult is 5.</p>
+<p>However, there is another parameter which has significant effect in this intuition.</p>
+<p><strong>min_samples</strong> is yet another very important parameter which can be used to control the conservativeness of clustering.  The larger the value of min_samples you provide, the more conservative the clustering – more points will be declared as noise, and clusters will be restricted to progressively more dense areas.</p>
+<p>If not specified the default value for this parameter will be same as min_cluster_size.</p>
+<p><strong>cluster_selection_epsilon</strong>  ensures that clusters below the given threshold are not split up any further.</p>
+<p><strong>alpha</strong> is part of the RobustSingleLinkage code, but flows naturally into HDBSCAN.  The default value is 1.0.  It’s better not to change this parameter as adjusting alpha will result in recomputing the hard computation of the single linkage tree.</p>
+</div>
+<div class="section" id="id1">
+<h4>Output from the algorithm<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><strong>clusterer.labels_</strong> : All the different cluster labels created by the algorithm are provided as output. The outliers can be found by the label of -1.</p>
+<p><strong>clusterer.probabilities_</strong> : For each cluster we have the <span class="math notranslate nohighlight">\(\lambda_p\)</span> for each point <span class="math notranslate nohighlight">\(p\)</span> in that cluster; which measures the strength of cluster membership for each point.</p>
+<p><strong>outlier_scores_</strong> : This output is a vector of score values, one for each data point that was fit. Higher scores represent more outlier like objects. Selecting outliers via upper quantiles is often a good approach.</p>
+</div>
+<div class="section" id="soft-clustering-for-hdbscan">
+<h4>Soft clustering for HDBSCAN<a class="headerlink" href="#soft-clustering-for-hdbscan" title="Permalink to this headline">¶</a></h4>
+<p>To implement soft clustering, we need to produce a method of providing a soft membership vector for a given point across the selected clusters of a clustering. Ideally, we want this to be interpretable as a probability of being a member of that cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdbscan</span>
+<span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_37_0.png" src="../../_images/Clustering_37_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-expectation-maximization-a-name-em">
+<h2>D. Expectation Maximization <a name="em"/><a class="headerlink" href="#d-expectation-maximization-a-name-em" title="Permalink to this headline">¶</a></h2>
+<p>The Expectation Maximization algorithm (EM) is an Maximum Likelihood Estimator (MLE) (for a closer examination of the relationship between MLE, MAP and EM see [1]). In the context of clustering it is also referred to as “soft cluster” algorithm, since it iteratively estimates the probabilites that a given set of data belongs to either cluster. Therefore it split up in two different “Steps”, the E-Step and the M-Step, which we will delve in now.</p>
+<div class="section" id="e-step">
+<h3>E-Step<a class="headerlink" href="#e-step" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>E</strong> in <strong>E</strong>-Step stands for “<strong>E</strong>xpectation”, hence we want to calculate values which symbol the expectation that a given set of data belongs to either of the given <span class="math notranslate nohighlight">\(\theta\)</span>s (the <span class="math notranslate nohighlight">\(\theta\)</span>s hereby symbol our different clusters). In fact, <span class="math notranslate nohighlight">\(\theta\)</span> displays the probability that a certain event happened in one cluster. For a coin toss, this would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_A\ =\ 0.6\newline
+\theta_B\ =\ 0.5
+\]</div>
+<p>which displays the probability that either coin A shows heads and the same respective for coin B. These initial values are randomly created in the range between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>. Like we already wrote when talking about <a class="reference external" href="#kmeans">K-Means</a>, this algorithm also needs beforehand a concrete input of how many clusters it should look for. After the <span class="math notranslate nohighlight">\(\theta\)</span> values are initialized/given we turn to the sets of data. Lets imagine we have the following sets of data (where <span class="math notranslate nohighlight">\(H\)</span> is for heads and <span class="math notranslate nohighlight">\(T\)</span> is for tails):</p>
+<div class="math notranslate nohighlight">
+\[
+1.\ [HHTTHHTHTT]\newline
+2.\ [HHHTHHHHHH]
+\]</div>
+<p>Since we know what the probability of heads is for the respective coins, we can now calculate the probability that either of those sets of data belong to either of those coins. For the first dataset with 5 heads and 5 tails, we can calculate the probability that it belongs to coin A like this:</p>
+<div class="math notranslate nohighlight">
+\[
+P(coin\ A|\ [HHTTHHTHTT]) = \frac{{0.6^5}*{0.4^5}}{{{0.6^5}*{0.4^5}}+{{0.5^5}*{0.5^5}}} = 0.45
+\]</div>
+<p>For the second set of data, the probability that it belongs to coin A would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+P(coin\ A|\ [HHHTHHHHHH]) = \frac{{0.6^9}*{0.4^1}}{{{0.6^9}*{0.4^1}}+{{0.5^9}*{0.5^1}}} = 0.8
+\]</div>
+<p>Using this formula we can calculate the probabilities for all sets of data for all our <span class="math notranslate nohighlight">\(\theta\)</span>s.</p>
+<p>The “algorithm” uses this function to calculate all the expectations for coin a. The expectation for coin b are easily computed, since we can just do 1 - probability of coin a. Once we have all data, we can multiply our expectation with the number of events we want to measure. Meaning, we calculate:</p>
+<div class="math notranslate nohighlight">
+\[
+0.45∗5=2.2
+\]</div>
+<p>Now we know, that if the first data set would belong to coin a, we would expect 2.2 times heads and 2.2 times tails6. Once we have that full table, all what we do, is to do MLE. We sum up the values for the occurances of heads and tails for each coin, and calculate the probability of heads for each coin. This is also called the M(aximization)-step. These two probabilities we just calculated are now our new values, with which we re-run our expectation calculation. We can repeat this as many times as we want. The nice idea of this is, that in the end we can approximate the real θs, viz. after ten iterations we have a posterior maximization value of 0.8 for coin a.</p>
+<p>We can make use of the <code class="docutils literal notranslate"><span class="pre">GaussianMixture</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> which implemented the EM algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evaluate</span><span class="o">.</span><span class="n">plot_raw_vs_predict</span><span class="p">(</span><span class="n">GaussianMixture</span><span class="p">,</span> <span class="n">init_params</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Clustering_40_0.png" src="../../_images/Clustering_40_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-affinity-propagation-a-name-ap">
+<h2>E. Affinity Propagation <a name="ap"/><a class="headerlink" href="#e-affinity-propagation-a-name-ap" title="Permalink to this headline">¶</a></h2>
+<p>Affinity Propagation is an unsupervised clustering algorithm based on the concept of “message passing” between data points.  This algorithm particularly does not require the number of clusters as input.<br />
+It applies the concept of “exemplars,” members of the input set that are representative of clusters.
+The main drawback is, this algorithm is computationally expensive.</p>
+<p><img alt="Message-Passing-in-Affinity-Propagation" src="Mini-Project/Parts/Message-Passing-in-Affinity-Propagation.png" /></p>
+<div class="section" id="steps-of-the-algorithm">
+<h3>Steps of the algorithm<a class="headerlink" href="#steps-of-the-algorithm" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>The algorithm first calculates the Similarity Matrix for all the data points.  The similarity is calculated as negative squared euclidian distance.
+$<span class="math notranslate nohighlight">\(s(i, k) = - \lvert\lvert x_i - x_k \rvert\rvert^2\)</span>$</p></li>
+<li><p>The diagonal elements of the matrix is zero as per the above formula.  If the diagonal values are not modified that means all the elemnets will be an exemplars and many clusters will be formed.  There are two ways to control this situation.  The values can be modified either by the minimum value of the similarities between points or by the median value of the similarities.  In the former case least number of clusters will be formed whereas in the later case a moderate number of clusters will be formed.</p></li>
+<li><p>As a next step it creates the “responsibility” matrix <span class="math notranslate nohighlight">\(R\)</span> which has values <span class="math notranslate nohighlight">\(r(i, k)\)</span> that quantify how well-suited <span class="math notranslate nohighlight">\(x_k\)</span> is to serve as the exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>, relative to other candidate exemplars for <span class="math notranslate nohighlight">\(x_i\)</span>.  The greater the value, the higher the chance that <span class="math notranslate nohighlight">\(x_k\)</span> is an exemplar for <span class="math notranslate nohighlight">\(x_i\)</span>. The calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[r(i, k) \leftarrow s(i, k) - \max\limits_{k' s.t. k' \neq k}\{ a(i, k') + s(i, k') \}\]</div>
+<p>As the formula states, the responsibility of <span class="math notranslate nohighlight">\(k\)</span> towards <span class="math notranslate nohighlight">\(i\)</span> will decrease as the availability of some other <span class="math notranslate nohighlight">\(k'\)</span> to <span class="math notranslate nohighlight">\(i\)</span> increases.</p>
+</li>
+<li><p>The damping factor is used in the calculation as below.  This is in order to avoid numerical oscillations when updating         these values</p>
+<div class="math notranslate nohighlight">
+\[R = R * damping + (1 - damping) * R_{new}\]</div>
+</li>
+<li><p>The “availability” matrix <span class="math notranslate nohighlight">\(A\)</span> contains values <span class="math notranslate nohighlight">\(a(i, k)\)</span> that represent how “appropriate” it would be for <span class="math notranslate nohighlight">\(x_i\)</span> to pick <span class="math notranslate nohighlight">\(x_k\)</span> as its exemplar, taking into account other points’ preference for <span class="math notranslate nohighlight">\(x_k\)</span> as an exemplar.</p>
+<p>For the diagonal elements (self availabilities) the calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[a(k, k) \leftarrow \sum\limits_{i' \neq k}\max(0, r(i', k))\]</div>
+<p><span class="math notranslate nohighlight">\(a(k, k)\)</span> reflects accumulated evidence that point <span class="math notranslate nohighlight">\(k\)</span> is suitable to be an exemplar, based on the positive
+responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards other elements.</p>
+</li>
+<li><p>For the off diagonal elements the calculation is done by the below definition.</p>
+<div class="math notranslate nohighlight">
+\[a(i, k) \leftarrow \min\{0, r(k,k) + \sum\limits_{i' s.t. i' \notin \{i, k\}}{\max\{0, r(i', k)\}}\]</div>
+<p>The formula states that, availability is self-responsibility of <span class="math notranslate nohighlight">\(k\)</span> plus the positive responsibilities of <span class="math notranslate nohighlight">\(k\)</span> towards
+elements other than <span class="math notranslate nohighlight">\(i\)</span>. The intuition to include only positive responsibilities is: an exemplar should be positively
+responsible to some data points, regardless of the negative responsibilites to other data points.
+If self-responsibility is negative, it means that <span class="math notranslate nohighlight">\(k\)</span> is more suitable to belong to another exemplar, rather than being an
+exemplar.</p>
+<p>The damping factor is used in the similar way as mentioned above.</p>
+</li>
+<li><p>The values are updated through iterations.  Iterations are performed until either the cluster boundaries remain unchanged over a number of iterations, or some predetermined number (of iterations) is reached.</p></li>
+<li><p>Criterion matrix is calculated after the updating is terminated. Criterion matrix <span class="math notranslate nohighlight">\(C\)</span> is the sum of <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(A\)</span>. The formula is</p>
+<div class="math notranslate nohighlight">
+\[c(i,k) \leftarrow r(i,k) + a(i,k)\]</div>
+<p>An element <span class="math notranslate nohighlight">\(i\)</span> will be assigned to an exemplar <span class="math notranslate nohighlight">\(k\)</span> which is not only highly responsible but also highly available to <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</li>
+<li><p>The exemplars are extracted from the final matrices as those whose ‘responsibility + availability’ for themselves is positive (i.e. <span class="math notranslate nohighlight">\((r(i,i)+a(i,i))&gt;0\)</span>)</p></li>
+<li><p>For point <span class="math notranslate nohighlight">\(i\)</span>, the <span class="math notranslate nohighlight">\(k\)</span> with maximum <span class="math notranslate nohighlight">\(r(i, k) + a(i, k)\)</span> represents point <span class="math notranslate nohighlight">\(i’s\)</span> exemplar or cluster.</p></li>
+</ol>
+</div>
+<div class="section" id="key-parameters-as-per-scikit-learn">
+<h3>Key parameters as per scikit learn<a class="headerlink" href="#key-parameters-as-per-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p><strong>damping</strong> - Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). This in order to avoid numerical oscillations when updating these values (messages).</p>
+<p><strong>max_iter</strong> - Maximum number of iterations. Default is 200.</p>
+<p><strong>preference</strong> - Preferences for each point - points with larger values of preferences are more likely to be chosen as exemplars. The number of exemplars, i.e. of clusters, is influenced by the input preferences value. If the preferences are not passed as arguments, they will be set to the median of the input similarities.</p>
+<p>This preference value indicates how strongly a data point thinks itself should be an exemplar. It is the diagonal value of the similarity matrix, <span class="math notranslate nohighlight">\(S\)</span>. If we choose to leave this value unmodified, we will see almost no clustering as most data points choose to be an exemplar for themselves. If we haven’t got a priori knowledge of the data points it is advised to start with a preference equal to the median of the input similarities.
+Intuitively, if we want Affinity Propagation to be less eager in splitting clusters we can set the preference value lower.</p>
+</div>
+<div class="section" id="id2">
+<h3>Output from the algorithm<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>labels</strong> - Cluster labels are returned.</p>
+</div>
+</div>
+</div>
+<div class="section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="expectation-maximization">
+<h2>Expectation Maximization<a class="headerlink" href="#expectation-maximization" title="Permalink to this headline">¶</a></h2>
+<p>[1] <a class="reference external" href="https://stats.stackexchange.com/questions/235070/relation-between-map-em-and-mle/524802#524802">https://stats.stackexchange.com/questions/235070/relation-between-map-em-and-mle/524802#524802</a></p>
+<p><em>Note: An exhaustive blogpost which explains MLE, MAP and EM and their relationship.</em></p>
+<p>[2] <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets">https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets</a></p>
+<p><em>Note: This is the exhaustive documentation of all available datasets and samples generator webpage. It offers deeper insights into which parameters else each function has.</em></p>
+<p>[3] T. Hastie, R. Tibshirani and J. Friedman, “Elements of Statistical Learning Ed. 2”, Springer, 2009.</p>
+<p><em>Note: This reference was directly taken from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>s documentation!</em></p>
+</div>
+<div class="section" id="hdbscan">
+<h2>HDBSCAN<a class="headerlink" href="#hdbscan" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page">https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page</a></p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372">https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372</a></p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="affinity-propagation">
+<h2>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8">https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In%20statistics%20and%20data%20mining,message%20passing%22%20between%20data%20points">https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In statistics and data mining,message passing” between data points</a>.</p></li>
+<li><p><a class="reference external" href="https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147">https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "mcmc"
+        },
+        kernelOptions: {
+            kernelName: "mcmc",
+            path: "./Mini-Project/Parts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'mcmc'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

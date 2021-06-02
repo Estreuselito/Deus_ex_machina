@@ -1,0 +1,1416 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectral Clustering &#8212; Deus Ex Machina</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MCMC/Assignment%204%20-%20Master.html">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Mini-Project/Spectral_Clustering/spectral_clustering_sy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMini-Project/Spectral_Clustering/spectral_clustering_sy.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/Mini-Project/Spectral_Clustering/spectral_clustering_sy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Spectral Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-description-application">
+     General Description &amp; Application
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steps">
+     Steps
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-affinity-matrix">
+       Step 1: Affinity Matrix
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-degree-matrix">
+       Step 2: Degree Matrix
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-laplacian-matrix">
+       Step 3: Laplacian Matrix
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-4-eigendecomposition-of-laplacian-matrix">
+       Step 4: Eigendecomposition of Laplacian Matrix
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-5-application-of-standard-clustering-algorithm">
+       Step 5: Application of standard clustering algorithm
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#select-parameters-scikit-learn-implementation">
+     Select Parameters (Scikit Learn Implementation)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Spectral Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theoretical-introduction">
+     Theoretical Introduction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumed-strengths-and-weaknesses">
+     Assumed Strengths and Weaknesses
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application">
+     Application
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Step 1 - Affinity Matrix
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#affinity-matrix-using-rbf">
+         Affinity Matrix using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           rbf
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#affinity-matrix-using-nearest-neighbors">
+         Affinity Matrix using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           nearest_neighbors
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-spectral-embedding">
+       Step 2 - Spectral Embedding
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-2-1-laplacian-matrix">
+         Step 2.1 Laplacian Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors-of-laplacian-matrix">
+         2.2 Eigenvalues and Eigenvectors of Laplacian Matrix
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-eigenvalues">
+       Plot Eigenvalues
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sign-flip-of-embedding-matrix">
+         2.3 Sign-Flip of Embedding Matrix
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-assign-lables">
+         Step 3 Assign Lables
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spectral-clustering">
+<h1>Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-description-application">
+<h2>General Description &amp; Application<a class="headerlink" href="#general-description-application" title="Permalink to this headline">¶</a></h2>
+<p>The idea of spectral clustering is rooted in graph theory. The spectral clustering algorithm aims to identify communities of nodes in a graph based on connections between them. It can be understood as aiming to maximize the number of within-cluster connections and to minimize the number of between-cluster connections. The spectral clustering algorithm also allows for clustering of non graph data. Thus, points that are (immediately) next to each other, i.e. closely connected, are identified in dataset.</p>
+<p>The spectral clustering algorithm utilizes information from the eigenvalues and eigenvectors of the Laplacian Matrix. A standard clustering algorithm, such as KMeans, is applied on relevant eigenvectors of the Laplacian matrix to cluster the different data points.</p>
+</div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<p>The generall process of the spectral clustering algorithm can be illustrated by the following steps, which will be outlined in more detail later on:</p>
+<ol class="simple">
+<li><p>Construct the Affinity Matrix based on the datapoints</p></li>
+<li><p>Create the Degree Matrix based on the Affinity Matrix</p></li>
+<li><p>Construct the Laplacian Matrix by subtracting the Affinity matrix from the Degree Matrix</p></li>
+<li><p>Eigendecomposition of Laplacian Matrix</p></li>
+<li><p>Apply a standard clustering algorithm, e.g. KMeans, on the relevant eigenvectors of the Laplacian Matrix</p></li>
+</ol>
+<p>The previously outlined steps will now be described in more detail:</p>
+<div class="section" id="step-1-affinity-matrix">
+<h3>Step 1: Affinity Matrix<a class="headerlink" href="#step-1-affinity-matrix" title="Permalink to this headline">¶</a></h3>
+<p><strong>EDIT: PROPERTIES OF AFFINITY MATRIX</strong><br />
+The entries of an affinity matrix show how similar points are to each other. If pairs of points are very dissimilar then the affinity should be 0. If the points are identical, then the affinity should equal 1. The Affinity Matrix can be constructed in different ways. Therefore, Scikit-Learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">implementation</a>  includes the hyperparameter <em>affinity</em>, which defines how to construct the affinity matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> constructs the affinity matrix by computing a graph of nearest neighbors. If chosen, the hyperparameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> also needs to be set as this determines the number of neighbors to use when constructing the affinity matrix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rbf</span></code> constructs the affinity matrix using a radial basis function (RBF) kernel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed</span></code> interprets X as a precomputed affinity matrix, where larger values indicate greater similarity between instances</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> interprets X as a sparse graph of precomputed distances, and construct a binary affinity matrix from the n_neighbors nearest neighbors of each instance</p></li>
+</ul>
+<p>It will now be detailed, how the Affinity Matrix is constructed using <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code> and <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. in those cases where no precomputed Affinity Matrix is provided:</p>
+<p><strong>nearest_neighbors:</strong><br />
+Setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, the affinity matrix is calculated using k-nearest neighbors method. Thus, the number of neighbors to use when constructing the affinity matrix needs to be specified using the parameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>. Let’s call the matrix, which stores the relationships of k-nearest neighbours, <em>connectivity</em>. If another datapoint belongs to the k-nearest neighbors, the matrix will indicate it with an entry of 1. If it does not belong to the k-nearest neighbors, it will be indicated with a 0. The affinity matrix is calculated using the following formula:</p>
+<div class="math notranslate nohighlight">
+\[
+{Affinity\ Matrix} = 0.5 * (connectivity + connectivity^T)
+\]</div>
+<p>Thus, each entry in the affinity matrix can only take up one of three possible entries: 1.0, 0.5 or 0.0.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> indicates that when calculating the closest k-nearest neighbours, both datapoints were amongst the respective nearest k-datapoints</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code> indicates that this was only true for one datapoint, i.e. only in one direction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code> indicates forh both datapoints, the other respective datapoint was not among the k-nearest</p></li>
+</ul>
+<p>Let’s assume the following example:
+<img alt="" src="../../_images/Affinity_Matrix_nearest_neighbor.png" /></p>
+<p>For data point 0, the two-nearest neighbors (including itself) are data point 0 and data point 1. For data point 1, only data point 1 and data point 2 are the two-nearest neighbors. In turn, the affinity matrix shows 0.5 at the entry row 0, column 1.</p>
+<p><strong>rbf:</strong><br />
+Setting the parameter <em>affinity</em> to <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, i.e. also its default setting, the Affinity Matrix is constructed using a kernel function with Euclidean distance d(X, X):</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.exp(-gamma</span> <span class="pre">*</span> <span class="pre">d(X,X)</span> <span class="pre">**</span> <span class="pre">2)</span></code></p>
+<p>The default for <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is 1.0 as can be inferred from Scikit Learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">documentation</a>. Here, the entries of the affinity matrix can take any value between 0.0 and 1.0, where values close to 0.0 indicate dissimilarity and values close to 1.0 indicate similarity.</p>
+<p><img alt="" src="../../_images/Affinity_Matrix_rbf.png" /></p>
+</div>
+<div class="section" id="step-2-degree-matrix">
+<h3>Step 2: Degree Matrix<a class="headerlink" href="#step-2-degree-matrix" title="Permalink to this headline">¶</a></h3>
+<p>The Degree Matrix is a diagonal matrix, which is obtained by taking the sum of each row in the affinity matrix. The entries on the diagonal are called <em>degree</em>.</p>
+</div>
+<div class="section" id="step-3-laplacian-matrix">
+<h3>Step 3: Laplacian Matrix<a class="headerlink" href="#step-3-laplacian-matrix" title="Permalink to this headline">¶</a></h3>
+<p>The (unnormalized) Laplacian Matrix is calculated by subtracting the Affinity Matrix from the Degree Matrix.</p>
+<div class="math notranslate nohighlight">
+\[
+L = D - A
+\]</div>
+<p>In the following, the Affinity Matrix, Degree Matrix and Laplacian Matrix are illustrated for the example using the <code class="docutils literal notranslate"><span class="pre">rbf</span></code>for the parameter <em>affinity</em>.</p>
+<p><img alt="" src="../../_images/Laplacian_Matrix_rbf.png" /></p>
+</div>
+<div class="section" id="step-4-eigendecomposition-of-laplacian-matrix">
+<h3>Step 4: Eigendecomposition of Laplacian Matrix<a class="headerlink" href="#step-4-eigendecomposition-of-laplacian-matrix" title="Permalink to this headline">¶</a></h3>
+<p>In the next step, the eigenvalues and eigenvectors of the Laplacian Matrix are calculated. The eigenvalues contain information about the number of clusters within the given dataset. In general, we search for the first large gap between the eigenvalues. The number of eigenvalues before this gap generally corresponds to the number of clusters in our dataset. As can be seen by the following stylized examples, we can identify a gap between eigenvalues number 2 and 3 as well as between number 3 and 4, which in turn help to determine the respective number of clusters.</p>
+<p><img alt="" src="../../_images/Eigenvalues_Laplacian.png" /></p>
+</div>
+<div class="section" id="step-5-application-of-standard-clustering-algorithm">
+<h3>Step 5: Application of standard clustering algorithm<a class="headerlink" href="#step-5-application-of-standard-clustering-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>The eigenvectors associated with the smallest eigenvalues are used for the partitioning of the dataset, except for the eigenvector corresponding to the first eigenvalue, i.e. the so called <em>spectral gap</em>. This eigenvalue will have a value of zero. A standard clustering algorithm is applied on the set of eigenvectors. The default clustering algorithm herefore is KMeans.</p>
+</div>
+</div>
+<div class="section" id="select-parameters-scikit-learn-implementation">
+<h2>Select Parameters (Scikit Learn Implementation)<a class="headerlink" href="#select-parameters-scikit-learn-implementation" title="Permalink to this headline">¶</a></h2>
+<p><strong>n_cluster:</strong> The parameter <em>n_clusters</em> defines the dimension of the projection subspace, i.e. the number of clusters.</p>
+<p><strong>eigen_solver:</strong>
+This parameter determines which eigenvalue decomposition strategy to use.</p>
+<p><strong>affinity:</strong>
+This parameter defines how to construct the affinity matrix. Four options are available: <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code>, <code class="docutils literal notranslate"><span class="pre">rbf</span></code>, <code class="docutils literal notranslate"><span class="pre">precomputed</span></code>and <code class="docutils literal notranslate"><span class="pre">precomputed_nearest_neighbors</span></code> (see above).</p>
+<p><strong>n_init:</strong><br />
+Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia. Only used if assign_labels=’kmeans’.</p>
+<p><strong>assign_labels:</strong><br />
+The strategy for assigning labels in the embedding space, i.e. the clustering algorithm. There are two ways to assign labels after the Laplacian embedding: <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> and <code class="docutils literal notranslate"><span class="pre">discretize</span></code>. k-means is a popular choice, but it can be sensitive to initialization. Discretization is another approach which is less sensitive to random initialization`</p>
+<p><strong>Note</strong>: Parameter names and descriptions were obtained from the official Scikit Learn <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">documentation</a>.</p>
+<p><strong>EDIT: FINAL REMARKS</strong><br />
+Lastly, we will briefly outline some advantages and disadvantages of the spectral clustering algorithm. <strong>XXX</strong>
+Nevertheless, the spectral clustering algorithm still requires us to specify the number of clusters beforehand as indicated by the hyperparamter <code class="docutils literal notranslate"><span class="pre">n_cluster</span></code>. In that sense, it has the same disadvantage as KMeans.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>Spectral Clustering<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="theoretical-introduction">
+<h2>Theoretical Introduction<a class="headerlink" href="#theoretical-introduction" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="assumed-strengths-and-weaknesses">
+<h2>Assumed Strengths and Weaknesses<a class="headerlink" href="#assumed-strengths-and-weaknesses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>That means that the key for spectral clustering is the transformation of the space. Presuming we can better respect the manifold we’ll get a better clustering – we need worry less about K-Means globular clusters as they are merely globular on the transformed space and not the original space.</p></li>
+<li><p>we still partition the data instead of clustering it</p></li>
+<li><p>we have the hard to guess ‘number of clusters’ parameter</p></li>
+<li><p>we have stability issues inherited from K-Means</p></li>
+<li><p>if we operate on the dense graph of the distance matrix we have a very expensive initial step and sacrifice performance.</p></li>
+<li><p>In practice Spectral Clustering is very useful when the structure of the individual clusters is highly non-convex, or more generally when a measure of the center and spread of the cluster is not a suitable description of the complete cluster, such as when clusters are nested circles on the 2D plane.</p></li>
+</ul>
+<p><strong>Sources:</strong></p>
+<ul class="simple">
+<li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html">https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering">https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/spectral-clustering-aba2640c0d5b">https://towardsdatascience.com/spectral-clustering-aba2640c0d5b</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering</a></p></li>
+<li><p><a class="reference external" href="https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/">https://www.mygreatlearning.com/blog/introduction-to-spectral-clustering/</a></p></li>
+</ul>
+<p><strong>Source Code:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L159">https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/cluster/_spectral.py#L159</a></p></li>
+<li><p><a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/manifold/_spectral_embedding.py#L143">https://github.com/scikit-learn/scikit-learn/blob/aa898de885ed4861a03e4f79b28f92f70914643d/sklearn/manifold/_spectral_embedding.py#L143</a></p></li>
+</ul>
+</div>
+<div class="section" id="application">
+<h2>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">SpectralClustering</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># Initialize Data Set</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># Plot Data Set</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe718d835b0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/spectral_clustering_sy_6_1.png" src="../../_images/spectral_clustering_sy_6_1.png" />
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Step 1 - Affinity Matrix<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="affinity-matrix-using-rbf">
+<h4>Affinity Matrix using <code class="docutils literal notranslate"><span class="pre">rbf</span></code><a class="headerlink" href="#affinity-matrix-using-rbf" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform Clustering</span>
+<span class="n">clustering</span> <span class="o">=</span> <span class="n">SpectralClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                <span class="n">affinity</span> <span class="o">=</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span>
+                                <span class="n">assign_labels</span><span class="o">=</span><span class="s1">&#39;discretize&#39;</span><span class="p">,</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Show the Affinity Matrix</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">clustering</span><span class="o">.</span><span class="n">affinity_matrix_</span>
+<span class="n">df_affinity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clustering</span><span class="o">.</span><span class="n">affinity_matrix_</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Affinity Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_affinity</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Affinity Matrix is:
+         0       1       2       3
+0  1.0000  0.0183  0.0000  0.0000
+1  0.0183  1.0000  0.1353  0.0001
+2  0.0000  0.1353  1.0000  0.0067
+3  0.0000  0.0001  0.0067  1.0000
+</pre></div>
+</div>
+</div>
+</div>
+<p>When calling fit, an affinity matrix is constructed using either a kernel function such the Gaussian (aka RBF) kernel with Euclidean distance d(X, X): <code class="docutils literal notranslate"><span class="pre">np.exp(-gamma</span> <span class="pre">*</span> <span class="pre">d(X,X)</span> <span class="pre">**</span> <span class="pre">2)</span></code> or a k-nearest neighbors connectivity matrix. The default for <code class="docutils literal notranslate"><span class="pre">gamma</span></code>is 1.0 as can be inferred from scikit-learns <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">documentation</a>. The Euclidean Distance is equal to:</p>
+<div class="math notranslate nohighlight">
+\[
+d(p,q) = \|q-p\|_2 =
+\sqrt{(q_1 - p_1)^2 + \cdots + (q_n - p_n)^2} = \sqrt{\sum_{i=1}^n (q_i-p_i)^2}
+\]</div>
+<p>As such, the Affinity Matrix is calculated as such:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="c1"># Function to Calculate Euclidean Distance</span>
+<span class="k">def</span> <span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">vector1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">vector2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">vector1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">vector2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">distance</span>
+
+<span class="c1"># Calculate Entry for Affinity Matrix</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># default-value</span>
+<span class="c1"># Determine Shape of Affinity Matrix</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># Construct Empty Affinity Matrix</span>
+<span class="n">affinity_matrix_rbf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># Update entries of affinity matrix</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="c1"># Calculate Distance</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">euclidean_distance</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="c1"># Calculate Entry for Affinity Matrix</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Update Affinity Matrix</span>
+        <span class="n">affinity_matrix_rbf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span>
+
+<span class="n">df_affinity_rbf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">affinity_matrix_rbf</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Affinity Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_affinity_rbf</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Affinity Matrix is:
+         0       1       2       3
+0  1.0000  0.0183  0.0000  0.0000
+1  0.0183  1.0000  0.1353  0.0001
+2  0.0000  0.1353  1.0000  0.0067
+3  0.0000  0.0001  0.0067  1.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_affinity_rbf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.000000</td>
+      <td>0.018316</td>
+      <td>0.000045</td>
+      <td>0.000002</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.018316</td>
+      <td>1.000000</td>
+      <td>0.135335</td>
+      <td>0.000123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000045</td>
+      <td>0.135335</td>
+      <td>1.000000</td>
+      <td>0.006738</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000002</td>
+      <td>0.000123</td>
+      <td>0.006738</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="affinity-matrix-using-nearest-neighbors">
+<h4>Affinity Matrix using <code class="docutils literal notranslate"><span class="pre">nearest_neighbors</span></code><a class="headerlink" href="#affinity-matrix-using-nearest-neighbors" title="Permalink to this headline">¶</a></h4>
+<p>The default number of neighbors to use when constructing the affinity matrix using the nearest neighbors method is <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html">10</a>. As this example only contains 6 elements, 10 cannot be chosen. Instead <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> was set to 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform Clustering</span>
+<span class="n">clustering</span> <span class="o">=</span> <span class="n">SpectralClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;nearest_neighbors&#39;</span><span class="p">,</span>
+                                <span class="n">assign_labels</span><span class="o">=</span><span class="s1">&#39;discretize&#39;</span><span class="p">,</span>
+                                <span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Show the Affinity Matrix</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">df_affinity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clustering</span><span class="o">.</span><span class="n">affinity_matrix_</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Affinity Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_affinity</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Affinity Matrix is:
+      0    1    2    3
+0  1.0  0.5  0.0  0.0
+1  0.5  1.0  1.0  0.0
+2  0.0  1.0  1.0  0.5
+3  0.0  0.0  0.5  1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> indicates that when calculating the closest k-datapoints, both datapoints were amongst the respectivve nearest k-datapoints, e.g. when calculating the closest four datapoints for datapoint indexed 0, datapoint indexed 1 was among the nearest four datapoints. At the same time, when calculating the closest four datapoints for datapoint indexed 1, datapoint indexed 0 was also among the nearest four datapoints. <code class="docutils literal notranslate"><span class="pre">0.5</span></code>indicates that this was only true for one datapoint, e.g. when calculating the four nearest datapoints for datapoint indexed 0, the datapoint indexed four was included, but not the other way around. For datapoint indexed 4, the datapoint indexed 0 was not among the four nearest datapoints.
+<code class="docutils literal notranslate"><span class="pre">0.0</span></code> indicates that in both calculations, the other respective datapoint wa not among the k-nearest.</p>
+<p>Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">SpectralClustering</span></code> uses the method <code class="docutils literal notranslate"><span class="pre">kneighbors_graph</span></code>, which computes the (weighted) graph of k-Neighbors for points in the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.kneighbors_graph.html">dataset</a>:<br />
+<code class="docutils literal notranslate"><span class="pre">connectivity</span> <span class="pre">=</span> <span class="pre">kneighbors_graph(X,</span> <span class="pre">n_neighbors=n_neigbors,</span> <span class="pre">mode='connectivity',</span> <span class="pre">include_self=True)</span></code>.<br />
+The affinity matrix is then calculated by
+$<span class="math notranslate nohighlight">\(
+{Affinity Matrix} = 0.5 * (connectivity + connectivity^T)
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">kneighbors_graph</span>
+<span class="n">connectivity</span> <span class="o">=</span> <span class="n">kneighbors_graph</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_self</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">affinity_matrix_kn</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">connectivity</span> <span class="o">+</span> <span class="n">connectivity</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Show the Affinity Matrix using nearest_neighbors</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">df_affinity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">affinity_matrix_kn</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Affinity Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_affinity</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Affinity Matrix is:
+      0    1    2    3
+0  1.0  0.5  0.0  0.0
+1  0.5  1.0  1.0  0.0
+2  0.0  1.0  1.0  0.5
+3  0.0  0.0  0.5  1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_connectivity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">connectivity</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="n">df_connectivity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_affinity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-2-spectral-embedding">
+<h3>Step 2 - Spectral Embedding<a class="headerlink" href="#step-2-spectral-embedding" title="Permalink to this headline">¶</a></h3>
+<p>Spectral embedding for non-linear dimensionality reduction.</p>
+<p>Forms an affinity matrix given by the specified function and applies spectral decomposition to the corresponding graph laplacian. The resulting transformation is given by the value of the eigenvectors for each data point.</p>
+<p>Note : Laplacian Eigenmaps is the actual algorithm implemented here.</p>
+<p>Project the sample on the first eigenvectors of the graph Laplacian.
+The adjacency matrix is used to compute a normalized graph Laplacian
+whose spectrum (especially the eigenvectors associated to the
+smallest eigenvalues) has an interpretation in terms of minimal
+number of cuts necessary to split the graph into comparably sized
+components.
+This embedding can also ‘work’ even if the <code class="docutils literal notranslate"><span class="pre">adjacency</span></code> variable is
+not strictly the adjacency matrix of a graph but more generally
+an affinity or similarity matrix between samples (for instance the
+heat kernel of a euclidean distance matrix or a k-NN matrix).
+However care must taken to always make the affinity matrix symmetric
+so that the eigenvector decomposition works as expected.
+Note : Laplacian Eigenmaps is the actual algorithm implemented here.</p>
+<p>To perform the spectral embedding, the function <code class="docutils literal notranslate"><span class="pre">spectral_embedding</span></code> is called. It takes the following inputs.</p>
+<ul class="simple">
+<li><p><strong>adjacency:</strong> The adjacency or affinity matrix of the graph to embed.</p></li>
+<li><p><strong>n_components:</strong> The dimension of the projection subspace.</p></li>
+<li><p><strong>eigen_solver:</strong> The eigenvalue decomposition strategy to use.</p></li>
+<li><p><strong>eigen_tol:</strong> Stopping criterion for eigendecomposition of the Laplacian matrix when using arpack eigen_solver.</p></li>
+<li><p><strong>drop_first:</strong> Whether to drop the first eigenvector. For spectral embedding, this should be True as the first eigenvector should be constant vector for connected graph, but for spectral clustering, this should be kept as False to retain the first eigenvector.</p></li>
+</ul>
+<p>Within the function <code class="docutils literal notranslate"><span class="pre">spectral_embedding</span></code>, the function <code class="docutils literal notranslate"><span class="pre">csgraph_laplacian</span></code>is called, which returns the Laplacian matrix of a directed <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.laplacian.html">graph</a>. Furthermore, it returns the diagonal of the Laplacian matrix of length N. The eigendecomposition of the laplacian matrix can give insight into many properties of the graph.</p>
+<p>In general, the (unnormalized) Laplacian Matrix is calculated as such:</p>
+<div class="math notranslate nohighlight">
+\[
+L = D - A
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p>L: Laplacian Matrix</p></li>
+<li><p>D: Degree Matrix</p></li>
+<li><p>A: Affinity or Adjacency Matrix</p></li>
+</ul>
+<p>The Degree Matrix is a diagonal matrix, where the degree of a node (i.e. values) of the diagonal is given by the number of edges connected to it. The degree of the nodes is obtained by taking the sum of each row in the affinity / adjacency matrix.</p>
+<div class="section" id="step-2-1-laplacian-matrix">
+<h4>Step 2.1 Laplacian Matrix<a class="headerlink" href="#step-2-1-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct Empty Degree Matrix</span>
+<span class="n">degree_matrix_rbf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># Update entries of Degree matrix</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">sum_row</span> <span class="o">=</span> <span class="n">affinity_matrix_rbf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="c1"># Update Degree Matrix</span>
+    <span class="n">degree_matrix_rbf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_row</span>
+    
+<span class="c1"># Transform Degree Matrix into DataFrame</span>
+<span class="n">df_degree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">degree_matrix_rbf</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Degree Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_degree</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Degree Matrix is:
+         0       1       2       3
+0  1.0184  0.0000  0.0000  0.0000
+1  0.0000  1.1538  0.0000  0.0000
+2  0.0000  0.0000  1.1421  0.0000
+3  0.0000  0.0000  0.0000  1.0069
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_degree</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.018363</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>1.153774</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.142119</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.006864</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate Laplacian Matrix manually</span>
+<span class="n">laplacian_rbf_manuell</span> <span class="o">=</span> <span class="n">degree_matrix_rbf</span> <span class="o">-</span> <span class="n">affinity_matrix_rbf</span>
+<span class="c1"># Transform Laplacian Matrix into DataFrame</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">df_laplacian_rbf_manuell</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">laplacian_rbf_manuell</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Laplacian Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_laplacian_rbf_manuell</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Laplacian Matrix is:
+         0       1       2       3
+0  0.0184 -0.0183 -0.0000 -0.0000
+1 -0.0183  0.1538 -0.1353 -0.0001
+2 -0.0000 -0.1353  0.1421 -0.0067
+3 -0.0000 -0.0001 -0.0067  0.0069
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_laplacian_rbf_manuell</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.018363</td>
+      <td>-0.018316</td>
+      <td>-0.000045</td>
+      <td>-0.000002</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.018316</td>
+      <td>0.153774</td>
+      <td>-0.135335</td>
+      <td>-0.000123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.000045</td>
+      <td>-0.135335</td>
+      <td>0.142119</td>
+      <td>-0.006738</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.000002</td>
+      <td>-0.000123</td>
+      <td>-0.006738</td>
+      <td>0.006864</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">csgraph_laplacian</span></code> performs the same calculation as can be seen below. The resulting laplacian matrices are identical.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.csgraph</span> <span class="kn">import</span> <span class="n">laplacian</span> <span class="k">as</span> <span class="n">csgraph_laplacian</span>
+
+<span class="c1"># Calculate Laplacian Matrix</span>
+<span class="n">adjacency</span> <span class="o">=</span> <span class="n">affinity_matrix_rbf</span>
+<span class="n">laplacian</span><span class="p">,</span> <span class="n">diagonal</span> <span class="o">=</span> <span class="n">csgraph_laplacian</span><span class="p">(</span><span class="n">adjacency</span><span class="p">,</span> <span class="n">return_diag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Transform Laplacian Matrix into DataFrame</span>
+<span class="n">df_laplacian_rbf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">laplacian</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Laplacian Matrix is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_laplacian_rbf</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Laplacian Matrix is:
+         0       1       2       3
+0  0.0184 -0.0183 -0.0000 -0.0000
+1 -0.0183  0.1538 -0.1353 -0.0001
+2 -0.0000 -0.1353  0.1421 -0.0067
+3 -0.0000 -0.0001 -0.0067  0.0069
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for identical results</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">df_laplacian_rbf_manuell</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_laplacian_rbf</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="eigenvalues-and-eigenvectors-of-laplacian-matrix">
+<h4>2.2 Eigenvalues and Eigenvectors of Laplacian Matrix<a class="headerlink" href="#eigenvalues-and-eigenvectors-of-laplacian-matrix" title="Permalink to this headline">¶</a></h4>
+<p>In the next step, the eigenvalues of the laplacian matrix are calculated. If the <code class="docutils literal notranslate"><span class="pre">eigen_solver</span></code>is set to <code class="docutils literal notranslate"><span class="pre">arpack</span></code>(default), then the function <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> is called, which finds k eigenvalues and eigenvectors of a real symmetric square <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.eigsh.html">matrix</a>.</p>
+<p>The function returns an array of k eigenvalues and an array representing the k eigenvectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigsh</span>
+<span class="n">laplacian</span> <span class="o">=</span> <span class="n">laplacian</span>
+<span class="c1"># Determine number of components</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">4</span> 
+<span class="c1"># Determine which eigenvalues to find</span>
+<span class="n">which</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span> <span class="c1">#‘LM’: Largest (in magnitude) eigenvalues</span>
+<span class="c1"># Relative accuracy for eigenvalues (stopping criterion). The default value of 0 implies machine precision.</span>
+<span class="n">eigen_tol</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Calculate Eigenvalues and Eigenvectors</span>
+<span class="n">eigenvalues_rbf</span><span class="p">,</span> <span class="n">eigenvectors_rbf</span> <span class="o">=</span> <span class="n">eigsh</span><span class="p">(</span><span class="n">laplacian</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">eigen_tol</span><span class="p">)</span>
+<span class="c1"># Determine diffusion_map</span>
+<span class="n">diffusion_map_rbf</span> <span class="o">=</span> <span class="n">eigenvectors_rbf</span>
+<span class="c1"># Spectral Embedding</span>
+<span class="n">embedding_rbf</span> <span class="o">=</span> <span class="n">diffusion_map_rbf</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">n_components</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/scipy/sparse/linalg/eigen/arpack/arpack.py:1590: RuntimeWarning: k &gt;= N for N * N square matrix. Attempting to use scipy.linalg.eigh instead.
+  warnings.warn(&quot;k &gt;= N for N * N square matrix. &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">eigenvalues_rbf</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.    ,  0.0084,  0.0286,  0.2841])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-eigenvalues">
+<h3>Plot Eigenvalues<a class="headerlink" href="#plot-eigenvalues" title="Permalink to this headline">¶</a></h3>
+<p>In general, we often look for the first large gap between eigenvalues in order to find the number of clusters expressed in our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_axis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">eigenvalues_rbf</span><span class="p">)))</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="n">eigenvalues_rbf</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe718ff4130&gt;
+</pre></div>
+</div>
+<img alt="../../_images/spectral_clustering_sy_35_1.png" src="../../_images/spectral_clustering_sy_35_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c1"># Calculate Eigenvalues and Eigenvectors</span>
+<span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">laplacian</span><span class="p">)</span>
+
+<span class="c1"># Make a list of (eigenvalue, eigenvector) tuples</span>
+<span class="n">eigen_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">eigenvectors</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))]</span>
+
+<span class="c1"># Sort the (eigenvalues, eigenvalues) tuples from high to low (reverse), key=EV</span>
+<span class="n">eigen_pairs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Spectral Embedding</span>
+<span class="c1"># Construct the Embedding Matrix out of the n-vectors based on n_components</span>
+<span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">eigen_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">eigen_pairs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_components</span><span class="p">):</span>
+    <span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">embedding_matrix</span><span class="p">,</span> <span class="n">eigen_pairs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
+<span class="n">embedding_rbf_manuell</span> <span class="o">=</span> <span class="n">embedding_matrix</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">309</span><span class="o">-</span><span class="n">df227bd34841</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">eigen_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">eigen_pairs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_components</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>     <span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">embedding_matrix</span><span class="p">,</span> <span class="n">eigen_pairs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">embedding_rbf_manuell</span> <span class="o">=</span> <span class="n">embedding_matrix</span><span class="o">.</span><span class="n">T</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparison</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvalues using &quot;eigsh&quot; equal Eigenvalues using &quot;linal.eig :</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">eigenvalues_rbf</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)[</span><span class="o">-</span><span class="n">n_components</span><span class="p">:],</span> <span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Embedding Matrix using &quot;eigsh&quot; equal Embedding Matrix using &quot;linal.eig&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">embedding_rbf</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">embedding_rbf_manuell</span><span class="p">),</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues using &quot;eigsh&quot; equal Eigenvalues using &quot;linal.eig :
+ [ True  True  True  True]
+Embedding Matrix using &quot;eigsh&quot; equal Embedding Matrix using &quot;linal.eig&quot;:
+ False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-310-a8b41b90a617&gt;:5: DeprecationWarning: elementwise comparison failed; this will raise an error in the future.
+  np.round(abs(embedding_rbf), 8) == np.round(abs(embedding_rbf_manuell), 8))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sign-flip-of-embedding-matrix">
+<h4>2.3 Sign-Flip of Embedding Matrix<a class="headerlink" href="#sign-flip-of-embedding-matrix" title="Permalink to this headline">¶</a></h4>
+<p>In the next step, the sign of the elements of all the vectors in the embedding matrix are flipped such that
+the absolute maximum element of each vector is positive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.argmax returns the indices of the maximum values along an axis.</span>
+<span class="n">max_abs_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">embedding_rbf_manuell</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># np.sign returns an element-wise indication of the sign of a the maximum value along each axis</span>
+<span class="n">signs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">embedding_rbf_manuell</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">embedding_rbf_manuell</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">max_abs_rows</span><span class="p">])</span>
+<span class="c1"># the sign of all the vectors in the embedding matrixs are flipped</span>
+<span class="n">embedding_rbf_manuell</span> <span class="o">*=</span> <span class="n">signs</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The maximum value along each axis is now positive :</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">embedding_rbf_manuell</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The maximum value along each axis is now positive :
+ [[ 0.8165 -0.4082 -0.4082  0.      0.     -0.    ]
+ [ 0.      0.     -0.     -0.4082 -0.4082  0.8165]
+ [ 0.      0.7071 -0.7071  0.     -0.     -0.    ]
+ [-0.      0.     -0.     -0.7071  0.7071  0.    ]
+ [-0.4082 -0.4082 -0.4082  0.4082  0.4082  0.4082]
+ [ 0.4082  0.4082  0.4082  0.4082  0.4082  0.4082]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-3-assign-lables">
+<h4>Step 3 Assign Lables<a class="headerlink" href="#step-3-assign-lables" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#k_means</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">maps</span> <span class="o">=</span> <span class="n">embedding_rbf_manuell</span><span class="p">[:</span><span class="n">n_components</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span>
+
+<span class="n">k</span><span class="o">.</span><span class="n">labels_</span>
+<span class="c1"># _, labels, _ = KMeans(maps, n_clusters, random_state=random_state)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 1, 0, 1], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustering</span> <span class="o">=</span> <span class="n">SpectralClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                <span class="n">affinity</span> <span class="o">=</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span>
+                                <span class="n">assign_labels</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">,</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">clustering</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 0], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Mini-Project/Spectral_Clustering"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

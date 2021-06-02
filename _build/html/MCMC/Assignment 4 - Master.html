@@ -1,0 +1,1028 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Think like a Bayesian, check like a frequentist &#8212; Deus Ex Machina</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clustering" href="../Mini-Project/Master.html" />
+    <link rel="prev" title="The Johnson-Lindenstrauss Lemma" href="../RandomProjections/Assignment%203.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Frankfurt_School_Logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Deus Ex Machina</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to our Machine Learning II Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%201.html">
+   Covid-19 &amp; PCA Disasters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Assignment%202.html">
+   The Kernel Trick
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RandomProjections/Assignment%203.html">
+   The Johnson-Lindenstrauss Lemma
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mini-Project/Master.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/MCMC/Assignment 4 - Master.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Estreuselito/Deus_ex_machina/tree/html_pages/issues/new?title=Issue%20on%20page%20%2FMCMC/Assignment 4 - Master.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Estreuselito/Deus_ex_machina/master?urlpath=tree/MCMC/Assignment 4 - Master.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Think like a Bayesian, check like a frequentist
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magic-commands-in-jupyter">
+   Magic Commands in Jupyter
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory">
+   Theory
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayes">
+     Bayes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bayesian-vs-frequentist">
+       Bayesian vs. Frequentist
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bayes-rule">
+       Bayes’ rule
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#markov-chain">
+     Markov Chain
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-properties-of-markov-chains">
+   Key Properties of Markov Chains
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalization">
+     Normalization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ergodicity">
+     Ergodicity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#homogeneity">
+     Homogeneity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reversible">
+     Reversible
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo">
+     Monte Carlo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#markov-chain-monte-carlo-mcmc">
+     Markov Chain Monte Carlo (MCMC)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sird-model">
+   The SIRD Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mu">
+     <span class="math notranslate nohighlight">
+      \(\mu\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-nought">
+     <span class="math notranslate nohighlight">
+      \(R_{nought}\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-list">
+   Reading list
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="think-like-a-bayesian-check-like-a-frequentist">
+<h1>Think like a Bayesian, check like a frequentist<a class="headerlink" href="#think-like-a-bayesian-check-like-a-frequentist" title="Permalink to this headline">¶</a></h1>
+<p><strong>Task</strong>:</p>
+<p>a. Create yet again a <strong>SIRD</strong> model, including <strong>D</strong>eaths, <strong>I</strong>nfected, <strong>R</strong>ecovered and <strong>S</strong>usceptibles. While doing so fix <span class="math notranslate nohighlight">\(\gamma = 1\)</span> and also <span class="math notranslate nohighlight">\(\beta = 2.5\)</span>.</p>
+<p>b. Infer <span class="math notranslate nohighlight">\(\mu\)</span> from the given input curves.</p>
+</div>
+<div class="section" id="magic-commands-in-jupyter">
+<h1>Magic Commands in Jupyter<a class="headerlink" href="#magic-commands-in-jupyter" title="Permalink to this headline">¶</a></h1>
+<p>Jupyter notebooks have something called “magic commands”. These are commands which are prefixed with a <code class="docutils literal notranslate"><span class="pre">%</span></code>, such as <code class="docutils literal notranslate"><span class="pre">%lsmagic</span></code>, which lists all magic commands. These commands set certain commands. The most common example is probably <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> which tells <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to plot all of its plots inside the Jupyter notebook. Another noteworthy point is that these magic commands can be used for specific cells or for the entire notebook. If one wants only to execute a magic command on one cell, then one must prefix the command with <code class="docutils literal notranslate"><span class="pre">%%</span></code> signs. This can also be used to program JavaScript or HTML inside a cell. Here are all the magic commands available:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available line magics:
+%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %colors  %conda  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %man  %matplotlib  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imports">
+<h1>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h1>
+<p>First we import all the packages which we already know, and functions we have already used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">pymc3</span> <span class="k">as</span> <span class="nn">pm</span>
+<span class="kn">from</span> <span class="nn">pymc3.ode</span> <span class="kn">import</span> <span class="n">DifferentialEquation</span>
+<span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
+<span class="kn">from</span> <span class="nn">arviz.plots.plot_utils</span> <span class="kn">import</span> <span class="n">xarray_var_iter</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span> 
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">simplefilter</span>
+<span class="c1"># ignore all future warnings</span>
+<span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="theory">
+<h1>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bayes">
+<h2>Bayes<a class="headerlink" href="#bayes" title="Permalink to this headline">¶</a></h2>
+<p>Later on in Chapter <a class="reference external" href="#pymc3"><code class="docutils literal notranslate"><span class="pre">pymc3</span></code></a> we will talk about probabilistic programming for implementing Bayesian models [2]. But what is Bayesian? What makes it so special and why is there a package which explicitly states it can only be used for <strong>Bayesian</strong> models? This small chapter will elaborate on the differences between the different philosophies in statistics, before also delving deeper into Bayesian statistics.</p>
+<div class="section" id="bayesian-vs-frequentist">
+<h3>Bayesian vs. Frequentist<a class="headerlink" href="#bayesian-vs-frequentist" title="Permalink to this headline">¶</a></h3>
+<p>Imagine someone is going to the store and buys 100 bags of M&amp;Ms. He opens a bag and whenever he eats a M&amp;M he notes down the colour. After finishing all 100 bags of M&amp;Ms he concludes that he had 30% of his M&amp;Ms were red, 20% were green, 25% were blue and 35% were yellow. From a frequentist’s perspective, this is the <strong>prior</strong>; the knowledge was obtained by the frequent and repeated sample of measuring. Hence that person expects a similar colour distribution the next time that he buys M&amp;Ms. This connects <strong>probabilites deeply to the frequency of events</strong> [4].</p>
+<p>In a Bayesian world that is different. For example, say you are about to eat M&amp;Ms for the first time in your life and you are asked what you expect the colour distribution to be. Following a Bayesian perspective you might assert, “well, I walked through the park today and saw a lot of green trees, so 40% green, each tree had some (red) apples, so 25% red, the sun was shining, so 15% yellow and when I came home it started pouring down on me, hence 20% of the M&amp;Ms will be blue.” That analogy shows that “<strong>probabilites are fundamentally related to our own knowlegde about an event</strong>” [4].</p>
+<p>This <strong>prior</strong> estimation of <span class="math notranslate nohighlight">\(\theta\)</span> is a huge topic of debate. (Subjective) Bayesians say it is subjective, what would result in always different outcomes. Others say, we must first check it and then base it on frequency. Or maybe everything is subjective and so all models are different, just that some of them are actually useful [1]. Just think of the data you chose, the model you want to use etc. Those decisions are all based on subjectivity. The pragmatic solution which was found was, that if the sample size is just big enough the selected starting value for <span class="math notranslate nohighlight">\(\theta\)</span> does not matter anymore, since all <span class="math notranslate nohighlight">\(\theta\)</span>s will converge all to the same value. Keep that in mind as you continue reading, as later on we will simplify Bayes’ rule to something along those lines <span class="math notranslate nohighlight">\(p(\theta|y) \propto L(\theta)p(\theta)\)</span>; no matter how you choose <span class="math notranslate nohighlight">\(p(\theta)\)</span>, if your sample size is big enough <span class="math notranslate nohighlight">\(L(\theta)\)</span> will dominate.</p>
+</div>
+<div class="section" id="bayes-rule">
+<h3>Bayes’ rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h3>
+<p>Bayes’ rule is the core or Bayesian statistics. Here’s how it looks:</p>
+<p>\begin{equation}
+\color{orange}{P(A|B)} = \frac{\color{red}{P(B|A)}\color{green}{P(A)}}{\color{magenta}{P(B)}}
+\end{equation}</p>
+<p>In order to better explain the various parts of that equation, I want to introduce an analogy. Imagine you are a detective coming to a crime scene and you must determine who the perpetrator was.<a class="reference external" href="#fn1"><sup>1</sup></a></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\color{green}{P(A)}\)</span>: So when you arrive at the crime scene you already have a pretty good idea who the perpetrator is, based solely on your intuition. Hence, this part is called <strong>prior</strong>. It describes the probability of <span class="math notranslate nohighlight">\(\color{green}{A}\)</span> before we have data. Meaning, before we have considered any evidence.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\color{orange}{P(A|B)}\)</span>: This is what we need to figure out. Based on all the data we have, who exactly did it? Or statistically speaking, what is the probability of <span class="math notranslate nohighlight">\(A\)</span> given our data <span class="math notranslate nohighlight">\(B\)</span>. This part is called the <strong>posterior</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\color{magenta}{P(B)}\)</span>: This is the probability for our given data.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\color{red}{P(B|A)}\)</span>: This is the likelihood function. The likelihood function is the probability of data given the parameter, but as a function of the parameter holding the data fixed [1, 3].</p></li>
+</ul>
+<p>Now we could read our Bayes’ rule like so:</p>
+<p>\begin{equation}
+Posterior\ =\ \frac{Likelihood\ x\ Prior/Believe}{Evidence}
+\end{equation}</p>
+<p>The main idea is that we can update our beliefs with that model. In statistics we can call this <strong>sequentialism</strong>. Continuing with the detective analogy, that means that if/when the detective finds new evidence on the scene or finds out what happened beforehand, that information can be incorporated into our determination of who the perpetrator was (specifically the likelihood a given candidate was responsible for the crime). This is an iterative process and can be repeated continuously; everytime the <strong>posterior</strong> (the belief) of who did it is updated (updated here can either mean that the probability that someone did it increases or decreases). So lets imagine the detective arrives at a crime scene and sees three pieces of evidence. He could just update his belief once, using each of these three pieces of evidence; Bayes’ rule <strong>sequentially</strong> incorporates these three pieces of evidence. Meaning we find one piece of evidence and update our beliefs (our <strong>posterior</strong>) accordingly. Next, we will find the second piece of evidence, and what happens now is that our <strong>posterior</strong> which we just calculated based on evidence one, becomes our new <strong>prior</strong>, and so on.</p>
+<p>Lets do this again step by step. We arrive at a crime scene with all our experience <span class="math notranslate nohighlight">\(\color{green}{P(A)}\)</span>.</p>
+<p>\begin{equation}
+\color{orange}{P(A|B)} = \frac{P(B|A)\color{green}{P(A)}}{P(B)}
+\end{equation}</p>
+<p>Now we find our first piece of evidence <span class="math notranslate nohighlight">\(P(B)\)</span>, and we update our belief accordingly.</p>
+<p>\begin{equation}
+\color{red}{P(A|B)} = \frac{P(B|A)\color{orange}{P(A)}}{P(B)}
+\end{equation}</p>
+<p>And with the third piece of evidence we will update our beliefs again.</p>
+<p>\begin{equation}
+\color{blue}{P(A|B)} = \frac{P(B|A)\color{red}{P(A)}}{P(B)}
+\end{equation}</p>
+<p>This is going on and on with every new piece of evidence we find. As the lecturer indicates in [1], <em>our <strong>posterior</strong> tonight is our <strong>prior</strong> tomorrow</em>. In a more statistical version, this function can be written as:</p>
+<p>\begin{equation}
+\color{orange}{P(\theta|y)} = \frac{P(y|\theta)\color{green}{P(\theta)}}{\color{magenta}{P(y)}}
+\end{equation}</p>
+<p>This is nothing different than the above. Our data (here <span class="math notranslate nohighlight">\(y\)</span>) and our unknowns (here <span class="math notranslate nohighlight">\(\theta\)</span>). Essentially, we want to get our unknowns (<span class="math notranslate nohighlight">\(\theta\)</span>s) given our knowns (our data <span class="math notranslate nohighlight">\(y\)</span>). In order to calculate that, we can first get rid of <span class="math notranslate nohighlight">\(\color{magenta}{P(y)}\)</span>. Since we already have the data, we can treat it as fixed (since what should change on already gathered data?). So we can get rid of the denominator. However, <span class="math notranslate nohighlight">\(\theta\)</span> is what we do not know. How can we derive something we do not know? The idea is to give it some kind of distribution, hence, our unknowns can be quantified using probabilites.<a class="reference external" href="#fn2"><sup>2</sup></a> With that in mind we can transform our original equation to:</p>
+<p>\begin{equation}
+p(\theta|y) \propto L(\theta)p(\theta)
+\end{equation}</p>
+<p>First we want to point out a property of the Bayes’ rule. It states that “<em>the <strong>posterior</strong> density is proprotional (denoted as <span class="math notranslate nohighlight">\(\propto\)</span>) to the likelihood function times the <strong>prior</strong> density</em>” [1]. In statistical terms the likelihood function just means a function of <span class="math notranslate nohighlight">\(\theta\)</span> given data <span class="math notranslate nohighlight">\(y\)</span>. A good example is statistical inference. We have some data (lets say about speeding) and we want to know, what are certain parameters (<span class="math notranslate nohighlight">\(\theta\)</span>s) that can form a prediction as to the likelihood regarding whether or not a person is speeding?</p>
+<hr class="docutils" />
+<p><span id="fn1"><sup>1</sup>The idea of this analogy was taken from [1], lecture 16.</span><br>
+<span id="fn2"><sup>2</sup>A really good quote here is: “<em>[…] probability is our best language to quantify uncertainty</em>”, from [1], lecture 16.</span></p>
+</div>
+</div>
+<div class="section" id="markov-chain">
+<h2>Markov Chain<a class="headerlink" href="#markov-chain" title="Permalink to this headline">¶</a></h2>
+<p>The Markov chain is the idea to define a “state space” and provide probabilites regarding how likely it is that a state be changed. Lets review the so-called “Baby” example [5].</p>
+<p><img alt="Markov Chain" src="../_images/Markov_Chain.png" /></p>
+<p>Here we can see we have three different states: crying, laughing and sleeping. The baby can go from one state to another with a certain probability, it can also stay where it is right now, again with a given probability. Let’s represent that with a matrix:</p>
+<p>\begin{equation}
+Baby = \left( \begin{matrix} \color{orange}{0.5} &amp; \color{red}{0.25} &amp; \color{ForestGreen}{0.25} \ \color{orange}{0.4} &amp; \color{red}{0.3} &amp; \color{ForestGreen}{0.3} \ \color{orange}{0.15} &amp; \color{red}{0.15} &amp; \color{ForestGreen}{0.7} \end{matrix} \right)
+\end{equation}</p>
+<p>A nice property of the Markov chain is, its <em>memorylessness</em>. That means, it does not matter how exactly you got where you are right now; only the last state matters. So, if the baby is sleeping and is to move to a laughing state, only the fact that the baby is currently sleeping (and not what the baby was doing before sleeping) is pertinent.</p>
+</div>
+</div>
+<div class="section" id="key-properties-of-markov-chains">
+<h1>Key Properties of Markov Chains<a class="headerlink" href="#key-properties-of-markov-chains" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note</strong>: Normalization, Ergodicity, and Homogeneity are <em>general properties</em>, whereas Reversibility is a <em>special property</em>. A general property is one that is typically assumed to be true unless specified/proved otherwise, while the opposite is the case for special properties.</p>
+<div class="section" id="normalization">
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
+<p>For each state, the transition probabilities sum to 1.</p>
+</div>
+<div class="section" id="ergodicity">
+<h2>Ergodicity<a class="headerlink" href="#ergodicity" title="Permalink to this headline">¶</a></h2>
+<p>Ergodicity expresses the idea that a point of a moving system, either a dynamical system or a stochastic process, will eventually (i.e. in a finite number of steps and with a positive probability) visit all parts of the space that the system moves in, in a uniform and random sense [Class Notes, 8].</p>
+</div>
+<div class="section" id="homogeneity">
+<h2>Homogeneity<a class="headerlink" href="#homogeneity" title="Permalink to this headline">¶</a></h2>
+<p>A Markov chain is called homogeneous if and only if the transition probabilities are independent of the time [9].</p>
+</div>
+<div class="section" id="reversible">
+<h2>Reversible<a class="headerlink" href="#reversible" title="Permalink to this headline">¶</a></h2>
+<p>Reversibility is obtained if the chain is symmetric, meaning that running it backwards is equivalent to running it forwards.</p>
+</div>
+<div class="section" id="monte-carlo">
+<h2>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h2>
+<p>The Monte Carlo method is based on the law of big numbers, viz. if we do something just often enough, overall we will have an average outcome. The advantage of this method is that it returns values and their probabilities for a given problem. The Monte Carlo method can be used for estimating <span class="math notranslate nohighlight">\(\pi\)</span> or for the falling of a raindrop. It does that through repeatedly picking random samples and recalculating it for each sample.</p>
+</div>
+<div class="section" id="markov-chain-monte-carlo-mcmc">
+<h2>Markov Chain Monte Carlo (MCMC)<a class="headerlink" href="#markov-chain-monte-carlo-mcmc" title="Permalink to this headline">¶</a></h2>
+<p>Recall that our main goal is to estimate our posterior by updating our priors (beliefs). Let’s say that we want to predict an outcome given two input parameters. If we assume that they are uniformly distributed (this is what the user has to provide, since this tells the algorithm how our <strong>priors</strong> are distributed) from 0 to 5, then we would have a graphic like the one below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code comes from: https://nbviewer.jupyter.org/github/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/blob/master/Chapter3_MCMC/Ch3_IntroMCMC_PyMC3.ipynb</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">IPython.core.pylabtools</span> <span class="kn">import</span> <span class="n">figsize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">figsize</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">jet</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">uni_x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">uni_y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">uni_x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">uni_y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">jet</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">.15</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Landscape formed by Uniform priors.&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">.15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">azim</span><span class="o">=</span><span class="mi">390</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Uniform prior landscape; alternate view&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 4 - Master_9_0.png" src="../_images/Assignment 4 - Master_9_0.png" />
+</div>
+</div>
+<p>What we can see here is that each point in the plan currently has the exact same likelihood; that is what makes it is a plan. We could have also decided that our <strong>priors</strong> are exponetials. In that case the likelihood for certain parameters would look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code comes from: https://nbviewer.jupyter.org/github/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/blob/master/Chapter3_MCMC/Ch3_IntroMCMC_PyMC3.ipynb</span>
+
+<span class="n">figsize</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+
+<span class="n">exp_x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">exp_y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exp_x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">exp_y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">jet</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$Exp(3), Exp(10)$ prior landscape&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">jet</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">azim</span><span class="o">=</span><span class="mi">390</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;prior on $p_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$Exp(3), Exp(10)$ prior landscape; </span><span class="se">\n</span><span class="s2">alternate view&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 4 - Master_11_0.png" src="../_images/Assignment 4 - Master_11_0.png" />
+</div>
+</div>
+<p>Where we can clearly see that some parameters are more likely than others. <em>If these surfaces describe our prior distributions on the unknowns, what happens to our space after we incorporate our observed data X? The data X does not change the space, but it changes the surface of the space by pulling and stretching the fabric of the prior surface to reflect where the true parameters likely live. More data means more pulling and stretching, and our original shape becomes mangled or insignificant compared to the newly formed shape. Less data, and our original shape is more present. Regardless, the resulting surface describes the posterior distribution.</em></p>
+<p><em>Again I must stress that it is, unfortunately, impossible to visualize this in large dimensions. For two dimensions, the data essentially pushes up the original surface to make tall mountains. The tendency of the observed data to push up the posterior probability in certain areas is checked by the prior probability distribution, so that less prior probability means more resistance. Thus in the double-exponential prior case above, a mountain (or multiple mountains) that might erupt near the (0,0) corner would be much higher than mountains that erupt closer to (5,5), since there is more resistance (low prior probability) near (5,5). The peak reflects the posterior probability of where the true parameters are likely to be found. Importantly, if the prior has assigned a probability of 0, then no posterior probability will be assigned there.</em> (this is directly copy pasted from [6])</p>
+</div>
+</div>
+<div class="section" id="the-sird-model">
+<h1>The SIRD Model<a class="headerlink" href="#the-sird-model" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define initial conditions of SIR model</span>
+<span class="n">i0</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1">#fractions infected at time t0=0 (1%)</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">0.00</span> <span class="c1">#fraction of recovered at time t0=0</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="mf">0.00</span> <span class="c1"># fraction of dead at time t0=0</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1"># time factor, defines total time window range</span>
+<span class="n">timestep_data</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># dt for data (e.g., weekly)</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="n">timestep_data</span><span class="p">)</span> <span class="c1">#np.array from 0 to 15 with steps of 0.5</span>
+<span class="c1">#ground truth (fixed gamma=1, then R0=beta, time scale to t/gamma)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="c1">#Mortality Rate</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">SIRD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;This function alters the SIR model from Epidemiology in order to incorporate the deaths </span>
+<span class="sd">    caused by the disease.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y: np.array</span>
+<span class="sd">        This array contains the initial values of r0, i0 an d0. The parameter r0 represents the fraction of </span>
+<span class="sd">        recovered people at time t0=0, whereas i0 and d0 representes the fraction of infected and dead </span>
+<span class="sd">        people at time t0=0 .</span>
+<span class="sd">    t: np.array</span>
+<span class="sd">        This array contains the points in time, where i0, r0 and d0 are modelled.</span>
+<span class="sd">    p: np.array </span>
+<span class="sd">        This array contains the following values in a list:</span>
+<span class="sd">            beta: float</span>
+<span class="sd">                The contact rate, more specifically the number of lengthy</span>
+<span class="sd">                contacts a person has per day.</span>
+<span class="sd">            mu: float</span>
+<span class="sd">                The mortaltiy rate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Unpack y to Initial values for the recovered, infected and dead</span>
+    <span class="c1">#  R = y[0]</span>
+    <span class="c1">#  I = y[1]</span>
+    <span class="c1">#  D = y[2]</span>
+    <span class="c1"># Calculate S</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="c1"># Gamma is set to equal 1</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">1</span> 
+    <span class="c1"># Change of Infections</span>
+    <span class="n">dIdt</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Change in Recovered</span>
+    <span class="n">dRdt</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Change in Deaths</span>
+    <span class="n">dDdt</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Return Recovered, Infected and Death</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dRdt</span><span class="p">,</span> <span class="n">dIdt</span><span class="p">,</span> <span class="n">dDdt</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create SIRD curves</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">SIRD</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="n">r0</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span> <span class="n">d0</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="nb">tuple</span><span class="p">([[</span><span class="n">beta</span><span class="p">,</span><span class="n">mu</span><span class="p">]]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span> <span class="c1"># r0 recovered, i0 infected  at t0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we start to create some noise around our dataset. The different <span class="math notranslate nohighlight">\(\sigma\)</span>s are displayed below. In the end we sample noisy points from our data derived from our partial derivatives. The following <span class="math notranslate nohighlight">\(\sigma\)</span>s are setting the noise for each compartment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Observational model for muliplicative noise</span>
+<span class="n">sigma_R</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="n">sigma_I</span> <span class="o">=</span> <span class="mf">0.20</span>
+<span class="n">sigma_D</span> <span class="o">=</span> <span class="mf">0.40</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="n">sigma_R</span><span class="p">,</span> <span class="n">sigma_I</span><span class="p">,</span> <span class="n">sigma_D</span><span class="p">]</span>
+<span class="n">yobs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">::]),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span> <span class="c1"># noise is multiplicative (makes sense here)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting</span>
+<span class="c1"># Plot the deterministic curves, and those with multiplicative noise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">::],</span><span class="n">yobs</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$R(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$I(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$D(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$beta$: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; $\mu$: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; $\sigma_R$: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sigma</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; $\sigma_I$: &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sigma</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; $\sigma_D$: &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sigma</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 4 - Master_19_0.png" src="../_images/Assignment 4 - Master_19_0.png" />
+</div>
+</div>
+<p>Here we can see, the dots, which are displaying the noisy data, and the lines which display the data from the partial derivatives.</p>
+<p>With the introduction of noise to the data, i.e. through <span class="math notranslate nohighlight">\(\sigma_{Recovered}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{Infected}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{Dead}\)</span>, individual data points may exceed the value of 1.0. Furthermore, for a certain point in time the sum of <span class="math notranslate nohighlight">\(R(t)\)</span>, <span class="math notranslate nohighlight">\(I(t)\)</span> and <span class="math notranslate nohighlight">\(D(t)\)</span> may exceed the amount of 1.0. This contradicts reality as the size of the population can not exceed 100%, i.e. 1. Thus, the compartments <em>recovered</em>, <em>infected</em> and <em>dead</em> should maximally yield a sum of 1, which in turn corresponds to the amount of <em>suceptibles</em> being 0. In order to address this issue, the modelling of noise would need to be adjusted, e.g. by introducing a constraint. As this did not significantly effect the second part of our assignment, we did not chose to alter the modelling of noise. Nevertheless, it is important to keep this shortcoming in mind if applied to other tasks.</p>
+<p>In the next step we are building our differential equation. Bear in mind that we have to pass as many <code class="docutils literal notranslate"><span class="pre">n_states</span></code> as compartments we have (<code class="docutils literal notranslate"><span class="pre">deaths</span></code>, <code class="docutils literal notranslate"><span class="pre">recovered</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">infected</span></code>). The parameter <code class="docutils literal notranslate"><span class="pre">n_theta</span></code> specifies the number of parameters the model takes into account. This is here <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ODE system container</span>
+<span class="n">sird_model</span> <span class="o">=</span> <span class="n">DifferentialEquation</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">SIRD</span><span class="p">,</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">timestep_data</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">f</span><span class="p">,</span><span class="n">timestep_data</span><span class="p">),</span> <span class="c1">#start at t=t_1 (and not t0=0, where log(R=0)=undef)</span>
+    <span class="n">n_states</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">#r(ecovered) and i(nfected) and d(ead) are states</span>
+    <span class="n">n_theta</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># beta=R0 and mu only parameter</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># start from zero</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To create a Markov Chain Monte Carlo, we have to set some <strong>prior</strong> values and distributions. Overall, we have two values which should be estimated by the MCMC, namely <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span>.</p>
+<div class="section" id="mu">
+<h2><span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#mu" title="Permalink to this headline">¶</a></h2>
+<p>For the <span class="math notranslate nohighlight">\(\mu\)</span> we chose a normal distribution which has a lower bound at <code class="docutils literal notranslate"><span class="pre">0</span></code>. Since <span class="math notranslate nohighlight">\(\mu\)</span> describes the death rate, it would not make to much sense to have a negative death rate. However, one could argue that even a negative death rate could make sense, since people are more at home during a pandemic and spending more time together and thus “creating” more children. Although we do not account for that here. This is in line with the general SIRD model which also does not account for birth or other reasons of death. For this normal distribution we decided to chose a value of <code class="docutils literal notranslate"><span class="pre">0.1</span></code>, since this would equal a death rate of 10% meaning that on average 10% of the infected population on a given day (or more generically per unit of time) dies. The next parameter we chose is the standard deviation of that normal distribution. Here we selected <code class="docutils literal notranslate"><span class="pre">0.03</span></code>, as that seemed a reasonable range for the death rate. Now the death rate ranges between 1% and 20%. We highly doubt that a death rate above 20% is realistic. Hence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_lower_bound</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mu_mean</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">mu_sd</span> <span class="o">=</span> <span class="mf">0.03</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="r-nought">
+<h2><span class="math notranslate nohighlight">\(R_{nought}\)</span><a class="headerlink" href="#r-nought" title="Permalink to this headline">¶</a></h2>
+<p>For <span class="math notranslate nohighlight">\(R_{nought}\)</span> we chose a normal distribution, which has a lower bound at <code class="docutils literal notranslate"><span class="pre">1</span></code>. The reason is that the <span class="math notranslate nohighlight">\(SIRD\)</span> model is an epidemic model. An epidemic is constituted by a value of the basic reproduction number (<span class="math notranslate nohighlight">\(R_{nought}\)</span>) from greater or equal to one. As the mean of this normal distribution we chose <code class="docutils literal notranslate"><span class="pre">2.27</span></code>, since that seemed like a reasonable value and a standard deviation of <code class="docutils literal notranslate"><span class="pre">0.4</span></code>. This also corresponds to our assumption of <code class="docutils literal notranslate"><span class="pre">0.1</span></code> for the death rate:</p>
+<div class="math notranslate nohighlight">
+\[
+R_{nought} = \frac{\beta}{\gamma + \mu} = \frac{2.5}{1+0.1}
+\]</div>
+<p>Now the normal distribution ranges between 1.07 and 3.5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R0_lower_bound</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">R0_mean</span> <span class="o">=</span> <span class="mf">2.27</span>
+<span class="n">R0_sd</span> <span class="o">=</span> <span class="mf">0.4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the model</span>
+<span class="n">basic_model</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
+
+<span class="c1"># Customize the model</span>
+<span class="k">with</span> <span class="n">basic_model</span><span class="p">:</span>
+    <span class="c1"># The with ... syntax allows us to now give the model certain attributes.</span>
+    
+    <span class="c1"># Distribution of variances, sigma[0] and sigma[1], sigma[2] some good choice, pos. chauchy </span>
+    <span class="c1"># Here we are setting a random variable named &quot;sigma&quot; and its random distribution,</span>
+    <span class="c1"># which we set as HalfCauchy (see docstring for example of plotting). Since</span>
+    <span class="c1"># we want to predict 3 different values I, R, D we need a 3D shape.</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfCauchy</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="c1"># Next we want to set our normal distribution. In order to do that, we need to</span>
+    <span class="c1"># bound it, so that it is always above 1, because that is the reasoning for an epidemic</span>
+    <span class="c1"># to occure. The background for this is, that the parameter</span>
+    <span class="c1"># R nought, should not be below 1.</span>
+    <span class="n">R0</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Bound</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">R0_lower_bound</span><span class="p">)(</span><span class="s1">&#39;$R_</span><span class="si">{nought}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">R0_mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">R0_sd</span><span class="p">)</span>
+
+    <span class="c1"># We also need to create something like this for the death rate mu. The only</span>
+    <span class="c1"># difference is, that it cannot fall below 0.</span>
+    <span class="c1"># 0.1 is the mu, our current death rate</span>
+    <span class="c1"># 0.3 is the standard deviation, and it determines the shape of our curve. All values greater than</span>
+    <span class="c1"># one flatten the curve.</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Bound</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">mu_lower_bound</span><span class="p">)(</span><span class="s1">&#39;$\mu$&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu_mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">mu_sd</span><span class="p">)</span>
+    
+    <span class="c1"># We now need to set up our model. Remember that we want to try and find the parameters</span>
+    <span class="c1"># for the death compartment.</span>
+    <span class="c1"># y0 is an array of the parameters for the SIRD function.</span>
+    <span class="n">sird_curves</span> <span class="o">=</span> <span class="n">sird_model</span><span class="p">(</span><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">r0</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span> <span class="n">d0</span><span class="p">],</span> <span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="n">R0</span><span class="p">,</span> <span class="n">mu</span><span class="p">])</span>
+    
+    <span class="c1"># Now we need to set up the prediction of the posterior, our Y. This function</span>
+    <span class="c1"># takes different values. Once the mu, which describes the &quot;location parameter&quot;. Once</span>
+    <span class="c1"># the standard deviation sd, which is defined by our sigmas, and once our</span>
+    <span class="c1"># created noisy observances.</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Lognormal</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sird_curves</span><span class="p">),</span> <span class="n">sd</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">yobs</span><span class="p">)</span>
+    
+    <span class="c1"># Having completely specified our model, the next step is to obtain posterior</span>
+    <span class="c1"># estimates for the unknown variables in the model. Ideally, we could calculate</span>
+    <span class="c1"># the posterior estimates analytically, but for most non-trivial models, this is</span>
+    <span class="c1"># not feasible. The maximum a posteriori (MAP) estimate for a model, is the</span>
+    <span class="c1"># mode of the posterior distribution and is generally found using numerical</span>
+    <span class="c1"># optimization methods. (https://docs.pymc.io/notebooks/getting_started.html) </span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">find_MAP</span><span class="p">()</span>
+    
+    <span class="c1"># The No U-Turn sampler is the state of the art sampler</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">NUTS</span><span class="p">()</span>
+    
+    <span class="c1"># Finally we initiate the sampler, using 1000 samples.</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">44</span><span class="p">)</span>
+    
+    <span class="c1"># Lastly, we transform our data into proper data for the arviz package</span>
+    <span class="c1"># so that we can use some of its features to make nicer plots.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">az</span><span class="o">.</span><span class="n">from_pymc3</span><span class="p">(</span><span class="n">trace</span><span class="o">=</span><span class="n">trace</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='28' class='' max='28' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [28/28 00:02<00:00 logp = 276.59, ||grad|| = 10.005]
+</div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [$\mu$, $R_{nought}$, sigma]
+</pre></div>
+</div>
+<div class="output text_html">
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [8000/8000 16:27<00:00 Sampling 4 chains, 0 divergences]
+</div>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 987 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The idea of inputing the lines like this is take from [7]</span>
+<span class="n">var_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;$\mu$&quot;</span><span class="p">,</span> <span class="s2">&quot;$R_</span><span class="si">{nought}</span><span class="s2">$&quot;</span><span class="p">]</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">xarray_var_iter</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">posterior</span><span class="p">[</span><span class="n">var_names</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;chain&quot;</span><span class="p">,</span> <span class="s2">&quot;draw&quot;</span><span class="p">))))</span>
+
+<span class="c1"># Plot results (takes a while, be patient)</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+              <span class="n">var_names</span> <span class="o">=</span> <span class="n">var_names</span><span class="p">,</span>
+              <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+              <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">,</span>
+              <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">combined</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+              <span class="n">compact</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 4 - Master_30_0.png" src="../_images/Assignment 4 - Master_30_0.png" />
+</div>
+</div>
+<p><strong>In general</strong>:</p>
+<p>On the left hand side, we have the different Kernel Density Estimation plots. Those are plots which are effectively just a smoothed version of a histogram. They give us information about where our model has the most frequent values for a given parameter. On the right hand side, we have a trace plot. The trace plot shows which value was predicted for each iteration.</p>
+<p><strong>Use case SIRD</strong>:</p>
+<p>In the bottom of each of the left graphics we can see the distributions, viz. how often each value occurred over all chains and samples. Hereby, the different colors refer to the different chains. Logically, the mean has the most dense distribution. One can now clearly see, that the distribution of the observed data is between 0.08 and 0.12 for <span class="math notranslate nohighlight">\(\mu\)</span> and between 2.44 and 2.54 for <span class="math notranslate nohighlight">\(R_{nought}\)</span>. These values could now be used to build a new model.</p>
+<p>On the right hand side of these plots we see the trace plots of the different chains. We can see, that the y-values for each plot is quite small. This is a good indicator, that our model converged quite quickly, however testing still other values and not getting stuck on either local minima or maxima.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot results (takes a while, be patient)</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span>
+                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span>
+                  <span class="n">var_names</span> <span class="o">=</span> <span class="n">var_names</span><span class="p">,</span>
+                  <span class="n">textsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+                  <span class="n">hdi_prob</span> <span class="o">=</span> <span class="mf">0.96</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Assignment 4 - Master_32_0.png" src="../_images/Assignment 4 - Master_32_0.png" />
+</div>
+</div>
+<p>The posterior plot shows us, the general combined distribution of our estimated posteriors for the respective values of <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(R_{nought}\)</span>. For <span class="math notranslate nohighlight">\(\mu\)</span> we can see, that values between 0.086 and 0.11 are the most credibile values. For <span class="math notranslate nohighlight">\(R_{nought}\)</span> the range is 2.45 and 2.53.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+           <span class="n">var_names</span> <span class="o">=</span> <span class="n">var_names</span><span class="p">,</span>
+           <span class="n">round_to</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+           <span class="n">hdi_prob</span><span class="o">=</span><span class="mf">0.96</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_2%</th>
+      <th>hdi_98%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>$\mu$</th>
+      <td>0.0992</td>
+      <td>0.0070</td>
+      <td>0.0858</td>
+      <td>0.1145</td>
+      <td>0.0001</td>
+      <td>0.0001</td>
+      <td>4894.1475</td>
+      <td>2983.8767</td>
+      <td>1.0012</td>
+    </tr>
+    <tr>
+      <th>$R_{nought}$</th>
+      <td>2.4896</td>
+      <td>0.0152</td>
+      <td>2.4569</td>
+      <td>2.5200</td>
+      <td>0.0002</td>
+      <td>0.0001</td>
+      <td>5874.9996</td>
+      <td>3400.2764</td>
+      <td>1.0002</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Finally, it is worthwhile to review the summary statistics for our findings. As shown in the plots above, <span class="math notranslate nohighlight">\(\mu\)</span> has a mean of <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and <span class="math notranslate nohighlight">\(R_{nought}\)</span> has a mean of <code class="docutils literal notranslate"><span class="pre">2.49</span></code>. Our prior belief for the mean <span class="math notranslate nohighlight">\(\mu\)</span> was <code class="docutils literal notranslate"><span class="pre">0.1</span></code>, while it was <code class="docutils literal notranslate"><span class="pre">0.03</span></code> for the standard deviation. When running the model, the mean decreased slightly to <code class="docutils literal notranslate"><span class="pre">0.0992</span></code>, whereas the standard deviation decreased substantially to <code class="docutils literal notranslate"><span class="pre">0.007</span></code>. Regarding <span class="math notranslate nohighlight">\(R_{nought}\)</span>, the prior belief changed from <code class="docutils literal notranslate"><span class="pre">2.27</span></code> to <code class="docutils literal notranslate"><span class="pre">2.49</span></code>, and its standard deviation decreased from <code class="docutils literal notranslate"><span class="pre">0.4</span></code> to <code class="docutils literal notranslate"><span class="pre">0.0152</span></code>.</p>
+</div>
+</div>
+<div class="section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<p>[1] <a class="reference external" href="https://cs109.github.io/2015/">https://cs109.github.io/2015/</a></p>
+<p><em>Note: This source is an amazing source for introductry to advanced topics in machine learning. They give really good advices on which books to read (which are mostly free available on the web) and they explain a lot of topics, so that they are understandable. This is a recommend source to read/listen to!</em></p>
+<p>[2] <a class="reference external" href="https://docs.pymc.io/about.html">https://docs.pymc.io/about.html</a></p>
+<p><em>Note: Nice introduction to the package <code class="docutils literal notranslate"><span class="pre">pymc3</span></code>, since it goes from building a basic linear model to more detail about the different functions. The only downside is, that it is not really explaining the graphs and what excatly they are depicting.</em></p>
+<p>[3] <a class="reference external" href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios601/Likelihood/Likelihood.pdf">http://www.medicine.mcgill.ca/epidemiology/hanley/bios601/Likelihood/Likelihood.pdf</a></p>
+<p><em>Note: On page two is a really good example for the likelihood function.</em></p>
+<p>[4] <a class="reference external" href="https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/">https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/</a></p>
+<p><em>Note: This is a really good introduction into the topic covered in chapter 1.2. It delves a lot more deeper into that topic that what was outlined here. Moreover, it was written by Jake Vanderplas who is a well know author and developer or the scipy Python package.</em></p>
+<p>[5] <a class="reference external" href="https://setosa.io/ev/markov-chains/">https://setosa.io/ev/markov-chains/</a></p>
+<p><em>Note: A really good and easy reading for understand Markov chains, it has some really nice JS implementation, which can be played around with.</em></p>
+<p>[6] <a class="reference external" href="https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/">https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/</a></p>
+<p><em>Note: Easy and accessible explanation of Bayes using Python.</em></p>
+<p>[7] <a class="reference external" href="https://oriolabril.github.io/oriol_unraveled/python/arviz/matplotlib/2020/06/20/plot-trace.html">https://oriolabril.github.io/oriol_unraveled/python/arviz/matplotlib/2020/06/20/plot-trace.html</a></p>
+<p><em>Note: Nice website, which shows was options the <code class="docutils literal notranslate"><span class="pre">pm.traceplot</span></code> function has and how to use them.</em></p>
+<p>[8] University of Wisconson: <a class="reference external" href="https://people.math.wisc.edu/~valko/courses/331/MC2.pdf">https://people.math.wisc.edu/~valko/courses/331/MC2.pdf</a></p>
+<p>[9] Texas A&amp;M University: <a class="reference external" href="https://people.engr.tamu.edu/andreas-klappenecker/csce658-s18/markov_chains.pdf">https://people.engr.tamu.edu/andreas-klappenecker/csce658-s18/markov_chains.pdf</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="reading-list">
+<h1>Reading list<a class="headerlink" href="#reading-list" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://peerj.com/articles/cs-55/">https://peerj.com/articles/cs-55/</a>
+<em>Note: Good introduction into probabilistic programming using <code class="docutils literal notranslate"><span class="pre">pymc3</span></code>.</em></p></li>
+<li><p><a class="reference external" href="https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/">https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/</a>
+<em>Note: same as above</em></p></li>
+<li><p><a class="reference external" href="https://allendowney.github.io/ThinkBayes2/">https://allendowney.github.io/ThinkBayes2/</a>
+*Note: Good book on Bayesian thinking</p></li>
+<li><p><a class="reference external" href="https://harvard-iacs.github.io/2020-CS109B/labs/lab04/notebook/">https://harvard-iacs.github.io/2020-CS109B/labs/lab04/notebook/</a> *Note: Check out the lab works evolving around <code class="docutils literal notranslate"><span class="pre">pymc3</span></code> and MCMC</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MCMC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../RandomProjections/Assignment%203.html" title="previous page">The Johnson-Lindenstrauss Lemma</a>
+    <a class='right-next' id="next-link" href="../Mini-Project/Master.html" title="next page">Clustering</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Yannik Suhre, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
