@@ -142,7 +142,7 @@ silhouette_score_sklearn()
 # #### Drawbacks ####
 # The major disadvantage of the FMI is that it requires the knowledge of the ground truth classes. In reality, this will most likely not be the case. Nevertheless, for our assignment where we use surrogate data, this drawback does not apply as we do indeed have knowledge about the ground truth.
 
-# # 4. Surrogate Data & Yannik's Class
+# # 4. Surrogate Data and it's Class
 # 
 # The package `sklearn` has a module called `datasets`. Within this package there are ~30 functions, which load sample data. All of these functions start with `load_...`. Moreover, this package has ~20 sample generators. These sample generators create surrogate data, which is separated differently based on the function. They all start with `make_...`. For a more exhaustive description of these functions please review the `sklearn` documentation found in the according bibliography [2].
 # 
@@ -784,7 +784,6 @@ evaluate.plot_raw_vs_predict(GaussianMixture, init_params='kmeans', max_iter = 1
 
 # ## E. Affinity Propagation
 # 
-# ## Affinity Propagation ##
 # Affinity Propagation is an unsupervised clustering algorithm based on the concept of "message passing" (i.e. voting systems) between data points.  This algorithm does not require the number of clusters as input.  
 # It applies the concept of "exemplars", which are members of the input set that are representative of clusters.
 # The main drawback of this algorithm is that it is computationally expensive.
