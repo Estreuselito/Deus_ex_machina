@@ -249,7 +249,9 @@ Now we can perform the same actions for our second dataset.""")
 
             # Evaluate model and update accuracies
             test = sp.transform(self.X_test)
-            self.accuracies.append(getattr(metrics, self.metric)(self.model.predict(test), self.y_test, **self.kwargs))
+            if self.metric == "f1_score":
+                self.accuracies.append(getattr(metrics, self.metric)(self.model.predict(test), self.y_test, **self.kwargs))
+            self.accuracies.append(getattr(metrics, self.metric)(self.model.predict(test), self.y_test))
             
     def plot(self, title: str = ""):
         # Create figure

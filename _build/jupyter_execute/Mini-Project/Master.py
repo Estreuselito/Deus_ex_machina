@@ -10,11 +10,11 @@
 
 # # Table of Contents
 # 
-# 1. [Introduction & Motivation](#1-introduction-motivation)
-# 2. [What even is Clustering anyway?](#2-what-even-is-clustering-anyway)
-# 3. [Performance Metric - Silhouette Score and Fowlkes-Mallows Index](#3-performance-metric-silhouette-score-and-fowlkes-mallows-index)
-# 4. [Surrogate Data & Yannik's Class](#4-surrogate-data-yannik-s-class)
-# 5. [Clustering Algorithms](#5-clustering-algorithms)<br>
+# 1. [Introduction & Motivation](#introduction-motivation)
+# 2. [What even is Clustering anyway?](#what-even-is-clustering-anyway)
+# 3. [Performance Metric - Silhouette Score and Fowlkes-Mallows Index](#performance-metric-silhouette-score-and-fowlkes-mallows-index)
+# 4. [Surrogate Data and it's Class](#surrogate-data-and-it-s-class)
+# 5. [Clustering Algorithms](#clustering-algorithms)<br>
 #     1. [Partion](#a-partition)<br>
 #          1. [K-Means](#a-k-means)<br>
 #          2. [Spectral Clustering](#b-spectral-clustering)<br>
