@@ -1,44 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# \begin{titlepage}
-# 
-# % Photo of FS
-# \centering
-# \vspace{-40pt}
-# \includegraphics[width=0.8\textwidth]{Frankfurt_School_Logo.jpg}\par
-# \vspace{2.5cm}
-# 
-# % Course
-# {\scshape\huge Assignment 3 \par}
-# \vspace{2.5cm}
-# 
-# % Title
-# {\Huge\bfseries Sparse Random Projection \par}
-# {\scshape\large Jan's birthday edition \par}
-# 
-# \vspace{2cm} % If signature is taken might have to add space.
-# 
-# 
-# {\Large Yannik Suhre \par}
-# {\Large Skyler MacGowan \par}
-# {\Large Debasmita Dutta \par}
-# {\Large Sebastian Sydow \par}
-# \vspace{0.5cm}
-# 
-# % Date
-# \vfill
-# {\large \today\par}
-# \end{titlepage}
-# 
-# 
-# \newpage
-# 
-# \hypersetup{linkcolor=black}
-# \tableofcontents
-# 
-# \newpage
-
 # # The Johnson-Lindenstrauss Lemma
 # The Johnson-Lindenstrauss (JL) Lemma is the math behind Euclidean Distance/Space; it is what proves the “*approximate maintenance of distance between the data points in different dimensions*” property to be true. The lemma states that a small set of points in a high-dimensional space can be embedded into a space of much lower dimension in such a way that distances between the points are nearly preserved. The function `johnson_lindenstrauss_min_dim` of [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.johnson_lindenstrauss_min_dim.html)
 # calculates the  minimum number of components $k$, i.e. the number of dimensions in which distances between 
@@ -107,26 +69,26 @@ warnings.filterwarnings('ignore')
 # 
 # Data Source: https://archive.ics.uci.edu/ml/datasets/Dry+Bean+Dataset
 
-# In[11]:
+# In[2]:
 
 
 data = RandomSparseRepresentation(birthday_version=False)
 
 
-# In[12]:
+# In[3]:
 
 
 data.get_data("./data/Frogs_MFCCs.csv",
               data_type = ".csv")
 
 
-# In[13]:
+# In[4]:
 
 
 data.split_data(standardize = False, columns_to_drop = ["RecordID", "Family", "Genus"])
 
 
-# In[14]:
+# In[5]:
 
 
 data.JL_lemma()
@@ -144,13 +106,13 @@ data.baseline(model = SVC, kernel='rbf', gamma = 0.1, C=5, random_state = 0)
 data.apply_random_projection(model = SVC, kernel='rbf', gamma = 0.1, C=5, random_state = 0)
 
 
-# In[15]:
+# In[8]:
 
 
 dry_beans = RandomSparseRepresentation(text = False)
 
 
-# In[16]:
+# In[10]:
 
 
 # Plot explained variances
@@ -159,7 +121,7 @@ dry_beans.prepare_fit(url = "./data/Dry_Bean_Dataset.xlsx", data_type = ".xlsx",
                      model = SVC, kernel='rbf', gamma = 0.1, C=5, random_state = 0)
 
 
-# In[10]:
+# In[11]:
 
 
 font = {'family' : 'DejaVu Sans',

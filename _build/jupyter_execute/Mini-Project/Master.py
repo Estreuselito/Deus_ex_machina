@@ -440,7 +440,7 @@ plot_dendrogram(model, datasets=datasets, truncate_mode='level', p=3)
 # **Ward Linkage**:<br>
 # The Ward Linkage method minimizes the variance of the two clusters being merged.
 # 
-# 
+# The following pictures were retrieved from [here](https://dataaspirant.com/hierarchical-clustering-algorithm/#t-1608531820448).
 # ![Linkage Methods](images/Linkage_Methods.png)
 # 
 # 
