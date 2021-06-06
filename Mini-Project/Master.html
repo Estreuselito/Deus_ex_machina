@@ -299,8 +299,8 @@
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#surrogate-data-yannik-s-class">
-   4. Surrogate Data &amp; Yannik’s Class
+  <a class="reference internal nav-link" href="#surrogate-data-and-it-s-class">
+   4. Surrogate Data and it’s Class
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -591,11 +591,6 @@
     <a class="reference internal nav-link" href="#e-affinity-propagation">
      E. Affinity Propagation
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#affinity-propagation">
-     Affinity Propagation
-    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#steps-of-the-algorithm">
@@ -671,7 +666,7 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
+    <a class="reference internal nav-link" href="#affinity-propagation">
      Affinity Propagation
     </a>
    </li>
@@ -849,8 +844,8 @@ FMI = \sqrt{\frac{2}{(2+4)} * \frac{2}{(2+1)}} = \sqrt{\frac{1}{3} * \frac{2}{3}
 </div>
 </div>
 </div>
-<div class="section" id="surrogate-data-yannik-s-class">
-<h1>4. Surrogate Data &amp; Yannik’s Class<a class="headerlink" href="#surrogate-data-yannik-s-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="surrogate-data-and-it-s-class">
+<h1>4. Surrogate Data and it’s Class<a class="headerlink" href="#surrogate-data-and-it-s-class" title="Permalink to this headline">¶</a></h1>
 <p>The package <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has a module called <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. Within this package there are ~30 functions, which load sample data. All of these functions start with <code class="docutils literal notranslate"><span class="pre">load_...</span></code>. Moreover, this package has ~20 sample generators. These sample generators create surrogate data, which is separated differently based on the function. They all start with <code class="docutils literal notranslate"><span class="pre">make_...</span></code>. For a more exhaustive description of these functions please review the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> documentation found in the according bibliography [2].</p>
 <p>The first step is to import that module from sklearn. We will also import matplotlib to plot what we have just created.</p>
 <div class="cell docutils container">
@@ -1478,9 +1473,6 @@ P(coin\ A|\ [HHHTHHHHHH]) = \frac{{0.6^9}*{0.4^1}}{{{0.6^9}*{0.4^1}}+{{0.5^9}*{0
 </div>
 <div class="section" id="e-affinity-propagation">
 <h2>E. Affinity Propagation<a class="headerlink" href="#e-affinity-propagation" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="affinity-propagation">
-<h2>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">¶</a></h2>
 <p>Affinity Propagation is an unsupervised clustering algorithm based on the concept of “message passing” (i.e. voting systems) between data points.  This algorithm does not require the number of clusters as input.<br />
 It applies the concept of “exemplars”, which are members of the input set that are representative of clusters.
 The main drawback of this algorithm is that it is computationally expensive.</p>
@@ -1627,8 +1619,8 @@ Intuitively, if we want Affinity Propagation to be less eager in splitting clust
 <p>[3] T. Hastie, R. Tibshirani and J. Friedman, “Elements of Statistical Learning Ed. 2”, Springer, 2009.</p>
 <p><em>Note: This reference was directly taken from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>s documentation!</em></p>
 </div>
-<div class="section" id="id17">
-<h2>Affinity Propagation<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="affinity-propagation">
+<h2>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8">https://towardsdatascience.com/unsupervised-machine-learning-affinity-propagation-algorithm-explained-d1fef85f22c8</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In%20statistics%20and%20data%20mining,message%20passing%22%20between%20data%20points">https://en.wikipedia.org/wiki/Affinity_propagation#:~:text=In statistics and data mining,message passing” between data points</a></p></li>
