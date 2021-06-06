@@ -269,29 +269,7 @@
         
               <div>
                 
-  <p>\begin{titlepage}</p>
-<p>\centering
-\vspace{-40pt}
-\includegraphics[width=0.8\textwidth]{Frankfurt_School_Logo.jpg}\par
-\vspace{2.5cm}</p>
-<p>{\scshape\huge Assignment 3 \par}
-\vspace{2.5cm}</p>
-<p>{\Huge\bfseries Sparse Random Projection \par}
-{\scshape\large Jan’s birthday edition \par}</p>
-<p>\vspace{2cm} % If signature is taken might have to add space.</p>
-<p>{\Large Yannik Suhre \par}
-{\Large Skyler MacGowan \par}
-{\Large Debasmita Dutta \par}
-{\Large Sebastian Sydow \par}
-\vspace{0.5cm}</p>
-<p>\vfill
-{\large \today\par}
-\end{titlepage}</p>
-<p>\newpage</p>
-<p>\hypersetup{linkcolor=black}
-\tableofcontents</p>
-<p>\newpage</p>
-<div class="section" id="the-johnson-lindenstrauss-lemma">
+  <div class="section" id="the-johnson-lindenstrauss-lemma">
 <h1>The Johnson-Lindenstrauss Lemma<a class="headerlink" href="#the-johnson-lindenstrauss-lemma" title="Permalink to this headline">¶</a></h1>
 <p>The Johnson-Lindenstrauss (JL) Lemma is the math behind Euclidean Distance/Space; it is what proves the “<em>approximate maintenance of distance between the data points in different dimensions</em>” property to be true. The lemma states that a small set of points in a high-dimensional space can be embedded into a space of much lower dimension in such a way that distances between the points are nearly preserved. The function <code class="docutils literal notranslate"><span class="pre">johnson_lindenstrauss_min_dim</span></code> of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.johnson_lindenstrauss_min_dim.html">scikit-learn</a>
 calculates the  minimum number of components <span class="math notranslate nohighlight">\(k\)</span>, i.e. the number of dimensions in which distances between
@@ -551,7 +529,7 @@ data into test and train sets, the default value is <code class="docutils litera
 Hence they are all printed out in the next step.</p>
 <p>['MFCCs_ 1', 'MFCCs_ 2', 'MFCCs_ 3', 'MFCCs_ 4', 'MFCCs_ 5', 'MFCCs_ 6', 'MFCCs_ 7', 'MFCCs_ 8', 'MFCCs_ 9', 'MFCCs_10', 'MFCCs_11', 'MFCCs_12', 'MFCCs_13', 'MFCCs_14', 'MFCCs_15', 'MFCCs_16', 'MFCCs_17', 'MFCCs_18', 'MFCCs_19', 'MFCCs_20', 'MFCCs_21', 'MFCCs_22', 'Family', 'Genus', 'Species', 'RecordID']</p>
 <p>In the next step please input a column name, which contains your target variable.</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here: Species
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here:  Species
 </pre></div>
 </div>
 <p>Your data has now be split into a train and test set by a factor of <code class="docutils literal notranslate"><span class="pre">0.3</span></code>.
@@ -620,22 +598,7 @@ Further explanations can be found
 purpose of this assignment as this will account for the imbalance in the dataset.</p>
 <p>The chosen metric used for our baseline should be inputted in the following prompt. Be sure to insert it
 like <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> if you want to use <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> or respective for all other metrics.</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: f1_score=&quot;average&quot;
-</pre></div>
-</div>
-<p>You have chosen a metric which is not available here. Please see this
-list for further info, please input the metric exactly like depicted here:
-<code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>,<code class="docutils literal notranslate"><span class="pre">balanced_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">average_precision_score</span></code>,
-<code class="docutils literal notranslate"><span class="pre">brier_score_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>,  <code class="docutils literal notranslate"><span class="pre">log_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">precision_score</span></code>, <code class="docutils literal notranslate"><span class="pre">recall_score</span></code>, <code class="docutils literal notranslate"><span class="pre">jaccard_score</span></code>,
-<code class="docutils literal notranslate"><span class="pre">roc_auc_score</span></code>.</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: f1_score
-</pre></div>
-</div>
-<p>You have selected the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>. Since the <code class="docutils literal notranslate"><span class="pre">f1_score</span></code> can have different
-usages as described earlier, depending on its inputs please input some keyword-arguments into
-the next prompt.
-Please be advised, that this is done via <code class="docutils literal notranslate"><span class="pre">average=&quot;weighted&quot;,</span> <span class="pre">...</span></code>, meaning with a = as separator.</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter your keyword arguments here: average=&quot;weighted&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here:  accuracy_score
 </pre></div>
 </div>
 <p>Awesome, you have set your baseline! Now call the function <code class="docutils literal notranslate"><span class="pre">apply_random_projection</span></code> to check out,
@@ -693,41 +656,8 @@ is of order $O(ckN)$ instead of $O(dkN)$.</p>
 </div>
 <div class="cell_output docutils container">
 <p>The columns of this dataset are: ['Area', 'Perimeter', 'MajorAxisLength', 'MinorAxisLength', 'AspectRation', 'Eccentricity', 'ConvexArea', 'EquivDiameter', 'Extent', 'Solidity', 'roundness', 'Compactness', 'ShapeFactor1', 'ShapeFactor2', 'ShapeFactor3', 'ShapeFactor4', 'Class']</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here: Class
-Please insert your metric here: accuracy
-</pre></div>
-</div>
-<p>You have chosen a metric which is not available here. Please see this
-list for further info, please input the metric exactly like depicted here:
-<code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>,<code class="docutils literal notranslate"><span class="pre">balanced_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k_accuracy_score</span></code>, <code class="docutils literal notranslate"><span class="pre">average_precision_score</span></code>,
-<code class="docutils literal notranslate"><span class="pre">brier_score_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">f1_score</span></code>,  <code class="docutils literal notranslate"><span class="pre">log_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">precision_score</span></code>, <code class="docutils literal notranslate"><span class="pre">recall_score</span></code>, <code class="docutils literal notranslate"><span class="pre">jaccard_score</span></code>,
-<code class="docutils literal notranslate"><span class="pre">roc_auc_score</span></code>.</p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please insert your metric here: accuracy_score
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">a3bbf92b63de</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Plot explained variances</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dry_beans</span><span class="o">.</span><span class="n">prepare_fit</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;./data/Dry_Bean_Dataset.xlsx&quot;</span><span class="p">,</span> <span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;.xlsx&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>                      <span class="n">standardize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                      <span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="nn">D:\OneDrive\OneDrive - fs-students.de\Frankfurt School\Courses\Machine Learning 2\Assignments\RandomProjections\RandomProjectionClass.py</span> in <span class="ni">prepare_fit</span><span class="nt">(self, url, data_type, names, text, test_size, standardize, columns_to_drop, model, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">273</span>                         <span class="n">text</span><span class="o">=</span> <span class="n">text</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span>         <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">275</span>         <span class="bp">self</span><span class="o">.</span><span class="n">apply_random_projection</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span> 
-<span class="g g-Whitespace">    </span><span class="mi">277</span> 
-
-<span class="nn">D:\OneDrive\OneDrive - fs-students.de\Frankfurt School\Courses\Machine Learning 2\Assignments\RandomProjections\RandomProjectionClass.py</span> in <span class="ni">apply_random_projection</span><span class="nt">(self, model, text, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="c1"># Evaluate model and update accuracies</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>             <span class="n">test</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">252</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span> 
-<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
-
-<span class="ne">AttributeError</span>: &#39;RandomSparseRepresentation&#39; object has no attribute &#39;kwargs&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please input your target variable here:  Class
+Please insert your metric here:  accuracy_score
 </pre></div>
 </div>
 </div>
@@ -758,7 +688,7 @@ list for further info, please input the metric exactly like depicted here:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Assignment 3_14_0.png" src="../_images/Assignment 3_14_0.png" />
+<img alt="../_images/Assignment 3_13_0.png" src="../_images/Assignment 3_13_0.png" />
 </div>
 </div>
 </div>
@@ -777,16 +707,16 @@ list for further info, please input the metric exactly like depicted here:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "mcmc"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "mcmc",
             path: "./RandomProjections"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'mcmc'</script>
 
               </div>
               
@@ -804,7 +734,7 @@ list for further info, please input the metric exactly like depicted here:
     <div class="container">
       <p>
         
-          By <a href="https://github.com/Estreuselito">Yannik Suhre</a>, Sebastian Sydow, Debasmita Dutta, Skyler MacGowan<br/>
+          By <a href="https://github.com/Estreuselito">Yannik Suhre</a>, <a href="https://github.com/Sydow93">Sebastian Sydow</a>, <a href="https://github.com/debasmita-dutta">Debasmita Dutta</a>, <a href="https://github.com/Schuyler-lab">Skyler MacGowan</a><br/>
         
             &copy; Copyright 2020.<br/>
       </p>
