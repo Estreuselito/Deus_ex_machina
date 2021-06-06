@@ -593,13 +593,13 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#steps-of-the-algorithm">
-       Steps of the algorithm
+      <a class="reference internal nav-link" href="#id14">
+       Below are the steps performed by the algorithm.
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#key-parameters-as-per-scikit-learn">
-       Key parameters as per scikit learn
+      <a class="reference internal nav-link" href="#the-key-parameters-in-scikit-learn-are-mentioned-below">
+       The key parameters in Scikit Learn are mentioned below.
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
@@ -617,17 +617,17 @@
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
+    <a class="reference internal nav-link" href="#id15">
      Performance Metric - Silhouette Score and Fowlkes-Mallows Index
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id15">
+      <a class="reference internal nav-link" href="#id16">
        Silhouette Score
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id16">
+      <a class="reference internal nav-link" href="#id17">
        Fowlkes-Mallows Index
       </a>
      </li>
@@ -785,7 +785,8 @@ For n_clusters = 6 The average silhouette_score is : 0.4504666294372765
 <div class="section" id="drawbacks">
 <h4>Drawbacks<a class="headerlink" href="#drawbacks" title="Permalink to this headline">¶</a></h4>
 <p>The Silhouette score is generally higher for convex clusters than other concepts of clusters, such as density-based clusters like those obtained through DBSCAN. To dive into this a bit deeper, let’s recall the definition of a convex set. In geometry, a subset of a Euclidean space, is convex if, given any two points, it contains the whole line segment that joins them. Equivalently, a convex set or a convex region is a subset that intersects every line into a single line segment. For example, a solid cube is a convex set, but anything that is hollow or has an indent, for example, a crescent shape, is not convex.</p>
-<p><img alt="Convexity" src="../_images/convex_non_convex_set.png" /></p>
+<p>The following picture was retrieved from <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_set">here</a>.
+<img alt="Convexity" src="../_images/convex_non_convex_set.png" /></p>
 <p>In a non-convex shape, there will be some pair of points which are close to each other but belong to different clusters and some pair of points which are far apart but belong to same cluster. This will lead to a low Silhouette score. Hence evaluating a non-convex dataset with the Silhouette score will not generally make sense. Additionally, the outliers detected in the density-based algorithm will not be assigned to any clusters and this will make a significant difference in the Silhouette scores as well as the metric is sensitive to outliers.</p>
 </div>
 </div>
@@ -1301,6 +1302,7 @@ such that <span class="math notranslate nohighlight">\(p_{i+1}\)</span> is direc
 Density-reachability is a canonical extension of direct density-reachability.</p>
 <p>Density connected: A point p is density reachable from a point q wrt <span class="math notranslate nohighlight">\(\epsilon\)</span> and Minimum number of points
 if there is a point o such that both p and q are Density reachable from o.</p>
+<p>The following picture was retrieved from <a class="reference external" href="https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372">here</a>.</p>
 <p><img alt="The concepts density connectivity" src="../_images/The-concepts-density-connectivity.png" /></p>
 <p>A density-based cluster is defined as a group of density connected points.</p>
 <div class="section" id="the-steps-of-the-algorithm-are-outlined-below">
@@ -1361,7 +1363,8 @@ As we know the DBSCAN algorithm requires the input parameters as epsilon and min
 <li><p><span class="math notranslate nohighlight">\(d(a,b)\)</span> is the original metric distance between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(d_{mreach}(a,b)\)</span> is the mutual reachability distance.</p></li>
 </ul>
-<p><img alt="HDBSCAN 1" src="../_images/HDBSCAN_1.PNG" /></p>
+<p>The following picture was retrieved from <a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">here</a>.
+<img alt="HDBSCAN 1" src="../_images/HDBSCAN_1.PNG" /></p>
 <ol class="simple">
 <li><p>Build the minimum spanning tree of the distance weighted graph.</p></li>
 </ol>
@@ -1370,18 +1373,21 @@ As we know the DBSCAN algorithm requires the input parameters as epsilon and min
 <li><p>Construct a cluster hierarchy of connected components.</p></li>
 </ol>
 <p>Given the minimal spanning tree, the next step is to convert that into the hierarchy of connected components. From this step we need to find flat clusters. The usual way is to select the distance to make horizontal cut and find the clusters.  But here in this algorithm we want to deal with variable density clusters and any choice of cut line is a choice of mutual reachability distance to cut at, and hence a single fixed density level. Ideally, we want to be able to cut the tree at different places to select our clusters. This is where the next steps of HDBSCAN begin and create the difference from robust single linkage.</p>
-<p><img alt="HDBSCAN 2" src="../_images/HDBSCAN_2.PNG" /></p>
+<p>The following picture was retrieved from <a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">here</a>.
+<img alt="HDBSCAN 2" src="../_images/HDBSCAN_2.PNG" /></p>
 <ol class="simple">
 <li><p>Condense the cluster hierarchy based on minimum cluster size.</p></li>
 </ol>
 <p>In this step, a smaller condensed tree is created. Using the input parameter, minimum cluster size, at each split the condition is checked whether one of the new clusters created by the split has fewer points than the minimum cluster size or not. If it has fewer points, then it will not be considered as cluster instead, it will be considered as ‘points falling out of a cluster’.  Otherwise, it will be considered as a persistent cluster. After walking through the whole hierarchy and doing this we end up with a much smaller tree with a small number of nodes.</p>
-<p><img alt="HDBSCAN 3" src="../_images/HDBSCAN_3.PNG" /></p>
+<p>The following picture was retrieved from <a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">here</a>.
+<img alt="HDBSCAN 3" src="../_images/HDBSCAN_3.PNG" /></p>
 <ol class="simple">
 <li><p>Extract the stable clusters from the condensed tree.</p></li>
 </ol>
 <p>In the last step the clusters are selected based on the excess of mass (eom).  This method, which refers back to the research by Hartigan, is recommended by Campello et al. as the optimal global solution to the problem of finding clusters with the highest
 stability. HDBSCAN’s selection algorithm traverses the condensed cluster tree bottom-up and selects the cluster with highest stability on each path. The clusters which persist for longer time and have more area will be selected as cluster.  If a cluster is selected then any cluster that is a descendant of it cannot be a cluster.</p>
-<p><img alt="HDBSCAN 4" src="../_images/HDBSCAN_4.PNG" /></p>
+<p>The following picture was retrieved from <a class="reference external" href="https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html">here</a>.
+<img alt="HDBSCAN 4" src="../_images/HDBSCAN_4.PNG" /></p>
 </div>
 <div class="section" id="the-key-parameters-for-the-algorithm-are-as-below">
 <h4>The key parameters for the algorithm are as below.<a class="headerlink" href="#the-key-parameters-for-the-algorithm-are-as-below" title="Permalink to this headline">¶</a></h4>
@@ -1477,9 +1483,10 @@ P(coin\ A|\ [HHHTHHHHHH]) = \frac{{0.6^9}*{0.4^1}}{{{0.6^9}*{0.4^1}}+{{0.5^9}*{0
 <p>Affinity Propagation is an unsupervised clustering algorithm based on the concept of “message passing” (i.e. voting systems) between data points.  This algorithm does not require the number of clusters as input.<br />
 It applies the concept of “exemplars”, which are members of the input set that are representative of clusters.
 The main drawback of this algorithm is that it is computationally expensive.</p>
+<p>The following picture was retrieved from <a class="reference external" href="https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147">here</a>.</p>
 <p><img alt="Message-Passing-in-Affinity-Propagation" src="../_images/Message-Passing-in-Affinity-Propagation.png" /></p>
-<div class="section" id="steps-of-the-algorithm">
-<h3>Steps of the algorithm<a class="headerlink" href="#steps-of-the-algorithm" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Below are the steps performed by the algorithm.<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>The algorithm first calculates the Similarity Matrix for all the data points.  The similarity is calculated as negative squared Euclidian distance.
 $<span class="math notranslate nohighlight">\(s(i, k) = - \lvert\lvert x_i - x_k \rvert\rvert^2\)</span>$</p></li>
@@ -1520,8 +1527,8 @@ exemplar.</p>
 <li><p>For point <span class="math notranslate nohighlight">\(i\)</span>, the <span class="math notranslate nohighlight">\(k\)</span> with maximum <span class="math notranslate nohighlight">\(r(i, k) + a(i, k)\)</span> represents point <span class="math notranslate nohighlight">\(i’s\)</span> exemplar or cluster.</p></li>
 </ol>
 </div>
-<div class="section" id="key-parameters-as-per-scikit-learn">
-<h3>Key parameters as per scikit learn<a class="headerlink" href="#key-parameters-as-per-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-key-parameters-in-scikit-learn-are-mentioned-below">
+<h3>The key parameters in Scikit Learn are mentioned below.<a class="headerlink" href="#the-key-parameters-in-scikit-learn-are-mentioned-below" title="Permalink to this headline">¶</a></h3>
 <p><strong>damping</strong> - Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). This in order to avoid numerical oscillations when updating these values (messages).</p>
 <p><strong>max_iter</strong> - Maximum number of iterations. Default is 200.</p>
 <p><strong>preference</strong> - Preferences for each point - points with larger values of preferences are more likely to be chosen as exemplars. The number of exemplars, i.e. of clusters, is influenced by the input preferences value. If the preferences are not passed as arguments, they will be set to the median of the input similarities.</p>
@@ -1551,10 +1558,10 @@ Intuitively, if we want Affinity Propagation to be less eager in splitting clust
 </div>
 <div class="section" id="bibliography">
 <h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id14">
-<h2>Performance Metric - Silhouette Score and Fowlkes-Mallows Index<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id15">
-<h3>Silhouette Score<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<h2>Performance Metric - Silhouette Score and Fowlkes-Mallows Index<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>Silhouette Score<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Silhouette_(clustering)">https://en.wikipedia.org/wiki/Silhouette_(clustering)</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Convex_set">https://en.wikipedia.org/wiki/Convex_set</a></p></li>
@@ -1563,8 +1570,8 @@ Intuitively, if we want Affinity Propagation to be less eager in splitting clust
 <li><p>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow by Aurelien Geron (2020)</p></li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>Fowlkes-Mallows Index<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>Fowlkes-Mallows Index<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores">https://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores</a></p></li>
 </ul>
@@ -1639,16 +1646,16 @@ Intuitively, if we want Affinity Propagation to be less eager in splitting clust
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mcmc"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "mcmc",
+            kernelName: "python3",
             path: "./Mini-Project"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mcmc'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

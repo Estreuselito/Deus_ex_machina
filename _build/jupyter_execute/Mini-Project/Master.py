@@ -89,6 +89,7 @@ silhouette_score_sklearn()
 # #### Drawbacks ####
 # The Silhouette score is generally higher for convex clusters than other concepts of clusters, such as density-based clusters like those obtained through DBSCAN. To dive into this a bit deeper, let's recall the definition of a convex set. In geometry, a subset of a Euclidean space, is convex if, given any two points, it contains the whole line segment that joins them. Equivalently, a convex set or a convex region is a subset that intersects every line into a single line segment. For example, a solid cube is a convex set, but anything that is hollow or has an indent, for example, a crescent shape, is not convex.
 # 
+# The following picture was retrieved from [here](https://en.wikipedia.org/wiki/Convex_set).
 # ![Convexity](images/convex_non_convex_set.png)
 # 
 # In a non-convex shape, there will be some pair of points which are close to each other but belong to different clusters and some pair of points which are far apart but belong to same cluster. This will lead to a low Silhouette score. Hence evaluating a non-convex dataset with the Silhouette score will not generally make sense. Additionally, the outliers detected in the density-based algorithm will not be assigned to any clusters and this will make a significant difference in the Silhouette scores as well as the metric is sensitive to outliers.
@@ -606,6 +607,8 @@ evaluate.plot_raw_vs_predict(Birch, threshold = 0.3)
 # Density connected: A point p is density reachable from a point q wrt $\epsilon$ and Minimum number of points 
 # if there is a point o such that both p and q are Density reachable from o.
 # 
+# The following picture was retrieved from [here](https://www.researchgate.net/figure/The-concepts-directly-density-reachability-density-reachability-and-density_fig1_259461372).
+# 
 # ![The concepts density connectivity](images/The-concepts-density-connectivity.png)
 # 
 # 
@@ -666,6 +669,7 @@ evaluate.plot_raw_vs_predict(DBSCAN, eps = 0.2, min_samples = 10)
 # 
 # - $d_{mreach}(a,b)$ is the mutual reachability distance.
 # 
+# The following picture was retrieved from [here](https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html).
 # ![HDBSCAN 1](images/HDBSCAN_1.PNG)
 # 
 # 2.	Build the minimum spanning tree of the distance weighted graph.
@@ -676,12 +680,14 @@ evaluate.plot_raw_vs_predict(DBSCAN, eps = 0.2, min_samples = 10)
 # 
 # Given the minimal spanning tree, the next step is to convert that into the hierarchy of connected components. From this step we need to find flat clusters. The usual way is to select the distance to make horizontal cut and find the clusters.  But here in this algorithm we want to deal with variable density clusters and any choice of cut line is a choice of mutual reachability distance to cut at, and hence a single fixed density level. Ideally, we want to be able to cut the tree at different places to select our clusters. This is where the next steps of HDBSCAN begin and create the difference from robust single linkage.
 # 
+# The following picture was retrieved from [here](https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html).
 # ![HDBSCAN 2](images/HDBSCAN_2.PNG)
 # 
 # 4.	Condense the cluster hierarchy based on minimum cluster size.
 # 
 # In this step, a smaller condensed tree is created. Using the input parameter, minimum cluster size, at each split the condition is checked whether one of the new clusters created by the split has fewer points than the minimum cluster size or not. If it has fewer points, then it will not be considered as cluster instead, it will be considered as ‘points falling out of a cluster’.  Otherwise, it will be considered as a persistent cluster. After walking through the whole hierarchy and doing this we end up with a much smaller tree with a small number of nodes.
 # 
+# The following picture was retrieved from [here](https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html).
 # ![HDBSCAN 3](images/HDBSCAN_3.PNG)
 # 
 # 5.	Extract the stable clusters from the condensed tree.
@@ -689,6 +695,7 @@ evaluate.plot_raw_vs_predict(DBSCAN, eps = 0.2, min_samples = 10)
 # In the last step the clusters are selected based on the excess of mass (eom).  This method, which refers back to the research by Hartigan, is recommended by Campello et al. as the optimal global solution to the problem of finding clusters with the highest
 # stability. HDBSCAN’s selection algorithm traverses the condensed cluster tree bottom-up and selects the cluster with highest stability on each path. The clusters which persist for longer time and have more area will be selected as cluster.  If a cluster is selected then any cluster that is a descendant of it cannot be a cluster.
 # 
+# The following picture was retrieved from [here](https://hdbscan.readthedocs.io/en/0.8.6/how_hdbscan_works.html).
 # ![HDBSCAN 4](images/HDBSCAN_4.PNG)
 # 
 # #### The key parameters for the algorithm are as below.
@@ -787,10 +794,12 @@ evaluate.plot_raw_vs_predict(GaussianMixture, init_params='kmeans', max_iter = 1
 # Affinity Propagation is an unsupervised clustering algorithm based on the concept of "message passing" (i.e. voting systems) between data points.  This algorithm does not require the number of clusters as input.  
 # It applies the concept of "exemplars", which are members of the input set that are representative of clusters.
 # The main drawback of this algorithm is that it is computationally expensive.
+# 
+# The following picture was retrieved from [here](https://www.researchgate.net/figure/Message-Passing-in-Affinity-Propagation-4_fig1_321462147).
 #     
 # ![Message-Passing-in-Affinity-Propagation](images/Message-Passing-in-Affinity-Propagation.png)
 # 
-# ### Steps of the algorithm ### 
+# #### Below are the steps performed by the algorithm.
 # 
 # 
 # 1. The algorithm first calculates the Similarity Matrix for all the data points.  The similarity is calculated as negative squared Euclidian distance.
@@ -850,7 +859,7 @@ evaluate.plot_raw_vs_predict(GaussianMixture, init_params='kmeans', max_iter = 1
 # 
 # 10. For point $i$, the $k$ with maximum $r(i, k) + a(i, k)$ represents point $i’s$ exemplar or cluster.
 # 
-# ### Key parameters as per scikit learn ###
+# #### The key parameters in Scikit Learn are mentioned below.
 # 
 # **damping** - Damping factor (between 0.5 and 1) is the extent to which the current value is maintained relative to incoming values (weighted 1 - damping). This in order to avoid numerical oscillations when updating these values (messages).
 # 
